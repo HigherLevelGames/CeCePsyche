@@ -4,6 +4,9 @@
 TagManager:
   tags:
   - 
+  - Dog
+  - DogStart
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -12,8 +15,8 @@ TagManager:
   Builtin Layer 5: 
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: 
-  User Layer 9: 
+  User Layer 8: Ground
+  User Layer 9: Player
   User Layer 10: 
   User Layer 11: 
   User Layer 12: 
@@ -40,4 +43,36 @@ TagManager:
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Backdrop
+    userID: 1
+    uniqueID: 1535157019
+    locked: 0
+  - name: Background
+    userID: 2
+    uniqueID: 3415864887
+    locked: 0
+  - name: Playground
+    userID: 3
+    uniqueID: 4289664103
+    locked: 0
+  - name: Foreground
+    userID: 4
+    uniqueID: 4077982813
+    locked: 0
+  - name: Arbitrary
+    userID: 5
+    uniqueID: 2039352375
+    locked: 0
+  - name: Mirrors
+    userID: 6
+    uniqueID: 2791860151
+    locked: 0
+  - name: Characters
+    userID: 7
+    uniqueID: 2766561845
+    locked: 0
+  - name: Objects
+    userID: 8
+    uniqueID: 3909865545
     locked: 0
