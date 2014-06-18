@@ -111,7 +111,6 @@ public class JNNController : MonoBehaviour
 			newY -= 0.5f * t * t;
 		}
 
-
 		this.transform.position = new Vector2(newX, newY);
 	}
 
@@ -242,22 +241,16 @@ public class JNNController : MonoBehaviour
 		}
 	}
 
-	// When CeCe gets close enough to an interactable object
-	bool pressedInteract = false;
+	// When CeCe gets close enough to an interactable object, i.e. she enter's the object's trigger zone
 	void OnTriggerStay2D(Collider2D col)
 	{
 		// TODO: Jason's particle system or something that helps the player know the object is interactable
 
 		// pressed interact key
-		if(Input.GetAxis("Interact") != 0 && col.gameObject.tag == "Interactable" && !pressedInteract)
+		if(Input.GetButtonDown("Interact") && col.gameObject.tag == "Interactable")
 		{
-			pressedInteract = true;
 			// tell the other object to perform some action, e.g. open doors, treasure chests, use item/switches, etc.
 			col.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
-		}
-		if(Input.GetAxis("Interact") == 0)
-		{
-			pressedInteract = false;
 		}
 
 		// Vertical Movement
