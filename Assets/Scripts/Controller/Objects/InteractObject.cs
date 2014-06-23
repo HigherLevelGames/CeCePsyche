@@ -1,17 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InteractObject : MonoBehaviour {
+public class InteractObject : MonoBehaviour
+{
 	bool activated = false;
+
 	// Use this for initialization
-	void Start () {
-	
-	}
+	void Start () {}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update () {}
 
 	void Interact()
 	{

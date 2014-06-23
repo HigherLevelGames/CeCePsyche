@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Common;
 
 public class JNNController : MonoBehaviour
 {
+	public bool isFacingRight = true;
 	float MaxSpeed = 10.0f;
 
 	// Jump Variables
@@ -23,43 +25,29 @@ public class JNNController : MonoBehaviour
 
 	void Start() { }
 
-	bool showPause = false; // pause/inventory flag
 	void Update()
 	{
 		//call these function every frame
 		GroundCheck();
 		Movement2();
-
-		if(Input.GetKeyDown(KeyCode.P))
-		{
-			showPause = !showPause;
-			if(showPause)
-			{
-				Time.timeScale = 0.0f;
-			}
-			else
-			{
-				Time.timeScale = 1.0f;
-			}
-		}
 	}
 
 	void GroundCheck()
 	{
 		BoxCollider2D col = this.collider2D as BoxCollider2D;
-		Vector2 groundPos = toVector2(this.transform.position) - Vector2.up * col.size.y;
+		Vector2 groundPos = Utility.toVector2(this.transform.position) - Vector2.up * col.size.y;
 
 		// middle
 		bool grounded = Physics2D.Linecast(this.transform.position, groundPos, 1 << LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(transform.position, groundPos, Color.magenta);
 
 		// right
-		Vector2 temp = toVector2(transform.position) + Vector2.right * col.size.x / 2.0f;
+		Vector2 temp = Utility.toVector2(transform.position) + Vector2.right * col.size.x / 2.0f;
 		Vector2 temp2 = groundPos + Vector2.right * col.size.x / 2.0f;
 		Debug.DrawLine(temp, temp2, Color.magenta);
 
 		// left
-		temp = toVector2(transform.position) - Vector2.right * col.size.x / 2.0f;
+		temp = Utility.toVector2(transform.position) - Vector2.right * col.size.x / 2.0f;
 		temp2 = groundPos - Vector2.right * col.size.x / 2.0f;
 		Debug.DrawLine(temp, temp2, Color.magenta);
 
@@ -68,12 +56,7 @@ public class JNNController : MonoBehaviour
 			CurJumpState = JumpState.Grounded;
 		}
 	}
-
-	Vector2 toVector2(Vector3 v)
-	{
-		return new Vector2(v.x, v.y);
-	}
-
+	
 	float HangTime = 0.0f;
 	void Movement2()
 	{
@@ -82,6 +65,10 @@ public class JNNController : MonoBehaviour
 
 		// velocity = speed + direction
 		newX += Input.GetAxis("Horizontal") * MaxSpeed * Time.deltaTime;
+		if(Input.GetAxis("Horizontal") != 0) // check needed in case standing still
+		{
+			isFacingRight = Input.GetAxis("Horizontal") > 0;
+		}
 
 		// Set CurJumpState
 		JumpControl();
@@ -150,7 +137,7 @@ public class JNNController : MonoBehaviour
 		{
 			CanVarJump = false;
 		}
-		Debug.Log(CurJumpState);
+		//Debug.Log(CurJumpState);
 
 		/*
 		jumpTime -= Time.deltaTime;
@@ -194,11 +181,6 @@ public class JNNController : MonoBehaviour
 		GUI.Label(new Rect(0,0,100,50),
 		          "Memories: " + numMemories +
 		          "\nNeurons: " + numNeurons);
-
-		if(showPause)
-		{
-			GUI.Box(new Rect(200,200,200,200),"Paused");
-		}
 	}
 	#endregion
 
