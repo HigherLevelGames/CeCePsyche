@@ -1,20 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Util;
-
-namespace Util
-{
-	public class Utility
-	{
-		public static Rect adjRect(Rect r)
-		{
-			return new Rect(r.x * Screen.width / 100,
-					r.y * Screen.height / 100,
-			        r.width * Screen.width / 100,
-			        r.height * Screen.height / 100);
-		}
-	}
-}
+using Common;
 
 public class TitleMenu : MonoBehaviour
 {

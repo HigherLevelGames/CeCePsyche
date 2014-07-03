@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_5_1;UNITY_4_5;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -48,19 +48,25 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\CameraFollowPlayer.cs" />
+     <Compile Include="Assets\Scripts\Common\Utility.cs" />
+     <Compile Include="Assets\Scripts\Controller\Emotion.cs" />
+     <Compile Include="Assets\Scripts\Controller\JNNController.cs" />
+     <Compile Include="Assets\Scripts\Controller\Objects\BreakableWall.cs" />
+     <Compile Include="Assets\Scripts\Controller\Objects\InteractObject.cs" />
+     <Compile Include="Assets\Scripts\Controller\Objects\Memory.cs" />
+     <Compile Include="Assets\Scripts\Controller\Objects\Plant.cs" />
+     <Compile Include="Assets\Scripts\Controller\Stimulus.cs" />
+     <Compile Include="Assets\Scripts\Controller\Subconcious.cs" />
      <Compile Include="Assets\Scripts\DogStart.cs" />
      <Compile Include="Assets\Scripts\Door.cs" />
      <Compile Include="Assets\Scripts\EtherealParticles.cs" />
      <Compile Include="Assets\Scripts\Follow.cs" />
      <Compile Include="Assets\Scripts\FollowBae.cs" />
-     <Compile Include="Assets\Scripts\InteractObject.cs" />
-     <Compile Include="Assets\Scripts\JNNController.cs" />
      <Compile Include="Assets\Scripts\KeyStolen.cs" />
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Scripts\MainCharacterMove.cs" />
      <Compile Include="Assets\Scripts\MoveToPlayerLayer.cs" />
      <Compile Include="Assets\Scripts\Notifications.cs" />
-     <Compile Include="Assets\Scripts\ParallaxScrolling.cs" />
      <Compile Include="Assets\Scripts\ParticleScroll.cs" />
      <Compile Include="Assets\Scripts\ParticleSortLayerScript.cs" />
      <Compile Include="Assets\Scripts\PickUpKey.cs" />
@@ -69,13 +75,16 @@
      <Compile Include="Assets\Scripts\ScrollScript.cs" />
      <Compile Include="Assets\Scripts\SetParticleSortingLayer.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
-     <Compile Include="Assets\Scripts\Temp.cs" />
      <Compile Include="Assets\Scripts\TitleDelete.cs" />
-     <Compile Include="Assets\Scripts\TitleMenu.cs" />
+     <Compile Include="Assets\Scripts\View\GUI\HUD.cs" />
+     <Compile Include="Assets\Scripts\View\GUI\PauseScreen.cs" />
+     <Compile Include="Assets\Scripts\View\GUI\Temp.cs" />
+     <Compile Include="Assets\Scripts\View\GUI\TitleMenu.cs" />
+     <Compile Include="Assets\Scripts\View\ParallaxScrolling.cs" />
      <Compile Include="Assets\Scripts\ZoomFunciton.cs" />
      <None Include="Assets\Shaders\PixelBloom.shader" />
- <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript-firstpass">
- <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
+ <Reference Include="Assembly-UnityScript-firstpass">
+ <HintPath>/Users/jesse/Game Projects/CeCePsyche/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
