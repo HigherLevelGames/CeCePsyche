@@ -19,5 +19,20 @@ namespace Common
 		{
 			return new Vector2(v.x, v.y);
 		}
+
+		// Wrapper for setting bool in PlayerPrefs
+		// 0 = false
+		// 1 = true
+		public static void SetBool(string key, bool value)
+		{
+			int val = (value) ? 1 : 0;
+			PlayerPrefs.SetInt(key, val);
+		}
+
+		// Wrapper for getting bool in PlayerPrefs
+		public static bool GetBool(string key)
+		{
+			return (PlayerPrefs.GetInt(key) != 0);
+		}
 	}
 }

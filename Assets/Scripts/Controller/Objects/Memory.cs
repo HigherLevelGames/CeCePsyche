@@ -20,7 +20,10 @@ public class Memory : MonoBehaviour
 	// Memory had been collected (see JNNController.cs)
 	void OnDestroy()
 	{
-		// deactivate fog zone
-		FogZone.SetActive(false);
+		if(FogZone != null)
+		{
+			// deactivate fog zone
+			FogZone.SetActive(false);
+		}
 	}
 }

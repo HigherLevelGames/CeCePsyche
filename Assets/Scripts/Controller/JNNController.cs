@@ -94,7 +94,7 @@ public class JNNController : MonoBehaviour
 
 		if(CurJumpState == JumpState.Falling)
 		{
-			float t = HangTime - VarJumpElapsedTime;
+			float t = (HangTime - VarJumpElapsedTime) * Time.deltaTime;
 			newY -= 0.5f * t * t;
 		}
 
