@@ -19,7 +19,7 @@ public class ParallaxScrolling : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space))
 						scrollPaused = !scrollPaused;
 		if (!scrollPaused) {
-						Vector3 mp = Input.mousePosition;
+			Vector3 mp = ScrollTransform.position;//Input.mousePosition;
 						float scrollX = Scroll.x; // separate the scroll elements so they can bey used separately for certain layers.
 						float scrollY = Scroll.y;
 						float scrollZ = Scroll.z;
