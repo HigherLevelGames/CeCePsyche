@@ -49,8 +49,11 @@
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\CameraFollowPlayer.cs" />
      <Compile Include="Assets\Scripts\Common\Utility.cs" />
-     <Compile Include="Assets\Scripts\Controller\Emotion.cs" />
-     <Compile Include="Assets\Scripts\Controller\JNNController.cs" />
+     <Compile Include="Assets\Scripts\Controller\Ceci Controller\Ability.cs" />
+     <Compile Include="Assets\Scripts\Controller\Ceci Controller\Emotion.cs" />
+     <Compile Include="Assets\Scripts\Controller\Ceci Controller\HMovementController.cs" />
+     <Compile Include="Assets\Scripts\Controller\Ceci Controller\InventoryManager.cs" />
+     <Compile Include="Assets\Scripts\Controller\Ceci Controller\VMovementController.cs" />
      <Compile Include="Assets\Scripts\Controller\Objects\BreakableWall.cs" />
      <Compile Include="Assets\Scripts\Controller\Objects\InteractObject.cs" />
      <Compile Include="Assets\Scripts\Controller\Objects\Memory.cs" />

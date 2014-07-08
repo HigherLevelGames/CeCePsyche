@@ -4,7 +4,7 @@ using Common;
 
 public class TitleMenu : MonoBehaviour
 {
-	public string[] buttonNames = {"Story Mode", "Tutorial", "Concept", "Options", "Credits", "Quit"};
+	public string[] buttonNames = {"Story Mode", "Educational Mode", "Concept", "Options", "Credits", "Quit"};
 	public Rect grid = new Rect(0,0,0,0);
 	private int curSelection = -1;
 	private bool isEntered = false;
