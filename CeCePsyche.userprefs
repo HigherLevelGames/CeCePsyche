@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/View/ParallaxScrolling.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Level1/Follow.cs">
     <Files>
-      <File FileName="Assets/Scripts/View/ParallaxScrolling.cs" Line="36" Column="1" />
+      <File FileName="Assets/Scripts/View/ParallaxScrolling.cs" Line="19" Column="34" />
       <File FileName="Assets/Scripts/Controller/Emotion.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/MirrorTrigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/View/ParallaxScrolling.cs" Line="36" Column="1" />
+      <File FileName="Assets/Scripts/View/BackgroundParallax.cs" Line="51" Column="2" />
+      <File FileName="Assets/Scripts/Enemy/Level1/Follow.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

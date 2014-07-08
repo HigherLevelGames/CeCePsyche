@@ -16,14 +16,14 @@ public class ParallaxScrolling : MonoBehaviour {
 
 	// Update is called once per frame, which is funny, because Draw is called once per frame...
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Space))
+		if (Input.GetKeyDown (KeyCode.S))
 						scrollPaused = !scrollPaused;
 		if (!scrollPaused) {
-			Vector3 mp = ScrollTransform.position;//Input.mousePosition;
+			Vector3 mp = Input.mousePosition;
 						float scrollX = Scroll.x; // separate the scroll elements so they can bey used separately for certain layers.
 						float scrollY = Scroll.y;
 						float scrollZ = Scroll.z;
-						Vector3 screenCenter = new Vector3 (Screen.width * 0.5f, Screen.height * 0.5f, 0f);
+			Vector3 screenCenter = Camera.main.WorldToScreenPoint(ScrollTransform.position);//new Vector3 (Screen.width * 0.5f, Screen.height * 0.5f, 0f);
 						if (Vector3.Distance (mp, screenCenter) > 100) {
 								scrollX -= (mp.x - screenCenter.x) * Time.deltaTime * 0.01f;
 								scrollY -= (mp.y - screenCenter.y) * Time.deltaTime * 0.01f;

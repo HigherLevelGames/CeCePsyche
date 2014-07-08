@@ -71,6 +71,8 @@ public class PauseScreen : MonoBehaviour
 			}
 			if(GUI.Button(Utility.adjRect(optionBox), "Options"))
 			{
+				//for now sets edu mode on/off
+				Utility.SetBool("EduMode", !Utility.GetBool("EduMode"));
 				Debug.Log ("TODO: add Option's Menu");
 				// SFX/Music Volume
 				// Screen Resolution
