@@ -3,8 +3,8 @@ using System.Collections;
 
 public class FollowAndTransport : MonoBehaviour {
 
-	public GameObject player;
-	private Transform playerPos;
+	private GameObject player;
+	float speed = 3f;
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +13,8 @@ public class FollowAndTransport : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		playerPos = player.transform;
+
+		float direction = player.transform.position.x - this.transform.position.x;
+		this.transform.position += new Vector3(direction, 0, 0) * speed * Time.deltaTime;
 	}
 }
