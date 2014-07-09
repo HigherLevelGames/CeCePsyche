@@ -89,7 +89,7 @@
      <Compile Include="Assets\Scripts\ZoomFunciton.cs" />
      <None Include="Assets\Shaders\PixelBloom.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/planettop92/Projects/CeCePsyche/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/jesse/Game Projects/CeCePsyche/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
