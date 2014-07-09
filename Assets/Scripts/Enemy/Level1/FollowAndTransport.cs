@@ -3,15 +3,16 @@ using System.Collections;
 
 public class FollowAndTransport : MonoBehaviour {
 
-	public Transform playerPos;
+	public GameObject player;
+	private Transform playerPos;
 
 	// Use this for initialization
 	void Start () {
-		playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		playerPos = player.transform;
 	}
 }

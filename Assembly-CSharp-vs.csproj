@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{785D13E6-1A21-BB82-1FB4-31F3CB64D344}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_5_1;UNITY_4_5;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\CameraFollowPlayer.cs" />
+     <Compile Include="Assets\Scripts\Common\Utility.cs" />
+     <Compile Include="Assets\Scripts\Controller\Ceci Controller\Ability.cs" />
+     <Compile Include="Assets\Scripts\Controller\Ceci Controller\Emotion.cs" />
+     <Compile Include="Assets\Scripts\Controller\Ceci Controller\HMovementController.cs" />
+     <Compile Include="Assets\Scripts\Controller\Ceci Controller\InventoryManager.cs" />
+     <Compile Include="Assets\Scripts\Controller\Ceci Controller\VMovementController.cs" />
+     <Compile Include="Assets\Scripts\Controller\Objects\BreakableWall.cs" />
+     <Compile Include="Assets\Scripts\Controller\Objects\InteractObject.cs" />
+     <Compile Include="Assets\Scripts\Controller\Objects\Memory.cs" />
+     <Compile Include="Assets\Scripts\Controller\Objects\MirrorDoor.cs" />
+     <Compile Include="Assets\Scripts\Controller\Objects\Plant.cs" />
+     <Compile Include="Assets\Scripts\Controller\Stimulus.cs" />
+     <Compile Include="Assets\Scripts\Controller\Subconcious.cs" />
+     <Compile Include="Assets\Scripts\DogStart.cs" />
+     <Compile Include="Assets\Scripts\Door.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Level1\FollowAndTransport.cs" />
+     <Compile Include="Assets\Scripts\EtherealParticles.cs" />
+     <Compile Include="Assets\Scripts\Follow.cs" />
+     <Compile Include="Assets\Scripts\FollowBae.cs" />
+     <Compile Include="Assets\Scripts\KeyStolen.cs" />
+     <Compile Include="Assets\Scripts\LoadLevel.cs" />
+     <Compile Include="Assets\Scripts\MainCharacterMove.cs" />
+     <Compile Include="Assets\Scripts\MoveToPlayerLayer.cs" />
+     <Compile Include="Assets\Scripts\Notifications.cs" />
+     <Compile Include="Assets\Scripts\ParticleScroll.cs" />
+     <Compile Include="Assets\Scripts\ParticleSortLayerScript.cs" />
+     <Compile Include="Assets\Scripts\PickUpKey.cs" />
+     <Compile Include="Assets\Scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\Remover.cs" />
+     <Compile Include="Assets\Scripts\ScrollScript.cs" />
+     <Compile Include="Assets\Scripts\SetParticleSortingLayer.cs" />
+     <Compile Include="Assets\Scripts\Spawner.cs" />
+     <Compile Include="Assets\Scripts\TitleDelete.cs" />
+     <Compile Include="Assets\Scripts\View\BackgroundParallax.cs" />
+     <Compile Include="Assets\Scripts\View\GUI\HUD.cs" />
+     <Compile Include="Assets\Scripts\View\GUI\PauseScreen.cs" />
+     <Compile Include="Assets\Scripts\View\GUI\Temp.cs" />
+     <Compile Include="Assets\Scripts\View\GUI\TitleMenu.cs" />
+     <Compile Include="Assets\Scripts\View\ParallaxScrolling.cs" />
+     <Compile Include="Assets\Scripts\ZoomFunciton.cs" />
+     <None Include="Assets\Shaders\PixelBloom.shader" />
+ <Reference Include="Assembly-UnityScript-firstpass">
+ <HintPath>/Users/planettop92/Projects/CeCePsyche/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
+      <Project>{6EC0FE97-0D88-8DD9-8078-9EE746340016}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
