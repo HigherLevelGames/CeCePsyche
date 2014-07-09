@@ -1,23 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-<<<<<<< HEAD
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controller/Ceci Controller/VMovementController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Common/Utility.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/Objects/Memory.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlayerControl.cs" Line="83" Column="1" />
-      <File FileName="Assets/Scripts/Controller/Ceci Controller/VMovementController.cs" Line="18" Column="2" />
-      <File FileName="Assets/Scripts/Controller/Ceci Controller/Emotion.cs" Line="6" Column="1" />
-      <File FileName="Assets/Scripts/Controller/Ceci Controller/Ability.cs" Line="4" Column="78" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Level1/Follow.cs">
-    <Files>
-      <File FileName="Assets/Scripts/View/ParallaxScrolling.cs" Line="19" Column="34" />
-      <File FileName="Assets/Scripts/Controller/Emotion.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MirrorTrigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/View/BackgroundParallax.cs" Line="51" Column="2" />
-      <File FileName="Assets/Scripts/Enemy/Level1/Follow.cs" Line="1" Column="1" />
->>>>>>> FETCH_HEAD
+      <File FileName="Assets/Scripts/Controller/Ceci Controller/VMovementController.cs" Line="24" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

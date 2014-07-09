@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Controller\Objects\BreakableWall.cs" />
      <Compile Include="Assets\Scripts\Controller\Objects\InteractObject.cs" />
      <Compile Include="Assets\Scripts\Controller\Objects\Memory.cs" />
+     <Compile Include="Assets\Scripts\Controller\Objects\MirrorDoor.cs" />
      <Compile Include="Assets\Scripts\Controller\Objects\Plant.cs" />
      <Compile Include="Assets\Scripts\Controller\Stimulus.cs" />
      <Compile Include="Assets\Scripts\Controller\Subconcious.cs" />
