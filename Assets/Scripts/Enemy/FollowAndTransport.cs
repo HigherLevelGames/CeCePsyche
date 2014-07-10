@@ -15,6 +15,7 @@ public class FollowAndTransport : MonoBehaviour {
 	void Update () {
 
 		float direction = player.transform.position.x - this.transform.position.x;
-		this.transform.position += new Vector3(direction, 0, 0) * speed * Time.deltaTime;
+		this.transform.position += new Vector3(direction, 0, 0).normalized * speed * Time.deltaTime;
+
 	}
 }
