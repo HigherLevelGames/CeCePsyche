@@ -5,7 +5,8 @@ using Common;
 public class VMovementController : MonoBehaviour
 {
 	float ClimbSpeed = 10.0f;
-	
+	float prevVValue = 0.0f; // for Input.GetAxis()
+
 	// Jump Variables
 	float JumpSpeed = 5.0f;
 	public enum JumpState
@@ -20,6 +21,7 @@ public class VMovementController : MonoBehaviour
 	bool CanVarJump = true;
 	float VarJumpTime = 0.5f;//half a second, for when the player holds down jump key
 	private float VarJumpElapsedTime = 0.0f;
+	float HangTime = 0.0f;
 	//float JumpTime, JumpDelay = 0.3f;
 
 	// See:  http://answers.unity3d.com/questions/576044/one-way-platform-using-2d-colliders.html
@@ -30,6 +32,7 @@ public class VMovementController : MonoBehaviour
 	{
 		//call these function every frame
 		GroundCheck();
+		JumpControl();
 		Movement();
 	}
 	
@@ -58,14 +61,10 @@ public class VMovementController : MonoBehaviour
 		}
 	}
 	
-	float HangTime = 0.0f;
 	void Movement()
 	{
 		float newY = this.transform.position.y;
 
-		// Set CurJumpState
-		JumpControl();
-		
 		JumpSpeed = 10.0f;
 		// Vertical Movement
 		if(CurJumpState == JumpState.Jumping)
@@ -93,13 +92,13 @@ public class VMovementController : MonoBehaviour
 		
 		this.transform.position = new Vector2(this.transform.position.x, newY);
 	}
-	
+
 	// JumpControl() checks the player's jump button
 	// and changes CurJumpState accordingly to either Jumping or Falling
 	void JumpControl()
 	{
 		// pressed jump once
-		if((Input.GetButtonDown("Jump") || Input.GetAxis("Vertical") > 0) && CurJumpState == JumpState.Grounded)
+		if((Input.GetButtonDown("Jump") || (Input.GetAxis("Vertical") > 0 && prevVValue == 0.0f)) && CurJumpState == JumpState.Grounded)
 		{
 			CurJumpState = JumpState.Jumping;
 			VarJumpElapsedTime = 0.0f;
@@ -139,8 +138,10 @@ public class VMovementController : MonoBehaviour
 			anim.SetTrigger("Land");
 			jumped = false;
 		}//*/
+		prevVValue = Input.GetAxis("Vertical");
 	}
 
+	#region Ladder Trigger Zone
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if(col.gameObject.tag == "Ladder")
@@ -173,4 +174,5 @@ public class VMovementController : MonoBehaviour
 			}
 		}
 	}
+	#endregion
 }
