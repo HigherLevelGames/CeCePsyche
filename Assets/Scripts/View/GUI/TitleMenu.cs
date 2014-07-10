@@ -54,13 +54,15 @@ public class TitleMenu : MonoBehaviour
 			switch(curSelection)
 			{
 			case 0: // Story Mode
-				Application.LoadLevel("Introduction");
+				Utility.SetBool("EduMode", false);
+				Application.LoadLevel("BrainMenu");
 				break;
 			case 1: // Tutorial
+				Utility.SetBool("EduMode", true);
 				Application.LoadLevel("BrainMenu");
 				break;
 			case 2: // Concept
-				Application.LoadLevel("Credits"); // no clue
+				Application.LoadLevel("Concept"); // no clue
 				break;
 			case 3: // Options
 				// SFX
@@ -69,7 +71,7 @@ public class TitleMenu : MonoBehaviour
 				// ability can be set at brain menu
 				break;
 			case 4: // Credits
-				Application.LoadLevel("Concept"); // no clue
+				Application.LoadLevel("Credits"); // no clue
 				break;
 			case 5: // Quit
 				Application.Quit();
