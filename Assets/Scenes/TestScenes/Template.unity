@@ -175,6 +175,8 @@ GameObject:
   - 114: {fileID: 320882709}
   - 114: {fileID: 320882711}
   - 114: {fileID: 320882710}
+  - 114: {fileID: 320882713}
+  - 114: {fileID: 320882712}
   m_Layer: 0
   m_Name: CeCi
   m_TagString: Player
@@ -303,6 +305,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcee02420829247258439cd09c807fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &320882712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 320882701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75bbdcc573893481781fb2cf8a54ce3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &320882713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 320882701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2de6fa32efd4e61b57883587a4893d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &534416345
@@ -651,7 +675,7 @@ Transform:
   m_GameObject: {fileID: 1012971502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.9669056, y: 1.08992779, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
