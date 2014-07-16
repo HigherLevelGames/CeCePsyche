@@ -11,13 +11,19 @@ public class OneWayPlatform : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D player)
 	{
-		// let player pass through
-		this.transform.parent.collider2D.isTrigger = true;
+		if(player.tag == "Player")
+		{
+			// let player pass through
+			this.transform.parent.collider2D.isTrigger = true;
+		}
 	}
 	
 	void OnTriggerExit2D(Collider2D player)
 	{
-		// make platform solid again
-		transform.parent.collider2D.isTrigger = false;
+		if(player.tag == "Player")
+		{
+			// make platform solid again
+			transform.parent.collider2D.isTrigger = false;
+		}
 	}
 }
