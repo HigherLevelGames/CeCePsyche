@@ -449,6 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Garden
+  enterButton: {fileID: 0}
   blurb: {fileID: 0}
   MaxDistanceFromPivot: .5
   speed: .100000001
@@ -564,6 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: House
+  enterButton: {fileID: 346659234}
   blurb: {fileID: 0}
   MaxDistanceFromPivot: .5
   speed: .100000001
@@ -1171,6 +1173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: City High School or Some Other Local
+  enterButton: {fileID: 346659234}
   blurb: {fileID: 0}
   MaxDistanceFromPivot: .5
   speed: .100000001
@@ -1362,7 +1365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad4b7a01cf74948b15926e680a185d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enterButton: {fileID: 346659234}
+  speed: 5
 --- !u!50 &1665524007
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2859,6 +2862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: RoadHome
+  enterButton: {fileID: 346659234}
   blurb: {fileID: 1037483412}
   MaxDistanceFromPivot: .5
   speed: .100000001
