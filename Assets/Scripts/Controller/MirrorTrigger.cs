@@ -3,10 +3,12 @@ using System.Collections;
 
 public class MirrorTrigger : MonoBehaviour
 {
-	GameObject player;
+	#region Variables
 	public string levelName;
+	public Renderer enterButton; // "Press Enter to Begin" png
 	public GameObject blurb; // "What's that Sound?" thought bubble
-	bool showDescription = false;
+	private bool showDescription = false;
+	private GameObject player; // reference to player
 
 	// variables for mirrors "floating" effect
 	private Vector3 pivot; // mirrors slowly move around a pivot point
@@ -17,14 +19,16 @@ public class MirrorTrigger : MonoBehaviour
 	{
 		get
 		{
-			return (new Vector3(Random.Range(-1.0f,1.0f), Random.Range(-1.0f,1.0f),0.0f)).normalized;
+			return (new Vector3(Random.Range(-1.0f,1.0f), Random.Range(-1.0f,1.0f), 0.0f)).normalized;
 		}
 	}
 
 	// camera zoom variables
+	bool isZoomingIn = false;
 	float xVelocity = 0.0f;
 	float yVelocity = 0.0f;
 	float smoothTime = 0.3f;
+	#endregion
 	
 	void Start()
 	{
@@ -33,7 +37,6 @@ public class MirrorTrigger : MonoBehaviour
 		curDir = RandDir;
 	}
 
-	bool isZoomingIn = false;
 	void Update()
 	{
 		// Move around pivot point
@@ -78,22 +81,29 @@ public class MirrorTrigger : MonoBehaviour
 		}
 	}
 
+	#region Mouse Events
 	void OnMouseEnter()
 	{
 		showDescription = true;
 	}
 
-	/*
-	void OnTriggerStay2D(Collider2D other)
+	void OnMouseExit()
 	{
 		showDescription = false;
-	}//*/
-	//* // I think this will be better in CeCiMenuController.cs
+	}
+	
+	void OnMouseDown()
+	{
+		player.SendMessage("GoTo", this.gameObject, SendMessageOptions.DontRequireReceiver);
+	}
+	#endregion
+
+	#region Trigger Events
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.GetComponent<CeciMenuController>().enterButton != null)
+		if(enterButton != null)
 		{
-			other.GetComponent<CeciMenuController>().enterButton.enabled = true;
+			enterButton.enabled = true;
 		}
 	}
 	
@@ -102,45 +112,34 @@ public class MirrorTrigger : MonoBehaviour
 		showDescription = false;
 		if (Input.GetKeyDown(KeyCode.Return))
 		{
-			loadTheLevel();
+			loadingSequence();
 		}
 	}
 	
 	void OnTriggerExit2D(Collider2D other)
 	{
-		if(other.GetComponent<CeciMenuController>().enterButton != null)
+		if(enterButton != null)
 		{
-			other.GetComponent<CeciMenuController>().enterButton.enabled = false;
+			enterButton.enabled = false;
 		}
 	}
-	//*/
+	#endregion
 
-	void OnMouseExit()
+	void loadingSequence()
 	{
-		showDescription = false;
-	}
-
-	void OnMouseDown()
-	{
-		player.SendMessage("GoTo", this.gameObject);
-	}
-	
-	void loadTheLevel()
-	{
-		if(this.audio != null)
-		{
-			audioStartTime = Time.time;
-			this.audio.Play();
-		}
-		if(blurb != null)
-		{
-			blurb.renderer.enabled = true;
-		}
-
-		isZoomingIn = true;
 		if(Application.CanStreamedLevelBeLoaded(levelName))
 		{
-			Invoke("Load", (this.audio == null) ? 0.0f : 3.0f);//this.audio.clip.length); // invokes Load() in 3 seconds
+			isZoomingIn = true; // camera zoom
+			if(this.audio != null)
+			{
+				audioStartTime = Time.time;
+				this.audio.Play();
+			}
+			if(blurb != null)
+			{
+				blurb.renderer.enabled = true;
+			}
+			Invoke("Load", (this.audio == null) ? 0.0f : timeToFade);//this.audio.clip.length);
 		}
 		else
 		{
@@ -153,9 +152,10 @@ public class MirrorTrigger : MonoBehaviour
 		Application.LoadLevel(levelName);
 	}
 
-	float audioStartTime;
+	float audioStartTime = 0.0f;
+	float timeToFade = 3.0f; // number of seconds it takes for the audio clip to fade out
 	void fadeOut()
 	{
-		this.audio.volume = Mathf.Lerp(1.0f,0.0f,(Time.time-audioStartTime)/3.0f);//this.audio.clip.length);
+		this.audio.volume = Mathf.Lerp(1.0f,0.0f,(Time.time-audioStartTime)/timeToFade);//this.audio.clip.length);
 	}
 }

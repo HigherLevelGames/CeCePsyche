@@ -3,17 +3,15 @@ using System.Collections;
 
 public class CeciMenuController : MonoBehaviour
 {
-	GameObject target;
-	float speed = 5.0f;
-	Vector3 direction
+	public float speed = 5.0f;
+	private GameObject target;
+	private Vector3 direction
 	{
 		get
 		{
 			return (target.transform.position - this.transform.position).normalized;
 		}
 	}
-
-	public Renderer enterButton; // "Press Enter to Begin" png
 
 	// Use this for initialization
 	void Start ()
@@ -34,29 +32,4 @@ public class CeciMenuController : MonoBehaviour
 	{
 		target = position;
 	}
-
-	/* // I prefer this code to be here
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if(enterButton != null)
-		{
-			enterButton.enabled = true;
-		}
-	}
-	
-	void OnTriggerStay2D(Collider2D other)
-	{
-		if (Input.GetKeyDown(KeyCode.Return))
-		{
-			other.SendMessage("loadTheLevel");
-		}
-	}
-	
-	void OnTriggerExit2D(Collider2D other)
-	{
-		if(enterButton != null)
-		{
-			enterButton.enabled = false;
-		}
-	}//*/
 }
