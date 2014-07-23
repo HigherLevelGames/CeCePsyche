@@ -1,0 +1,326 @@
+fileFormatVersion: 2
+guid: fb45cf14093964063bef6b8c74b07608
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Ceci_Sprite_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .600404501, y: .58306694}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .612943053, y: .582314491}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .611028671, y: .676114559}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .629181385, y: .629081726}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .637331963, y: .608273983}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .651173592, y: .586609364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .653860569, y: .620157719}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .637025774, y: .538843155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .647655904, y: .556296825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .651028574, y: .533921242}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .648673296, y: .537734509}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .657657623, y: .537734509}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .645079613, y: .52695322}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .645079613, y: .521562576}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .615647793, y: .515911102}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .608815849, y: .596411705}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1022
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .615992546, y: .602822781}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .621757507, y: .592941284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .630345821, y: .594353199}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .637403965, y: .594353199}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .643169403, y: .594353199}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ceci_Sprite_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: .651111126, y: .592941284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

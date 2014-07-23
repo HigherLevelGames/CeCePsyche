@@ -5,7 +5,7 @@ public class Subconcious : MonoBehaviour
 {
 	#region Variables
 	private bool isTalking = false;
-	private string[] talkText;
+	public string[] talkText;
 	private int index = 0;
 	private float scrollIndex = 0;
 
@@ -46,12 +46,6 @@ public class Subconcious : MonoBehaviour
 		if(isTalking)
 		{
 			scrollIndex += talkSpeed*Time.deltaTime;
-			// to progress through multiple lines of text
-			if(Input.GetButtonDown("Jump"))
-			{
-				index++;
-				scrollIndex = 0.0f;
-			}
 		}
 
 		// Temporary shortcut keys for testing
@@ -59,9 +53,15 @@ public class Subconcious : MonoBehaviour
 		{
 			Say (new string[]{"Hello World", "Some longer text to debug whether or not this works", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."});
 		}
-		if(Input.GetKeyDown(KeyCode.M))
+	}
+
+	void OnMouseDown()
+	{
+		if(isTalking)
 		{
-			isTalking = false;
+			// to progress through multiple lines of text
+			index++;
+			scrollIndex = 0.0f;
 		}
 	}
 
