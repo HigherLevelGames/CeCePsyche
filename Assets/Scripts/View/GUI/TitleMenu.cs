@@ -55,11 +55,11 @@ public class TitleMenu : MonoBehaviour
 			{
 			case 0: // Story Mode
 				Utility.SetBool("EduMode", false);
-				Application.LoadLevel("BrainMenu");
+				Application.LoadLevel("Brain Menu");
 				break;
 			case 1: // Tutorial
 				Utility.SetBool("EduMode", true);
-				Application.LoadLevel("BrainMenu");
+				Application.LoadLevel("Brain Menu");
 				break;
 			case 2: // Concept
 				Application.LoadLevel("Concept"); // no clue
