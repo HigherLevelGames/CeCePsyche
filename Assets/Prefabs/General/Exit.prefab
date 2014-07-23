@@ -77,13 +77,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cd2d90fcfce542ab9af93117659aed7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e5fd3210731c44d7aa0416a32fdc74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: BrainMenu
+  levelName: 
   enterButton: {fileID: 0}
   blurb: {fileID: 0}
-  camera: {fileID: 0}
+  MaxDistanceFromPivot: .5
+  speed: .100000001
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

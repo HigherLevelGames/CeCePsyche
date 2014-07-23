@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LoadLevel : MonoBehaviour {
+// Code placed on "Exit" button in Concept and Credits scene
+public class LoadLevel : MonoBehaviour
+{
 	public string levelName;
 	
 	void OnMouseDown() {

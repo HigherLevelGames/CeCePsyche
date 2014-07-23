@@ -2734,7 +2734,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 3415864887
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1d5a853a137ec4875a9e7dc32f0e936b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e67dbf9ac54c54f0392f827a71e9b2ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1983277517
 Transform:
@@ -2994,7 +2994,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2112495343}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60ea63dd7ce7c4b939d512c23617b169, type: 3}
   m_Name: 
