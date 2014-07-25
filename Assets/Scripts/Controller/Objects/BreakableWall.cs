@@ -13,7 +13,7 @@ public class BreakableWall : MonoBehaviour
 	{
 		if(col.gameObject.tag == "Player")
 		{
-			if(col.gameObject.GetComponent<Emotion>().canBreak)
+			if(col.gameObject.GetComponent<AbilityManager>().canBreak)
 			{
 				Destroy(this.gameObject);
 				// play breaking SFX

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// See:  http://answers.unity3d.com/questions/576044/one-way-platform-using-2d-colliders.html
 public class OneWayPlatform : MonoBehaviour
 {
 	// Use this for initialization

@@ -27,8 +27,7 @@ public class MovingPlatform : MonoBehaviour
 		target = pos2;
 	}
 	
-	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
 	{
 		if(Vector3.Distance(this.transform.position, target) <= 1.0f)
 		{

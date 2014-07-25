@@ -8,7 +8,7 @@ public class ParallaxScrolling : MonoBehaviour
 	public Transform ScrollTransform;
 
 	public Camera cam;
-	bool scrollPaused = false;
+	//bool scrollPaused = false;
 	Vector3 Scroll; // for easy 2D scroll manipulation
 
 	void Start ()

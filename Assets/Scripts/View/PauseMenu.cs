@@ -3,7 +3,7 @@ using System.Collections;
 using Common;
 
 [RequireComponent (typeof(HUD))]
-public class PauseScreen : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
 	bool showPause = false; // flag
 	Rect box = new Rect(10,10,80,80);
