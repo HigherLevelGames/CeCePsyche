@@ -1,6 +1,35 @@
 fileFormatVersion: 2
 guid: fb45cf14093964063bef6b8c74b07608
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Ceci_Sprite_Sheet_0
+    21300002: Ceci_Sprite_Sheet_1
+    21300004: Ceci_Sprite_Sheet_2
+    21300006: Ceci_Sprite_Sheet_3
+    21300008: Ceci_Sprite_Sheet_4
+    21300010: Ceci_Sprite_Sheet_5
+    21300012: Ceci_Sprite_Sheet_6
+    21300014: Ceci_Sprite_Sheet_7
+    21300016: Ceci_Sprite_Sheet_8
+    21300018: Ceci_Sprite_Sheet_9
+    21300020: Ceci_Sprite_Sheet_10
+    21300022: Ceci_Sprite_Sheet_11
+    21300024: Ceci_Sprite_Sheet_12
+    21300026: Ceci_Sprite_Sheet_13
+    21300028: Ceci_Sprite_Sheet_14
+    21300030: Ceci_Sprite_Sheet_15
+    21300032: Ceci_Sprite_Sheet_16
+    21300034: Ceci_Sprite_Sheet_17
+    21300036: Ceci_Sprite_Sheet_18
+    21300038: Ceci_Sprite_Sheet_19
+    21300040: Ceci_Sprite_Sheet_20
+    21300042: Ceci_Sprite_Sheet_21
+    21300044: Ceci_Sprite_Sheet_22
+    21300046: Ceci_Sprite_Sheet_23
+    21300048: Ceci_Sprite_Sheet_24
+    21300050: Ceci_Sprite_Sheet_25
+    21300052: Ceci_Sprite_Sheet_26
+    21300054: Ceci_Sprite_Sheet_27
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

@@ -28,7 +28,6 @@ public class Happiness : Ability
 
 		// set flag in controller to have CeCi float in the air
 		this.GetComponent<VMovementController>().lockVertical = true;
-		//this.GetComponent<VMovementController>().isFloatingActive = true;
 		this.rigidbody2D.gravityScale = 0.0f;
 		isHappy = true;
 	}
@@ -40,7 +39,6 @@ public class Happiness : Ability
 
 		// stop ability to float/fly
 		this.GetComponent<VMovementController>().lockVertical = false;
-		//this.GetComponent<VMovementController>().isFloatingActive = false;
 		this.rigidbody2D.gravityScale = 1.0f;
 		isHappy = false;
 	}

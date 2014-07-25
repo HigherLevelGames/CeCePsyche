@@ -24,7 +24,6 @@ public class VMovementController : MonoBehaviour
 	private float VarJumpElapsedTime = 0.0f;
 	//float JumpTime, JumpDelay = 0.3f;
 
-	public bool isFloatingActive = false;
 	public bool lockVertical = false;
 
 	void Start() { }
@@ -73,10 +72,7 @@ public class VMovementController : MonoBehaviour
 	
 	void Movement()
 	{
-		if(!isFloatingActive)
-		{
-			VVelocity -= 0.5f * Time.deltaTime;
-		}
+		VVelocity -= 0.5f * Time.deltaTime;
 		this.transform.position += Vector3.up * VVelocity * Time.deltaTime;
 		if(CurJumpState == JumpState.Grounded)
 		{
@@ -109,35 +105,25 @@ public class VMovementController : MonoBehaviour
 				&& CanVarJump)
 		{
 			VarJumpElapsedTime += Time.deltaTime;
-			if(isFloatingActive)
+			if(VarJumpElapsedTime < VarJumpTime)
 			{
+				CurJumpState = JumpState.Jumping;
 				VVelocity = JumpSpeed;
 			}
 			else
 			{
-				if(VarJumpElapsedTime < VarJumpTime)
-				{
-					CurJumpState = JumpState.Jumping;
-					VVelocity = JumpSpeed;
-				}
-				else
-				{
-					CurJumpState = JumpState.Falling;
-					VVelocity = 0.0f;
-					CanVarJump = false;
-				}
+				CurJumpState = JumpState.Falling;
+				VVelocity = 0.0f;
+				CanVarJump = false;
 			}
 		}
 
 		// released Jump Button
 		if(Input.GetButtonUp("Jump") || (curVValue == 0.0f && prevVValue != 0.0f))
 		{
-			if(!isFloatingActive)
-			{
-				CurJumpState = JumpState.Falling;
-				VVelocity = 0.0f;
-				CanVarJump = false;
-			}
+			CurJumpState = JumpState.Falling;
+			VVelocity = 0.0f;
+			CanVarJump = false;
 		}
 		//Debug.Log(CurJumpState);
 		
