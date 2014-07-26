@@ -1,63 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Common;
 
 // Referenced: http://wiki.unity3d.com/index.php?title=PauseMenu
-public class OptionMenu : MonoBehaviour
+public class OptionMenu : Menu
 {
-	private float savedTimeScale;
-	public bool showOptions = true;
-	private int toolbarInt = 0;
-	private string[]  toolbarstrings =  {"Audio","Graphics","Key Mapping"};
+	Rect box = new Rect(55,20,20,50);
+	int selected = -1;
+	string[] options = {
+		"Audio",
+		"Graphics",
+		"Key Mapping",
+		"Back"
+	};
 	
-	// window vars
-	//int winW = 500;
-	//int winH = 350;
-	Rect winRect = new Rect(0,0,0,0);
-
-	void Start()
+	public override void ShowMe()
 	{
-		Time.timeScale = 1;
-		//winRect = new Rect((Screen.width - winW) / 2, (Screen.height - winH) / 2, winW, winH);
-		winRect = new Rect(0,0,Screen.width,Screen.height);
-		//PauseGame();
-	}
-
-	void LateUpdate ()
-	{
-		if (Input.GetKeyDown("escape")) 
+		selected = GUI.SelectionGrid(Utility.adjRect(box),selected,options,1);
+		switch(selected)
 		{
-			showOptions = !showOptions;
-			if(showOptions)
-			{
-				PauseGame();
-			}
-			else
-			{
-				UnPauseGame();
-			}
+		case 0: // Audio
+			OnChanged(EventArgs.Empty, 2);
+			break;
+		case 1: // Graphics
+			OnChanged(EventArgs.Empty, 3);
+			break;
+		case 2: // Key Mapping
+			OnChanged(EventArgs.Empty, 4);
+			break;
+		case 3: // Back
+			OnChanged(EventArgs.Empty, 0);
+			break;
+		default:
+			break;
 		}
+		selected = -1;
 	}
 	
-	void OnGUI ()
-	{
-		if (IsGamePaused() && showOptions)
-		{
-			winRect = GUI.Window (0,winRect, ShowToolbar,"Options");
-		}
-	}
-
-	void ShowToolbar(int id)
-	{
-		toolbarInt = GUILayout.Toolbar (toolbarInt, toolbarstrings);
-		switch (toolbarInt) {
-		case 0: VolumeControl(); break;
-		case 1: Qualities(); break;
-		case 2: KeyMapControl(); break;
-		}
-		GUI.DragWindow();
-	}
-
+	/*
 	void KeyMapControl()
 	{
 		GUILayout.BeginHorizontal();
@@ -77,68 +58,5 @@ public class OptionMenu : MonoBehaviour
 		}
 		GUILayout.EndVertical();
 		GUILayout.EndHorizontal();
-	}
-
-	void Qualities()
-	{
-		// Quality Level
-		GUILayout.BeginHorizontal();
-		GUILayout.Label("Quality: " + QualitySettings.names[QualitySettings.GetQualityLevel()]);
-		if (GUILayout.Button("Decrease"))
-		{
-			QualitySettings.DecreaseLevel();
-		}
-		if (GUILayout.Button("Increase"))
-		{
-			QualitySettings.IncreaseLevel();
-		}
-		GUILayout.EndHorizontal();
-
-		// Full Screen & Resolution
-		Screen.fullScreen = GUILayout.Toggle(Screen.fullScreen,"Full Screen");
-		GUILayout.Label("Resolution: " + Screen.currentResolution.width + " x " + Screen.currentResolution.height);
-		foreach(Resolution r in Screen.resolutions)
-		{
-			string res = r.width.ToString() + " x " + r.height.ToString();
-			if(GUILayout.Button (res))
-			{
-				Screen.SetResolution(r.width, r.height, Screen.fullScreen);
-			}
-		}
-	}
-
-	void VolumeControl()
-	{
-		GUILayout.Label("Volume");
-		AudioListener.volume = GUILayout.HorizontalSlider(AudioListener.volume, 0, 1);
-	}
-	
-	void PauseGame()
-	{
-		savedTimeScale = Time.timeScale;
-		Time.timeScale = 0;
-		AudioListener.pause = true;
-		// Background Music should have this:
-		//this.audio.ignoreListenerVolume = true;
-		showOptions = true;
-	}
-	
-	void UnPauseGame()
-	{
-		Time.timeScale = savedTimeScale;
-		AudioListener.pause = false;
-		showOptions = false;
-	}
-	
-	bool IsGamePaused()
-	{
-		return (Time.timeScale == 0);
-	}
-	
-	void OnApplicationPause(bool pause)
-	{
-		if (IsGamePaused()) {
-			AudioListener.pause = true;
-		}
-	}
+	}//*/
 }
