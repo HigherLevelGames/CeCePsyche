@@ -11,8 +11,8 @@ public class OptionMenu : MonoBehaviour
 	private string[]  toolbarstrings =  {"Audio","Graphics","Key Mapping"};
 	
 	// window vars
-	int winW = 500;
-	int winH = 350;
+	//int winW = 500;
+	//int winH = 350;
 	Rect winRect = new Rect(0,0,0,0);
 
 	void Start()

@@ -8,7 +8,8 @@ public class VMovementController : MonoBehaviour
 	float prevVValue = 0.0f; // for Input.GetAxis()
 
 	// Jump Variables
-	float JumpSpeed = 5.0f;
+	float JumpSpeed = 10.0f;
+	float VVelocity = 0.0f;
 	public enum JumpState
 	{
 		Grounded,
@@ -21,86 +22,76 @@ public class VMovementController : MonoBehaviour
 	bool CanVarJump = true;
 	float VarJumpTime = 0.5f;//half a second, for when the player holds down jump key
 	private float VarJumpElapsedTime = 0.0f;
-	float HangTime = 0.0f;
 	//float JumpTime, JumpDelay = 0.3f;
 
-	// See:  http://answers.unity3d.com/questions/576044/one-way-platform-using-2d-colliders.html
+	public bool lockVertical = false;
 
 	void Start() { }
 	
-	void Update()
+	void FixedUpdate()
 	{
-		//call these function every frame
-		GroundCheck();
-		JumpControl();
-		Movement();
+		if(!lockVertical)
+		{
+			GroundCheck();
+			JumpControl();
+			Movement();
+		}
 	}
 	
 	void GroundCheck()
 	{
 		BoxCollider2D col = this.collider2D as BoxCollider2D;
-		Vector2 groundPos = Utility.toVector2(this.transform.position) - Vector2.up * col.size.y;
-		
+
 		// middle
-		bool grounded = Physics2D.Linecast(this.transform.position, groundPos, 1 << LayerMask.NameToLayer("Ground"));
-		Debug.DrawLine(transform.position, groundPos, Color.magenta);
+		Vector2 myPos = Utility.toVector2(this.transform.position);
+		Vector2 groundPos = myPos - Vector2.up * col.size.y;
+		bool grounded = Physics2D.Linecast(myPos, groundPos, 1 << LayerMask.NameToLayer("Ground"));
+		Debug.DrawLine(myPos, groundPos, Color.magenta);
 		
 		// right
-		Vector2 temp = Utility.toVector2(transform.position) + Vector2.right * col.size.x / 2.0f;
+		Vector2 temp = myPos + Vector2.right * col.size.x / 2.0f;
 		Vector2 temp2 = groundPos + Vector2.right * col.size.x / 2.0f;
+		bool grounded2 = Physics2D.Linecast(temp, temp2, 1<<LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(temp, temp2, Color.magenta);
 		
 		// left
-		temp = Utility.toVector2(transform.position) - Vector2.right * col.size.x / 2.0f;
+		temp = myPos - Vector2.right * col.size.x / 2.0f;
 		temp2 = groundPos - Vector2.right * col.size.x / 2.0f;
+		bool grounded3 = Physics2D.Linecast(temp, temp2, 1<<LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(temp, temp2, Color.magenta);
-		
-		if(grounded)
+
+		if(grounded || grounded2 || grounded3)
 		{
 			CurJumpState = JumpState.Grounded;
+		}
+		else
+		{
+			CurJumpState = JumpState.Falling;
 		}
 	}
 	
 	void Movement()
 	{
-		float newY = this.transform.position.y;
-
-		JumpSpeed = 10.0f;
-		// Vertical Movement
-		if(CurJumpState == JumpState.Jumping)
+		VVelocity -= 0.5f * Time.deltaTime;
+		this.transform.position += Vector3.up * VVelocity * Time.deltaTime;
+		if(CurJumpState == JumpState.Grounded)
 		{
-			newY += JumpSpeed * Time.deltaTime;
-			newY -= 0.5f * HangTime * HangTime;
-			// need to subtract Gravity
-			CurJumpState = JumpState.Falling;
+			VVelocity = 0.0f;
 		}
-		
-		if(CurJumpState != JumpState.Grounded)
-		{
-			HangTime += Time.deltaTime;
-		}
-		else
-		{
-			HangTime = 0.0f;
-		}
-		
-		if(CurJumpState == JumpState.Falling)
-		{
-			float t = (HangTime - VarJumpElapsedTime) * Time.deltaTime;
-			newY -= 0.5f * t * t;
-		}
-		
-		this.transform.position = new Vector2(this.transform.position.x, newY);
 	}
 
 	// JumpControl() checks the player's jump button
 	// and changes CurJumpState accordingly to either Jumping or Falling
 	void JumpControl()
 	{
+		float curVValue = Input.GetAxis("Vertical");
+
 		// pressed jump once
-		if((Input.GetButtonDown("Jump") || (Input.GetAxis("Vertical") > 0 && prevVValue == 0.0f)) && CurJumpState == JumpState.Grounded)
+		if((Input.GetButtonDown("Jump") || (curVValue > 0.0f && prevVValue == 0.0f))
+				&& CurJumpState == JumpState.Grounded)
 		{
 			CurJumpState = JumpState.Jumping;
+			VVelocity = JumpSpeed;
 			VarJumpElapsedTime = 0.0f;
 			CanVarJump = true;
 			
@@ -108,25 +99,30 @@ public class VMovementController : MonoBehaviour
 			//anim.SetTrigger("Jump");
 			//hasJumped = true;
 		}
-		
+
 		// press and hold jump button
-		if((Input.GetButton("Jump") || Input.GetAxis("Vertical") > 0) && CanVarJump)
+		if((Input.GetButton("Jump") || curVValue > 0.0f)
+				&& CanVarJump)
 		{
 			VarJumpElapsedTime += Time.deltaTime;
 			if(VarJumpElapsedTime < VarJumpTime)
 			{
 				CurJumpState = JumpState.Jumping;
+				VVelocity = JumpSpeed;
 			}
 			else
 			{
 				CurJumpState = JumpState.Falling;
+				VVelocity = 0.0f;
 				CanVarJump = false;
 			}
-		}		
-		
+		}
+
 		// released Jump Button
-		if(Input.GetButtonUp("Jump"))
+		if(Input.GetButtonUp("Jump") || (curVValue == 0.0f && prevVValue != 0.0f))
 		{
+			CurJumpState = JumpState.Falling;
+			VVelocity = 0.0f;
 			CanVarJump = false;
 		}
 		//Debug.Log(CurJumpState);
@@ -160,10 +156,12 @@ public class VMovementController : MonoBehaviour
 
 	void OnTriggerStay2D(Collider2D col)
 	{
-		CurJumpState = JumpState.Grounded;
 		// Vertical Movement
 		if(col.gameObject.tag == "Ladder")
 		{
+			CurJumpState = JumpState.Grounded;
+			VVelocity = 0.0f;
+
 			if(Input.GetAxis("Vertical") != 0)
 			{
 				this.transform.position = new Vector3(col.transform.position.x, this.transform.position.y + Input.GetAxis("Vertical") * ClimbSpeed * Time.deltaTime, this.transform.position.z);

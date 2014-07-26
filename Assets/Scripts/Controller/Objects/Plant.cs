@@ -15,7 +15,7 @@ public class Plant : MonoBehaviour
 	{
 		if(!hasGrown && col.gameObject.tag == "Player")
 		{
-			if(col.gameObject.GetComponent<Emotion>().isCrying)
+			if(col.gameObject.GetComponent<AbilityManager>().isCrying)
 			{
 				Debug.Log ("growing");
 				hasGrown = true;

@@ -103,21 +103,6 @@ public class PlayerControl : MonoBehaviour
 			jumped = true;
 		}
 
-
-		if(Input.GetAxis("Interact") != 0)
-		{
-			Debug.Log ("Do stuff if interactable object nearby");
-		}
-		if(Input.GetAxis ("Ability") != 0)
-		{
-			Debug.Log ("Perform currently enhanced ability based on PlayerPrefs");
-			// cry = tears create water
-			// laugh = float in air
-			// fear = shrink in size
-			// anger = break stuff in firey rage
-			// possible stacking of abilities?
-		}
-
 		jumpTime -= Time.deltaTime;
 		if(jumpTime <= 0 && grounded && jumped)
 		{

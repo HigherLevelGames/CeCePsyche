@@ -8,7 +8,7 @@ public class HMovementController : MonoBehaviour
 	
 	void Start(){}
 	
-	void Update()
+	void FixedUpdate()
 	{
 		//call these function every frame
 		Movement();
