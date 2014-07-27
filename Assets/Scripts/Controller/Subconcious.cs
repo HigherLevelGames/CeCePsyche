@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// may want to reference: http://www.41post.com/4545/programming/unity-how-to-create-a-speech-balloon
 public class Subconcious : MonoBehaviour
 {
 	#region Variables

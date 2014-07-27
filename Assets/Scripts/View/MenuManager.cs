@@ -6,15 +6,16 @@ using Common;
 [RequireComponent (typeof(HUD))]
 public class MenuManager : MonoBehaviour
 {
-	Menu[] menus;
-	int curMenu = 0;
+	private Menu[] menus = new Menu[6];
+	private int curMenu = 0;
 
 	// private float savedTimeScale;
 	bool showPause = false; // flag
 
 	// basic boxes
 	Rect winRect = new Rect(10,10,80,80);
-	Rect levelNameBox = new Rect(10,5,40,10);
+	Rect levelNameBox = new Rect(10,5,50,10);
+	Rect menuBox = new Rect(55, 20, 20, 50);
 
 	// edu mode boxes
 	Rect urBox = new Rect(5,20,45,25);
@@ -24,13 +25,12 @@ public class MenuManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		menus = new Menu[6];
-		menus[0] = new PauseMenu();
-		menus[1] = new OptionMenu();
-		menus[2] = new AudioMenu();
-		menus[3] = new GraphicsMenu();
-		menus[4] = new RebindingMenu1();
-		//menus[5] = new ExtrasMenu();
+		menus[0] = new PauseMenu(menuBox);
+		menus[1] = new OptionMenu(menuBox);
+		menus[2] = new AudioMenu(menuBox);
+		menus[3] = new GraphicsMenu(menuBox);
+		menus[4] = new RebindingMenu1(menuBox);
+		//menus[5] = new ExtrasMenu(menuBox);
 
 		for(int i = 0; i < 5; i++)
 		{
@@ -46,10 +46,7 @@ public class MenuManager : MonoBehaviour
 			TogglePause();
 		}
 
-		if(curMenu == 4)
-		{
-			menus[curMenu].Update();
-		}
+		menus[curMenu].Update();
 	}
 
 	void OnGUI()
@@ -80,7 +77,7 @@ public class MenuManager : MonoBehaviour
 	// Event Handler Method (this is called whenever the event is fired)
 	private void SwapMenu(object sender, EventArgs e, int index) 
 	{
-		// using a switch just to make sure everything's working correctly
+		// JNN: using a switch just to make sure everything's working correctly
 		// in case more menus are implemented/added later on
 		switch(index)
 		{

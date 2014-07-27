@@ -6,18 +6,18 @@ using Common;
 // Referenced: http://wiki.unity3d.com/index.php?title=PauseMenu
 public class OptionMenu : Menu
 {
-	Rect box = new Rect(55,20,20,50);
-	int selected = -1;
-	string[] options = {
-		"Audio",
-		"Graphics",
-		"Key Mapping",
-		"Back"
-	};
-	
-	public override void ShowMe()
+	public OptionMenu(Rect menuArea) : base(menuArea)
 	{
-		selected = GUI.SelectionGrid(Utility.adjRect(box),selected,options,1);
+		options = new string[] {
+			"Audio",
+			"Graphics",
+			"Key Mapping",
+			"Back"
+		};
+	}
+
+	protected override void PressedEnter()
+	{
 		switch(selected)
 		{
 		case 0: // Audio
@@ -37,26 +37,4 @@ public class OptionMenu : Menu
 		}
 		selected = -1;
 	}
-	
-	/*
-	void KeyMapControl()
-	{
-		GUILayout.BeginHorizontal();
-		int i = 0;
-		foreach(KeyCode c in (KeyCode[])Enum.GetValues(typeof(KeyCode)))
-		{
-			if(i%25 == 0)
-			{
-				GUILayout.BeginVertical();
-			}
-			GUILayout.Button(c.ToString());
-			if(i%25 == 24)
-			{
-				GUILayout.EndVertical();
-			}
-			i++;
-		}
-		GUILayout.EndVertical();
-		GUILayout.EndHorizontal();
-	}//*/
 }

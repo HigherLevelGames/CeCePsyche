@@ -5,21 +5,19 @@ using Common;
 
 public class PauseMenu : Menu
 {
-	// selection grid vars
-	Rect box = new Rect(55,20,20,50);
-	int selected = -1;
-	string[] options = {
-		"Resume",
-		"Restart",
-		"Options",
-		"Extras",
-		"Exit"
-	};
-	
-	public override void ShowMe()
+	public PauseMenu(Rect menuArea) : base(menuArea)
 	{
-		selected = GUI.SelectionGrid(Utility.adjRect(box),selected,options,1);
-		
+		options = new string[] {
+			"Resume",
+			"Restart",
+			"Options",
+			"Extras",
+			"Exit"
+		};
+	}
+
+	protected override void PressedEnter()
+	{
 		switch(selected)
 		{
 		case 0: // Resume

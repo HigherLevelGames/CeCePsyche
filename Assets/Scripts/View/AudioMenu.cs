@@ -14,7 +14,6 @@ using Common;
 
 public class AudioMenu : Menu
 {
-	Rect box = new Rect(55,20,20,50);
 	float masterVolume = 1.0f;
 	float bgmusicVolume = 1.0f;
 	float SFXVolume = 1.0f;
@@ -29,7 +28,7 @@ public class AudioMenu : Menu
 		}
 	}
 
-	public AudioMenu()
+	public AudioMenu(Rect menuArea) : base(menuArea)
 	{
 		SFXVolume = 1.0f; // PlayerPrefs
 		bgmusicVolume = 1.0f; // PlayerPrefs
@@ -48,6 +47,8 @@ public class AudioMenu : Menu
 		{
 			masterVolume = 0.0f;
 		}
+
+		GUILayout.Label("<color=red>SFX & Music Sliders currently doesn't do anything</color>");
 
 		// SFX Volume
 		GUILayout.Label("SFX Volume");

@@ -5,7 +5,7 @@ using Common;
 
 public class GraphicsMenu : Menu
 {
-	Rect box = new Rect(55,20,20,50);
+	public GraphicsMenu(Rect menuArea) : base(menuArea) { }
 
 	public override void ShowMe()
 	{

@@ -8,8 +8,6 @@ public class RebindingMenu1 : Menu
 {
 	public RebindableData rebindableManager;
 
-	Rect box = new Rect(55,20,20,50);
-
 	private List<RebindableKey> rebindKeys;
 	private List<RebindableAxis> rebindAxes;
 	
@@ -19,7 +17,7 @@ public class RebindingMenu1 : Menu
 	
 	private string objToRebind = "";
 	
-	public RebindingMenu1()
+	public RebindingMenu1(Rect menuArea) : base(menuArea)
 	{
 		rebindableManager = GameObject.Find("Rebindable Manager").GetComponent<RebindableData>();
 		rebindKeys = rebindableManager.GetCurrentKeys();
