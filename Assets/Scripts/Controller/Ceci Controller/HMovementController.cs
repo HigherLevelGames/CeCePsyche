@@ -6,7 +6,7 @@ public class HMovementController : MonoBehaviour
 	public bool isFacingRight = true; // default
 	float MaxSpeed = 10.0f;
 	
-	void Start(){}
+	void Start() {}
 	
 	void FixedUpdate()
 	{

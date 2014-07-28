@@ -9,10 +9,27 @@ namespace Common
 		// adjusts a rectangle using percentages to screen coordinates
 		public static Rect adjRect(Rect r)
 		{
-			return new Rect(r.x * Screen.width / 100,
-			                r.y * Screen.height / 100,
-			                r.width * Screen.width / 100,
-			                r.height * Screen.height / 100);
+			return new Rect(r.x * Screen.width / 100.0f,
+			                r.y * Screen.height / 100.0f,
+			                r.width * Screen.width / 100.0f,
+			                r.height * Screen.height / 100.0f);
+		}
+
+		// inverse of adjRect
+		public static Rect unadjRect(Rect r)
+		{
+			return new Rect(r.x * 100.0f / Screen.width,
+			                r.y * 100.0f / Screen.height,
+			                r.width * 100.0f / Screen.width,
+			                r.height * 100.0f / Screen.height);
+		}
+
+		public static Vector3 Clamp(Vector3 value, Vector3 min, Vector3 max)
+		{
+			return new Vector3(
+				Mathf.Clamp(value.x, min.x, max.x),
+				Mathf.Clamp(value.y, min.y, max.y),
+				Mathf.Clamp(value.z, min.z, max.z));
 		}
 
 		public static Vector2 toVector2(Vector3 v)

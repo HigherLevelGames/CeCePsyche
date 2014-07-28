@@ -2,7 +2,7 @@
 using System.Collections;
 
 // Code placed on "Exit" button in Concept and Credits scene
-public class LoadLevel : MonoBehaviour
+public class BackButton : MonoBehaviour
 {
 	public string levelName;
 	

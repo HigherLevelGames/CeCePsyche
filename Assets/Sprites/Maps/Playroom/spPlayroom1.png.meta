@@ -1,6 +1,36 @@
 fileFormatVersion: 2
 guid: 72bbbde6fb3e6fa44b94faa66fd118df
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: spPlayroom1_2
+    21300002: spPlayroom1_3
+    21300004: spPlayroom1_4
+    21300006: spPlayroom1_5
+    21300008: spPlayroom1_6
+    21300010: spPlayroom1_5
+    21300012: spPlayroom1_6
+    21300014: spPlayroom1_7
+    21300016: spPlayroom1_8
+    21300018: spPlayroom1_9
+    21300020: spPlayroom1_10
+    21300022: spPlayroom1_11
+    21300024: spPlayroom1_12
+    21300026: spPlayroom1_13
+    21300028: spPlayroom1_14
+    21300030: spPlayroom1_15
+    21300032: spPlayroom1_16
+    21300034: spPlayroom1_17
+    21300036: spPlayroom1_18
+    21300038: spPlayroom1_19
+    21300040: spPlayroom1_20
+    21300042: spPlayroom1_21
+    21300044: spPlayroom1_22
+    21300046: spPlayroom1_23
+    21300048: spPlayroom1_24
+    21300050: spPlayroom1_25
+    21300052: floor
+    21300054: particle
+    21300056: door
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
