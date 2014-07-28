@@ -24,6 +24,14 @@ namespace Common
 			                r.height * 100.0f / Screen.height);
 		}
 
+		public static Vector3 Clamp(Vector3 value, Vector3 min, Vector3 max)
+		{
+			return new Vector3(
+				Mathf.Clamp(value.x, min.x, max.x),
+				Mathf.Clamp(value.y, min.y, max.y),
+				Mathf.Clamp(value.z, min.z, max.z));
+		}
+
 		public static Vector2 toVector2(Vector3 v)
 		{
 			return new Vector2(v.x, v.y);

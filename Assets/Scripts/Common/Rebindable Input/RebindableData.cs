@@ -33,7 +33,6 @@ public class RebindableData : MonoBehaviour
 	{
 		string rebindPrefs = PlayerPrefs.GetString ("RebindableKeyPrefs", "");
 		
-		
 		if (rebindPrefs == "")
 		{
 			return CopyKeyList (defaultRebindableKeys);
@@ -58,7 +57,6 @@ public class RebindableData : MonoBehaviour
 	
 	List<RebindableAxis> LoadSavedAxes ()
 	{
-		
 		string axisPrefs = PlayerPrefs.GetString ("RebindableAxisPrefs", "");
 		
 		if (axisPrefs == "")
