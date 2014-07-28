@@ -42,6 +42,7 @@ public class CeciMenuController : MonoBehaviour
 			this.transform.position += direction*speed*Time.deltaTime;
 		}
 
+		// Make it so Ceci always stays on screen
 		Vector3 lowerLeft =
 				Camera.main.ScreenToWorldPoint(new Vector3(0.2f*Screen.width, 0.2f*Screen.height, 10.0f));
 		Vector3 upperRight =

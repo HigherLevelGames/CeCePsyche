@@ -45,8 +45,10 @@ public class MenuManager : MonoBehaviour
 		{
 			TogglePause();
 		}
-
-		menus[curMenu].Update();
+		if(showPause)
+		{
+			menus[curMenu].Update();
+		}
 	}
 
 	void OnGUI()

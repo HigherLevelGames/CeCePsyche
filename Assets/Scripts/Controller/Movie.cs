@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 // Requires Unity Pro
 public class Movie : MonoBehaviour
 {
+	public string[] levelsToLoad;
 	public MovieTexture[] movie; // array of movie textures to play
 	public int index = 0;
-	public string nextLevel;
 	// map of (cutscene to play/level to load) so everything's in one scene
-	public Dictionary<int, string> map = new Dictionary<int, string>();
+	// wanted to use a dictionary, but unity doesn't serialize it
 	//0 = happiness intro
 	//1 = happiness outro
 	//2 = sadness intro
@@ -22,8 +21,8 @@ public class Movie : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		//index = PlayerPrefs.GetInt("movieToPlay");
-		if(movie != null)
+		index = PlayerPrefs.GetInt("movieToPlay");
+		if(movie[index] != null)
 		{
 			// NOTE could use 3D plane (rotation.x = -90.0f) or draw directly on 2D GUI
 			//this.renderer.material.mainTexture = movie;
@@ -39,19 +38,20 @@ public class Movie : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if(movie != null)
+		if(movie[index] != null)
 		{
-			if(Time.time > movie[index].duration && Application.CanStreamedLevelBeLoaded(nextLevel))
+			if(Time.time > movie[index].duration && Application.CanStreamedLevelBeLoaded(levelsToLoad[index]))
 			{
-				// NOTE could give player ability to pause cutscene, but assuming how short they'll be, I don't think we'll need to
-				Application.LoadLevel(nextLevel);
+				// NOTE could give player ability to pause cutscene,
+				// but assuming how short they'll be, I don't think we'll need to
+				Application.LoadLevel(levelsToLoad[index]);
 			}
 		}
 
 		// skip button
-		if(Input.GetButtonDown("Jump") && Application.CanStreamedLevelBeLoaded(nextLevel))
+		if(Input.GetButtonDown("Jump") && Application.CanStreamedLevelBeLoaded(levelsToLoad[index]))
 		{
-			Application.LoadLevel(nextLevel);
+			Application.LoadLevel(levelsToLoad[index]);
 		}
 	}
 
@@ -59,7 +59,7 @@ public class Movie : MonoBehaviour
 	{
 		GUILayout.Label("Cutscene: Press Spacebar to Skip.");
 
-		if(movie != null)
+		if(movie[index] != null)
 		{
 			// NOTE talk to Jyordana whether or not we're using a border
 			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height), movie[index], ScaleMode.StretchToFill);
