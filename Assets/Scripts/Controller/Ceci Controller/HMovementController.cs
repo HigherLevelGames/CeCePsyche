@@ -19,8 +19,8 @@ public class HMovementController : MonoBehaviour
 		}
 	}
 
-	public bool isFacingRight = true; // default
-	float MaxSpeed = 10.0f;
+	public float MaxSpeed = 10.0f;
+	public bool isFacingRight = true; // default, public for Anger Ability to reference
 	private Quaternion reverseRotation = new Quaternion(0.0f,180.0f,0.0f,0.0f);
 	private float prevX = 0.0f;
 	private float newX = 0.0f;
@@ -43,9 +43,14 @@ public class HMovementController : MonoBehaviour
 		{
 			isFacingRight = Input.GetAxis("Horizontal") > 0;
 		}
-		
+
 		this.transform.position = new Vector2(newX, this.transform.position.y);
 
+		// temp vars for storing camera rotation/position since we made the camera a child of Ceci
+		Quaternion tempRot = Camera.main.transform.rotation;
+		Vector3 tempPos = Camera.main.transform.position;
+
+		// face left or right by changing the y rotation value
 		if(isFacingRight)
 		{
 			this.transform.rotation = Quaternion.identity;
@@ -54,5 +59,9 @@ public class HMovementController : MonoBehaviour
 		{
 			this.transform.rotation = reverseRotation;
 		}
+
+		// give temp vars back to camera
+		Camera.main.transform.rotation = tempRot;
+		Camera.main.transform.position = tempPos;
 	}
 }
