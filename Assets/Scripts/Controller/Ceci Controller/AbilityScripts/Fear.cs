@@ -4,15 +4,16 @@ using System.Collections;
 public class Fear : Ability
 {
 	public float Percentage = 0.5f;
-	public float TimeToShrink = 3.0f;
+	//public float TimeToShrink = 3.0f;
+	private float TimeToShrink = 0.5f;
 	private float StartTime = 0.0f;
 	private bool isSmall = false;
 
 	// Use this for initialization
 	void Start () { }
 
-	// Update is called once per frame
-	void Update ()
+	// LateUpdate so we can override animation transform.localScale values
+	void LateUpdate ()
 	{
 		if(isSmall && this.transform.localScale != Percentage*Vector3.one)
 		{

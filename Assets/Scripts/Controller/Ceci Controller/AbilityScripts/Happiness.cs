@@ -59,6 +59,12 @@ public class Happiness : Ability
 		{
 			this.rigidbody2D.gravityScale = -0.1f;
 		}
+
+		// player trying to move downwards for whatever reason
+		if(curVValue < 0.0f)
+		{
+			this.rigidbody2D.gravityScale = 0.1f;
+		}
 		
 		// released Jump Button
 		if(Input.GetButtonUp("Jump") || (curVValue == 0.0f && prevVValue != 0.0f))
