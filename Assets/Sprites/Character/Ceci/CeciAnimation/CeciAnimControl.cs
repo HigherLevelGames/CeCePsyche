@@ -7,10 +7,10 @@ using System.Collections;
 [RequireComponent(typeof(Animator))]
 public class CeciAnimControl : MonoBehaviour
 {
-	Animator anim;
-	HMovementController hControl;
-	VMovementController vControl;
-	AbilityManager emoControl;
+	private Animator anim;
+	private HMovementController hControl;
+	private VMovementController vControl;
+	private AbilityManager emoControl;
 
 	// Use this for initialization
 	void Start ()
