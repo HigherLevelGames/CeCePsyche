@@ -68,18 +68,18 @@ public class VMovementController : MonoBehaviour
 
 		// middle
 		Vector2 myPos = Utility.toVector2(this.transform.position);
-		Vector2 groundPos = myPos - Vector2.up * col.size.y;
+		Vector2 groundPos = myPos - Vector2.up * col.size.y * 0.75f;
 		bool grounded = Physics2D.Linecast(myPos, groundPos, 1 << LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(myPos, groundPos, Color.magenta);
 		
 		// right
-		Vector2 temp = myPos + Vector2.right * col.size.x / 2.0f;
+		Vector2 temp = myPos + Vector2.right * col.size.x * 0.5f;
 		Vector2 temp2 = groundPos + Vector2.right * col.size.x / 2.0f;
 		bool grounded2 = Physics2D.Linecast(temp, temp2, 1<<LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(temp, temp2, Color.magenta);
 		
 		// left
-		temp = myPos - Vector2.right * col.size.x / 2.0f;
+		temp = myPos - Vector2.right * col.size.x * 0.5f;
 		temp2 = groundPos - Vector2.right * col.size.x / 2.0f;
 		bool grounded3 = Physics2D.Linecast(temp, temp2, 1<<LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(temp, temp2, Color.magenta);

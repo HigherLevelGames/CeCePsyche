@@ -160,6 +160,7 @@ GameObject:
   - 114: {fileID: 1020367289}
   - 114: {fileID: 1020367288}
   - 114: {fileID: 1020367278}
+  - 114: {fileID: 1020367291}
   m_Layer: 0
   m_Name: CeCi
   m_TagString: Player
@@ -177,7 +178,7 @@ Animator:
   m_GameObject: {fileID: 1020367275}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0455949a5d34645c6a297e107b630368, type: 2}
+  m_Controller: {fileID: 9100000, guid: 190af4a25e19c4e60920c4bce8a04b6b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -237,7 +238,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 4289664103
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 74104eeaba58141f18eb44588829d778, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -266,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a64645209f14711a8c99eb981db1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxSpeed: 10
   isFacingRight: 1
 --- !u!114 &1020367283
 MonoBehaviour:
@@ -357,7 +359,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1020367275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da42b3ec8647f4e42ad10e6fc36291c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 1846171bb20f64f269ba61c2589bf4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1020367290
@@ -370,6 +372,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c78161c256bb349fb859f04328b2e119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1020367291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020367275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da42b3ec8647f4e42ad10e6fc36291c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1174178476
@@ -614,6 +627,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 0499fb95d4894485aadb1be5596fbc4d, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 190af4a25e19c4e60920c4bce8a04b6b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0499fb95d4894485aadb1be5596fbc4d, type: 2}
   m_RootGameObject: {fileID: 1020367275}
