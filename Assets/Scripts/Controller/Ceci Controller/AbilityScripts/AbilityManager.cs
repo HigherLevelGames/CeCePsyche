@@ -20,7 +20,7 @@ public class AbilityManager : MonoBehaviour
 	float ElapsedTime = 0.0f; // time elapsed since used ability
 	#endregion
 
-	#region Public Properties: isCrying, canBreak
+	#region Public Properties: isCrying, canBreak, isFloating, isFrightened
 	// flag for Plant.cs to know if Ceci is crying
 	public bool isCrying
 	{
@@ -36,6 +36,24 @@ public class AbilityManager : MonoBehaviour
 		get
 		{
 			return isUsingAbility && (CurEmotion == Emotion.Mad);
+		}
+	}
+
+	// flag for CeciAnimControl.cs
+	public bool isFloating
+	{
+		get
+		{
+			return isUsingAbility && (CurEmotion == Emotion.Happy);
+		}
+	}
+
+	// flag for CeciAnimControl.cs
+	public bool isFrightened
+	{
+		get
+		{
+			return isUsingAbility && (CurEmotion == Emotion.Scared);
 		}
 	}
 	#endregion
@@ -114,6 +132,7 @@ public class AbilityManager : MonoBehaviour
 			return;
 		}
 		// not really a good idea to use mod...
+		this.SendMessage("TriggerEmotionAnim", ((int)CurEmotion), SendMessageOptions.DontRequireReceiver);
 		abilities[((int)CurEmotion)%abilities.Length].UseAbility();
 		isUsingAbility = true;
 	}
@@ -121,6 +140,10 @@ public class AbilityManager : MonoBehaviour
 	// reset everything
 	void Neutralize()
 	{
+		if(CurEmotion == Emotion.Scared)
+		{
+			this.SendMessage("TriggerEmotionAnim", ((int)CurEmotion), SendMessageOptions.DontRequireReceiver);
+		}
 		// not really a good idea to use mod...
 		abilities[((int)CurEmotion)%abilities.Length].EndAbility();
 		CurEmotion = Emotion.Neutral;
