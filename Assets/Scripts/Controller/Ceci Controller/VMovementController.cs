@@ -4,6 +4,30 @@ using Common;
 
 public class VMovementController : MonoBehaviour
 {
+	// vspeed for CeciAnimControl.cs
+	public int vSpeed
+	{
+		get
+		{
+			if(isGrounded)
+			{
+				return 0;
+			}
+			else
+			{
+				return (int)Mathf.Sign(VVelocity);
+			}
+		}
+	}
+	// grounded for CeciAnimControl.cs
+	public bool isGrounded
+	{
+		get
+		{
+			return CurJumpState == JumpState.Grounded;
+		}
+	}
+
 	float ClimbSpeed = 10.0f;
 	float prevVValue = 0.0f; // for Input.GetAxis()
 
