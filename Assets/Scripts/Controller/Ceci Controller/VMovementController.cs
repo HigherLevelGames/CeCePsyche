@@ -67,20 +67,20 @@ public class VMovementController : MonoBehaviour
 		BoxCollider2D col = this.collider2D as BoxCollider2D;
 
 		// middle
-		Vector2 myPos = Utility.toVector2(this.transform.position);
-		Vector2 groundPos = myPos - Vector2.up * col.size.y * 0.75f;
+		Vector2 myPos = Utility.toVector2(this.transform.position) + col.center * this.transform.localScale.x;
+		Vector2 groundPos = myPos - Vector2.up * col.size.y * 0.75f * this.transform.localScale.x;
 		bool grounded = Physics2D.Linecast(myPos, groundPos, 1 << LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(myPos, groundPos, Color.magenta);
 		
 		// right
-		Vector2 temp = myPos + Vector2.right * col.size.x * 0.5f;
-		Vector2 temp2 = groundPos + Vector2.right * col.size.x / 2.0f;
+		Vector2 temp = myPos + Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
+		Vector2 temp2 = groundPos + Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
 		bool grounded2 = Physics2D.Linecast(temp, temp2, 1<<LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(temp, temp2, Color.magenta);
 		
 		// left
-		temp = myPos - Vector2.right * col.size.x * 0.5f;
-		temp2 = groundPos - Vector2.right * col.size.x / 2.0f;
+		temp = myPos - Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
+		temp2 = groundPos - Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
 		bool grounded3 = Physics2D.Linecast(temp, temp2, 1<<LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(temp, temp2, Color.magenta);
 
