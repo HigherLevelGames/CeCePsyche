@@ -31,6 +31,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 58: {fileID: 5800000}
   - 212: {fileID: 21200000}
+  - 114: {fileID: 11400018}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400004}
   - 95: {fileID: 9500000}
@@ -258,7 +259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb00e6f332a4d45b58fee49215f0aee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilities: []
   ActiveTime: 5
 --- !u!114 &11400004
 MonoBehaviour:
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1846171bb20f64f269ba61c2589bf4f9, type: 3}
+  m_Script: {fileID: 11500000, guid: da42b3ec8647f4e42ad10e6fc36291c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11400014
@@ -339,6 +339,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1846171bb20f64f269ba61c2589bf4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd20c6ae9c554ba68c6193614ef4939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundPos: -5
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

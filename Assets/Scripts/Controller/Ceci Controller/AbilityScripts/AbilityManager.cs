@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Happiness))]
+[RequireComponent(typeof(Sadness))]
+[RequireComponent(typeof(Fear))]
+[RequireComponent(typeof(Anger))]
 public class AbilityManager : MonoBehaviour
 {
-	#region Variables: CurEmotion, isUsingAbility, abilities, ActiveTime, ElapsedTime
-	public enum Emotion
+	#region Variables: CurEmotion, abilities, isUsingAbility, ActiveTime, ElapsedTime
+	private enum Emotion
 	{
 		Happy,
 		Sad,
@@ -12,12 +16,12 @@ public class AbilityManager : MonoBehaviour
 		Mad, // Angry
 		Neutral,
 	}
-	Emotion CurEmotion = Emotion.Neutral;
+	private Emotion CurEmotion = Emotion.Neutral;
+	private Ability[] abilities;
+	private bool isUsingAbility = false;
 
-	bool isUsingAbility = false;
-	public Ability[] abilities;
 	public float ActiveTime = 5.0f; // time until current ability turns off, 5 seconds?
-	float ElapsedTime = 0.0f; // time elapsed since used ability
+	private float ElapsedTime = 0.0f; // time elapsed since used ability
 	#endregion
 
 	#region Public Properties: isCrying, canBreak, isFloating, isFrightened

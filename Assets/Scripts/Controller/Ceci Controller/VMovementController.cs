@@ -2,6 +2,7 @@
 using System.Collections;
 using Common;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class VMovementController : MonoBehaviour
 {
 	// vspeed for CeciAnimControl.cs
