@@ -38,10 +38,10 @@ public class HMovementController : MonoBehaviour
 		prevX = this.transform.position.x;
 
 		// velocity = speed + direction
-		newX = prevX + Input.GetAxis("Horizontal") * MaxSpeed * Time.deltaTime;
-		if(Input.GetAxis("Horizontal") != 0) // check needed in case standing still
+		newX = prevX + RebindableInput.GetAxis("Horizontal") * MaxSpeed * Time.deltaTime;
+		if(RebindableInput.GetAxis("Horizontal") != 0) // check needed in case standing still
 		{
-			isFacingRight = Input.GetAxis("Horizontal") > 0;
+			isFacingRight = RebindableInput.GetAxis("Horizontal") > 0;
 		}
 
 		this.transform.position = new Vector2(newX, this.transform.position.y);

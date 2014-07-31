@@ -110,7 +110,7 @@ public class MirrorTrigger : MonoBehaviour
 	void OnTriggerStay2D(Collider2D other)
 	{
 		showDescription = false;
-		if (Input.GetButtonDown("Interact") && other.gameObject.tag == "Player")
+		if (RebindableInput.GetKeyDown("Interact") && other.gameObject.tag == "Player")
 		{
 			loadingSequence();
 		}

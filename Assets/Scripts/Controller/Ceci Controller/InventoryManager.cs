@@ -51,7 +51,7 @@ public class InventoryManager : MonoBehaviour
 		// TODO: Jason's particle system or something that helps the player know the object is interactable
 		
 		// pressed interact key
-		if(Input.GetButtonDown("Interact") && col.gameObject.tag == "Interactable")
+		if(RebindableInput.GetKeyDown("Interact") && col.gameObject.tag == "Interactable")
 		{
 			// tell the other object to perform some action, e.g. open doors, treasure chests, use item/switches, etc.
 			col.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);

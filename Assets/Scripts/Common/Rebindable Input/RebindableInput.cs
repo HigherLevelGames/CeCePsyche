@@ -83,6 +83,25 @@ public class RebindableInput : MonoBehaviour
 		
 		throw new RebindableNotFoundException ("The rebindable axis '" + axisName + "' was not found.\nBe sure you have created it and haven't misspelled it.");
 	}
+
+	// JNN: added
+	public static int GetAxisDown (string axisName)
+	{
+		List<RebindableAxis> axisDatabase = rebindableManager.GetCurrentAxes ();
+		
+		foreach (RebindableAxis axis in axisDatabase)
+		{
+			if (axis.axisName == axisName)
+			{
+				bool posPressed = Input.GetKeyDown (axis.axisPos) || Input.GetKeyDown(axis.altAxisPos);
+				bool negPressed = Input.GetKeyDown (axis.axisNeg) || Input.GetKeyDown(axis.altAxisNeg);
+				
+				return 0 + (posPressed ? 1 : 0) - (negPressed ? 1 : 0);
+			}
+		}
+		
+		throw new RebindableNotFoundException ("The rebindable axis '" + axisName + "' was not found.\nBe sure you have created it and haven't misspelled it.");
+	}
 	
 	public static KeyCode GetKeyFromBinding (string inputName)
 	{

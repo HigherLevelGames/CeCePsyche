@@ -92,9 +92,11 @@ public class GUISkinEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        Undo.SetSnapshotTarget(Target, Target.name);
-        Undo.CreateSnapshot();
-        Undo.ClearSnapshotTarget();
+        //Undo.SetSnapshotTarget(Target, Target.name);
+        //Undo.CreateSnapshot();
+		//Undo.ClearSnapshotTarget();
+		// JNN: replaced
+		Undo.RecordObject(Target, Target.name);
 
         EditorGUI.BeginChangeCheck();
 
@@ -178,8 +180,10 @@ public class GUISkinEditor : Editor
 
         if (EditorGUI.EndChangeCheck())
         {
-            Undo.SetSnapshotTarget(Target, Target.name);
-            Undo.RegisterSnapshot();
+            //Undo.SetSnapshotTarget(Target, Target.name);
+			//Undo.RegisterSnapshot();
+			// JNN: replaced
+			Undo.RecordObject(Target, Target.name);
         }
     }
 

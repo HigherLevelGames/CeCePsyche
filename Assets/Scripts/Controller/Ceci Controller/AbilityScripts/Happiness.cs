@@ -50,12 +50,12 @@ public class Happiness : Ability
 		float curVValue = Input.GetAxis("Vertical");
 		
 		// pressed jump once
-		if(Input.GetButtonDown("Jump") || (curVValue > 0.0f && prevVValue == 0.0f))
+		if(RebindableInput.GetKeyDown("Jump") || (curVValue > 0.0f && prevVValue == 0.0f))
 		{
 		}
 		
 		// press and hold jump button
-		if(Input.GetButton("Jump") || curVValue > 0.0f)
+		if(RebindableInput.GetKey("Jump") || curVValue > 0.0f)
 		{
 			this.rigidbody2D.gravityScale = -0.1f;
 		}
@@ -67,11 +67,11 @@ public class Happiness : Ability
 		}
 		
 		// released Jump Button
-		if(Input.GetButtonUp("Jump") || (curVValue == 0.0f && prevVValue != 0.0f))
+		if(RebindableInput.GetKeyUp("Jump") || (curVValue == 0.0f && prevVValue != 0.0f))
 		{
 			this.rigidbody2D.gravityScale = 0.0f;
 		}
 
-		prevVValue = Input.GetAxis("Vertical");
+		prevVValue = RebindableInput.GetAxis("Vertical");
 	}
 }

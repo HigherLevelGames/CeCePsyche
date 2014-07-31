@@ -76,7 +76,7 @@ public class AbilityManager : MonoBehaviour
 	void Update ()
 	{
 		SetEmotion(); // Dev Shortcut
-		if(Input.GetButtonDown("Ability"))
+		if(RebindableInput.GetKeyDown("Ability"))
 		{
 			UseAbility();
 		}

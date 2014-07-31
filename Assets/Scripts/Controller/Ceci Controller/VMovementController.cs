@@ -112,7 +112,7 @@ public class VMovementController : MonoBehaviour
 		float curVValue = Input.GetAxis("Vertical");
 
 		// pressed jump once
-		if((Input.GetButtonDown("Jump") || (curVValue > 0.0f && prevVValue == 0.0f))
+		if((RebindableInput.GetKeyDown("Jump") || (curVValue > 0.0f && prevVValue == 0.0f))
 				&& CurJumpState == JumpState.Grounded)
 		{
 			CurJumpState = JumpState.Jumping;
@@ -126,7 +126,7 @@ public class VMovementController : MonoBehaviour
 		}
 
 		// press and hold jump button
-		if((Input.GetButton("Jump") || curVValue > 0.0f)
+		if((RebindableInput.GetKey("Jump") || curVValue > 0.0f)
 				&& CanVarJump)
 		{
 			VarJumpElapsedTime += Time.deltaTime;
@@ -144,7 +144,7 @@ public class VMovementController : MonoBehaviour
 		}
 
 		// released Jump Button
-		if(Input.GetButtonUp("Jump") || (curVValue == 0.0f && prevVValue != 0.0f))
+		if(RebindableInput.GetKeyUp("Jump") || (curVValue == 0.0f && prevVValue != 0.0f))
 		{
 			CurJumpState = JumpState.Falling;
 			VVelocity = 0.0f;
@@ -159,7 +159,7 @@ public class VMovementController : MonoBehaviour
 			anim.SetTrigger("Land");
 			jumped = false;
 		}//*/
-		prevVValue = Input.GetAxis("Vertical");
+		prevVValue = RebindableInput.GetAxis("Vertical");
 	}
 
 	#region Ladder Trigger Zone
@@ -187,9 +187,9 @@ public class VMovementController : MonoBehaviour
 			CurJumpState = JumpState.Grounded;
 			VVelocity = 0.0f;
 
-			if(Input.GetAxis("Vertical") != 0)
+			if(RebindableInput.GetAxis("Vertical") != 0)
 			{
-				this.transform.position = new Vector3(col.transform.position.x, this.transform.position.y + Input.GetAxis("Vertical") * ClimbSpeed * Time.deltaTime, this.transform.position.z);
+				this.transform.position = new Vector3(col.transform.position.x, this.transform.position.y + RebindableInput.GetAxis("Vertical") * ClimbSpeed * Time.deltaTime, this.transform.position.z);
 			}
 			else
 			{

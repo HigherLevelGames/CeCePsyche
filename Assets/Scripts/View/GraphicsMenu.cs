@@ -5,10 +5,13 @@ using Common;
 
 public class GraphicsMenu : Menu
 {
+	//ComboBoxTest comboBox = new ComboBoxTest();
+
 	public GraphicsMenu(Rect menuArea) : base(menuArea) { }
 
 	public override void ShowMe()
 	{
+		//comboBox.OnGUI();
 		GUILayout.BeginArea(Utility.adjRect(box));
 
 		// Quality Level

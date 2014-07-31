@@ -40,24 +40,25 @@ public class Menu
 	public virtual void Update()
 	{
 		// up and down keys to control menu
-		if(Input.GetKeyDown(KeyCode.DownArrow))
+		int vInput = RebindableInput.GetAxisDown("Vertical");
+		if(vInput != 0)
 		{
-			selected = (selected + 1) % options.Length;
-		}
-		if(Input.GetKeyDown(KeyCode.UpArrow))
-		{
-			if(selected > 0)
+			if(vInput < 0)
+			{
+				selected = (selected + 1) % options.Length;
+			}
+			else if(selected > 0) // vInput > 0
 			{
 				selected--;
 			}
-			else
+			else // selected <= 0 && vInput > 0
 			{
 				selected = options.Length-1;
 			}
 		}
 		
 		// space/enter to select
-		if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+		if(RebindableInput.GetKeyDown("Jump") || RebindableInput.GetKeyDown("Interact"))
 		{
 			PressedEnter();
 		}
