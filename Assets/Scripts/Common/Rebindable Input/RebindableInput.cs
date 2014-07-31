@@ -20,7 +20,9 @@ public class RebindableInput : MonoBehaviour
 		{
 			if (key.inputName == inputName)
 			{
-				return Input.GetKey (key.input);
+				//return Input.GetKey (key.input);
+				// JNN: replaced
+				return Input.GetKey (key.input) || Input.GetKey(key.altInput);
 			}
 		}
 		
@@ -35,7 +37,9 @@ public class RebindableInput : MonoBehaviour
 		{
 			if (key.inputName == inputName)
 			{
-				return Input.GetKeyDown (key.input);
+				//return Input.GetKeyDown (key.input);
+				// JNN: replaced
+				return Input.GetKeyDown(key.input) || Input.GetKeyDown(key.altInput);
 			}
 		}
 		
@@ -50,7 +54,9 @@ public class RebindableInput : MonoBehaviour
 		{
 			if (key.inputName == inputName)
 			{
-				return Input.GetKeyUp (key.input);
+				//return Input.GetKeyUp (key.input);
+				// JNN: replaced
+				return Input.GetKeyUp (key.input) || Input.GetKeyUp(key.altInput);
 			}
 		}
 		
@@ -65,9 +71,12 @@ public class RebindableInput : MonoBehaviour
 		{
 			if (axis.axisName == axisName)
 			{
-				bool posPressed = Input.GetKey (axis.axisPos);
-				bool negPressed = Input.GetKey (axis.axisNeg);
-				
+				//bool posPressed = Input.GetKey (axis.axisPos);
+				//bool negPressed = Input.GetKey (axis.axisNeg);
+				// JNN: replaced
+				bool posPressed = Input.GetKey (axis.axisPos) || Input.GetKey(axis.altAxisPos);
+				bool negPressed = Input.GetKey (axis.axisNeg) || Input.GetKey(axis.altAxisNeg);
+
 				return 0 + (posPressed ? 1 : 0) - (negPressed ? 1 : 0);
 			}
 		}
@@ -84,6 +93,22 @@ public class RebindableInput : MonoBehaviour
 			if (key.inputName == inputName)
 			{
 				return key.input;
+			}
+		}
+		
+		throw new RebindableNotFoundException ("The rebindable key '" + inputName + "' was not found.\nBe sure you have created it and haven't misspelled it.");
+	}
+
+	// JNN: added
+	public static KeyCode GetAltKeyFromBinding (string inputName)
+	{
+		List<RebindableKey> keyDatabase = rebindableManager.GetCurrentKeys ();
+		
+		foreach (RebindableKey key in keyDatabase)
+		{
+			if (key.inputName == inputName)
+			{
+				return key.altInput;
 			}
 		}
 		
@@ -114,6 +139,38 @@ public class RebindableInput : MonoBehaviour
 			if (axis.axisName == axisName)
 			{
 				return axis.axisNeg;
+			}
+		}
+		
+		throw new RebindableNotFoundException ("The rebindable axis '" + axisName + "' was not found.\nBe sure you have created it and haven't misspelled it.");
+	}
+
+	// JNN: added
+	public static KeyCode GetAltPositiveFromAxis (string axisName)
+	{
+		List<RebindableAxis> axisDatabase = rebindableManager.GetCurrentAxes ();
+		
+		foreach (RebindableAxis axis in axisDatabase)
+		{
+			if (axis.axisName == axisName)
+			{
+				return axis.altAxisPos;
+			}
+		}
+		
+		throw new RebindableNotFoundException ("The rebindable axis '" + axisName + "' was not found.\nBe sure you have created it and haven't misspelled it.");
+	}
+
+	// JNN: added
+	public static KeyCode GetAltNegativeFromAxis (string axisName)
+	{
+		List<RebindableAxis> axisDatabase = rebindableManager.GetCurrentAxes ();
+		
+		foreach (RebindableAxis axis in axisDatabase)
+		{
+			if (axis.axisName == axisName)
+			{
+				return axis.altAxisNeg;
 			}
 		}
 		

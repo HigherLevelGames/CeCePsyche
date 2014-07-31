@@ -283,7 +283,7 @@ MonoBehaviour:
     y: 10
     width: 20
     height: 80
---- !u!1001 &908797819
+--- !u!1001 &1358751832
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -331,7 +331,7 @@ Prefab:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 077d89355255344baa76d80fb89a96ac, type: 2}
-  m_PrefabInternal: {fileID: 908797819}
+  m_PrefabInternal: {fileID: 1358751832}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1665446711}
@@ -348,7 +348,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 077d89355255344baa76d80fb89a96ac, type: 2}
-  m_PrefabInternal: {fileID: 908797819}
+  m_PrefabInternal: {fileID: 1358751832}
   m_GameObject: {fileID: 1665446710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 077d89355255344baa76d80fb89a96ac,
     type: 2}
-  m_PrefabInternal: {fileID: 908797819}
+  m_PrefabInternal: {fileID: 1358751832}
   m_GameObject: {fileID: 1665446710}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400002, guid: 077d89355255344baa76d80fb89a96ac,
     type: 2}
-  m_PrefabInternal: {fileID: 908797819}
+  m_PrefabInternal: {fileID: 1358751832}
   m_GameObject: {fileID: 1665446710}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -383,18 +383,28 @@ MonoBehaviour:
   defaultRebindableKeys:
   - inputName: Jump
     input: 32
+    altInput: 0
   - inputName: Interact
     input: 13
+    altInput: 122
+  - inputName: Ability
+    input: 120
+    altInput: 0
   - inputName: Pause
     input: 112
+    altInput: 27
   defaultRebindableAxes:
   - axisName: Vertical
-    axisPosName: Forward
-    axisNegName: Backward
+    axisPosName: Up
+    axisNegName: Down
     axisPos: 119
     axisNeg: 115
+    altAxisPos: 273
+    altAxisNeg: 274
   - axisName: Horizontal
     axisPosName: Right
     axisNegName: Left
     axisPos: 100
     axisNeg: 97
+    altAxisPos: 275
+    altAxisNeg: 276

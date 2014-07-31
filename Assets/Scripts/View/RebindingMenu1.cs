@@ -10,7 +10,9 @@ public class RebindingMenu1 : Menu
 
 	private List<RebindableKey> rebindKeys;
 	private List<RebindableAxis> rebindAxes;
-	
+
+	// JNN TODO: easy way to do this using 4-bits, but for now, this is good enough
+	private bool isAlt = false;
 	private bool rebinding = false;
 	private bool rebindingAxPo = false;
 	private bool rebindingAxNe = false;
@@ -49,11 +51,25 @@ public class RebindingMenu1 : Menu
 					{
 						if (rebindingAxPo)
 						{
-							rebindAxes[k].axisPos = reboundKey;
+							if(isAlt)
+							{
+								rebindAxes[k].altAxisPos = reboundKey;
+							}
+							else
+							{
+								rebindAxes[k].axisPos = reboundKey;
+							}
 						}
 						else
 						{
-							rebindAxes[k].axisNeg = reboundKey;
+							if(isAlt)
+							{
+								rebindAxes[k].altAxisNeg = reboundKey;
+							}
+							else
+							{
+								rebindAxes[k].axisNeg = reboundKey;
+							}
 						}
 					}
 				}
@@ -64,7 +80,14 @@ public class RebindingMenu1 : Menu
 				{
 					if (rebindKeys[l].inputName == objToRebind)
 					{
-						rebindKeys[l].input = reboundKey;
+						if(isAlt)
+						{
+							rebindKeys[l].altInput = reboundKey;
+						}
+						else
+						{
+							rebindKeys[l].input = reboundKey;
+						}
 					}
 				}
 			}
@@ -79,60 +102,23 @@ public class RebindingMenu1 : Menu
 	public override void ShowMe ()
 	{
 		GUILayout.BeginArea(Utility.adjRect(box));
-
 		GUILayout.BeginVertical ("box");
-		GUILayout.Label ("Normal Keybinds");
 
-		GUILayout.BeginHorizontal ();
-		GUILayout.Label ("Key Name:");
-		GUILayout.Label ("Key Code:");
-		GUILayout.EndHorizontal ();
-		
-		for (int i = 0; i < rebindKeys.Count; i++)
-		{
-			GUILayout.BeginHorizontal();
-			GUILayout.Label (rebindKeys[i].inputName);
-			
-			if (GUILayout.Button (rebindKeys[i].input.ToString ()))
-			{
-				rebinding = true;
-				objToRebind = rebindKeys[i].inputName;
-			}
-			
-			GUILayout.EndHorizontal();
-		}
+		ShowKeyBindOptions();
 		
 		GUILayout.Label ("");
-		GUILayout.Label ("Axis Keybinds");
-		
-		GUILayout.BeginHorizontal ();
-		GUILayout.Label ("Axis Name:");
-		GUILayout.Label ("Positive:");
-		GUILayout.Label ("Negative:");
-		GUILayout.EndHorizontal ();
-		
-		for (int j = 0; j < rebindAxes.Count; j++)
+
+		ShowAxisBindOptions();
+
+		if (rebinding)
 		{
-			GUILayout.BeginHorizontal();
-			GUILayout.Label (rebindAxes[j].axisName);
-			
-			if (GUILayout.Button (rebindAxes[j].axisPos.ToString ()))
-			{
-				rebinding = true;
-				rebindingAxPo = true;
-				objToRebind = rebindAxes[j].axisName;
-			}
-			
-			if (GUILayout.Button (rebindAxes[j].axisNeg.ToString ()))
-			{
-				rebinding = true;
-				rebindingAxNe = true;
-				objToRebind = rebindAxes[j].axisName;
-			}
-			
-			GUILayout.EndHorizontal();
+			GUILayout.Label("<color=cyan>Press any key to rebind.</color>");
 		}
-		
+		else
+		{
+			GUILayout.Label("");
+		}
+
 		GUILayout.BeginHorizontal();
 		
 		if (GUILayout.Button("Save to File"))
@@ -150,24 +136,140 @@ public class RebindingMenu1 : Menu
 		}
 		
 		GUILayout.EndHorizontal();
-		
-		if (rebinding)
-		{
-			GUILayout.Label("Press any key to rebind.");
-		}
-		else
-		{
-			GUILayout.Label("");
-		}
 
 		GUILayout.Label("");
+
 		if(GUILayout.Button("Back"))
 		{
 			OnChanged(EventArgs.Empty, 1);
 		}
-		GUILayout.EndVertical ();
 
+		GUILayout.EndVertical ();
 		GUILayout.EndArea();
+	}
+	
+	void ShowKeyBindOptions()
+	{
+		GUILayout.Label ("Normal Keybinds");
+		
+		GUILayout.BeginHorizontal ();
+
+		// Column 1
+		GUILayout.BeginVertical();
+		GUILayout.Label ("Key Name:");
+		for (int i = 0; i < rebindKeys.Count; i++)
+		{
+			GUILayout.Label (rebindKeys[i].inputName);
+		}
+		GUILayout.EndVertical();
+
+		// Column 2
+		GUILayout.BeginVertical();
+		GUILayout.Label ("Key Code:");
+		for (int i = 0; i < rebindKeys.Count; i++)
+		{
+			if (GUILayout.Button (rebindKeys[i].input.ToString ()))
+			{
+				isAlt = false;
+				rebinding = true;
+				objToRebind = rebindKeys[i].inputName;
+			}
+		}
+		GUILayout.EndVertical();
+
+		// Column 3
+		GUILayout.BeginVertical();
+		GUILayout.Label ("Alt Key Code:");
+		for (int i = 0; i < rebindKeys.Count; i++)
+		{
+			if (GUILayout.Button (rebindKeys[i].altInput.ToString ()))
+			{
+				isAlt = true;
+				rebinding = true;
+				objToRebind = rebindKeys[i].inputName;
+			}
+		}
+		GUILayout.EndVertical();
+
+		GUILayout.EndHorizontal ();		
+	}
+
+	void ShowAxisBindOptions()
+	{
+		GUILayout.Label ("Axis Keybinds");
+		
+		GUILayout.BeginHorizontal ();
+
+		// Column 1
+		GUILayout.BeginVertical();
+		GUILayout.Label ("Axis Name:");
+		for (int j = 0; j < rebindAxes.Count; j++)
+		{
+			GUILayout.Label (rebindAxes[j].axisName);
+		}
+		GUILayout.EndVertical();
+
+		// Column 2
+		GUILayout.BeginVertical();
+		GUILayout.Label ("Positive:");
+		for (int j = 0; j < rebindAxes.Count; j++)
+		{
+			if (GUILayout.Button (rebindAxes[j].axisPos.ToString ()))
+			{
+				isAlt = false;
+				rebinding = true;
+				rebindingAxPo = true;
+				objToRebind = rebindAxes[j].axisName;
+			}
+		}
+		GUILayout.EndVertical();
+
+		// Column 3
+		GUILayout.BeginVertical();
+		GUILayout.Label ("Negative:");
+		for (int j = 0; j < rebindAxes.Count; j++)
+		{
+			if (GUILayout.Button (rebindAxes[j].axisNeg.ToString ()))
+			{
+				isAlt = false;
+				rebinding = true;
+				rebindingAxNe = true;
+				objToRebind = rebindAxes[j].axisName;
+			}
+		}
+		GUILayout.EndVertical();
+
+		// Column 4
+		GUILayout.BeginVertical();
+		GUILayout.Label ("Alt Positive:");
+		for (int j = 0; j < rebindAxes.Count; j++)
+		{
+			if (GUILayout.Button (rebindAxes[j].altAxisPos.ToString ()))
+			{
+				isAlt = true;
+				rebinding = true;
+				rebindingAxPo = true;
+				objToRebind = rebindAxes[j].axisName;
+			}
+		}
+		GUILayout.EndVertical();
+
+		// Column 5
+		GUILayout.BeginVertical();
+		GUILayout.Label ("Alt Negative:");
+		for (int j = 0; j < rebindAxes.Count; j++)
+		{
+			if (GUILayout.Button (rebindAxes[j].altAxisNeg.ToString ()))
+			{
+				isAlt = true;
+				rebinding = true;
+				rebindingAxNe = true;
+				objToRebind = rebindAxes[j].axisName;
+			}
+		}
+		GUILayout.EndVertical();
+
+		GUILayout.EndHorizontal ();		
 	}
 	
 	KeyCode FetchPressedKey ()

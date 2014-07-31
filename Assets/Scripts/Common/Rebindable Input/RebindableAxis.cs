@@ -10,6 +10,9 @@ public class RebindableAxis
 	
 	public KeyCode axisPos = KeyCode.W;
 	public KeyCode axisNeg = KeyCode.S;
+	// JNN: added
+	public KeyCode altAxisPos = KeyCode.None;
+	public KeyCode altAxisNeg = KeyCode.None;
 	
 	public RebindableAxis () { }
 	
@@ -18,5 +21,15 @@ public class RebindableAxis
 		axisName = name;
 		axisPos = positive;
 		axisNeg = negative;
+	}
+
+	// JNN: added
+	public RebindableAxis (string name, KeyCode positive, KeyCode negative, KeyCode altPositive, KeyCode altNegative)
+	{
+		axisName = name;
+		axisPos = positive;
+		axisNeg = negative;
+		altAxisPos = altPositive;
+		altAxisNeg = altNegative;
 	}
 }

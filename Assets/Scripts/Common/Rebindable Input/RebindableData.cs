@@ -43,12 +43,18 @@ public class RebindableData : MonoBehaviour
 			
 			string[] keyNames = keybindPrefsSplit[0].Split ("*".ToCharArray ());
 			string[] keyValues = keybindPrefsSplit[1].Split ("*".ToCharArray ());
-			
+			// JNN: added
+			string[] altKeyValues = keybindPrefsSplit[2].Split ("*".ToCharArray ());
+
 			List <RebindableKey> keys = new List<RebindableKey> ();
 			
 			for (int i = 0; i < keyNames.Length; i++)
 			{
-				keys.Add (new RebindableKey(keyNames[i], (KeyCode)int.Parse (keyValues[i])));
+				//keys.Add (new RebindableKey(keyNames[i], (KeyCode)int.Parse (keyValues[i])));
+				// JNN: replaced
+				keys.Add(new RebindableKey(keyNames[i],
+				                           (KeyCode)int.Parse(keyValues[i]),
+				                           (KeyCode)int.Parse(altKeyValues[i])));
 			}
 			
 			return keys;
@@ -70,12 +76,21 @@ public class RebindableData : MonoBehaviour
 			string[] axisNames = axisPrefsSplit[0].Split ("*".ToCharArray ());
 			string[] axisPoses = axisPrefsSplit[1].Split ("*".ToCharArray ());
 			string[] axisNegss = axisPrefsSplit[2].Split ("*".ToCharArray ());
-			
+			//JNN: added
+			string[] altAxisPoses = axisPrefsSplit[3].Split ("*".ToCharArray ());
+			string[] altAxisNegss = axisPrefsSplit[4].Split ("*".ToCharArray ());
+
 			List<RebindableAxis> axes = new List<RebindableAxis> ();
 			
 			for (int i = 0; i < axisNames.Length; i++)
 			{
-				axes.Add (new RebindableAxis(axisNames[i], (KeyCode)int.Parse (axisPoses[i]), (KeyCode)int.Parse (axisNegss[i])));
+				//axes.Add (new RebindableAxis(axisNames[i], (KeyCode)int.Parse (axisPoses[i]), (KeyCode)int.Parse (axisNegss[i])));
+				// JNN: replaced
+				axes.Add (new RebindableAxis(axisNames[i],
+				                             (KeyCode)int.Parse (axisPoses[i]),
+				                             (KeyCode)int.Parse (axisNegss[i]),
+				                             (KeyCode)int.Parse (altAxisPoses[i]),
+				                             (KeyCode)int.Parse (altAxisNegss[i])));
 			}		
 			
 			return axes;
@@ -116,6 +131,8 @@ public class RebindableData : MonoBehaviour
 	{
 		string keyNames = "";
 		string keyValues = "";
+		// JNN: added
+		string altKeyValues = "";
 		
 		savedRebindableKeys = new List<RebindableKey> (rebindableKeys);
 		
@@ -125,15 +142,23 @@ public class RebindableData : MonoBehaviour
 			{
 				keyNames += rebindableKeys[i].inputName + "*";
 				keyValues += ((int)rebindableKeys[i].input).ToString () + "*";
+
+				// JNN: added
+				altKeyValues += ((int)rebindableKeys[i].altInput).ToString () + "*";
 			}
 			else
 			{
 				keyNames += rebindableKeys[i].inputName;
 				keyValues += ((int)rebindableKeys[i].input).ToString ();
+
+				// JNN: added
+				altKeyValues += ((int)rebindableKeys[i].altInput).ToString ();
 			}
 		}
 		
-		string prefsToSave = keyNames + "\n" + keyValues;
+		//string prefsToSave = keyNames + "\n" + keyValues;
+		// JNN: replaced
+		string prefsToSave = keyNames + "\n" + keyValues + "\n" + altKeyValues;
 		
 		PlayerPrefs.SetString ("RebindableKeyPrefs", prefsToSave);
 	}
@@ -143,6 +168,9 @@ public class RebindableData : MonoBehaviour
 		string axisNames = "";
 		string axisPoses = "";
 		string axisNegss = "";
+		// JNN: added
+		string altAxisPoses = "";
+		string altAxisNegss = "";
 		
 		savedRebindableAxes = new List<RebindableAxis> (rebindableAxes);
 		
@@ -153,16 +181,24 @@ public class RebindableData : MonoBehaviour
 				axisNames += rebindableAxes[i].axisName + "*";
 				axisPoses += ((int)rebindableAxes[i].axisPos).ToString () + "*";
 				axisNegss += ((int)rebindableAxes[i].axisNeg).ToString () + "*";
+				// JNN: added
+				altAxisPoses += ((int)rebindableAxes[i].altAxisPos).ToString () + "*";
+				altAxisNegss += ((int)rebindableAxes[i].altAxisNeg).ToString () + "*";
 			}
 			else
 			{
 				axisNames += rebindableAxes[i].axisName;
 				axisPoses += ((int)rebindableAxes[i].axisPos).ToString ();
 				axisNegss += ((int)rebindableAxes[i].axisNeg).ToString ();
+				// JNN: added
+				altAxisPoses += ((int)rebindableAxes[i].altAxisPos).ToString ();
+				altAxisNegss += ((int)rebindableAxes[i].altAxisNeg).ToString ();
 			}
 		}
 		
-		string prefsToSave = axisNames + "\n" + axisPoses + "\n" + axisNegss;
+		//string prefsToSave = axisNames + "\n" + axisPoses + "\n" + axisNegss;
+		// JNN: replaced
+		string prefsToSave = axisNames + "\n" + axisPoses + "\n" + axisNegss + "\n" + altAxisPoses + "\n" + altAxisNegss;
 		
 		PlayerPrefs.SetString ("RebindableAxisPrefs", prefsToSave);
 	}
@@ -173,7 +209,9 @@ public class RebindableData : MonoBehaviour
 		
 		foreach (RebindableKey key in listToCopy)
 		{
-			listToReturn.Add (new RebindableKey(key.inputName, key.input));
+			//listToReturn.Add (new RebindableKey(key.inputName, key.input));
+			// JNN: replaced
+			listToReturn.Add (new RebindableKey(key.inputName, key.input, key.altInput));
 		}
 		
 		return listToReturn;
@@ -185,7 +223,9 @@ public class RebindableData : MonoBehaviour
 		
 		foreach (RebindableAxis axis in listToCopy)
 		{
-			listToReturn.Add (new RebindableAxis(axis.axisName, axis.axisPos, axis.axisNeg));
+			//listToReturn.Add (new RebindableAxis(axis.axisName, axis.axisPos, axis.axisNeg));
+			// JNN: replaced
+			listToReturn.Add (new RebindableAxis(axis.axisName, axis.axisPos, axis.axisNeg, axis.altAxisPos, axis.altAxisNeg));
 		}
 		
 		return listToReturn;

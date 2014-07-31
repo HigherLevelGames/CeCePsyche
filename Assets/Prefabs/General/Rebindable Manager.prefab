@@ -54,21 +54,31 @@ MonoBehaviour:
   defaultRebindableKeys:
   - inputName: Jump
     input: 32
+    altInput: 0
   - inputName: Interact
     input: 13
+    altInput: 122
+  - inputName: Ability
+    input: 120
+    altInput: 0
   - inputName: Pause
     input: 112
+    altInput: 27
   defaultRebindableAxes:
   - axisName: Vertical
-    axisPosName: Forward
-    axisNegName: Backward
+    axisPosName: Up
+    axisNegName: Down
     axisPos: 119
     axisNeg: 115
+    altAxisPos: 273
+    altAxisNeg: 274
   - axisName: Horizontal
     axisPosName: Right
     axisNegName: Left
     axisPos: 100
     axisNeg: 97
+    altAxisPos: 275
+    altAxisNeg: 276
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
