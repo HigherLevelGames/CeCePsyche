@@ -393,6 +393,12 @@ MonoBehaviour:
   - inputName: Pause
     input: 112
     altInput: 27
+  - inputName: UseItem
+    input: 323
+    altInput: 0
+  - inputName: Hint
+    input: 324
+    altInput: 0
   defaultRebindableAxes:
   - axisName: Vertical
     axisPosName: Up

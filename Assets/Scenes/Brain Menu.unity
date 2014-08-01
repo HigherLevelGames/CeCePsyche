@@ -118,21 +118,37 @@ MonoBehaviour:
   defaultRebindableKeys:
   - inputName: Jump
     input: 32
+    altInput: 0
   - inputName: Interact
     input: 13
+    altInput: 122
+  - inputName: Ability
+    input: 120
+    altInput: 0
   - inputName: Pause
     input: 112
+    altInput: 27
+  - inputName: UseItem
+    input: 323
+    altInput: 0
+  - inputName: Hint
+    input: 324
+    altInput: 0
   defaultRebindableAxes:
   - axisName: Vertical
-    axisPosName: Forward
-    axisNegName: Backward
+    axisPosName: Up
+    axisNegName: Down
     axisPos: 119
     axisNeg: 115
+    altAxisPos: 273
+    altAxisNeg: 274
   - axisName: Horizontal
     axisPosName: Right
     axisNegName: Left
     axisPos: 100
     axisNeg: 97
+    altAxisPos: 275
+    altAxisNeg: 276
 --- !u!4 &117426641
 Transform:
   m_ObjectHideFlags: 0
@@ -1243,7 +1259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5fd3210731c44d7aa0416a32fdc74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: City High School or Some Other Local
+  levelName: Cityscape
   enterButton: {fileID: 346659234}
   blurb: {fileID: 0}
   MaxDistanceFromPivot: .5
@@ -2985,7 +3001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5fd3210731c44d7aa0416a32fdc74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: RoadHome
+  levelName: RoadHome1
   enterButton: {fileID: 346659234}
   blurb: {fileID: 1037483412}
   MaxDistanceFromPivot: .5
