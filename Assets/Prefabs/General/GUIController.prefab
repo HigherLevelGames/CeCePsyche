@@ -8,8 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: GUIController
   m_TagString: Untagged
@@ -25,8 +25,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400002}
-  - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: Rebindable Manager
   m_TagString: Untagged
@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 41.3243561, y: 8.10375977, z: -0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400002}
@@ -89,9 +89,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cffbbe23c050b1f4b9db1fa3f2ba9938, type: 3}
+  m_Script: {fileID: 11500000, guid: 516a82fd18676c242ada027fbaa6b80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultRebindableKeys:
+  - inputName: Jump
+    input: 32
+    altInput: 0
+  - inputName: Interact
+    input: 13
+    altInput: 122
+  - inputName: Ability
+    input: 120
+    altInput: 0
+  - inputName: Pause
+    input: 112
+    altInput: 27
+  defaultRebindableAxes:
+  - axisName: Vertical
+    axisPosName: Up
+    axisNegName: Down
+    axisPos: 119
+    axisNeg: 115
+    altAxisPos: 273
+    altAxisNeg: 274
+  - axisName: Horizontal
+    axisPosName: Right
+    axisNegName: Left
+    axisPos: 100
+    axisNeg: 97
+    altAxisPos: 275
+    altAxisNeg: 276
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,27 +128,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 516a82fd18676c242ada027fbaa6b80e, type: 3}
+  m_Script: {fileID: 11500000, guid: cffbbe23c050b1f4b9db1fa3f2ba9938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultRebindableKeys:
-  - inputName: Jump
-    input: 32
-  - inputName: Interact
-    input: 13
-  - inputName: Pause
-    input: 112
-  defaultRebindableAxes:
-  - axisName: Vertical
-    axisPosName: Forward
-    axisNegName: Backward
-    axisPos: 119
-    axisNeg: 115
-  - axisName: Horizontal
-    axisPosName: Right
-    axisNegName: Left
-    axisPos: 100
-    axisNeg: 97
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
