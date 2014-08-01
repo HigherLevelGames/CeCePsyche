@@ -169,8 +169,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 346659231}
-  - 33: {fileID: 346659235}
-  - 23: {fileID: 346659234}
+  - 212: {fileID: 346659233}
   - 111: {fileID: 346659232}
   m_Layer: 0
   m_Name: EnterRenderer
@@ -187,7 +186,7 @@ Transform:
   m_GameObject: {fileID: 346659230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 5.6124959, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1665524005}
   m_RootOrder: 0
@@ -206,33 +205,28 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!23 &346659234
-Renderer:
+--- !u!212 &346659233
+SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 346659230}
   m_Enabled: 0
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 3702aeea7b17a4c1b87ba7f7766137ae, type: 2}
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 4077982813
   m_SortingOrder: 0
---- !u!33 &346659235
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 346659230}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: ea945ca5b22284445879402be8c9d95c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &489831771
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Garden
-  enterButton: {fileID: 346659234}
+  enterButton: {fileID: 346659233}
   blurb: {fileID: 0}
   MaxDistanceFromPivot: .5
   speed: .100000001
@@ -636,7 +630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: House
-  enterButton: {fileID: 346659234}
+  enterButton: {fileID: 346659233}
   blurb: {fileID: 0}
   MaxDistanceFromPivot: .5
   speed: .100000001
@@ -1158,7 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Cityscape
-  enterButton: {fileID: 346659234}
+  enterButton: {fileID: 346659233}
   blurb: {fileID: 0}
   MaxDistanceFromPivot: .5
   speed: .100000001
@@ -2900,7 +2894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: RoadHome1
-  enterButton: {fileID: 346659234}
+  enterButton: {fileID: 346659233}
   blurb: {fileID: 1037483412}
   MaxDistanceFromPivot: .5
   speed: .100000001

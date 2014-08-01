@@ -29,7 +29,7 @@ public class MenuManager : MonoBehaviour
 		menus[1] = new OptionMenu(menuBox);
 		menus[2] = new AudioMenu(menuBox);
 		menus[3] = new GraphicsMenu(menuBox);
-		menus[4] = new RebindingMenu1(menuBox);
+		menus[4] = new RebindingMenu(menuBox);
 		//menus[5] = new ExtrasMenu(menuBox);
 
 		for(int i = 0; i < 5; i++)

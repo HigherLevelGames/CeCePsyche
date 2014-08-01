@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Common;
 
-public class RebindingMenu1 : Menu
+public class RebindingMenu : Menu
 {
 	public RebindableData rebindableManager;
 
@@ -19,7 +19,7 @@ public class RebindingMenu1 : Menu
 	
 	private string objToRebind = "";
 	
-	public RebindingMenu1(Rect menuArea) : base(menuArea)
+	public RebindingMenu(Rect menuArea) : base(menuArea)
 	{
 		rebindableManager = GameObject.Find("Rebindable Manager").GetComponent<RebindableData>();
 		rebindKeys = rebindableManager.GetCurrentKeys();

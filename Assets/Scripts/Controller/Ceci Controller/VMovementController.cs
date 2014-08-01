@@ -30,7 +30,7 @@ public class VMovementController : MonoBehaviour
 	}
 
 	float ClimbSpeed = 10.0f;
-	float prevVValue = 0.0f; // for Input.GetAxis()
+	int prevVValue = 0; // for Input.GetAxis()
 
 	// Jump Variables
 	float JumpSpeed = 10.0f;
@@ -109,10 +109,10 @@ public class VMovementController : MonoBehaviour
 	// and changes CurJumpState accordingly to either Jumping or Falling
 	void JumpControl()
 	{
-		float curVValue = Input.GetAxis("Vertical");
+		int curVValue = RebindableInput.GetAxis("Vertical");
 
 		// pressed jump once
-		if((RebindableInput.GetKeyDown("Jump") || (curVValue > 0.0f && prevVValue == 0.0f))
+		if((RebindableInput.GetKeyDown("Jump") || (curVValue > 0 && prevVValue == 0))
 				&& CurJumpState == JumpState.Grounded)
 		{
 			CurJumpState = JumpState.Jumping;
@@ -126,7 +126,7 @@ public class VMovementController : MonoBehaviour
 		}
 
 		// press and hold jump button
-		if((RebindableInput.GetKey("Jump") || curVValue > 0.0f)
+		if((RebindableInput.GetKey("Jump") || curVValue > 0)
 				&& CanVarJump)
 		{
 			VarJumpElapsedTime += Time.deltaTime;
@@ -144,7 +144,7 @@ public class VMovementController : MonoBehaviour
 		}
 
 		// released Jump Button
-		if(RebindableInput.GetKeyUp("Jump") || (curVValue == 0.0f && prevVValue != 0.0f))
+		if(RebindableInput.GetKeyUp("Jump") || (curVValue == 0 && prevVValue != 0))
 		{
 			CurJumpState = JumpState.Falling;
 			VVelocity = 0.0f;
