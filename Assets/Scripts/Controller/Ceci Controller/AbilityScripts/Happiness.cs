@@ -39,7 +39,7 @@ public class Happiness : Ability
 
 		// stop ability to float/fly
 		this.GetComponent<VMovementController>().lockVertical = false;
-		this.rigidbody2D.gravityScale = 1.0f;
+		this.rigidbody2D.gravityScale = 0.0f;//1.0f;
 		isHappy = false;
 	}
 

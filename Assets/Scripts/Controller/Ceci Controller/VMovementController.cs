@@ -68,17 +68,20 @@ public class VMovementController : MonoBehaviour
 		BoxCollider2D col = this.collider2D as BoxCollider2D;
 
 		// middle
-		Vector2 myPos = Utility.toVector2(this.transform.position) + col.center * this.transform.localScale.x;
-		Vector2 groundPos = myPos - Vector2.up * col.size.y * 0.75f * this.transform.localScale.x;
+		//Vector2 myPos = Utility.toVector2(this.transform.position) + col.center * this.transform.localScale.x;
+		int modifier = (this.transform.rotation.y == 0.0f) ? 1 : -1;
+		Vector2 myPos = Utility.toVector2(this.transform.position) + new Vector2(col.center.x*modifier, col.center.y) * this.transform.localScale.x;
+		Vector2 groundPos = myPos - Vector2.up * col.size.y * 0.55f/*0.75f*/ * this.transform.localScale.x;
+		myPos -= Vector2.up * col.size.y * 0.45f * this.transform.localScale.x;
 		bool grounded = Physics2D.Linecast(myPos, groundPos, 1 << LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(myPos, groundPos, Color.magenta);
-		
+
 		// right
 		Vector2 temp = myPos + Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
 		Vector2 temp2 = groundPos + Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
 		bool grounded2 = Physics2D.Linecast(temp, temp2, 1<<LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(temp, temp2, Color.magenta);
-		
+
 		// left
 		temp = myPos - Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
 		temp2 = groundPos - Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
@@ -97,11 +100,14 @@ public class VMovementController : MonoBehaviour
 	
 	void Movement()
 	{
-		VVelocity -= 0.5f * Time.deltaTime;
-		this.transform.position += Vector3.up * VVelocity * Time.deltaTime;
 		if(CurJumpState == JumpState.Grounded)
 		{
 			VVelocity = 0.0f;
+		}
+		else
+		{
+			this.transform.position += Vector3.up * VVelocity * Time.deltaTime;
+			VVelocity -= 0.5f;// * Time.deltaTime;
 		}
 	}
 
@@ -110,6 +116,8 @@ public class VMovementController : MonoBehaviour
 	void JumpControl()
 	{
 		int curVValue = RebindableInput.GetAxis("Vertical");
+
+		this.rigidbody2D.gravityScale = (curVValue < 0) ? 1.0f : 0.0f;
 
 		// pressed jump once
 		if((RebindableInput.GetKeyDown("Jump") || (curVValue > 0 && prevVValue == 0))
@@ -147,7 +155,7 @@ public class VMovementController : MonoBehaviour
 		if(RebindableInput.GetKeyUp("Jump") || (curVValue == 0 && prevVValue != 0))
 		{
 			CurJumpState = JumpState.Falling;
-			VVelocity = 0.0f;
+			VVelocity = (VVelocity > 0.0f) ? 0.0f : VVelocity;
 			CanVarJump = false;
 		}
 		//Debug.Log(CurJumpState);

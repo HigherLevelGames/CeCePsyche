@@ -11,11 +11,19 @@ public class RebindingMenu : Menu
 	private List<RebindableKey> rebindKeys;
 	private List<RebindableAxis> rebindAxes;
 
-	// JNN TODO: easy way to do this using 4-bits, but for now, this is good enough
-	private bool isAlt = false;
-	private bool rebinding = false;
-	private bool rebindingAxPo = false;
-	private bool rebindingAxNe = false;
+	[Flags]
+	private enum RebindFlag
+	{
+		stopRebinding = 0,
+		isRebinding = 1 << 0,
+		isAlternate = 1 << 1,
+		isAxes = 1 << 2,
+		isAxisPos = 1 << 3,
+
+		// multiple flags shortcut
+		isAltAxisPos = isAlternate | isAxisPos // | isAxis
+	}
+	RebindFlag flag = RebindFlag.stopRebinding;
 	
 	private string objToRebind = "";
 	
@@ -29,58 +37,42 @@ public class RebindingMenu : Menu
 	// May use this: http://forum.unity3d.com/threads/wait-for-input.74034/
 	public override void Update ()
 	{
-		if (rebinding && Input.anyKeyDown)
+		if (((flag & RebindFlag.isRebinding) != 0) && Input.anyKeyDown)
 		{
 			KeyCode reboundKey = FetchPressedKey();
-			
-			if (reboundKey == KeyCode.None)
-			{
-				if (Input.GetKeyDown(KeyCode.LeftAlt)) { reboundKey = KeyCode.LeftAlt; }
-				if (Input.GetKeyDown(KeyCode.RightAlt)) { reboundKey = KeyCode.RightAlt; }
-				if (Input.GetKeyDown(KeyCode.LeftShift)) { reboundKey = KeyCode.LeftShift; }
-				if (Input.GetKeyDown(KeyCode.RightShift)) { reboundKey = KeyCode.RightShift; }
-				if (Input.GetKeyDown(KeyCode.LeftControl)) { reboundKey = KeyCode.LeftControl; }
-				if (Input.GetKeyDown(KeyCode.RightControl)) { reboundKey = KeyCode.RightControl; }
-			}
-			
-			if (rebindingAxPo || rebindingAxNe)
+
+			if((flag & RebindFlag.isAxes) != 0)
 			{
 				for (int k = 0; k < rebindAxes.Count; k++)
 				{
 					if (rebindAxes[k].axisName == objToRebind)
 					{
-						if (rebindingAxPo)
+						if ((flag & RebindFlag.isAltAxisPos) == RebindFlag.isAltAxisPos)
 						{
-							if(isAlt)
-							{
-								rebindAxes[k].altAxisPos = reboundKey;
-							}
-							else
-							{
-								rebindAxes[k].axisPos = reboundKey;
-							}
+							rebindAxes[k].altAxisPos = reboundKey;
 						}
-						else
+						else if((flag & RebindFlag.isAxisPos) != 0)
 						{
-							if(isAlt)
-							{
-								rebindAxes[k].altAxisNeg = reboundKey;
-							}
-							else
-							{
-								rebindAxes[k].axisNeg = reboundKey;
-							}
+							rebindAxes[k].axisPos = reboundKey;
+						}
+						else if((flag & RebindFlag.isAlternate) != 0) // rebinding alt negative axis
+						{
+							rebindAxes[k].altAxisNeg = reboundKey;
+						}
+						else // rebinding negative axis
+						{
+							rebindAxes[k].axisNeg = reboundKey;
 						}
 					}
 				}
 			}
-			else
+			else // rebinding key
 			{
 				for (int l = 0; l < rebindKeys.Count; l++)
 				{
 					if (rebindKeys[l].inputName == objToRebind)
 					{
-						if(isAlt)
+						if((flag & RebindFlag.isAlternate) != 0)
 						{
 							rebindKeys[l].altInput = reboundKey;
 						}
@@ -91,11 +83,8 @@ public class RebindingMenu : Menu
 					}
 				}
 			}
-			
 			objToRebind = "";
-			rebinding = false;
-			rebindingAxPo = false;
-			rebindingAxNe = false;
+			flag = RebindFlag.stopRebinding;
 		}
 	}
 	
@@ -110,7 +99,7 @@ public class RebindingMenu : Menu
 
 		ShowAxisBindOptions();
 
-		if (rebinding)
+		if ((flag & RebindFlag.isRebinding) != 0)
 		{
 			GUILayout.Label("<color=cyan>Press any key to rebind.</color>");
 		}
@@ -170,8 +159,7 @@ public class RebindingMenu : Menu
 		{
 			if (GUILayout.Button (rebindKeys[i].input.ToString ()))
 			{
-				isAlt = false;
-				rebinding = true;
+				flag = RebindFlag.isRebinding;
 				objToRebind = rebindKeys[i].inputName;
 			}
 		}
@@ -184,8 +172,7 @@ public class RebindingMenu : Menu
 		{
 			if (GUILayout.Button (rebindKeys[i].altInput.ToString ()))
 			{
-				isAlt = true;
-				rebinding = true;
+				flag = RebindFlag.isRebinding | RebindFlag.isAlternate;
 				objToRebind = rebindKeys[i].inputName;
 			}
 		}
@@ -216,9 +203,7 @@ public class RebindingMenu : Menu
 		{
 			if (GUILayout.Button (rebindAxes[j].axisPos.ToString ()))
 			{
-				isAlt = false;
-				rebinding = true;
-				rebindingAxPo = true;
+				flag = RebindFlag.isRebinding | RebindFlag.isAxes | RebindFlag.isAxisPos;
 				objToRebind = rebindAxes[j].axisName;
 			}
 		}
@@ -231,9 +216,7 @@ public class RebindingMenu : Menu
 		{
 			if (GUILayout.Button (rebindAxes[j].axisNeg.ToString ()))
 			{
-				isAlt = false;
-				rebinding = true;
-				rebindingAxNe = true;
+				flag = RebindFlag.isRebinding | RebindFlag.isAxes;
 				objToRebind = rebindAxes[j].axisName;
 			}
 		}
@@ -246,9 +229,7 @@ public class RebindingMenu : Menu
 		{
 			if (GUILayout.Button (rebindAxes[j].altAxisPos.ToString ()))
 			{
-				isAlt = true;
-				rebinding = true;
-				rebindingAxPo = true;
+				flag = RebindFlag.isRebinding | RebindFlag.isAlternate | RebindFlag.isAxes | RebindFlag.isAxisPos;
 				objToRebind = rebindAxes[j].axisName;
 			}
 		}
@@ -261,9 +242,7 @@ public class RebindingMenu : Menu
 		{
 			if (GUILayout.Button (rebindAxes[j].altAxisNeg.ToString ()))
 			{
-				isAlt = true;
-				rebinding = true;
-				rebindingAxNe = true;
+				flag = RebindFlag.isRebinding | RebindFlag.isAlternate | RebindFlag.isAxes;
 				objToRebind = rebindAxes[j].axisName;
 			}
 		}
@@ -286,6 +265,14 @@ public class RebindingMenu : Menu
 				}
 			}
 		}
+		/* // JNN: I don't think this is needed...
+		if (Input.GetKeyDown(KeyCode.LeftAlt)) { return KeyCode.LeftAlt; }
+		if (Input.GetKeyDown(KeyCode.RightAlt)) { return KeyCode.RightAlt; }
+		if (Input.GetKeyDown(KeyCode.LeftShift)) { return KeyCode.LeftShift; }
+		if (Input.GetKeyDown(KeyCode.RightShift)) { return KeyCode.RightShift; }
+		if (Input.GetKeyDown(KeyCode.LeftControl)) { return KeyCode.LeftControl; }
+		if (Input.GetKeyDown(KeyCode.RightControl)) { return KeyCode.RightControl; }
+		//*/
 		return KeyCode.None;
 	}
 }
