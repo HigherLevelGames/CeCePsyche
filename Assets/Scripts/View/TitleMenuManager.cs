@@ -12,6 +12,7 @@ public class TitleMenuManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		PlayerPrefs.SetInt("UnlockedLevel", 0);
 		menus[0] = new StartMenu(menuBox);
 		menus[1] = new OptionMenu(menuBox);
 		menus[2] = new AudioMenu(menuBox);

@@ -8,6 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title.unity
   - enabled: 1
+    path: Assets/Scenes/Brain Menu.unity
+  - enabled: 1
     path: Assets/Scenes/RoadHome1.unity
   - enabled: 1
     path: Assets/Scenes/Garden.unity
@@ -16,8 +18,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cityscape.unity
   - enabled: 1
-    path: Assets/Scenes/Brain Menu.unity
-  - enabled: 1
     path: Assets/Scenes/Credits.unity
   - enabled: 1
     path: Assets/Scenes/Concept.unity
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes.unity

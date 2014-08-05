@@ -4,6 +4,10 @@ using System.Collections;
 public class MirrorTrigger : MonoBehaviour
 {
 	#region Variables
+	public int key = 0;
+	private bool isUnlocked = true;
+
+	public int movieToPlay = 0; // see Movie.cs
 	public string levelName;
 	public Renderer enterButton; // "Press Enter to Begin" png
 	public GameObject blurb; // "What's that Sound?" thought bubble
@@ -32,6 +36,7 @@ public class MirrorTrigger : MonoBehaviour
 	
 	void Start()
 	{
+		isUnlocked = PlayerPrefs.GetInt("UnlockedLevel") >= key;
 		player = GameObject.FindGameObjectWithTag("Player");
 		pivot = this.transform.localPosition;
 		curDir = RandDir;
@@ -74,6 +79,10 @@ public class MirrorTrigger : MonoBehaviour
 		if(showDescription)
 		{
 			string description = "Level: " + levelName;
+			if(!isUnlocked)
+			{
+				description += "\n<color=red>(Locked!)</color>";
+			}
 			Vector2 dimensions = GUI.skin.box.CalcSize(new GUIContent(description));
 			Vector2 location = Camera.main.WorldToScreenPoint(this.transform.position);
 			Rect r = new Rect(location.x,Screen.height - location.y,dimensions.x,dimensions.y);
@@ -149,7 +158,9 @@ public class MirrorTrigger : MonoBehaviour
 
 	void Load()
 	{
-		Application.LoadLevel(levelName);
+		PlayerPrefs.SetInt("movieToPlay", movieToPlay);
+		Application.LoadLevel("Cutscenes");
+		//Application.LoadLevel(levelName);
 	}
 
 	float audioStartTime = 0.0f;

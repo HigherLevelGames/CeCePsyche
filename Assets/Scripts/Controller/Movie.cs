@@ -57,6 +57,7 @@ public class Movie : MonoBehaviour
 
 	void OnGUI()
 	{
+		GUILayout.Label("Playing Movie: " + index.ToString() + ", " + levelsToLoad[index]);
 		GUILayout.Label("Cutscene: Press Spacebar to Skip.");
 
 		if(movie[index] != null)
