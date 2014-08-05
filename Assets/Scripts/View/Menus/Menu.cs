@@ -69,6 +69,16 @@ public class Menu
 	{
 		// draw selection grid buttons
 		selected = GUI.SelectionGrid(Utility.adjRect(box), selected, options, 1);
+
+		if(Utility.adjRect(box).Contains(Input.mousePosition))
+		{
+			Debug.Log("Hello");
+		}
+		else
+		{
+			Debug.Log("World");
+		}
+
 		// left click event same as enter event
 		if(Input.GetMouseButtonUp(0) && Utility.adjRect(box).Contains(Input.mousePosition))
 		{

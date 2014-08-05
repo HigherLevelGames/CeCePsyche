@@ -25,6 +25,7 @@ public class MenuManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		Screen.showCursor = false;
 		menus[0] = new PauseMenu(menuBox);
 		menus[1] = new OptionMenu(menuBox);
 		menus[2] = new AudioMenu(menuBox);
@@ -115,9 +116,9 @@ public class MenuManager : MonoBehaviour
 			// pause the game
 			//savedTimeScale = Time.timeScale;
 			Time.timeScale = 0.0f;
-			
 			this.GetComponent<HUD>().enabled = false;
-			
+			Screen.showCursor = true;
+
 			//AudioListener.pause = true;
 			// Background Music should have this:
 			//this.audio.ignoreListenerVolume = true;
@@ -127,7 +128,9 @@ public class MenuManager : MonoBehaviour
 			// unpause the game
 			Time.timeScale = 1.0f; // = savedTimeScale;
 			this.GetComponent<HUD>().enabled = true;
-			
+			Screen.showCursor = false;
+			//curMenu = 0;
+
 			//AudioListener.pause = false;
 		}
 	}
