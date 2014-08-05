@@ -66,6 +66,7 @@ public class MenuManager : MonoBehaviour
 		
 		// Pause Menu
 		menus[curMenu].ShowMe();
+		menus[curMenu].SetOffset(new Vector2(10,10));
 		
 		if(Utility.GetBool("EduMode"))
 		{
@@ -129,7 +130,7 @@ public class MenuManager : MonoBehaviour
 			Time.timeScale = 1.0f; // = savedTimeScale;
 			this.GetComponent<HUD>().enabled = true;
 			Screen.showCursor = false;
-			//curMenu = 0;
+			curMenu = 0;
 
 			//AudioListener.pause = false;
 		}

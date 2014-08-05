@@ -13,6 +13,7 @@ public class Menu
 {
 	// Menu gets shown in this box area
 	protected Rect box = new Rect(0,0,0,0);
+	protected Vector2 offset = Vector2.zero;
 
 	// selection grid vars for default menu
 	protected int selected = -1;
@@ -22,6 +23,11 @@ public class Menu
 	public Menu(Rect menuArea)
 	{
 		box = menuArea;
+	}
+
+	public void SetOffset(Vector2 o)
+	{
+		offset = new Vector2(o.x * Screen.width / 100.0f, o.y * Screen.height / 100.0f);
 	}
 
 	// An event MenuManager can use to be notified whenever the menu should change
@@ -70,17 +76,15 @@ public class Menu
 		// draw selection grid buttons
 		selected = GUI.SelectionGrid(Utility.adjRect(box), selected, options, 1);
 
-		if(Utility.adjRect(box).Contains(Input.mousePosition))
+		Rect temp = Utility.adjRect(box);
+		if(offset != Vector2.zero)
 		{
-			Debug.Log("Hello");
-		}
-		else
-		{
-			Debug.Log("World");
+			temp.x += offset.x;
+			temp.y += offset.y;
 		}
 
 		// left click event same as enter event
-		if(Input.GetMouseButtonUp(0) && Utility.adjRect(box).Contains(Input.mousePosition))
+		if(Input.GetMouseButtonUp(0) && temp.Contains(Utility.GUIMousePos))
 		{
 			// http://docs.unity3d.com/Manual/ExecutionOrder.html
 			// the check is done here due to the ordering of Unity Events

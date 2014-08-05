@@ -6,6 +6,16 @@ namespace Common
 	// class to hold helper functions
 	public class Utility
 	{
+		public static Vector2 GUIMousePos
+		{
+			get
+			{
+				Vector2 temp = Input.mousePosition;
+				temp.y = Screen.height - temp.y;
+				return temp;
+			}
+		}
+
 		// adjusts a rectangle using percentages to screen coordinates
 		public static Rect adjRect(Rect r)
 		{
