@@ -61,5 +61,23 @@ namespace Common
 		{
 			return (PlayerPrefs.GetInt(key) != 0);
 		}
+
+		// Wrapper for setting Vector3 in PlayerPrefs
+		public static void SetVector3(string key, Vector3 value)
+		{
+			PlayerPrefs.SetFloat(key + "_x", value.x);
+			PlayerPrefs.SetFloat(key + "_y", value.y);
+			PlayerPrefs.SetFloat(key + "_z", value.z);
+		}
+
+		// Wrapper for getting Vector3 in PlayerPrefs;
+		public static Vector3 GetVector3(string key)
+		{
+			Vector3 temp = Vector3.zero;
+			temp.x = PlayerPrefs.GetFloat(key + "_x");
+			temp.y = PlayerPrefs.GetFloat(key + "_y");
+			temp.z = PlayerPrefs.GetFloat(key + "_z");
+			return temp;
+		}
 	}
 }
