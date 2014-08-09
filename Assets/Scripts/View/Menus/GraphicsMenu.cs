@@ -8,7 +8,7 @@ public class GraphicsMenu : Menu
 {
 	private List<string> resolutions = new List<string>();
 	private ComboBox comboBox = new ComboBox();
-	private int selected = 0;
+	private int ComboIndex = 0;
 
 	private string CurResString
 	{
@@ -20,9 +20,14 @@ public class GraphicsMenu : Menu
 
 	public GraphicsMenu(Rect menuArea) : base(menuArea)
 	{
-		foreach(Resolution r in Screen.resolutions)
+		for(int i = 0; i < Screen.resolutions.Length; i++)
 		{
+			Resolution r = Screen.resolutions[i];
 			string res = r.width.ToString() + " x " + r.height.ToString();
+			if(CurResString == res)
+			{
+				ComboIndex = i;
+			}
 			resolutions.Add(res);
 		}
 	}
@@ -50,10 +55,10 @@ public class GraphicsMenu : Menu
 
 		// Screen Resolution Dropdown box
 		GUILayout.Label("");
-		int temp = comboBox.DrawComboBox(GUILayoutUtility.GetLastRect(), selected, resolutions.ToArray());
+		int temp = comboBox.DrawComboBox(GUILayoutUtility.GetLastRect(), ComboIndex, resolutions.ToArray());
 		if(temp != -1)
 		{
-			selected = temp;
+			ComboIndex = temp;
 			string[] newRes = resolutions[temp].Split("x".ToCharArray());
 			Screen.SetResolution(int.Parse(newRes[0]), int.Parse(newRes[1]), Screen.fullScreen);
 		}
