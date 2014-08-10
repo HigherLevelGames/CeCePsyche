@@ -20,7 +20,7 @@ public class Happiness : Ability
 
 	public override void UseAbility()
 	{
-		// play giggling anim
+		// play giggling anim?
 		// Jyordana TODO
 
 		// create happy particle FX
@@ -40,6 +40,7 @@ public class Happiness : Ability
 		// stop ability to float/fly
 		this.GetComponent<VMovementController>().lockVertical = false;
 		this.rigidbody2D.gravityScale = 0.0f;//1.0f;
+		this.rigidbody2D.isKinematic = true;
 		isHappy = false;
 	}
 

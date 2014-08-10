@@ -21,11 +21,12 @@ public class Anger : Ability
 		// Jason TODO
 
 		// Deion's dash ability
+		float force = speed;
 		if(this.GetComponent<HMovementController>().isFacingRight)
 		{
-			speed *= -1.0f;
+			force *= -1.0f;
 		}
-		this.rigidbody2D.velocity = new Vector2(speed, this.rigidbody2D.velocity.y);
+		this.rigidbody2D.velocity = new Vector2(force, this.rigidbody2D.velocity.y);
 	}
 
 	public override void EndAbility()

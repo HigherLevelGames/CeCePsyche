@@ -33,7 +33,7 @@ public class VMovementController : MonoBehaviour
 	int prevVValue = 0; // for Input.GetAxis()
 
 	// Jump Variables
-	float JumpSpeed = 10.0f;
+	public float JumpSpeed = 10.0f;
 	float VVelocity = 0.0f;
 	public enum JumpState
 	{
@@ -91,6 +91,7 @@ public class VMovementController : MonoBehaviour
 		if(grounded || grounded2 || grounded3)
 		{
 			CurJumpState = JumpState.Grounded;
+			this.rigidbody2D.isKinematic = false;
 		}
 		else
 		{

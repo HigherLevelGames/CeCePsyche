@@ -8,7 +8,7 @@ public class HMovementController : MonoBehaviour
 	{
 		get
 		{
-			if(Mathf.Abs(newX-prevX) < 0.1f)
+			if(Mathf.Abs(newX-prevX) < 0.05f)
 			{
 				return 0;
 			}

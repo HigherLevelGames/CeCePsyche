@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(HMovementController))]
+[RequireComponent (typeof(VMovementController))]
 public class Fear : Ability
 {
 	public float Percentage = 0.5f;
@@ -8,9 +10,15 @@ public class Fear : Ability
 	private float TimeToShrink = 0.5f;
 	private float StartTime = 0.0f;
 	private bool isSmall = false;
+	private HMovementController hControl;
+	private VMovementController vControl;
 
 	// Use this for initialization
-	void Start () { }
+	void Start ()
+	{
+		hControl = this.GetComponent<HMovementController>();
+		vControl = this.GetComponent<VMovementController>();
+	}
 
 	// LateUpdate so we can override animation transform.localScale values
 	void LateUpdate ()
@@ -27,15 +35,14 @@ public class Fear : Ability
 
 	public override void UseAbility()
 	{
-		// play frightened anim
-		// Jyordana TODO (Done?)
-
 		// create frightened particle FX
 		// Jason TODO
 
 		// half transform size
 		StartTime = Time.time;
 		isSmall = !isSmall;
+		hControl.MaxSpeed *= 0.5f;
+		vControl.JumpSpeed *= 0.5f;
 	}
 
 	public override void EndAbility()
@@ -46,6 +53,8 @@ public class Fear : Ability
 		// double transform size
 		StartTime = Time.time;
 		isSmall = !isSmall;
+		hControl.MaxSpeed *= 2.0f;
+		vControl.JumpSpeed *= 2.0f;
 	}
 
 	void Shrink(float start, float end)

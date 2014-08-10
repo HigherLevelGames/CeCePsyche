@@ -11,16 +11,14 @@ public class Sadness : Ability
 
 	public override void UseAbility()
 	{
-		// play crying anim
-		// Jyordana TODO
-
 		// create tear particle FX
 		// Jason TODO
 
-		// grow nearby flora see Plant.cs
+		// Instantiate tears objects moving in left & right directions
+		// grow nearby flora upon contact see Plant.cs
 		// Jordan TODO
 
-		// Push Bully back
+		// Push Bully back upon contact
 		// Jordan TODO
 	}
 
