@@ -27,14 +27,14 @@ public class LoadMenu : Menu
 	{
 		prevSelected = selected;
 
-		// test stuff
+		/*// test stuff
 		for(int i = 0; i < 6; i++)
 		{
 			mainProfile = new Profile();
 			mainProfile.PlayerName = "TestSave" + i;
 			string savePath = Path.Combine(Application.dataPath, "Saves");
 			mainProfile.Save(savePath);
-		}
+		}//*/
 
 		// get all save files
 		string myPath = Path.Combine(Application.dataPath, "Saves"); // TODO: switch to Application.persistentDataPath for final build
@@ -61,6 +61,8 @@ public class LoadMenu : Menu
 			mainProfile = Profile.Load(myPath);
 		}
 
+		GUILayout.BeginArea(Utility.adjRect(new Rect(35, 10, 55, 80)));
+
 		// show save info
 		if(mainProfile != null)
 		{
@@ -68,9 +70,20 @@ public class LoadMenu : Menu
 			displayText += "\nUnlocked Level: " + mainProfile.UnlockedLevel;
 			displayText += (mainProfile.EduMode) ? "\nMode: Educational Mode" : "\nMode: Story Mode";
 			displayText += "\nTotal Time Played: " + mainProfile.TotalTimePlayed;
-			GUI.Box(Utility.adjRect(new Rect(30, 10, 60, 80)), displayText);
+			GUILayout.Box(displayText);
 		}
 
+		if(GUILayout.Button("Back"))
+		{
+			OnChanged(EventArgs.Empty, 0);
+		}
+		if(GUILayout.Button("Play"))
+		{
+			// load game & play
+			Application.LoadLevel("Brain Menu");
+		}
+
+		GUILayout.EndArea();
 		prevSelected = selected;
 	}
 }

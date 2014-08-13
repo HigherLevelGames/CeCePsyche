@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.IO;
 using Common;
 
 public class GameModeMenu : Menu
 {
-	private string gameName = "";
+	private string gameName = "Cecilia";
 
 	public GameModeMenu(Rect menuArea) : base(menuArea)
 	{
@@ -18,6 +19,8 @@ public class GameModeMenu : Menu
 
 	public override void ShowMe()
 	{
+		GUILayout.BeginArea(Utility.adjRect(box));
+
 		// name to use when saving
 		gameName = GUILayout.TextField(gameName);
 
@@ -25,13 +28,11 @@ public class GameModeMenu : Menu
 		GUILayout.BeginHorizontal();
 		if(GUILayout.Button(options[0])) // Story Mode
 		{
-			Utility.SetBool("EduMode", false);
-			Application.LoadLevel("Brain Menu");
+			CreateNewGame(false);
 		}
 		if(GUILayout.Button(options[1])) // Edu mode
 		{
-			Utility.SetBool("EduMode", true);
-			Application.LoadLevel("Brain Menu");
+			CreateNewGame(true);
 		}
 		GUILayout.EndHorizontal();
 
@@ -40,27 +41,23 @@ public class GameModeMenu : Menu
 		{
 			OnChanged(EventArgs.Empty, 0);
 		}
+
+		GUILayout.EndArea();
 	}
 
-	/*
-	protected override void PressedEnter()
+	void CreateNewGame(bool isEdu)
 	{
-		switch(selected)
-		{
-		case 0: // Story Mode
-			Utility.SetBool("EduMode", false);
-			Application.LoadLevel("Brain Menu");
-			break;
-		case 1: // Tutorial
-			Utility.SetBool("EduMode", true);
-			Application.LoadLevel("Brain Menu");
-			break;
-		case 2: // Back
-			OnChanged(EventArgs.Empty, 0);
-			break;
-		default:
-			break;
-		}
-		selected = -1;
-	}//*/
+		// create a new profile
+		Profile mainProfile = new Profile();
+		mainProfile.PlayerName = gameName;
+		mainProfile.EduMode = isEdu;
+		//Utility.SetBool("EduMode", isEdu);
+
+		// save the profile
+		string savePath = Path.Combine(Application.dataPath, "Saves");
+		mainProfile.Save(savePath);
+
+		// start the game
+		Application.LoadLevel("Brain Menu");
+	}
 }

@@ -8,8 +8,8 @@ public class StartMenu : Menu
 	public StartMenu(Rect menuArea) : base(menuArea)
 	{
 		options = new string[] {
-			"Story Mode",
-			"Educational Mode",
+			"New Game",
+			"Load Game",
 			"Concept",
 			"Options",
 			"Credits",
@@ -21,13 +21,11 @@ public class StartMenu : Menu
 	{
 		switch(selected)
 		{
-		case 0: // Story Mode
-			Utility.SetBool("EduMode", false);
-			Application.LoadLevel("Brain Menu");
+		case 0: // New Game
+			OnChanged(EventArgs.Empty, 5);
 			break;
-		case 1: // Tutorial
-			Utility.SetBool("EduMode", true);
-			Application.LoadLevel("Brain Menu");
+		case 1: // Load Game
+			OnChanged(EventArgs.Empty, 6);
 			break;
 		case 2: // Concept
 			Application.LoadLevel("Concept");

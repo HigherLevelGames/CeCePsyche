@@ -6,7 +6,7 @@ using Common;
 public class TitleMenuManager : MonoBehaviour
 {
 	public Rect menuBox = new Rect(10, 10, 20, 80);
-	private Menu[] menus = new Menu[6];
+	private Menu[] menus = new Menu[7];
 	private int curMenu = 0;
 
 	// Use this for initialization
@@ -19,8 +19,10 @@ public class TitleMenuManager : MonoBehaviour
 		menus[3] = new GraphicsMenu(menuBox);
 		menus[4] = new RebindingMenu(new Rect(10,10,80,80));
 		//menus[5] = new ExtrasMenu(menuBox);
+		menus[5] = new GameModeMenu(menuBox);
+		menus[6] = new LoadMenu(menuBox);
 
-		for(int i = 0; i < 5; i++)
+		for(int i = 0; i < 7; i++)
 		{
 			menus[i].Changed += new ChangedEventHandler(SwapMenu);
 		}
@@ -54,6 +56,9 @@ public class TitleMenuManager : MonoBehaviour
 		 * 2 = audio menu
 		 * 3 = graphics menu
 		 * 4 = keymapping menu
+		 * 5 = Extras Menu?
+		 * 5 = game mode menu (for creating a new game)
+		 * 6 = load menu
 		 */
 	}
 }
