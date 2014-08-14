@@ -51,6 +51,7 @@ public class GameModeMenu : Menu
 		Profile mainProfile = new Profile();
 		mainProfile.PlayerName = gameName;
 		mainProfile.EduMode = isEdu;
+
 		//Utility.SetBool("EduMode", isEdu);
 
 		// save the profile
@@ -58,6 +59,7 @@ public class GameModeMenu : Menu
 		mainProfile.Save(savePath);
 
 		// start the game
+		GameObject.Find("ProfileContainer").SendMessage("SetProfile", mainProfile);
 		Application.LoadLevel("Brain Menu");
 	}
 }

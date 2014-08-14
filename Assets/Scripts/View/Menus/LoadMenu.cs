@@ -80,6 +80,7 @@ public class LoadMenu : Menu
 		if(GUILayout.Button("Play"))
 		{
 			// load game & play
+			GameObject.Find("ProfileContainer").SendMessage("SetProfile", mainProfile);
 			Application.LoadLevel("Brain Menu");
 		}
 
