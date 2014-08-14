@@ -8,6 +8,7 @@ public class OneWayPlatform : MonoBehaviour
 	void Start ()
 	{
 		transform.parent.collider2D.isTrigger = false; // JIC
+
 	}
 
 	void OnTriggerEnter2D(Collider2D player)
@@ -16,6 +17,7 @@ public class OneWayPlatform : MonoBehaviour
 		{
 			// let player pass through
 			this.transform.parent.collider2D.isTrigger = true;
+
 		}
 	}
 	
@@ -25,6 +27,7 @@ public class OneWayPlatform : MonoBehaviour
 		{
 			// make platform solid again
 			transform.parent.collider2D.isTrigger = false;
+
 		}
 	}
 }
