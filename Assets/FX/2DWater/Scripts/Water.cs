@@ -47,6 +47,36 @@ public class Water : MonoBehaviour
 	int te;
 	bool Waving = false;
 
+	#region DrawGizmos, JNN: added
+	private Color outlineColor = Color.green;
+
+	void OnDrawGizmos()
+	{
+		Gizmos.color=outlineColor*0.5f;
+		DrawBox();
+	}
+	
+	void OnDrawGizmosSelected()
+	{
+		Gizmos.color=outlineColor;
+		DrawBox();
+	}
+	
+	void DrawBox()
+	{
+		// Calculate Corners
+		Vector3 upperLeft = new Vector3(StartX,YSurface,0);
+		Vector3 lowerLeft = new Vector3(StartX,YBottom,0);
+		Vector3 upperRight = new Vector3(StartX+VertexSpacing*(VertexCount-2)*0.5f,YSurface,0);
+		Vector3 lowerRight = new Vector3(StartX+VertexSpacing*(VertexCount-2)*0.5f,YBottom,0);
+		// Draw Sides
+		Gizmos.DrawLine(upperLeft,upperRight);
+		Gizmos.DrawLine(upperRight,lowerRight);
+		Gizmos.DrawLine(lowerRight,lowerLeft);
+		Gizmos.DrawLine(lowerLeft,upperLeft);
+	}
+	#endregion
+
 	void Awake()
 	{
 		SurfaceVertices = VertexCount / 2;

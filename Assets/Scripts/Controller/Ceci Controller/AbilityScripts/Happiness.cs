@@ -14,7 +14,7 @@ public class Happiness : Ability
 	{
 		if(isHappy)
 		{
-			JumpControl();
+			//JumpControl();
 		}
 	}
 

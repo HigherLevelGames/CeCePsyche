@@ -34,7 +34,7 @@ public class VMovementController : MonoBehaviour
 
 	// Jump Variables
 	public float JumpSpeed = 10.0f;
-	float VVelocity = 0.0f;
+	public float VVelocity = 0.0f;
 	public enum JumpState
 	{
 		Grounded,

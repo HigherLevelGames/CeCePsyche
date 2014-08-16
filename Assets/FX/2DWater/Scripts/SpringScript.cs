@@ -42,7 +42,17 @@ public class SpringScript : MonoBehaviour
 	//Create a splash effect by calling Splash() function in the "Water" script.
 	void  OnTriggerEnter2D ( Collider2D other  )
 	{
-		Water.Splash(other.collider2D.rigidbody2D.velocity.y,ID,other.transform);
+		//Water.Splash(other.collider2D.rigidbody2D.velocity.y,ID,other.transform);
+		VMovementController vControl = other.gameObject.GetComponent<VMovementController>();
+		if(vControl != null)
+		{
+			Water.Splash(vControl.VVelocity, ID, other.transform);
+		}
+		else
+		{
+			Water.Splash(other.collider2D.rigidbody2D.velocity.y,ID,other.transform);
+		}
+
 		//Here you can access the script on the "other" object and call a specific function
 		//ScriptName ScriptName;
 		//ScriptName = other.transform.GetComponent<"ScriptName">() as ScriptName;
