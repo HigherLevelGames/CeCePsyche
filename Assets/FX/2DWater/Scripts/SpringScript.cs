@@ -18,31 +18,32 @@ public class SpringScript : MonoBehaviour
 
 	void  Start ()
 	{
-		OriginalPosition = transform.position;
+		OriginalPosition = this.transform.localPosition;//transform.position;
 	}
 
 	void  FixedUpdate ()
 	{
 		//This is the Spring effect that makes the water bounce and stuff
-		Displacement = TargetY - transform.position.y;
+		Displacement = TargetY - this.transform.localPosition.y;
 		Speed += Tension * Displacement - Speed * Damping;
-		transform.position = new Vector3(transform.position.x,transform.position.y + Speed,transform.position.z);
+		this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y + Speed, this.transform.localPosition.z);
 		
 		//Limiting the waves
-		if(transform.position.y < OriginalPosition.y + MaxDecrease){
-				transform.position = new Vector3(transform.position.x,OriginalPosition.y + MaxDecrease,transform.position.z);
-				Speed = 0;
+		if(this.transform.localPosition.y < OriginalPosition.y + MaxDecrease)
+		{
+			this.transform.localPosition = new Vector3(this.transform.localPosition.x, OriginalPosition.y + MaxDecrease, this.transform.localPosition.z);
+			Speed = 0;
 		}
-		if(transform.position.y > OriginalPosition.y + MaxIncrease){
-				transform.position = new Vector3(transform.position.x,OriginalPosition.y + MaxIncrease,transform.position.z);
-				Speed = 0;
+		if(this.transform.localPosition.y > OriginalPosition.y + MaxIncrease)
+		{
+			this.transform.localPosition = new Vector3(this.transform.localPosition.x, OriginalPosition.y + MaxIncrease, this.transform.localPosition.z);
+			Speed = 0;
 		}
 	}
 
 	//Create a splash effect by calling Splash() function in the "Water" script.
 	void  OnTriggerEnter2D ( Collider2D other  )
 	{
-		//Water.Splash(other.collider2D.rigidbody2D.velocity.y,ID,other.transform);
 		VMovementController vControl = other.gameObject.GetComponent<VMovementController>();
 		if(vControl != null)
 		{

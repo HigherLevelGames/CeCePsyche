@@ -4,48 +4,65 @@ using System.Collections;
 public class Water : MonoBehaviour
 {
 	//Mesh
-	public float VertexSpacing= 1.0f;
-	public float StartX;
-	public float YSurface;
-	public float YBottom;
-	public int VertexCount;
+	[Header("Mesh Properties")]
+	[Tooltip("Automatically generates a mesh based on the desired number of vertices.\nNote: Must be an even number >= 4.")]
+	public int VertexCount; // 200
+	private float VertexSpacing = 1.0f; // 0.3f
+	private float StartX; // -10.0f
+	private float YSurface; // 0.0f
+	private float YBottom; // -3.0f
 
 	//Water Properties
-	public float Tension= 0.025f;
-	public float Spread= 0.25f; //Dont increase this above 0.30f, Although you should try it.
-	public float Damping= 0.025f;
-	public float CollisionVelocity; //Multiplier of the speed of the collisions done to the water
-	public float MaxIncrease; //MAX Increase of water In Y
-	public float MaxDecrease; //MAX Decrease of water In -Y (Use negative number)
-	public Transform SpringPrefab; //Springs
-	public Transform WaveSimulatorPrefab; //This is just another spring but it is used to make the waves
+	[Header("Liquid Properties")]
+	[Tooltip("Springs")]
+	public Transform SpringPrefab;
+	[Tooltip("How hard the vertices attract each other.")]
+	public float Tension = 0.025f;
+	[Tooltip("How far the waves can spread.\nNote: Dont increase this above 0.30f, Although you should try it.")]
+	public float Spread = 0.25f;
+	[Tooltip("How fast the waves loose their velocity.")]
+	public float Damping = 0.025f;
+	[Tooltip("The speed of which the waves will react to a colliding object to simulate a splash.\nMultiplier of the speed of the collisions done to the water.")]
+	public float CollisionVelocity;
+	[Tooltip("The max height the waves can increase.\nMAX Increase of water In Y.")]
+	public float MaxIncrease;
+	[Tooltip("The max height the waves can decrease.\nMAX Decrease of water In -Y (Use negative number).")]
+	public float MaxDecrease;
+
+	[Header("Wave Properties")]
+	[Tooltip("This is just another spring but it is used to make the waves.")]
+	public Transform WaveSimulatorPrefab;
+	[Tooltip("The desired height the wave sim should reach each loop.")]
 	public float WaveSimHeight;
+	[Tooltip("The speed of which it will perform the loops.")]
 	public float WaveSimSpeed;
+	[Tooltip("A multiplier to increase the real wave height.")]
 	public float WaveHeight;
+	[Tooltip("How fast should it wait in seconds to copy the height of the simulator to the next vertex in the mesh.")]
 	public float WaveTimeStep;
-	
+
 	//Hide in inspector
-	int SurfaceVertices;
+	private int SurfaceVertices;
 	//This is used alot because all the work is done to the surface of the water not the bottom.
-	float Height;
-	float SmoothTime;
-	bool ChangedHeight;
-	float yVelocity = 0.0f;
-	Vector3[] vertices;
-	MeshFilter mf;
-	Mesh mesh;
-	int triNumber;
-	int[] triangle;
-	SpringScript[] SpringList;
-	float[] lDeltas;
-	float[] rDeltas;
-	bool Delaying = false;
-	Transform DelayingObject;
+	private float Height;
+	private float SmoothTime;
+	private bool ChangedHeight;
+	private float yVelocity = 0.0f;
+	private Vector3[] vertices;
+	private MeshFilter mf;
+	private Mesh mesh;
+	private int triNumber;
+	private int[] triangle;
+	private SpringScript[] SpringList;
+	private float[] lDeltas;
+	private float[] rDeltas;
+	private bool Delaying = false;
+	private Transform DelayingObject;
 	[HideInInspector]
 	public Vector3 DelayingObjectOldPos = new Vector3(0,0,0);
-	WaveSimulator WaveSimulator;
-	int te;
-	bool Waving = false;
+	private WaveSimulator WaveSimulator;
+	private int te;
+	private bool Waving = false;
 
 	#region DrawGizmos, JNN: added
 	private Color outlineColor = Color.green;
@@ -64,11 +81,18 @@ public class Water : MonoBehaviour
 	
 	void DrawBox()
 	{
-		// Calculate Corners
-		Vector3 upperLeft = new Vector3(StartX,YSurface,0);
-		Vector3 lowerLeft = new Vector3(StartX,YBottom,0);
-		Vector3 upperRight = new Vector3(StartX+VertexSpacing*(VertexCount-2)*0.5f,YSurface,0);
-		Vector3 lowerRight = new Vector3(StartX+VertexSpacing*(VertexCount-2)*0.5f,YBottom,0);
+		// Calculate sides
+		float left = this.transform.position.x - this.transform.localScale.x * 0.5f;
+		float right = left + this.transform.localScale.x;
+		float top = this.transform.position.y + this.transform.localScale.y * 0.5f;
+		float bottom = top - this.transform.localScale.y;
+
+		// Put together Corners
+		Vector3 upperLeft = new Vector3(left, top, 0);
+		Vector3 lowerLeft = new Vector3(left, bottom, 0);
+		Vector3 upperRight = new Vector3(right, top, 0);
+		Vector3 lowerRight = new Vector3(right, bottom, 0);
+
 		// Draw Sides
 		Gizmos.DrawLine(upperLeft,upperRight);
 		Gizmos.DrawLine(upperRight,lowerRight);
@@ -90,65 +114,18 @@ public class Water : MonoBehaviour
 
 	void Start ()
 	{
-		//Generating Mesh
-		mf = GetComponent<MeshFilter>();
-		mesh = new Mesh();
-		mf.mesh = mesh;
-		//Generates the the surface using var i, then generates the bottom using var oo
-		int oo = SurfaceVertices-1;
-		for (int i= 0; i <= VertexCount - 1; i++)
-		{
-			if( i < SurfaceVertices )
-			{
-				vertices[i] = new Vector3(StartX + (VertexSpacing * i), YSurface, 0);
-			}
-			else if( i >= SurfaceVertices )
-			{
-				vertices[i] = new Vector3(vertices[oo].x, YBottom, 0);
-				oo += -1;
-			}
-		}
-		mesh.vertices = vertices;
-		
-		//Connecting the dots. :)
-		//Setting the Triangles. I got this part working by lots of trial and error. I am sure there could be a better solution but anyways for now this doesnt affect the gameplay peformance and it works.
-		int tt;
-		tt = SurfaceVertices;
-		for(int t=SurfaceVertices - 1; t > 0 / 2; t += -1)
-		{
-			TriangulateRectangle(t,t-1,tt,tt+1);
-			tt++;
-		}
+		VertexSpacing = 1.0f / (float)(SurfaceVertices-1);
+		StartX = -0.5f;
+		YSurface = 0.5f;
+		YBottom = -0.5f;
 
-		mesh.triangles = triangle;
-		
-		
-		//Setting the Normals
-		Vector3[] normals = new Vector3[VertexCount];
-		
-		for (int n= 0 ; n <= VertexCount - 1; n++)
-		{
-			normals[n] = -Vector3.forward;
-		}
-		mesh.normals = normals;
-		
-		
-		//Setting the UVS
-		int nVertices= mesh.vertices.Length;
-		var uvs = new Vector2[nVertices];
-		
-		for( int r=0; r < nVertices; r++)
-		{
-			uvs[r] = mesh.vertices[r];
-		}
-		mesh.uv = uvs;
-		//Mesh Generation Done
-		
+		GenerateMesh();
+
 		//Generating Springs and saving each of Spring's Scripts into the array for refrence later. Also setting the properties of it.
-		for(int sprngs=0; sprngs< SurfaceVertices; sprngs++)
+		for(int sprngs = 0; sprngs < SurfaceVertices; sprngs++)
 		{
 			Transform TransformHolder;
-			TransformHolder = Instantiate (SpringPrefab, vertices[sprngs], Quaternion.identity) as Transform;
+			TransformHolder = Instantiate (SpringPrefab, this.transform.position + vertices[sprngs]*this.transform.localScale.x, Quaternion.identity) as Transform;
 			SpringList[sprngs] = TransformHolder.GetComponent<SpringScript>();
 			SpringList[sprngs].MaxIncrease = MaxIncrease;
 			SpringList[sprngs].MaxDecrease = MaxDecrease;
@@ -157,42 +134,98 @@ public class Water : MonoBehaviour
 			SpringList[sprngs].Tension = Tension;
 			SpringList[sprngs].ID = sprngs;
 			SpringList[sprngs].Water = this;
-			var boxCollider = TransformHolder.GetComponent<BoxCollider2D>() as BoxCollider2D;
-			boxCollider.size = new Vector2(VertexSpacing,0.1f);//new Vector3(VertexSpacing,0,2);
+			BoxCollider2D boxCollider = TransformHolder.GetComponent<BoxCollider2D>();
+			boxCollider.size = new Vector2(this.transform.localScale.x*VertexSpacing,0.1f);//new Vector3(VertexSpacing,0,2);
 			SpringList[sprngs].transform.parent = this.transform;
 		}
+
 		//Wave Simulator
-		WaveSimulatorPrefab = Instantiate(WaveSimulatorPrefab, new Vector3(0,0,0),Quaternion.identity) as Transform;
+		WaveSimulatorPrefab = Instantiate(WaveSimulatorPrefab, this.transform.position/*new Vector3(0,0,0)*/,Quaternion.identity) as Transform;
 		WaveSimulator = WaveSimulatorPrefab.GetComponent<WaveSimulator>();
 		WaveSimulator.WaveHeight = WaveSimHeight;
 		WaveSimulator.WaveSpeed = WaveSimSpeed;
+		WaveSimulator.transform.parent = this.transform;
 
 		//StartCoroutine(ChangeWaterHeight(5,2));
+	}
+
+	void GenerateMesh()
+	{
+		mf = GetComponent<MeshFilter>();
+		mesh = new Mesh();
+		mf.mesh = mesh;
+
+		//Generates the the surface using var i, then generates the bottom using var oo
+		int oo = SurfaceVertices-1;
+		for(int i = 0; i < VertexCount; i++)
+		{
+			if(i < SurfaceVertices)
+			{
+				vertices[i] = new Vector3(StartX + (VertexSpacing * i), YSurface, 0);
+			}
+			else if(i >= SurfaceVertices)
+			{
+				vertices[i] = new Vector3(vertices[oo].x, YBottom, 0);
+				oo--;
+			}
+		}
+		mesh.vertices = vertices;
+		
+		//Connecting the dots. :)
+		//Setting the Triangles. I got this part working by lots of trial and error. I am sure there could be a better solution but anyways for now this doesnt affect the gameplay peformance and it works.
+		int tt = SurfaceVertices;
+		for(int t = SurfaceVertices - 1; t > 0; t--)
+		{
+			TriangulateRectangle(t, t-1, tt, tt+1);
+			tt++;
+		}
+		mesh.triangles = triangle;
+		
+		//Setting the Normals
+		Vector3[] normals = new Vector3[VertexCount];
+		for(int n = 0; n < VertexCount; n++)
+		{
+			normals[n] = -Vector3.forward;
+		}
+		mesh.normals = normals;
+		
+		//Setting the UVS
+		int nVertices = mesh.vertices.Length;
+		Vector2[] uvs = new Vector2[nVertices];
+		for(int r = 0; r < nVertices; r++)
+		{
+			uvs[r] = mesh.vertices[r];
+		}
+		mesh.uv = uvs;
 	}
 
 	void Update ()
 	{
 		//Without this each spring is independent.
-		for (int e= 0; e < SpringList.Length; e++)
+		for(int e = 0; e < SpringList.Length; e++)
 		{
-			if (e > 0)
+			if(e > 0)
 			{
-				lDeltas[e] = Spread * (SpringList[e].transform.position.y - SpringList[e - 1].transform.position.y);
+				lDeltas[e] = Spread * (SpringList[e].transform.localPosition.y - SpringList[e - 1].transform.localPosition.y);
 				SpringList[e-1].Speed += lDeltas[e];
 			}
-			if (e < SpringList.Length - 1)
+			if(e < SpringList.Length - 1)
 			{
-				rDeltas[e] = Spread * (SpringList[e].transform.position.y - SpringList[e + 1].transform.position.y);
-				SpringList[e + 1].Speed += rDeltas[e];
+				rDeltas[e] = Spread * (SpringList[e].transform.localPosition.y - SpringList[e + 1].transform.localPosition.y);
+				SpringList[e+1].Speed += rDeltas[e];
 			}
 		}
 
-		for (int i= 0; i < SpringList.Length; i++)
+		for(int i = 0; i < SpringList.Length; i++)
 		{
-			if (i > 0)
-				SpringList[i - 1].transform.position += new Vector3(transform.position.x,lDeltas[i],transform.position.z);
-			if (i < SpringList.Length - 1)
-				SpringList[i + 1].transform.position += new Vector3(transform.position.x,rDeltas[i],transform.position.z);
+			if(i > 0)
+			{
+				SpringList[i - 1].transform.localPosition += new Vector3(0,lDeltas[i],0);
+			}
+			if(i < SpringList.Length - 1)
+			{
+				SpringList[i + 1].transform.localPosition += new Vector3(0,rDeltas[i],0);
+			}
 		}
 		
 		if(ChangedHeight)
@@ -207,9 +240,9 @@ public class Water : MonoBehaviour
 		//}       
 		
 		//Set each Mesh vertex to the position of its spring 
-		for(int vert=0; vert< SurfaceVertices; vert++)
+		for(int vert = 0; vert < SurfaceVertices; vert++)
 		{
-			vertices[vert] = SpringList[vert].transform.position;
+			vertices[vert] = SpringList[vert].transform.localPosition;
 		}
 		mesh.vertices = vertices;
 	}
@@ -225,14 +258,15 @@ public class Water : MonoBehaviour
 	IEnumerator MakeWave ()
 	{
 		Waving = true;
-		SpringList[te].Speed += Vector2.Distance(new Vector2(0,WaveSimulatorPrefab.position.y), new Vector2(0,SpringList[te].transform.position.y)) * WaveHeight;
+		SpringList[te].Speed += Vector2.Distance(new Vector2(0,WaveSimulatorPrefab.localPosition.y), new Vector2(0,SpringList[te].transform.localPosition.y)) * WaveHeight;
+
 		//And here is another wave behind the first wave
 		//if( te > 20) {
 		//	SpringList[te-20].Speed += Vector2.Distance(Vector2(0,WaveSimulatorPrefab.position.y), Vector2(0,SpringList[te].transform.position.y)) * WaveHeight;
 		//}
 		
 		//SpringList[te].Speed += 0.20f; //This could be used but it wont look realistic, if you use this you dont need the WaveSimulator
-		te ++;
+		te++;
 		if(te > SpringList.Length - 1)
 		{
 			te = 0;
@@ -241,13 +275,13 @@ public class Water : MonoBehaviour
 		Waving = false;
 	}
 
-	public void Splash ( float Velocity , int ID , Transform Victim )
+	public void Splash(float Velocity, int ID, Transform Victim)
 	{
 		if(!Delaying)
 		{
 			SpringList[ID].Speed += Velocity * CollisionVelocity;
 			DelayingObject = Victim;
-			DelayingObjectOldPos = Victim.position;
+			DelayingObjectOldPos = Victim.localPosition;
 			Delaying = true;
 			StartCoroutine(Delayer());
 		}
@@ -259,37 +293,37 @@ public class Water : MonoBehaviour
 			}
 			else
 			{
-					SpringList[ID].Speed += Velocity * CollisionVelocity;
-					Delaying = true;
-					StartCoroutine(Delayer());
-					DelayingObject = Victim;
+				SpringList[ID].Speed += Velocity * CollisionVelocity;
+				Delaying = true;
+				StartCoroutine(Delayer());
+				DelayingObject = Victim;
 			}
 		}
 	}
 
-	IEnumerator Delayer ()
+	IEnumerator Delayer()
 	{
 		yield return new WaitForSeconds(1);
 		Delaying = false;
 	}
 
-	public void SetWaterHeight (float mHeight)
+	public void SetWaterHeight(float mHeight)
 	{
-		for(int t=0; t< SpringList.Length; t++)
+		for(int t = 0; t < SpringList.Length; t++)
 		{
 			SpringList[t].TargetY = mHeight;
 		}
 	}
 
-	public IEnumerator ChangeWaterHeight (float mHeight, float mSmoothTime)
+	public IEnumerator ChangeWaterHeight(float mHeight, float mSmoothTime)
 	{
 		Height = mHeight;
 		SmoothTime = mSmoothTime;
 		ChangedHeight = true;
 		yield return new WaitForSeconds(mSmoothTime);
 	}
-
-	void TriangulateRectangle ( int p1 ,  int p2 ,  int p3 ,  int p4  )
+	
+	void TriangulateRectangle(int p1, int p2, int p3, int p4)
 	{
 		triangle[triNumber] = p1;
 		triNumber++;
@@ -298,11 +332,11 @@ public class Water : MonoBehaviour
 		triangle[triNumber] = p4;
 		triNumber++;
 		
-		triangle[triNumber]= p4;
+		triangle[triNumber] = p4;
 		triNumber++;
-		triangle[triNumber]= p2;
+		triangle[triNumber] = p2;
 		triNumber++;
-		triangle[triNumber]= p1;
+		triangle[triNumber] = p1;
 		triNumber++;
 	}
 }

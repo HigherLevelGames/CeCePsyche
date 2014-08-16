@@ -5,16 +5,16 @@ public class WaveSimulator : MonoBehaviour
 {
 	public float WaveSpeed;
 	public float WaveHeight;
-	public float OriginalY;
+	private float OriginalY;
 
 	void  Start ()
 	{
-		OriginalY = transform.position.y;
+		OriginalY = this.transform.localPosition.y;
 	}
 
 	void  FixedUpdate ()
 	{
-		transform.position = new Vector3(transform.position.x,OriginalY + Mathf.Sin(Time.time * WaveSpeed) * WaveHeight,transform.position.z);
+		this.transform.localPosition = new Vector3(this.transform.localPosition.x, OriginalY + Mathf.Sin(Time.time * WaveSpeed) * WaveHeight, this.transform.localPosition.z);
 		//if(transform.position.y < 0.5f){
 		//	transform.position.y = 0.5f;
 		//}
