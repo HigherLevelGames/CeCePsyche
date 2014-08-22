@@ -55,7 +55,7 @@ public class GameModeMenu : Menu
 		//Utility.SetBool("EduMode", isEdu);
 		
 		// save the profile
-		string savePath = Path.Combine(Application.dataPath, "Saves"); // TODO: switch to Application.persistentDataPath for final build
+		string savePath = Application.persistentDataPath;//Path.Combine(Application.dataPath, "Saves"); // TODO: switch to Application.persistentDataPath for final build
 		mainProfile.Save(savePath);
 		
 		// start the game

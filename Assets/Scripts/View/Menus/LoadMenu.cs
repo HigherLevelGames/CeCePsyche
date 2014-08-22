@@ -37,8 +37,8 @@ public class LoadMenu : Menu
 		}//*/
 		
 		// get all save files
-		string myPath = Path.Combine(Application.dataPath, "Saves"); // TODO: switch to Application.persistentDataPath for final build
-		System.IO.Directory.CreateDirectory(myPath);
+		string myPath = Application.persistentDataPath;//Path.Combine(Application.dataPath, "Saves"); // TODO: switch to Application.persistentDataPath for final build
+		//System.IO.Directory.CreateDirectory(myPath);
 		DirectoryInfo dir = new DirectoryInfo(myPath);
 		FileInfo[] info = dir.GetFiles("*.xml");
 		
