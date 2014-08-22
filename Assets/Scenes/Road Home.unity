@@ -35819,6 +35819,10 @@ Prefab:
       propertyPath: levelName
       value: Brain Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7d174f7f6bf6a4cd5a2a4bcd36d4ab4a, type: 2}
+      propertyPath: movieToPlay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d174f7f6bf6a4cd5a2a4bcd36d4ab4a, type: 2}
   m_RootGameObject: {fileID: 2109653112}
@@ -37254,7 +37258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 0
-  movieToPlay: 0
+  movieToPlay: 1
   levelName: Brain Menu
   enterButton: {fileID: 0}
   blurb: {fileID: 0}
