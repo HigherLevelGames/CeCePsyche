@@ -19,7 +19,7 @@ public class AudioMenu : Menu
 	float SFXVolume = 1.0f;
 	//float UISFXVolume = 1.0f;
 	//float dialogueVolume = 1.0f;
-
+	
 	bool isMute
 	{
 		get
@@ -27,37 +27,37 @@ public class AudioMenu : Menu
 			return masterVolume == 0.0f;
 		}
 	}
-
+	
 	public AudioMenu(Rect menuArea) : base(menuArea)
 	{
 		SFXVolume = 1.0f; // PlayerPrefs
 		bgmusicVolume = 1.0f; // PlayerPrefs
 		masterVolume = AudioListener.volume;
 	}
-
+	
 	public override void ShowMe()
 	{
 		GUILayout.BeginArea(Utility.adjRect(box));
-
+		
 		// Master Volume
 		GUILayout.Label("Master Volume");
 		masterVolume = GUILayout.HorizontalSlider(masterVolume, 0.0f, 1.0f);
-
+		
 		if(GUILayout.Toggle(isMute, "Mute"))
 		{
 			masterVolume = 0.0f;
 		}
-
+		
 		GUILayout.Label("<color=red>SFX & Music Sliders currently doesn't do anything</color>");
-
+		
 		// SFX Volume
 		GUILayout.Label("SFX Volume");
 		SFXVolume = GUILayout.HorizontalSlider(SFXVolume, 0.0f, 1.0f);
-
+		
 		// Background Music Volume
 		GUILayout.Label("Music Volume");
 		bgmusicVolume = GUILayout.HorizontalSlider(bgmusicVolume, 0.0f, 1.0f);
-
+		
 		// Buttons
 		if(GUILayout.Button("Apply"))
 		{
@@ -66,12 +66,12 @@ public class AudioMenu : Menu
 			// apply to all audio in scene
 			OnChanged(EventArgs.Empty, 1);
 		}
-
+		
 		if(GUILayout.Button("Back"))
 		{
 			OnChanged(EventArgs.Empty, 1);
 		}
-
+		
 		GUILayout.EndArea();
 	}
 }

@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: d03e4a395f58d294fb00f04a8aeafa5c
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - SpringPrefab: {fileID: 400000, guid: a9d307ded353a5d4e9d9207e322b1eb7, type: 2}
+  - WaveSimulatorPrefab: {fileID: 400000, guid: afa04ec20a1f91943af3389cdd56236f,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

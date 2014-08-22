@@ -22,11 +22,11 @@ public class LoadMenu : Menu
 {
 	private Profile mainProfile;
 	private int prevSelected;
-
+	
 	public LoadMenu(Rect menuArea) : base(menuArea)
 	{
 		prevSelected = selected;
-
+		
 		/*// test stuff
 		for(int i = 0; i < 6; i++)
 		{
@@ -35,12 +35,13 @@ public class LoadMenu : Menu
 			string savePath = Path.Combine(Application.dataPath, "Saves");
 			mainProfile.Save(savePath);
 		}//*/
-
+		
 		// get all save files
 		string myPath = Path.Combine(Application.dataPath, "Saves"); // TODO: switch to Application.persistentDataPath for final build
+		System.IO.Directory.CreateDirectory(myPath);
 		DirectoryInfo dir = new DirectoryInfo(myPath);
 		FileInfo[] info = dir.GetFiles("*.xml");
-
+		
 		// place saves into string[] to display to user
 		options = new string[info.Length];
 		for(int i = 0; i < info.Length; i++)
@@ -48,11 +49,11 @@ public class LoadMenu : Menu
 			options[i] = info[i].Name;
 		}
 	}
-
+	
 	public override void ShowMe()
 	{
 		base.ShowMe();
-
+		
 		// update save info
 		if(prevSelected != selected)
 		{
@@ -60,9 +61,9 @@ public class LoadMenu : Menu
 			myPath = Path.Combine(myPath,options[selected]);
 			mainProfile = Profile.Load(myPath);
 		}
-
+		
 		GUILayout.BeginArea(Utility.adjRect(new Rect(35, 10, 55, 80)));
-
+		
 		// show save info
 		if(mainProfile != null)
 		{
@@ -72,7 +73,7 @@ public class LoadMenu : Menu
 			displayText += "\nTotal Time Played: " + mainProfile.TotalTimePlayed;
 			GUILayout.Box(displayText);
 		}
-
+		
 		if(GUILayout.Button("Back"))
 		{
 			OnChanged(EventArgs.Empty, 0);
@@ -83,7 +84,7 @@ public class LoadMenu : Menu
 			GameObject.Find("ProfileContainer").SendMessage("SetProfile", mainProfile);
 			Application.LoadLevel("Brain Menu");
 		}
-
+		
 		GUILayout.EndArea();
 		prevSelected = selected;
 	}

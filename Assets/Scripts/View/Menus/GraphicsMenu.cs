@@ -9,7 +9,7 @@ public class GraphicsMenu : Menu
 	private List<string> resolutions = new List<string>();
 	private ComboBox comboBox = new ComboBox();
 	private int ComboIndex = 0;
-
+	
 	private string CurResString
 	{
 		get
@@ -17,7 +17,7 @@ public class GraphicsMenu : Menu
 			return Screen.currentResolution.width.ToString() + " x " + Screen.currentResolution.height.ToString();
 		}
 	}
-
+	
 	public GraphicsMenu(Rect menuArea) : base(menuArea)
 	{
 		for(int i = 0; i < Screen.resolutions.Length; i++)
@@ -31,11 +31,11 @@ public class GraphicsMenu : Menu
 			resolutions.Add(res);
 		}
 	}
-
+	
 	public override void ShowMe()
 	{
 		GUILayout.BeginArea(Utility.adjRect(box));
-
+		
 		// Quality Level
 		GUILayout.BeginHorizontal();
 		GUILayout.Label("Quality: " + QualitySettings.names[QualitySettings.GetQualityLevel()]);
@@ -52,7 +52,7 @@ public class GraphicsMenu : Menu
 		// Full Screen Toggle
 		Screen.fullScreen = GUILayout.Toggle(Screen.fullScreen,"Full Screen");
 		GUILayout.Label("Resolution: " + CurResString);
-
+		
 		// Screen Resolution Dropdown box
 		GUILayout.Label("");
 		int temp = comboBox.DrawComboBox(GUILayoutUtility.GetLastRect(), ComboIndex, resolutions.ToArray());
@@ -75,7 +75,7 @@ public class GraphicsMenu : Menu
 		{
 			OnChanged(EventArgs.Empty, 1);
 		}
-
+		
 		GUILayout.EndArea();
 	}
 }

@@ -7,10 +7,10 @@ using Common;
 public class RebindingMenu : Menu
 {
 	public RebindableData rebindableManager;
-
+	
 	private List<RebindableKey> rebindKeys;
 	private List<RebindableAxis> rebindAxes;
-
+	
 	[Flags]
 	private enum RebindFlag
 	{
@@ -19,7 +19,7 @@ public class RebindingMenu : Menu
 		isAlternate = 1 << 1,
 		isAxes = 1 << 2,
 		isAxisPos = 1 << 3,
-
+		
 		// multiple flags shortcut
 		isAltAxisPos = isAlternate | isAxisPos // | isAxis
 	}
@@ -33,14 +33,14 @@ public class RebindingMenu : Menu
 		rebindKeys = rebindableManager.GetCurrentKeys();
 		rebindAxes = rebindableManager.GetCurrentAxes();
 	}
-
+	
 	// May use this: http://forum.unity3d.com/threads/wait-for-input.74034/
 	public override void Update ()
 	{
 		if (((flag & RebindFlag.isRebinding) != 0) && Input.anyKeyDown)
 		{
 			KeyCode reboundKey = FetchPressedKey();
-
+			
 			if((flag & RebindFlag.isAxes) != 0)
 			{
 				for (int k = 0; k < rebindAxes.Count; k++)
@@ -92,13 +92,13 @@ public class RebindingMenu : Menu
 	{
 		GUILayout.BeginArea(Utility.adjRect(box));
 		GUILayout.BeginVertical ("box");
-
+		
 		ShowKeyBindOptions();
 		
 		GUILayout.Label ("");
-
+		
 		ShowAxisBindOptions();
-
+		
 		if ((flag & RebindFlag.isRebinding) != 0)
 		{
 			GUILayout.Label("<color=cyan>Press any key to rebind.</color>");
@@ -107,7 +107,7 @@ public class RebindingMenu : Menu
 		{
 			GUILayout.Label("");
 		}
-
+		
 		GUILayout.BeginHorizontal();
 		
 		if (GUILayout.Button("Save to File"))
@@ -125,14 +125,14 @@ public class RebindingMenu : Menu
 		}
 		
 		GUILayout.EndHorizontal();
-
+		
 		GUILayout.Label("");
-
+		
 		if(GUILayout.Button("Back"))
 		{
 			OnChanged(EventArgs.Empty, 1);
 		}
-
+		
 		GUILayout.EndVertical ();
 		GUILayout.EndArea();
 	}
@@ -142,7 +142,7 @@ public class RebindingMenu : Menu
 		GUILayout.Label ("Normal Keybinds");
 		
 		GUILayout.BeginHorizontal ();
-
+		
 		// Column 1
 		GUILayout.BeginVertical();
 		GUILayout.Label ("Key Name:");
@@ -151,7 +151,7 @@ public class RebindingMenu : Menu
 			GUILayout.Label (rebindKeys[i].inputName);
 		}
 		GUILayout.EndVertical();
-
+		
 		// Column 2
 		GUILayout.BeginVertical();
 		GUILayout.Label ("Key Code:");
@@ -164,7 +164,7 @@ public class RebindingMenu : Menu
 			}
 		}
 		GUILayout.EndVertical();
-
+		
 		// Column 3
 		GUILayout.BeginVertical();
 		GUILayout.Label ("Alt Key Code:");
@@ -177,16 +177,16 @@ public class RebindingMenu : Menu
 			}
 		}
 		GUILayout.EndVertical();
-
+		
 		GUILayout.EndHorizontal ();		
 	}
-
+	
 	void ShowAxisBindOptions()
 	{
 		GUILayout.Label ("Axis Keybinds");
 		
 		GUILayout.BeginHorizontal ();
-
+		
 		// Column 1
 		GUILayout.BeginVertical();
 		GUILayout.Label ("Axis Name:");
@@ -195,7 +195,7 @@ public class RebindingMenu : Menu
 			GUILayout.Label (rebindAxes[j].axisName);
 		}
 		GUILayout.EndVertical();
-
+		
 		// Column 2
 		GUILayout.BeginVertical();
 		GUILayout.Label ("Positive:");
@@ -208,7 +208,7 @@ public class RebindingMenu : Menu
 			}
 		}
 		GUILayout.EndVertical();
-
+		
 		// Column 3
 		GUILayout.BeginVertical();
 		GUILayout.Label ("Negative:");
@@ -221,7 +221,7 @@ public class RebindingMenu : Menu
 			}
 		}
 		GUILayout.EndVertical();
-
+		
 		// Column 4
 		GUILayout.BeginVertical();
 		GUILayout.Label ("Alt Positive:");
@@ -234,7 +234,7 @@ public class RebindingMenu : Menu
 			}
 		}
 		GUILayout.EndVertical();
-
+		
 		// Column 5
 		GUILayout.BeginVertical();
 		GUILayout.Label ("Alt Negative:");
@@ -247,7 +247,7 @@ public class RebindingMenu : Menu
 			}
 		}
 		GUILayout.EndVertical();
-
+		
 		GUILayout.EndHorizontal ();		
 	}
 	
@@ -266,13 +266,13 @@ public class RebindingMenu : Menu
 			}
 		}
 		/* // JNN: I don't think this is needed...
-		if (Input.GetKeyDown(KeyCode.LeftAlt)) { return KeyCode.LeftAlt; }
-		if (Input.GetKeyDown(KeyCode.RightAlt)) { return KeyCode.RightAlt; }
-		if (Input.GetKeyDown(KeyCode.LeftShift)) { return KeyCode.LeftShift; }
-		if (Input.GetKeyDown(KeyCode.RightShift)) { return KeyCode.RightShift; }
-		if (Input.GetKeyDown(KeyCode.LeftControl)) { return KeyCode.LeftControl; }
-		if (Input.GetKeyDown(KeyCode.RightControl)) { return KeyCode.RightControl; }
-		//*/
+	if (Input.GetKeyDown(KeyCode.LeftAlt)) { return KeyCode.LeftAlt; }
+	if (Input.GetKeyDown(KeyCode.RightAlt)) { return KeyCode.RightAlt; }
+	if (Input.GetKeyDown(KeyCode.LeftShift)) { return KeyCode.LeftShift; }
+	if (Input.GetKeyDown(KeyCode.RightShift)) { return KeyCode.RightShift; }
+	if (Input.GetKeyDown(KeyCode.LeftControl)) { return KeyCode.LeftControl; }
+	if (Input.GetKeyDown(KeyCode.RightControl)) { return KeyCode.RightControl; }
+	//*/
 		return KeyCode.None;
 	}
 }

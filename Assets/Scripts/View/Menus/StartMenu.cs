@@ -16,7 +16,7 @@ public class StartMenu : Menu
 			"Quit"
 		};
 	}
-
+	
 	protected override void PressedEnter()
 	{
 		switch(selected)

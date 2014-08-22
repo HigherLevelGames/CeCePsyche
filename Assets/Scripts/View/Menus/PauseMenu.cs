@@ -15,7 +15,7 @@ public class PauseMenu : Menu
 			"Exit"
 		};
 	}
-
+	
 	protected override void PressedEnter()
 	{
 		switch(selected)

@@ -14,22 +14,22 @@ public class Menu
 	// Menu gets shown in this box area
 	protected Rect box = new Rect(0,0,0,0);
 	protected Vector2 offset = Vector2.zero;
-
+	
 	// selection grid vars for default menu
 	protected int selected = -1;
 	protected string[] options = { "" };
-
+	
 	// Constructor
 	public Menu(Rect menuArea)
 	{
 		box = menuArea;
 	}
-
+	
 	public void SetOffset(Vector2 o)
 	{
 		offset = new Vector2(o.x * Screen.width / 100.0f, o.y * Screen.height / 100.0f);
 	}
-
+	
 	// An event MenuManager can use to be notified whenever the menu should change
 	public event ChangedEventHandler Changed;
 	
@@ -41,7 +41,7 @@ public class Menu
 			Changed(this, e, index);
 		}
 	}
-
+	
 	// Overridden by AudioMenu.cs, GraphicsMenu.cs, and RebindingMenu1.cs
 	public virtual void Update()
 	{
@@ -69,20 +69,20 @@ public class Menu
 			PressedEnter();
 		}
 	}
-
+	
 	// To Show the Menu
 	public virtual void ShowMe()
 	{
 		// draw selection grid buttons
 		selected = GUI.SelectionGrid(Utility.adjRect(box), selected, options, 1);
-
+		
 		Rect temp = Utility.adjRect(box);
 		if(offset != Vector2.zero)
 		{
 			temp.x += offset.x;
 			temp.y += offset.y;
 		}
-
+		
 		// left click event same as enter event
 		if(Input.GetMouseButtonUp(0) && temp.Contains(Utility.GUIMousePos))
 		{
@@ -93,6 +93,6 @@ public class Menu
 			PressedEnter();
 		}
 	}
-
+	
 	protected virtual void PressedEnter() { }
 }

@@ -15,7 +15,7 @@ public class OptionMenu : Menu
 			"Back"
 		};
 	}
-
+	
 	protected override void PressedEnter()
 	{
 		switch(selected)

@@ -1,16 +1,18 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(MeshFilter))]
 public class Water : MonoBehaviour
 {
 	//Mesh
 	[Header("Mesh Properties")]
 	[Tooltip("Automatically generates a mesh based on the desired number of vertices.\nNote: Must be an even number >= 4.")]
-	public int VertexCount; // 200
-	private float VertexSpacing = 1.0f; // 0.3f
-	private float StartX; // -10.0f
-	private float YSurface; // 0.0f
-	private float YBottom; // -3.0f
+	public int VertexCount = 4; // 200
+	private float VertexSpacing; // 0.3f
+	private float StartX = -0.5f; // -10.0f
+	private float YSurface = 0.5f; // 0.0f
+	private float YBottom = -0.5f; // -3.0f
 
 	//Water Properties
 	[Header("Liquid Properties")]
@@ -104,6 +106,7 @@ public class Water : MonoBehaviour
 	void Awake()
 	{
 		SurfaceVertices = VertexCount / 2;
+		VertexSpacing = 1.0f / (float)(SurfaceVertices-1);
 		vertices = new Vector3[VertexCount];
 		triNumber = 0;
 		triangle = new int[(VertexCount-2) * 3];
@@ -114,11 +117,6 @@ public class Water : MonoBehaviour
 
 	void Start ()
 	{
-		VertexSpacing = 1.0f / (float)(SurfaceVertices-1);
-		StartX = -0.5f;
-		YSurface = 0.5f;
-		YBottom = -0.5f;
-
 		GenerateMesh();
 
 		//Generating Springs and saving each of Spring's Scripts into the array for refrence later. Also setting the properties of it.
