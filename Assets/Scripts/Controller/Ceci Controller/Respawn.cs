@@ -21,13 +21,19 @@ public class Respawn : MonoBehaviour
 		}
 	}
 
+	// JASON TODO add some particle effect or other indicator that the checkpoint is active
+	/*
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "CheckPoint")
+		if(col.gameObject.tag == "Checkpoint")
 		{
 			checkpoint = col.gameObject.transform.position;
-			// JASON TODO add some particle effect or other indicator that the checkpoint is active
 		}
+	}//*/
+
+	void SetCheckpoint(Vector3 pos)
+	{
+		checkpoint = pos;
 	}
 
 	// enemies call this method

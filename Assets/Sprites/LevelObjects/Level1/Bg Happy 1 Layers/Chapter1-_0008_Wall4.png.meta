@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 96bfb8ddf63394ff59e25599e56ef688
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Chapter1-_0008_Wall4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -24,9 +26,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

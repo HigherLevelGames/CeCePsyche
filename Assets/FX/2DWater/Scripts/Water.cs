@@ -43,6 +43,10 @@ public class Water : MonoBehaviour
 	[Tooltip("How fast should it wait in seconds to copy the height of the simulator to the next vertex in the mesh.")]
 	public float WaveTimeStep;
 
+	[Header("Sorting Layer")]
+	public string SortingLayer = "Default";
+	public int OrderInLayer = 0;
+
 	//Hide in inspector
 	private int SurfaceVertices;
 	//This is used alot because all the work is done to the surface of the water not the bottom.
@@ -118,6 +122,8 @@ public class Water : MonoBehaviour
 	void Start ()
 	{
 		GenerateMesh();
+		renderer.sortingLayerName = SortingLayer;
+		renderer.sortingOrder = OrderInLayer;
 
 		//Generating Springs and saving each of Spring's Scripts into the array for refrence later. Also setting the properties of it.
 		for(int sprngs = 0; sprngs < SurfaceVertices; sprngs++)

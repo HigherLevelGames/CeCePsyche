@@ -8,7 +8,7 @@ using System.Collections;
 public class AbilityManager : MonoBehaviour
 {
 	#region Variables: CurEmotion, abilities, isUsingAbility, ActiveTime, ElapsedTime
-	private enum Emotion
+	public enum Emotion
 	{
 		Happy,
 		Sad,
@@ -25,6 +25,14 @@ public class AbilityManager : MonoBehaviour
 	#endregion
 
 	#region Public Properties: isCrying, canBreak, isFloating, isFrightened
+	public bool isNeutral
+	{
+		get
+		{
+			return CurEmotion == Emotion.Neutral;
+		}
+	}
+
 	// flag for Plant.cs to know if Ceci is crying
 	public bool isCrying
 	{
@@ -78,9 +86,17 @@ public class AbilityManager : MonoBehaviour
 		SetEmotion(); // Dev Shortcut
 		if(RebindableInput.GetKeyDown("Ability"))
 		{
-			UseAbility();
+			if(isUsingAbility)
+			{
+				EndAbility();
+			}
+			else
+			{
+				UseAbility();
+			}
 		}
 
+		/*
 		if(isUsingAbility)
 		{
 			ElapsedTime += Time.deltaTime;
@@ -88,7 +104,7 @@ public class AbilityManager : MonoBehaviour
 			{
 				Neutralize();
 			}
-		}
+		}//*/
 	}
 
 	// Dev Shortcut
@@ -114,7 +130,7 @@ public class AbilityManager : MonoBehaviour
 	}
 
 	// set/called by Subconcious.cs somehow...
-	void SetEmotion(Emotion emotion)
+	public void SetEmotion(Emotion emotion)
 	{
 		if(isUsingAbility) // already using an ability
 		{
@@ -139,6 +155,18 @@ public class AbilityManager : MonoBehaviour
 		this.SendMessage("TriggerEmotionAnim", ((int)CurEmotion), SendMessageOptions.DontRequireReceiver);
 		abilities[((int)CurEmotion)%abilities.Length].UseAbility();
 		isUsingAbility = true;
+	}
+
+	void EndAbility()
+	{
+		if(CurEmotion == Emotion.Scared)
+		{
+			this.SendMessage("TriggerEmotionAnim", ((int)CurEmotion), SendMessageOptions.DontRequireReceiver);
+		}
+		// not really a good idea to use mod...
+		abilities[((int)CurEmotion)%abilities.Length].EndAbility();
+		isUsingAbility = false;
+		ElapsedTime = 0.0f;
 	}
 
 	// reset everything
