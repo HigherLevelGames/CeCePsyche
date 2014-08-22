@@ -1,24 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FollowAndTransport : MonoBehaviour
+public class FollowTargetX : MonoBehaviour
 {
-	private GameObject player;
+	private GameObject target;
 	public float speed = 3f;
+	private bool isFacingRight = true;
+	private Quaternion reverseRotation = new Quaternion(0.0f,180.0f,0.0f,0.0f);
 	private Vector2 direction
 	{
 		get
 		{
-			return new Vector2(player.transform.position.x - this.transform.position.x, this.rigidbody2D.velocity.y).normalized;
+			return new Vector2(target.transform.position.x - this.transform.position.x, this.rigidbody2D.velocity.y).normalized;
 		}
 	}
-	private bool isFacingRight = true;
-	private Quaternion reverseRotation = new Quaternion(0.0f,180.0f,0.0f,0.0f);
 
 	// Use this for initialization
 	void Start ()
 	{
-		player = GameObject.FindGameObjectWithTag("Player");
+		if(target == null)
+		{
+			target = GameObject.FindGameObjectWithTag("Player");
+		}
 	}
 	
 	// Update is called once per frame

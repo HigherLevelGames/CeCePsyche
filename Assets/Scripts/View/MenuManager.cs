@@ -14,8 +14,9 @@ public class MenuManager : MonoBehaviour
 
 	// basic boxes
 	Rect winRect = new Rect(10,10,80,80);
-	Rect levelNameBox = new Rect(10,5,50,10);
+	Rect levelNameBox = new Rect(10,5,50,5);
 	Rect menuBox = new Rect(55, 20, 20, 50);
+	Rect keyBindBox = new Rect(5,10,70,70);
 
 	// edu mode boxes
 	Rect urBox = new Rect(5,20,45,25);
@@ -30,7 +31,7 @@ public class MenuManager : MonoBehaviour
 		menus[1] = new OptionMenu(menuBox);
 		menus[2] = new AudioMenu(menuBox);
 		menus[3] = new GraphicsMenu(menuBox);
-		menus[4] = new RebindingMenu(menuBox);
+		menus[4] = new RebindingMenu(keyBindBox);
 		//menus[5] = new ExtrasMenu(menuBox);
 
 		for(int i = 0; i < 5; i++)
@@ -68,7 +69,7 @@ public class MenuManager : MonoBehaviour
 		menus[curMenu].ShowMe();
 		menus[curMenu].SetOffset(new Vector2(10,10));
 		
-		if(Utility.GetBool("EduMode"))
+		if(Utility.GetBool("EduMode") && curMenu != 4)
 		{
 			GUI.Box(Utility.adjRect(urBox), "Unconditioned Response: " + "0" + " out of 3");
 			GUI.Box(Utility.adjRect(usBox), "Unconditioned Stimulus:");
