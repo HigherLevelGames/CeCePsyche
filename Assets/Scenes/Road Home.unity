@@ -8374,7 +8374,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d050e038d49bf4d76abda16b1bf181c9, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d050e038d49bf4d76abda16b1bf181c9, type: 2}
@@ -10781,8 +10781,8 @@ MonoBehaviour:
     input: 32
     altInput: 0
   - inputName: Interact
-    input: 13
-    altInput: 122
+    input: 101
+    altInput: 13
   - inputName: Ability
     input: 102
     altInput: 304
@@ -19611,6 +19611,7 @@ GameObject:
   - 33: {fileID: 1130767596}
   - 23: {fileID: 1130767595}
   - 61: {fileID: 1130767594}
+  - 114: {fileID: 1130767598}
   m_Layer: 0
   m_Name: US
   m_TagString: Checkpoint
@@ -19671,6 +19672,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 391679731}
   m_RootOrder: 2
+--- !u!114 &1130767598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: d050e038d49bf4d76abda16b1bf181c9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1330754376}
+  m_GameObject: {fileID: 1130767593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84d487b97c6e4ad7a5d928db9be1501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextToSay: []
+  EmotionTrigger: 0
 --- !u!1 &1132230019
 GameObject:
   m_ObjectHideFlags: 0
@@ -20537,6 +20552,10 @@ Prefab:
     - target: {fileID: 21200000, guid: 01fd4ee45fe5043169292ef4075e485a, type: 2}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 01fd4ee45fe5043169292ef4075e485a, type: 2}
+      propertyPath: m_TagString
+      value: Subconcious
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01fd4ee45fe5043169292ef4075e485a, type: 2}
@@ -21484,6 +21503,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 391679731}
     m_Modifications:
+    - target: {fileID: 11400000, guid: d050e038d49bf4d76abda16b1bf181c9, type: 2}
+      propertyPath: TextToSay.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d050e038d49bf4d76abda16b1bf181c9, type: 2}
       propertyPath: m_LocalPosition.x
       value: -364.142334
@@ -21526,11 +21549,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d050e038d49bf4d76abda16b1bf181c9, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d050e038d49bf4d76abda16b1bf181c9, type: 2}
       propertyPath: m_LocalScale.y
       value: 3.35002303
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: d050e038d49bf4d76abda16b1bf181c9, type: 2}
+      propertyPath: TextToSay.Array.data[0]
+      value: Press F or Left Shift to turn on and off your power.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d050e038d49bf4d76abda16b1bf181c9, type: 2}
@@ -23326,7 +23353,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d050e038d49bf4d76abda16b1bf181c9, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d050e038d49bf4d76abda16b1bf181c9, type: 2}
@@ -24392,6 +24419,7 @@ GameObject:
   - 33: {fileID: 1375382396}
   - 23: {fileID: 1375382395}
   - 61: {fileID: 1375382394}
+  - 114: {fileID: 1375382398}
   m_Layer: 0
   m_Name: US
   m_TagString: Checkpoint
@@ -24452,6 +24480,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 391679731}
   m_RootOrder: 1
+--- !u!114 &1375382398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: d050e038d49bf4d76abda16b1bf181c9,
+    type: 2}
+  m_PrefabInternal: {fileID: 452864925}
+  m_GameObject: {fileID: 1375382393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84d487b97c6e4ad7a5d928db9be1501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextToSay: []
+  EmotionTrigger: 0
 --- !u!1 &1377441085
 GameObject:
   m_ObjectHideFlags: 0
@@ -28775,7 +28817,7 @@ GameObject:
   - 95: {fileID: 1600650572}
   m_Layer: 0
   m_Name: Subconscious
-  m_TagString: Untagged
+  m_TagString: Subconcious
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36348,7 +36390,7 @@ GameObject:
   - 33: {fileID: 2028421763}
   - 23: {fileID: 2028421762}
   - 61: {fileID: 2028421761}
-  - 114: {fileID: 2028421764}
+  - 114: {fileID: 2028421765}
   m_Layer: 0
   m_Name: US
   m_TagString: Checkpoint
@@ -36409,18 +36451,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1214041945}
   m_GameObject: {fileID: 2028421759}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2028421764
+--- !u!114 &2028421765
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11400000, guid: d050e038d49bf4d76abda16b1bf181c9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1214041945}
   m_GameObject: {fileID: 2028421759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc8516ed01fbb4367bbc0c352d1e29ff, type: 3}
+  m_Script: {fileID: 11500000, guid: e84d487b97c6e4ad7a5d928db9be1501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bully: {fileID: 1207017502}
+  TextToSay:
+  - Press F or Left Shift to turn on and off your power.
+  EmotionTrigger: 0
 --- !u!1 &2031357152
 GameObject:
   m_ObjectHideFlags: 0

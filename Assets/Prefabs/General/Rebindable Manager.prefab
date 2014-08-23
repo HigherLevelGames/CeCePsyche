@@ -56,8 +56,8 @@ MonoBehaviour:
     input: 32
     altInput: 0
   - inputName: Interact
-    input: 13
-    altInput: 122
+    input: 101
+    altInput: 13
   - inputName: Ability
     input: 102
     altInput: 304

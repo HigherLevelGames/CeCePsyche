@@ -107,6 +107,17 @@ public class AbilityManager : MonoBehaviour
 		}//*/
 	}
 
+	// set/called by Subconcious.cs somehow...
+	public void SetEmotion(Emotion emotion)
+	{
+		if(isUsingAbility) // already using an ability
+		{
+			return;
+		}
+		CurEmotion = emotion;
+		UseAbility();
+	}
+
 	// Dev Shortcut
 	void SetEmotion()
 	{
@@ -127,17 +138,6 @@ public class AbilityManager : MonoBehaviour
 			CurEmotion = Emotion.Mad;
 		}
 		//UseAbility();
-	}
-
-	// set/called by Subconcious.cs somehow...
-	public void SetEmotion(Emotion emotion)
-	{
-		if(isUsingAbility) // already using an ability
-		{
-			return;
-		}
-		CurEmotion = emotion;
-		UseAbility();
 	}
 
 	void OnGUI()
