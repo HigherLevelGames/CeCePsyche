@@ -59,8 +59,8 @@ MonoBehaviour:
     input: 13
     altInput: 122
   - inputName: Ability
-    input: 120
-    altInput: 0
+    input: 102
+    altInput: 304
   - inputName: Pause
     input: 112
     altInput: 27
