@@ -50,22 +50,21 @@ public class Subconcious : MonoBehaviour
 		}
 
 		// Temporary shortcut keys for testing
-		if(Input.GetKeyDown(KeyCode.N))
+		if(RebindableInput.GetKeyDown("Hint"))
 		{
-			Say (new string[]{"Hello World", "Some longer text to debug whether or not this works", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."});
+			Say (new string[]{"Press F or Left Shift to turn your power on and off", "Hello World", "Some longer text to debug whether or not this works", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."});
+		}
+		if(RebindableInput.GetKeyDown("UseItem"))
+		{
+			if(isTalking)
+			{
+				// to progress through multiple lines of text
+				index++;
+				scrollIndex = 0.0f;
+			}
 		}
 	}
-
-	void OnMouseDown()
-	{
-		if(isTalking)
-		{
-			// to progress through multiple lines of text
-			index++;
-			scrollIndex = 0.0f;
-		}
-	}
-
+	
 	// Call this method to have the subconcious say stuff
 	void Say(string[] text)//, AudioClip clip)
 	{

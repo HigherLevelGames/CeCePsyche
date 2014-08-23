@@ -17,6 +17,7 @@ public class FlyAroundTarget : MonoBehaviour
 			return new Vector2(target.transform.position.x - this.transform.position.x, 0);
 		}
 	}
+	private Vector2 prevPos = Vector2.zero;
 	private Vector2 TargetPos
 	{
 		get
@@ -33,15 +34,17 @@ public class FlyAroundTarget : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if(direction.x > 0)
-		{
-			isFacingRight = true;
-		}
-		else if(direction.x < 0)
+		float theta = Time.time;
+		Vector3 newPos = TargetPos + new Vector2(xDis * Mathf.Cos(theta), yDis * Mathf.Sin(theta));
+		if(newPos.x < prevPos.x)
 		{
 			isFacingRight = false;
 		}
-		
+		else if(newPos.x > prevPos.x)
+		{
+			isFacingRight = true;
+		}
+
 		// face left or right by changing the y rotation value
 		if(isFacingRight)
 		{
@@ -52,7 +55,7 @@ public class FlyAroundTarget : MonoBehaviour
 			this.transform.rotation = reverseRotation;
 		}
 
-		float theta = Time.time;
-		this.transform.position = TargetPos + new Vector2(xDis * Mathf.Cos(theta), yDis * Mathf.Sin(theta));
+		this.transform.position = newPos;
+		prevPos = this.transform.position;
 	}
 }
