@@ -17,9 +17,6 @@ public class Stimulus : MonoBehaviour
 	{
 		if(col.gameObject.tag == "Player")
 		{
-			// activate some script animation sequence to show how Ceci's unconditioned response
-			//player.SendMessage("TriggerEmotionAnim", (int)EmotionTrigger);
-
 			// tell controller to call certain ability on Ceci
 			player.SendMessage("SetEmotion", EmotionTrigger);
 			
