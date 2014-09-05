@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 17fcfe7cf4a63421d8abce87f137fc00
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: DogRunning_0000_Layer-2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +37,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
