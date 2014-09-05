@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 92e1af4b5495d4941ba7b9043a6397c9
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Chapter1-_0014_Ground4.2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -24,9 +26,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

@@ -1,6 +1,52 @@
 fileFormatVersion: 2
 guid: 74104eeaba58141f18eb44588829d778
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: CeciSpriteSheet_0
+    21300002: CeciSpriteSheet_1
+    21300004: CeciSpriteSheet_2
+    21300006: CeciSpriteSheet_3
+    21300008: CeciSpriteSheet_4
+    21300010: CeciSpriteSheet_5
+    21300012: CeciSpriteSheet_6
+    21300014: CeciSpriteSheet_7
+    21300016: CeciSpriteSheet_8
+    21300018: CeciSpriteSheet_9
+    21300020: CeciSpriteSheet_10
+    21300022: CeciSpriteSheet_11
+    21300024: CeciSpriteSheet_12
+    21300026: CeciSpriteSheet_13
+    21300028: CeciSpriteSheet_14
+    21300030: CeciSpriteSheet_15
+    21300032: CeciSpriteSheet_16
+    21300034: CeciSpriteSheet_17
+    21300036: CeciSpriteSheet_18
+    21300038: CeciSpriteSheet_19
+    21300040: CeciSpriteSheet_20
+    21300042: CeciSpriteSheet_21
+    21300044: CeciSpriteSheet_22
+    21300046: CeciSpriteSheet_23
+    21300048: CeciSpriteSheet_24
+    21300050: CeciSpriteSheet_25
+    21300052: CeciSpriteSheet_26
+    21300054: CeciSpriteSheet_27
+    21300056: CeciSpriteSheet_28
+    21300058: CeciSpriteSheet_29
+    21300060: CeciSpriteSheet_30
+    21300062: CeciSpriteSheet_31
+    21300064: CeciSpriteSheet_32
+    21300066: CeciSpriteSheet_33
+    21300068: CeciSpriteSheet_34
+    21300070: CeciSpriteSheet_35
+    21300072: CeciSpriteSheet_36
+    21300074: CeciSpriteSheet_37
+    21300076: CeciSpriteSheet_38
+    21300078: CeciSpriteSheet_39
+    21300080: CeciSpriteSheet_40
+    21300082: CeciSpriteSheet_41
+    21300084: CeciSpriteSheet_42
+    21300086: CeciSpriteSheet_43
+    21300088: CeciSpriteSheet_44
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

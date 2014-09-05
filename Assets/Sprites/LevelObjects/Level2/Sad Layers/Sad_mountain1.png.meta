@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: f379e52419879442facd28727d848794
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Sad_mountain1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
