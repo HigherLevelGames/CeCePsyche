@@ -1,6 +1,28 @@
 fileFormatVersion: 2
 guid: 87b91e894303043379010963d7bf9328
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: BirdSpriteSheet_0
+    21300002: BirdSpriteSheet_1
+    21300004: BirdSpriteSheet_2
+    21300006: BirdSpriteSheet_3
+    21300008: BirdSpriteSheet_4
+    21300010: BirdSpriteSheet_5
+    21300012: BirdSpriteSheet_6
+    21300014: BirdSpriteSheet_7
+    21300016: BirdSpriteSheet_8
+    21300018: BirdSpriteSheet_9
+    21300020: BirdSpriteSheet_10
+    21300022: BirdSpriteSheet_11
+    21300024: BirdSpriteSheet_12
+    21300026: BirdSpriteSheet_13
+    21300028: BirdSpriteSheet_14
+    21300030: BirdSpriteSheet_15
+    21300032: BirdSpriteSheet_16
+    21300034: BirdSpriteSheet_17
+    21300036: BirdSpriteSheet_18
+    21300038: BirdSpriteSheet_19
+    21300040: BirdSpriteSheet_20
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

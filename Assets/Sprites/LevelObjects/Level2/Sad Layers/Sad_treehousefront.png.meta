@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: cab6e5f682a95482695af837b46ebe0f
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Sad_treehousefront
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -24,9 +26,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

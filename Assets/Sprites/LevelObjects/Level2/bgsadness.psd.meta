@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 6dc249f51c7ef4adaa87cccd69eee870
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: bgsadness
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -24,9 +26,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

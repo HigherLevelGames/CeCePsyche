@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 3d718715132eb4a9b83be4b13b471997
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Bull-E_0008_Run2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -24,9 +26,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
