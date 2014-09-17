@@ -14,7 +14,7 @@ public class FollowTargetX : MonoBehaviour
 			return new Vector2(distance, -2).normalized;
 		}
 	}
-	private float distance
+	public float distance
 	{
 		get
 		{
@@ -64,8 +64,8 @@ public class FollowTargetX : MonoBehaviour
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D col)
+	/*void OnCollisionEnter2D(Collision2D col)
 	{
 		col.gameObject.SendMessage("GoToCheckpoint", SendMessageOptions.DontRequireReceiver);
-	}
+	}*/
 }

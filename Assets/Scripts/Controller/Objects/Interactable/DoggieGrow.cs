@@ -18,12 +18,12 @@ public class DoggieGrow : MonoBehaviour {
 			if( growFrame >= 1.0f)
 			{
 				growFrame -= Time.deltaTime;
-					dog.transform.localScale += new Vector3 (-growSize,-growSize,0);
+					dog.transform.localScale += new Vector3 (growSize,-growSize,0);
 				if(growFrame < 1.0f)
 					growFrame = -1.0f;
 			}
 			else {
-				dog.transform.localScale += new Vector3 (growSize,growSize,0);
+				dog.transform.localScale += new Vector3 (-growSize,growSize,0);
 				growFrame += Time.deltaTime;
 			if(growFrame > 1.0f)
 				growFrame = -1.0f;
