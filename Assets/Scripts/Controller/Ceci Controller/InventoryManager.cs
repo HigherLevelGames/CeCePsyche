@@ -8,13 +8,12 @@ public class InventoryManager : MonoBehaviour
 	void Update() { }
 	
 	#region Tempporary OnGUI Display for testing
-	int numMemories = 0;
-	int numNeurons = 0;
+	int numTreats = 0;
+
 	void OnGUI()
 	{
 		GUI.Label(new Rect(0,0,100,50),
-		          "Memories: " + numMemories +
-		          "\nNeurons: " + numNeurons);
+		          "Treats: " + numTreats);
 	}
 	#endregion
 	
@@ -32,14 +31,11 @@ public class InventoryManager : MonoBehaviour
 			// collect the item, e.g. memories, neurons, emotion items, etc.
 			//PlayerPrefs.SetInt(col.gameObject.name, PlayerPrefs.GetInt(col.gameObject.name) + 1);
 			//*
-			if(col.gameObject.name == "Neuron")
+			if(col.gameObject.name == "Treat")
 			{
-				numNeurons++;
+				numTreats++;
 			}
-			if(col.gameObject.name == "Memory")
-			{
-				numMemories++;
-			}
+
 			//*/
 			Destroy(col.gameObject);
 		}
