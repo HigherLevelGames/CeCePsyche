@@ -123,7 +123,7 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 2
+  sx: 5
   sy: 2
   dirty: 0
   tilesetCorner:
@@ -260,7 +260,7 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 6
+  sx: 5
   sy: 2
   dirty: 0
   tilesetCorner:
@@ -397,8 +397,8 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 6
-  sy: 3
+  sx: 5
+  sy: 2
   dirty: 0
   tilesetCorner:
   - {fileID: 21300000, guid: f0c1ad0a525ecdc4c8d6ee405af9cc52, type: 3}
@@ -534,7 +534,7 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 6
+  sx: 5
   sy: 2
   dirty: 0
   tilesetCorner:
@@ -671,7 +671,7 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 0
+  sx: 5
   sy: 2
   dirty: 0
   tilesetCorner:
@@ -956,7 +956,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   sx: 5
-  sy: 3
+  sy: 2
   dirty: 0
   tilesetCorner:
   - {fileID: 21300000, guid: f0c1ad0a525ecdc4c8d6ee405af9cc52, type: 3}
@@ -1141,7 +1141,7 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 4
+  sx: 5
   sy: 2
   dirty: 0
   tilesetCorner:
@@ -1376,7 +1376,7 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 1
+  sx: 5
   sy: 2
   dirty: 0
   tilesetCorner:
@@ -1709,8 +1709,8 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 2
-  sy: 1
+  sx: 5
+  sy: 2
   dirty: 0
   tilesetCorner:
   - {fileID: 21300000, guid: f0c1ad0a525ecdc4c8d6ee405af9cc52, type: 3}
@@ -1846,8 +1846,8 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 0
-  sy: 1
+  sx: 5
+  sy: 2
   dirty: 0
   tilesetCorner:
   - {fileID: 21300000, guid: f0c1ad0a525ecdc4c8d6ee405af9cc52, type: 3}
@@ -2081,8 +2081,8 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 2
-  sy: 1
+  sx: 5
+  sy: 2
   dirty: 0
   tilesetCorner:
   - {fileID: 21300000, guid: f0c1ad0a525ecdc4c8d6ee405af9cc52, type: 3}
@@ -2267,8 +2267,8 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 2
-  sy: 0
+  sx: 5
+  sy: 2
   dirty: 0
   tilesetCorner:
   - {fileID: 21300000, guid: f0c1ad0a525ecdc4c8d6ee405af9cc52, type: 3}
@@ -2404,7 +2404,7 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 0
+  sx: 5
   sy: 2
   dirty: 0
   tilesetCorner:
@@ -2689,7 +2689,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   sx: 5
-  sy: 1
+  sy: 2
   dirty: 0
   tilesetCorner:
   - {fileID: 21300000, guid: f0c1ad0a525ecdc4c8d6ee405af9cc52, type: 3}
@@ -2874,8 +2874,8 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 2
-  sy: 3
+  sx: 5
+  sy: 2
   dirty: 0
   tilesetCorner:
   - {fileID: 21300000, guid: f0c1ad0a525ecdc4c8d6ee405af9cc52, type: 3}
@@ -3012,7 +3012,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   sx: 5
-  sy: 5
+  sy: 2
   dirty: 0
   tilesetCorner:
   - {fileID: 21300000, guid: f0c1ad0a525ecdc4c8d6ee405af9cc52, type: 3}
@@ -3345,8 +3345,8 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 4
-  sy: 3
+  sx: 5
+  sy: 2
   dirty: 0
   tilesetCorner:
   - {fileID: 21300000, guid: f0c1ad0a525ecdc4c8d6ee405af9cc52, type: 3}
@@ -3482,7 +3482,7 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 4
+  sx: 5
   sy: 2
   dirty: 0
   tilesetCorner:
@@ -3668,8 +3668,8 @@ MonoBehaviour:
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  sx: 6
-  sy: 3
+  sx: 5
+  sy: 2
   dirty: 0
   tilesetCorner:
   - {fileID: 21300000, guid: f0c1ad0a525ecdc4c8d6ee405af9cc52, type: 3}
