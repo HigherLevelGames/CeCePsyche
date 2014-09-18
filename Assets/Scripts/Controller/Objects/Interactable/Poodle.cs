@@ -27,5 +27,17 @@ public class Poodle : MonoBehaviour
 			activated = false;
 		}
 
+
+
+	}
+
+	void OnTriggerEnter2D(Collider2D player)
+	{
+		if(player.tag == "Player")
+		{
+			// let player pass through
+			hoverScript.enabled = true;
+			
+		}
 	}
 }
