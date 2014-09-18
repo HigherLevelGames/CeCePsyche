@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Title.unity
+    path: Assets/Scenes/Transitions/Title.unity
   - enabled: 0
     path: Assets/Scenes/Road Home.unity
   - enabled: 0
@@ -18,8 +18,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Cityscape.unity
   - enabled: 0
-    path: Assets/Scenes/Credits.unity
+    path: Assets/Scenes/Transitions/Credits.unity
   - enabled: 0
     path: Assets/Scenes/Concept.unity
   - enabled: 0
-    path: Assets/Scenes/Cutscenes.unity
+    path: Assets/Scenes/Transitions/Cutscenes.unity
