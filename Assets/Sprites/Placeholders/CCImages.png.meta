@@ -21,6 +21,9 @@ TextureImporter:
     21300032: CCImages_15
     21300034: CCImages_16
     21300036: CCImages_17
+    21300038: CCImages_18
+    21300040: CCImages_19
+    21300042: CCImages_20
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -80,7 +83,7 @@ TextureImporter:
         width: 100
         height: 127
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CCImages_2
       rect:
@@ -90,7 +93,7 @@ TextureImporter:
         width: 100
         height: 127
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CCImages_3
       rect:
@@ -100,7 +103,7 @@ TextureImporter:
         width: 101
         height: 127
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CCImages_4
       rect:
@@ -120,7 +123,7 @@ TextureImporter:
         width: 5
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CCImages_6
       rect:
@@ -239,6 +242,36 @@ TextureImporter:
         y: 1986
         width: 34
         height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CCImages_18
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1666
+        width: 245
+        height: 252
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CCImages_19
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1662
+        width: 257
+        height: 260
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 2, w: 0}
+    - name: CCImages_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1660
+        width: 255
+        height: 269
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

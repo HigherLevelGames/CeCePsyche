@@ -74,6 +74,8 @@ public class VMovementController : MonoBehaviour
 		Vector2 groundPos = myPos - Vector2.up * col.size.y * 0.55f/*0.75f*/ * this.transform.localScale.x;
 		myPos -= Vector2.up * col.size.y * 0.45f * this.transform.localScale.x;
 		bool grounded = Physics2D.Linecast(myPos, groundPos, 1 << LayerMask.NameToLayer("Ground"));
+		//add trigger check because Ceci will stop no matter what the collider is here
+
 		Debug.DrawLine(myPos, groundPos, Color.magenta);
 
 		// right
@@ -88,6 +90,7 @@ public class VMovementController : MonoBehaviour
 		bool grounded3 = Physics2D.Linecast(temp, temp2, 1<<LayerMask.NameToLayer("Ground"));
 		Debug.DrawLine(temp, temp2, Color.magenta);
 
+	
 		if(grounded || grounded2 || grounded3)
 		{
 			CurJumpState = JumpState.Grounded;

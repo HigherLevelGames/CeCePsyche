@@ -2,7 +2,7 @@
 using System.Collections;
 
 // See:  http://answers.unity3d.com/questions/576044/one-way-platform-using-2d-colliders.html
-public class OneWayPlatform : MonoBehaviour
+public class OneWayPlatformPassable : MonoBehaviour
 {
 	// Use this for initialization
 	void Start ()
@@ -20,15 +20,6 @@ public class OneWayPlatform : MonoBehaviour
 
 		}
 	}
+	
 
-	//Instead of using the players box collider can we use the "ground check" marks to determine when the platform can be solid again?
-	void OnTriggerExit2D(Collider2D player)
-	{
-		if(player.tag == "Player")
-		{
-			// make platform solid again
-			transform.parent.collider2D.isTrigger = false;
-
-		}
-	}
 }
