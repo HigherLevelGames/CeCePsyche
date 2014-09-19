@@ -23,6 +23,7 @@ public class CeciAnimControl : MonoBehaviour
 
 	//int jumpHash = Animator.StringToHash("Jump");
 	//int runStateHash = Animator.StringToHash("Base Layer.Run");
+	int climbingStateHash = Animator.StringToHash("Base Layer.Ceci_Climbing");
 
 	// Update is called once per frame
 	void Update ()
@@ -38,7 +39,18 @@ public class CeciAnimControl : MonoBehaviour
 		anim.SetInteger("vspeed", vControl.vSpeed);
 		anim.SetBool("grounded", vControl.isGrounded);
 		anim.SetBool("floating", emoControl.isFloating);
-		// anim.SetBool("climbing");
+		anim.SetBool("climbing", vControl.isClimbing);
+		anim.SetBool("startClimbing", vControl.isStartClimb);
+
+		AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+		if(stateInfo.nameHash == climbingStateHash && vControl.vSpeed == 0.0f)
+		{
+			anim.speed = 0.0f;
+		}
+		else
+		{
+			anim.speed = 1.0f;
+		}
 	}
 
 	void TriggerEmotionAnim(int index)

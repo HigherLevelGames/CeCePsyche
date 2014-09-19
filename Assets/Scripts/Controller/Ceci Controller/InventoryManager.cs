@@ -1,43 +1,106 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour
 {
+	public class Item
+	{
+		public string name = "";
+		public int amount = 1;
+		public GameObject itemObj;
+		public Item(string n, GameObject obj)
+		{
+			name = n;
+			itemObj = obj;
+		}
+	}
+	public GameObject TreatObj;
+	List<Item> inventory = new List<Item>();
+	int curItem = 0;
+
 	void Start() { }
-	
-	void Update() { }
-	
-	#region Tempporary OnGUI Display for testing
-	int numTreats = 0;
+
+	void Update()
+	{
+		if(RebindableInput.GetKeyDown("LeftItem"))
+		{
+			curItem = (curItem+inventory.Count-1) % inventory.Count;
+		}
+		if(RebindableInput.GetKeyDown("RightItem"))
+		{
+			curItem = (curItem+1) % inventory.Count;
+		}
+		if(RebindableInput.GetKeyDown("UseItem"))
+		{
+			UseItem(curItem);
+		}
+	}
 
 	void OnGUI()
 	{
-		GUI.Label(new Rect(0,0,100,50),
-		          "Treats: " + numTreats);
+		GUI.Label(new Rect(0,0,100,50), (inventory.Count == 0) ? "Empty Inventory" :
+		          inventory[curItem].name + ": " + inventory[curItem].amount);
 	}
-	#endregion
-	
-	/*
-	void OnCollisionEnter2D(Collision2D col)
+
+	void UseItem(int item)
 	{
-		// if(collided object is the floor && CeCe is above it)
-		//CurJumpState = JumpState.Grounded;
-	}//*/
-	
+		// Error Checking
+		if(inventory.Count == 0 || inventory.Count < item)
+		{
+			return;
+		}
+		if(inventory[item].amount <= 0)
+		{
+			return;
+		}
+
+		// Get direction ceci is facing to figure out where item should spawn
+		Vector3 pos = this.transform.position;
+		HMovementController hControl = this.GetComponent<HMovementController>();
+		pos += new Vector3(hControl.isFacingRight? 1.5f:-1.5f,0.0f,0.0f);
+
+		// Remove an item from inventory
+		inventory[item].amount--;
+
+		// Spawn the item
+		GameObject stuff = (GameObject)Instantiate(inventory[item].itemObj,pos,this.transform.rotation);
+		stuff.name = stuff.name.Substring(0,stuff.name.Length-7); // remove "(Clone)" at end of name
+		stuff.SetActive(true);
+
+		// Different items used for specific things.
+		stuff.SendMessage("UseMe", hControl.isFacingRight, SendMessageOptions.DontRequireReceiver);
+	}
+
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if(col.gameObject.tag == "Collectable")
 		{
 			// collect the item, e.g. memories, neurons, emotion items, etc.
 			//PlayerPrefs.SetInt(col.gameObject.name, PlayerPrefs.GetInt(col.gameObject.name) + 1);
-			//*
-			if(col.gameObject.name == "Treat")
+
+			// Check the inventory to see if there's an item that already exists
+			bool found = false;
+			for(int i = 0; i < inventory.Count; i++)
 			{
-				numTreats++;
+				if(inventory[i].name == col.gameObject.name)
+				{
+					// Add item to already existing items
+					inventory[i].amount++;
+					Destroy(col.gameObject);
+					found = true;
+					break;
+				}
 			}
 
-			//*/
-			Destroy(col.gameObject);
+			// Item not found in inventory
+			if(!found)
+			{
+				// Create new item and add it to the inventory
+				Item newItem = new Item(col.gameObject.name, col.gameObject);
+				inventory.Add(newItem);
+				col.gameObject.SetActive(false);
+			}
 		}
 	}
 

@@ -4,7 +4,14 @@ using System.Collections;
 public class Poodle : MonoBehaviour
 {
 	bool activated = false;
-	public FlyAroundTarget hoverScript;
+	//public FlyAroundTarget hoverScript;
+	private FlyAroundTarget hoverScript;
+
+	void Start()
+	{
+		hoverScript = this.GetComponent<FlyAroundTarget>();
+	}
+
 	void Interact()
 	{
 		if(!activated)

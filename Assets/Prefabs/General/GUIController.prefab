@@ -97,20 +97,20 @@ MonoBehaviour:
     input: 32
     altInput: 0
   - inputName: Interact
-    input: 101
+    input: 114
     altInput: 13
-  - inputName: Ability
+  - inputName: UseItem
     input: 102
-    altInput: 304
+    altInput: 303
   - inputName: Pause
     input: 112
     altInput: 27
-  - inputName: UseItem
-    input: 323
-    altInput: 0
-  - inputName: Hint
-    input: 324
-    altInput: 0
+  - inputName: LeftItem
+    input: 113
+    altInput: 280
+  - inputName: RightItem
+    input: 101
+    altInput: 281
   defaultRebindableAxes:
   - axisName: Vertical
     axisPosName: Up

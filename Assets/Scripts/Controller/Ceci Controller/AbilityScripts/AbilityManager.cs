@@ -84,6 +84,7 @@ public class AbilityManager : MonoBehaviour
 	void Update ()
 	{
 		SetEmotion(); // Dev Shortcut
+		/*
 		if(RebindableInput.GetKeyDown("Ability"))
 		{
 			if(isUsingAbility)
@@ -94,7 +95,7 @@ public class AbilityManager : MonoBehaviour
 			{
 				UseAbility();
 			}
-		}
+		}//*/
 
 		/*
 		if(isUsingAbility)

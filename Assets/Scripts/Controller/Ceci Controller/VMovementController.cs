@@ -10,7 +10,7 @@ public class VMovementController : MonoBehaviour
 	{
 		get
 		{
-			if(isGrounded)
+			if(isGrounded || VVelocity == 0.0f)
 			{
 				return 0;
 			}
@@ -29,6 +29,8 @@ public class VMovementController : MonoBehaviour
 		}
 	}
 
+	public bool isStartClimb = false;
+	public bool isClimbing = false;
 	float ClimbSpeed = 10.0f;
 	int prevVValue = 0; // for Input.GetAxis()
 
@@ -39,7 +41,7 @@ public class VMovementController : MonoBehaviour
 	{
 		Grounded,
 		Jumping, // moving upwards
-		Falling // moving downwards
+		Falling, // moving downwards
 	}
 	JumpState CurJumpState = JumpState.Grounded;
 	
@@ -55,9 +57,9 @@ public class VMovementController : MonoBehaviour
 	
 	void FixedUpdate()
 	{
+		GroundCheck();
 		if(!lockVertical)
 		{
-			GroundCheck();
 			JumpControl();
 			Movement();
 		}
@@ -180,6 +182,8 @@ public class VMovementController : MonoBehaviour
 		if(col.gameObject.tag == "Ladder")
 		{
 			rigidbody2D.gravityScale = 0.0f;
+			lockVertical = true;
+			isStartClimb = true;
 		}
 	}
 
@@ -188,6 +192,9 @@ public class VMovementController : MonoBehaviour
 		if(col.gameObject.tag == "Ladder")
 		{
 			rigidbody2D.gravityScale = 1.0f;
+			lockVertical = false;
+			isStartClimb = false;
+			isClimbing = false;
 		}
 	}
 
@@ -196,12 +203,13 @@ public class VMovementController : MonoBehaviour
 		// Vertical Movement
 		if(col.gameObject.tag == "Ladder")
 		{
-			CurJumpState = JumpState.Grounded;
-			VVelocity = 0.0f;
+			lockVertical = true;
+			isClimbing = true;
+			VVelocity = RebindableInput.GetAxis("Vertical") * ClimbSpeed;//0.0f;
 
 			if(RebindableInput.GetAxis("Vertical") != 0)
 			{
-				this.transform.position = new Vector3(col.transform.position.x, this.transform.position.y + RebindableInput.GetAxis("Vertical") * ClimbSpeed * Time.deltaTime, this.transform.position.z);
+				this.transform.position = new Vector3(col.transform.position.x, this.transform.position.y + VVelocity * Time.deltaTime, this.transform.position.z);
 			}
 			else
 			{
