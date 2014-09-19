@@ -61,8 +61,8 @@ TextureImporter:
     - name: TileSheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1358
+        x: 1
+        y: 1357
         width: 512
         height: 512
       alignment: 0
@@ -71,8 +71,8 @@ TextureImporter:
     - name: TileSheet_1
       rect:
         serializedVersion: 2
-        x: 513
-        y: 1358
+        x: 516
+        y: 1357
         width: 512
         height: 512
       alignment: 0
@@ -81,8 +81,8 @@ TextureImporter:
     - name: TileSheet_2
       rect:
         serializedVersion: 2
-        x: 1026
-        y: 1358
+        x: 1030
+        y: 1357
         width: 512
         height: 512
       alignment: 0
@@ -91,8 +91,8 @@ TextureImporter:
     - name: TileSheet_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 845
+        x: 1
+        y: 842
         width: 512
         height: 512
       alignment: 0
@@ -101,8 +101,8 @@ TextureImporter:
     - name: TileSheet_4
       rect:
         serializedVersion: 2
-        x: 513
-        y: 845
+        x: 516
+        y: 842
         width: 512
         height: 512
       alignment: 0
@@ -111,8 +111,8 @@ TextureImporter:
     - name: TileSheet_5
       rect:
         serializedVersion: 2
-        x: 1026
-        y: 845
+        x: 1030
+        y: 843
         width: 512
         height: 512
       alignment: 0
@@ -121,8 +121,8 @@ TextureImporter:
     - name: TileSheet_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 332
+        x: 1
+        y: 327
         width: 512
         height: 512
       alignment: 0
@@ -131,8 +131,8 @@ TextureImporter:
     - name: TileSheet_7
       rect:
         serializedVersion: 2
-        x: 513
-        y: 332
+        x: 516
+        y: 327
         width: 512
         height: 512
       alignment: 0
@@ -141,8 +141,8 @@ TextureImporter:
     - name: TileSheet_8
       rect:
         serializedVersion: 2
-        x: 1026
-        y: 332
+        x: 1030
+        y: 327
         width: 512
         height: 512
       alignment: 0
@@ -153,7 +153,7 @@ TextureImporter:
         serializedVersion: 2
         x: 516
         y: 166
-        width: 511
+        width: 512
         height: 158
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -161,9 +161,9 @@ TextureImporter:
     - name: TileSheet_10
       rect:
         serializedVersion: 2
-        x: 2
-        y: 167
-        width: 511
+        x: 1
+        y: 166
+        width: 512
         height: 158
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -171,9 +171,9 @@ TextureImporter:
     - name: TileSheet_11
       rect:
         serializedVersion: 2
-        x: 1031
+        x: 1032
         y: 166
-        width: 511
+        width: 512
         height: 158
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -182,8 +182,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 6
-        width: 510
+        y: 4
+        width: 512
         height: 158
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -192,8 +192,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 516
-        y: 3
-        width: 511
+        y: 4
+        width: 512
         height: 158
       alignment: 0
       pivot: {x: .5, y: .5}
