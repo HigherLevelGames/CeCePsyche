@@ -743,6 +743,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110252547
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Ceci_Climb
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 61e0dabefdbf846d7856ecb011953dbc, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: -517, y: 293, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110254348
 State:
   m_ObjectHideFlags: 3
@@ -803,6 +818,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110296281
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Ceci_Climb_Start
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 7ca77c4a2b8994100834cd140a54b35c, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: -482, y: 358, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1107 &110700000
 StateMachine:
   serializedVersion: 2
@@ -825,6 +855,8 @@ StateMachine:
   - {fileID: 110255935}
   - {fileID: 110200920}
   - {fileID: 110257747}
+  - {fileID: 110252547}
+  - {fileID: 110296281}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
@@ -838,9 +870,11 @@ StateMachine:
       - {fileID: 110112583}
       - {fileID: 110182195}
     data:
-      first: {fileID: 110255935}
+      first: {fileID: 110228903}
       second:
-      - {fileID: 110114284}
+      - {fileID: 110116509}
+      - {fileID: 110176781}
+      - {fileID: 110109152}
     data:
       first: {fileID: 110200000}
       second:
@@ -859,12 +893,6 @@ StateMachine:
       second:
       - {fileID: 110130656}
       - {fileID: 110177908}
-    data:
-      first: {fileID: 110228903}
-      second:
-      - {fileID: 110116509}
-      - {fileID: 110176781}
-      - {fileID: 110109152}
     data:
       first: {fileID: 110210447}
       second:
@@ -887,6 +915,10 @@ StateMachine:
       second:
       - {fileID: 110167706}
       - {fileID: 110174977}
+    data:
+      first: {fileID: 110255935}
+      second:
+      - {fileID: 110114284}
     data:
       first: {fileID: 110200920}
       second:
