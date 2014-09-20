@@ -9,8 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
+  - 60: {fileID: 6000000}
+  - 114: {fileID: 11400000}
   m_Layer: 8
-  m_Name: EndCurve
+  m_Name: EndSlantLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,11 +25,53 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.8829994, y: -9, z: 0}
+  m_LocalPosition: {x: -4.9533, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!60 &6000000
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: -.312520921, y: 2.57652068}
+      - {x: -.568331599, y: 2.44861531}
+      - {x: -2.46863937, y: 1.33401179}
+      - {x: -2.56000018, y: 1.26092303}
+      - {x: -2.56000018, y: -2.55796456}
+      - {x: 2.57448506, y: -2.55796456}
+      - {x: 2.57448506, y: 2.57652068}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3262783223b4343a3e24d8451b8035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runOnlyAtStart: 0
+  autoTileMode: 0
+  fitToGrid: 1
+  tileSize: 1
+  autoTileLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  sx: 0
+  sy: 5
+  dirty: 0
+  tilesetCorner:
+  - {fileID: 21300002, guid: 0659304e2ed274eb08163280b2c56d9e, type: 3}
+  tilesetSlopes: []
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -48,7 +92,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 0659304e2ed274eb08163280b2c56d9e, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 0659304e2ed274eb08163280b2c56d9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
