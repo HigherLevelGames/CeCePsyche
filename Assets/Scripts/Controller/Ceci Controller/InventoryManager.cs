@@ -2,6 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
+// Unconditioned Stimuli will be thrown
+// and used to condition an unconditioned response.
+// ("UseItem" stored in inventory)
+//
+// Conditioned Stimuli will be part of the environment
+// and will illicit no response.
+// Once the subject has been conditioned,
+// then the environment can illicit the conditioned response.
+// ("Interact" with environment)
 public class InventoryManager : MonoBehaviour
 {
 	public class Item
