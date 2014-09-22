@@ -24,6 +24,10 @@ TextureImporter:
     21300038: CCImages_18
     21300040: CCImages_19
     21300042: CCImages_20
+    21300044: CCImages_21
+    21300046: CCImages_22
+    21300048: CCImages_23
+    21300050: CCImages_24
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -272,6 +276,46 @@ TextureImporter:
         y: 1660
         width: 255
         height: 269
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CCImages_21
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 1985
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CCImages_22
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1985
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CCImages_23
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1984
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CCImages_24
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 1986
+        width: 41
+        height: 45
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

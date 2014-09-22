@@ -5670,8 +5670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4896df7979af5844dbb3ccaac9078108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 194508467}
-  Condition: 0
 --- !u!1 &196031782
 GameObject:
   m_ObjectHideFlags: 0
@@ -18032,20 +18030,20 @@ MonoBehaviour:
     input: 32
     altInput: 0
   - inputName: Interact
-    input: 101
+    input: 114
     altInput: 13
-  - inputName: Ability
+  - inputName: UseItem
     input: 102
-    altInput: 304
+    altInput: 303
   - inputName: Pause
     input: 112
     altInput: 27
-  - inputName: UseItem
-    input: 323
-    altInput: 0
-  - inputName: Hint
-    input: 324
-    altInput: 0
+  - inputName: LeftItem
+    input: 113
+    altInput: 280
+  - inputName: RightItem
+    input: 101
+    altInput: 281
   defaultRebindableAxes:
   - axisName: Vertical
     axisPosName: Up
@@ -18827,7 +18825,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ef67e1041de1f4827906d478e8307184, type: 2}
   m_PrefabInternal: {fileID: 558220334}
   m_GameObject: {fileID: 666507425}
-  m_LocalRotation: {x: -1.15202333e-07, y: .707106769, z: -.707106888, w: -1.15202319e-07}
+  m_LocalRotation: {x: -1.15202326e-07, y: .707106709, z: -.707106829, w: -1.15202312e-07}
   m_LocalPosition: {x: 161.938614, y: -.448054314, z: -1.35904875e-05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -20623,7 +20621,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 0, y: 0}
+  m_Size: {x: 9.99999975e-05, y: 9.99999975e-05}
   m_Center: {x: 0, y: 0}
 --- !u!1 &754760917
 GameObject:
@@ -31038,7 +31036,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1034990805}
-  m_LocalRotation: {x: .500334501, y: -.49966535, z: .49966535, w: -.500334501}
+  m_LocalRotation: {x: .500334501, y: -.49966532, z: .49966532, w: -.500334501}
   m_LocalPosition: {x: -.924957275, y: .903788567, z: 44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33217,6 +33215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcee02420829247258439cd09c807fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartClimb: 0
+  isClimbing: 0
   JumpSpeed: 10
   VVelocity: 0
   lockVertical: 0
@@ -33340,6 +33340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11408ad05df904b0ca6b4537e7c2ef3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TreatObj: {fileID: 0}
 --- !u!114 &1100572593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39265,9 +39266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bdeb2eeaab983d4982b041420599775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 1216766163}
-  subconscious: {fileID: 1600650570}
-  playing: 0
 --- !u!1 &1222459110
 GameObject:
   m_ObjectHideFlags: 0
@@ -65025,7 +65023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365806cdd3482f349b51fd2fc2e790cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 1853194782}
 --- !u!1 &1855275750
 GameObject:
   m_ObjectHideFlags: 0
@@ -66532,9 +66529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a889cedb17d8642a8032e01ae6f6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpriteRendererWithAlpha: {fileID: 1936497432}
-  SecondsToFade: 1
-  MinimumAlpha: 0
 --- !u!212 &1936497432
 SpriteRenderer:
   m_ObjectHideFlags: 0

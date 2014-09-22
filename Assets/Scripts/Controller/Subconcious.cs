@@ -49,6 +49,7 @@ public class Subconcious : MonoBehaviour
 			scrollIndex += talkSpeed*Time.deltaTime;
 		}
 
+		/*
 		// Temporary shortcut keys for testing
 		if(RebindableInput.GetKeyDown("Hint"))
 		{
@@ -62,7 +63,7 @@ public class Subconcious : MonoBehaviour
 				index++;
 				scrollIndex = 0.0f;
 			}
-		}
+		}//*/
 	}
 	
 	// Call this method to have the subconcious say stuff

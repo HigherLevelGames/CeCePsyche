@@ -89,7 +89,7 @@ MonoBehaviour:
   runOnlyAtStart: 0
   autoTileMode: 0
   fitToGrid: 1
-  tileSize: 1
+  tileSize: 5.11999989
   autoTileLayer:
     serializedVersion: 2
     m_Bits: 4294967295
