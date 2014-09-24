@@ -8,15 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Transitions/Title.unity
   - enabled: 0
-    path: Assets/Scenes/Road Home.unity
+    path: Assets/Scenes/Levels/Road Home.unity
   - enabled: 0
-    path: Assets/Scenes/Brain Menu.unity
+    path: Assets/Scenes/Transitions/Brain Menu.unity
   - enabled: 1
-    path: Assets/Scenes/Garden.unity
+    path: Assets/Scenes/Levels/Garden.unity
   - enabled: 0
-    path: Assets/Scenes/House.unity
+    path: Assets/Scenes/Levels/House.unity
   - enabled: 0
-    path: Assets/Scenes/Cityscape.unity
+    path: Assets/Scenes/Levels/Cityscape.unity
   - enabled: 0
     path: Assets/Scenes/Transitions/Credits.unity
   - enabled: 0
