@@ -1150,7 +1150,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 468302059}
-  - 61: {fileID: 468302058}
+  - 65: {fileID: 468302058}
   m_Layer: 0
   m_Name: LevelCollider
   m_TagString: Untagged
@@ -1158,17 +1158,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &468302058
-BoxCollider2D:
+--- !u!65 &468302058
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 468302057}
-  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 50, y: 50}
-  m_Center: {x: 0, y: 0}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 20, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &468302059
 Transform:
   m_ObjectHideFlags: 0
@@ -1176,7 +1177,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 468302057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.24259996, y: 2.3440001, z: -6.59350014}
+  m_LocalPosition: {x: 3.24259996, y: 2.3440001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3435,9 +3436,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c595ec84cab5a63439cbc3c66654403f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Render1: {fileID: 951596610}
-  Render2: {fileID: 1567292698}
-  speed: .100000001
+  Render1: {fileID: 1567292698}
+  Render2: {fileID: 951596610}
+  Speed: .300000012
 --- !u!4 &1567292700
 Transform:
   m_ObjectHideFlags: 0
@@ -4612,5 +4613,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyCamera: {fileID: 2100077862}
   PlayerTransform: {fileID: 806050411}
-  LevelBox: {fileID: 468302058}
-  mouseControl: 0
+  LevelBoxes:
+  - {fileID: 468302058}
+  SpringSpeed: 2

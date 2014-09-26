@@ -5,26 +5,24 @@ public class CameraControl : MonoBehaviour {
 
 	public Camera MyCamera;
 	public Transform PlayerTransform;
-	public BoxCollider2D LevelBox;
+	public BoxCollider[] LevelBoxes;
+	public float SpringSpeed = 2.0f;
 	Vector2 Target;
-	public bool mouseControl;
-
-
+	
 	void Start () {
 		Target = new Vector2 ();
 	}
-	
-
-	void Update () {
-		if (mouseControl) {
-			Vector3 mouseWorldPosition = MyCamera.ScreenToWorldPoint (Input.mousePosition + new Vector3(0,0,10));
-			Target = new Vector2 (mouseWorldPosition.x, mouseWorldPosition.y);
-				} else {
-						Target = new Vector2 (PlayerTransform.position.x, PlayerTransform.position.y);
-				}
+	void Update () { 
+		Target = new Vector2 (PlayerTransform.position.x, PlayerTransform.position.y);
 		Vector2 cameraPosition = new Vector2(MyCamera.transform.position.x, MyCamera.transform.position.y);
-		cameraPosition += (Target - cameraPosition) * Time.deltaTime * 2.0f;
-		if(LevelBox.OverlapPoint(cameraPosition))
-			MyCamera.transform.position = new Vector3(cameraPosition.x, cameraPosition.y, MyCamera.transform.position.z);
+		cameraPosition += (Target - cameraPosition) * Time.deltaTime * SpringSpeed;
+		if (CameraInBounds(new Vector3(cameraPosition.x, cameraPosition.y, 0)))
+			MyCamera.transform.position = new Vector3 (cameraPosition.x, cameraPosition.y, MyCamera.transform.position.z);
+	}
+	bool CameraInBounds(Vector3 campos){
+		for (int i = 0; i < LevelBoxes.Length; i++)
+			if(LevelBoxes[i].bounds.Contains(campos))
+				return true;
+		return false;
 	}
 }

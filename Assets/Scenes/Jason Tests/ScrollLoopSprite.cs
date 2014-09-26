@@ -3,9 +3,8 @@ using System.Collections;
 
 public class ScrollLoopSprite : MonoBehaviour
 {
-
 		public SpriteRenderer Render1, Render2;
-	public float Speed = 0.3f;
+		public float Speed = 0.3f;
 		float offsetx1, offsetx2;
 		float reset;
 
