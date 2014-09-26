@@ -12,7 +12,7 @@ public class LevelBuilder : EditorWindow
 		}
 		EditMode mode = EditMode.Walls;
 
-		[MenuItem("Window/My Window")]
+		[MenuItem("Window/2D Editor")]
 		public static void ShowWindow ()
 		{
 				EditorWindow.GetWindow (typeof(LevelBuilder));
@@ -21,7 +21,15 @@ public class LevelBuilder : EditorWindow
 
 		void Update ()
 		{
-				EditFloors ();
+		switch (mode) {
+				case EditMode.Walls:
+						break;
+				case EditMode.Floors:
+						EditFloors ();
+						break;
+				case EditMode.None:
+						break;
+				}
 		}
 
 		void OnGUI ()
