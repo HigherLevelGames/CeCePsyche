@@ -1,0 +1,576 @@
+fileFormatVersion: 2
+guid: 75b9ebc1dfd774460bac34291bce987a
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Metal Tiles
+    21300002: Metal Tiles_0
+    21300004: Metal Tiles_1
+    21300006: Metal Tiles_2
+    21300008: Metal Tiles_3
+    21300010: Metal Tiles_4
+    21300012: Metal Tiles_5
+    21300014: Metal Tiles_6
+    21300016: Metal Tiles_7
+    21300018: Metal Tiles_8
+    21300020: Metal Tiles_9
+    21300022: Metal Tiles_10
+    21300024: Metal Tiles_11
+    21300026: Metal Tiles_12
+    21300028: Metal Tiles_13
+    21300030: Metal Tiles_14
+    21300032: Metal Tiles_15
+    21300034: Metal Tiles_16
+    21300036: Metal Tiles_17
+    21300038: Metal Tiles_18
+    21300040: Metal Tiles_19
+    21300042: Metal Tiles_20
+    21300044: Metal Tiles_21
+    21300046: Metal Tiles_22
+    21300048: Metal Tiles_23
+    21300050: Metal Tiles_24
+    21300052: Metal Tiles_25
+    21300054: Metal Tiles_26
+    21300056: Metal Tiles_27
+    21300058: Metal Tiles_28
+    21300060: Metal Tiles_29
+    21300062: Metal Tiles_30
+    21300064: Metal Tiles_31
+    21300066: Metal Tiles_32
+    21300068: Metal Tiles_33
+    21300070: Metal Tiles_34
+    21300072: Metal Tiles_35
+    21300074: Metal Tiles_36
+    21300076: Metal Tiles_37
+    21300078: Metal Tiles_38
+    21300080: Metal Tiles_39
+    21300082: Metal Tiles_40
+    21300084: Metal Tiles_41
+    21300086: Metal Tiles_42
+    21300088: Metal Tiles_43
+    21300090: Metal Tiles_44
+    21300092: Metal Tiles_45
+    21300094: Metal Tiles_46
+    21300096: Metal Tiles_47
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: 1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 49
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Metal Tiles_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 310
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 310
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 310
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_3
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 310
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_4
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 310
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_5
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 310
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_6
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 310
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_7
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 310
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_8
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 250
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_9
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 250
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_10
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 250
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_11
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 250
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_12
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 250
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_13
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 250
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_14
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 250
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_15
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 250
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_16
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 190
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_17
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 190
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_18
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 190
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_19
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 190
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_20
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 190
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_21
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 190
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_22
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 190
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_23
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 190
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_24
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 130
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_25
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 130
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_26
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 130
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_27
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 130
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_28
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 130
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_29
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 130
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_30
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 130
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_31
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 130
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_32
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 70
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_33
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 70
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_34
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 70
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_35
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 70
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_36
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 70
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_37
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 70
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_38
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 70
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_39
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 70
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_40
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 10
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_41
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 10
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_42
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 10
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_43
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 10
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_44
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 10
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_45
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 10
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_46
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 10
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal Tiles_47
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 14
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
