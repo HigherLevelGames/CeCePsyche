@@ -2,14 +2,21 @@
 using System.Collections;
 
 public class ConveyorBeltIntro : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
+	public AudioClip buzzer;
+	public AudioSource speaker;
+	public GameObject explosion;
+	void OnTriggerEnter(Collider collider)
+	{
+		if(collider.tag == "Dog")
+		{
+			speaker.PlayOneShot(buzzer);
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void OnTriggerExit(Collider collider)
+	{
+		if(collider.tag == "Dog")
+		{
+			Instantiate(explosion,this.transform.position, Quaternion.identity);
+		}
 	}
 }
