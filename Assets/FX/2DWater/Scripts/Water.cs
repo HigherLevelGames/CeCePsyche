@@ -6,8 +6,8 @@ using System.Collections;
 public class Water : MonoBehaviour
 {
 	//Mesh
-	[Header("Mesh Properties")]
-	[Tooltip("Automatically generates a mesh based on the desired number of vertices.\nNote: Must be an even number >= 4.")]
+	//[Header("Mesh Properties")]
+	//[Tooltip("Automatically generates a mesh based on the desired number of vertices.\nNote: Must be an even number >= 4.")]
 	public int VertexCount = 4; // 200
 	private float VertexSpacing; // 0.3f
 	private float StartX = -0.5f; // -10.0f
@@ -15,35 +15,35 @@ public class Water : MonoBehaviour
 	private float YBottom = -0.5f; // -3.0f
 
 	//Water Properties
-	[Header("Liquid Properties")]
-	[Tooltip("Springs")]
+	//[Header("Liquid Properties")]
+	//[Tooltip("Springs")]
 	public Transform SpringPrefab;
-	[Tooltip("How hard the vertices attract each other.")]
+	//[Tooltip("How hard the vertices attract each other.")]
 	public float Tension = 0.025f;
-	[Tooltip("How far the waves can spread.\nNote: Dont increase this above 0.30f, Although you should try it.")]
+	//[Tooltip("How far the waves can spread.\nNote: Dont increase this above 0.30f, Although you should try it.")]
 	public float Spread = 0.25f;
-	[Tooltip("How fast the waves loose their velocity.")]
+	//[Tooltip("How fast the waves loose their velocity.")]
 	public float Damping = 0.025f;
-	[Tooltip("The speed of which the waves will react to a colliding object to simulate a splash.\nMultiplier of the speed of the collisions done to the water.")]
+	//[Tooltip("The speed of which the waves will react to a colliding object to simulate a splash.\nMultiplier of the speed of the collisions done to the water.")]
 	public float CollisionVelocity;
-	[Tooltip("The max height the waves can increase.\nMAX Increase of water In Y.")]
+	//[Tooltip("The max height the waves can increase.\nMAX Increase of water In Y.")]
 	public float MaxIncrease;
-	[Tooltip("The max height the waves can decrease.\nMAX Decrease of water In -Y (Use negative number).")]
+	//[Tooltip("The max height the waves can decrease.\nMAX Decrease of water In -Y (Use negative number).")]
 	public float MaxDecrease;
 
-	[Header("Wave Properties")]
-	[Tooltip("This is just another spring but it is used to make the waves.")]
+	//[Header("Wave Properties")]
+	//[Tooltip("This is just another spring but it is used to make the waves.")]
 	public Transform WaveSimulatorPrefab;
-	[Tooltip("The desired height the wave sim should reach each loop.")]
+	//[Tooltip("The desired height the wave sim should reach each loop.")]
 	public float WaveSimHeight;
-	[Tooltip("The speed of which it will perform the loops.")]
+	//[Tooltip("The speed of which it will perform the loops.")]
 	public float WaveSimSpeed;
-	[Tooltip("A multiplier to increase the real wave height.")]
+	//[Tooltip("A multiplier to increase the real wave height.")]
 	public float WaveHeight;
-	[Tooltip("How fast should it wait in seconds to copy the height of the simulator to the next vertex in the mesh.")]
+	//[Tooltip("How fast should it wait in seconds to copy the height of the simulator to the next vertex in the mesh.")]
 	public float WaveTimeStep;
 
-	[Header("Sorting Layer")]
+	//[Header("Sorting Layer")]
 	public string SortingLayer = "Default";
 	public int OrderInLayer = 0;
 
