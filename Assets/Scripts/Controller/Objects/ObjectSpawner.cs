@@ -15,7 +15,6 @@ public class ObjectSpawner : MonoBehaviour {
 	void Update () {
 
 		elapsedTime += Time.deltaTime; 
-		print (elapsedTime);
 		if(elapsedTime >= spawnFrequency)
 		{
 			Instantiate(objectToSpawn,this.transform.position, Quaternion.identity);
