@@ -8,9 +8,9 @@ namespace TestEditor
     {
         // objects
         public Transform WalkableMaster;
-        public GameObject[] Walkables;
+        public GameObject[] Walkables = new GameObject[0];
         public Transform ImpassableMaster;
-        public GameObject[] Impassables;
+        public GameObject[] Impassables = new GameObject[0];
         // options
         public bool IVisible;
         public bool WVisible;
@@ -63,6 +63,21 @@ namespace TestEditor
                 walkable.name = "WalkableMaster";
                 walkable.transform.parent = this.transform;
                 this.WalkableMaster = walkable.transform;
+            }
+            List<GameObject> a = new List<GameObject>();
+            if (Walkables.Length < WalkableMaster.childCount)
+            {
+                for (int i = 0; i< WalkableMaster.childCount; i++)
+                    a.Add(WalkableMaster.GetChild(i).gameObject);
+                Debug.Log (a);
+                Walkables = a.ToArray();
+                a.Clear();
+            }
+            if (Impassables.Length < ImpassableMaster.childCount)
+            {
+                for (int i = 0; i< ImpassableMaster.childCount; i++)
+                    a.Add(ImpassableMaster.GetChild(i).gameObject);
+                Impassables = a.ToArray();
             }
         }
 
