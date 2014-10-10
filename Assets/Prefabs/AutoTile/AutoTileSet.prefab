@@ -43,7 +43,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: .100000001}
   displayGrid: 1
   gridColor: {r: 1, g: .227941155, b: .227941155, a: 0}
-  currentTile: {fileID: 0}
+  currentTile: {fileID: 100000, guid: 7cfb483539d854a3c9c1b9596a3712f5, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
