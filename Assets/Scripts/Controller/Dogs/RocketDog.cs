@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using System; // Need this!
+using UnityEngine;
 using System.Collections;
 
-public class RocketDog : MonoBehaviour
+public class RocketDog : Dog //MonoBehaviour
 {
 	public Transform endPos;
 	public float speed = 1.0f;
@@ -27,6 +28,23 @@ public class RocketDog : MonoBehaviour
 		pos2 = endPos.position;
 		target = pos2;
 		blastoff = false;
+		WeakResponseEvent += travelShort; // add whatever methods you want
+		StrongResponseEvent += travelFar; // add whatever methods you want
+	}
+
+	// EventArgs is in System
+	void travelShort(object sender, EventArgs e)
+	{
+		// responseLevel.SendMessage("increaseBar", 0.5f);
+		print ("blastoff!");
+		blastoff = true;
+	}
+
+	void travelFar(object sender, EventArgs e)
+	{
+		// responseLevel.SendMessage("increaseBar", 1.0f);
+		print ("blastoff!");
+		blastoff = true;
 	}
 	
 	void FixedUpdate ()
@@ -58,7 +76,13 @@ public class RocketDog : MonoBehaviour
 
 	void Interact()
 	{
-		print ("blastoff!");
-		blastoff = true;
+		this.SendMessage("PerformResponse", true);
+		// technically false, since we're using interact,
+		// but we want to trigger the the strong unconditioned response for demonstration purposes
+		// true = Unconditioned Stimulus (Interact)
+		// false = Conditioned Stimulus (UseMe)
+
+		//print ("blastoff!");
+		//blastoff = true;
 	}
 }

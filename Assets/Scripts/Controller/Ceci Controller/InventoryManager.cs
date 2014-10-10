@@ -32,6 +32,11 @@ public class InventoryManager : MonoBehaviour
 
 	void Update()
 	{
+		if(inventory.Count == 0)
+		{
+			return;
+		}
+
 		if(RebindableInput.GetKeyDown("LeftItem"))
 		{
 			curItem = (curItem+inventory.Count-1) % inventory.Count;

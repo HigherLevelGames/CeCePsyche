@@ -243,6 +243,7 @@ GameObject:
   - 95: {fileID: 9500000}
   - 61: {fileID: 6100006}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: RocketDog
   m_TagString: Interactable
@@ -853,7 +854,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -880,6 +880,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endPos: {fileID: 400052}
   speed: 60
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9801078a7413c4f15878d63386613613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fillDirection: 3
+  startFill: .5
+  emptyColor: {r: 1, g: 0, b: 0, a: 1}
+  halfColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
+  fillColor: {r: 0, g: 1, b: 0, a: 1}
+  area:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 10
+    height: 5
+  bgTexture: {fileID: 0}
+  fillTexture: {fileID: 0}
+  buffer: 5
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

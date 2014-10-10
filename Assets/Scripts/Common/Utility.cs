@@ -34,6 +34,16 @@ namespace Common
 			                r.height * 100.0f / Screen.height);
 		}
 
+		public static Vector2 adjPoint(Vector2 pt)
+		{
+			return new Vector2(pt.x * Screen.width / 100.0f, pt.y * Screen.height / 100.0f);
+		}
+
+		public static Vector2 unadjPoint(Vector2 pt)
+		{
+			return new Vector2(pt.x * 100.0f / Screen.width, pt.y * 100.0f / Screen.height);
+		}
+
 		public static Vector3 Clamp(Vector3 value, Vector3 min, Vector3 max)
 		{
 			return new Vector3(
