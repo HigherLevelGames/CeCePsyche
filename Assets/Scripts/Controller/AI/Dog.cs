@@ -36,7 +36,7 @@ public class Dog : MonoBehaviour
 	}
 
 	//Response Level
-	Bar responseLevel;
+	protected Bar responseLevel;
 
 	// Conditioned State
 	enum ActionState

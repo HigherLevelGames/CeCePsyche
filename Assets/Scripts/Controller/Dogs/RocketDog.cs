@@ -35,15 +35,15 @@ public class RocketDog : Dog //MonoBehaviour
 	// EventArgs is in System
 	void travelShort(object sender, EventArgs e)
 	{
-		// responseLevel.SendMessage("increaseBar", 0.5f);
-		print ("blastoff!");
+		 responseLevel.SendMessage("increaseBar", 0.5f);
+		//print ("blastoff!");
 		blastoff = true;
 	}
 
 	void travelFar(object sender, EventArgs e)
 	{
-		// responseLevel.SendMessage("increaseBar", 1.0f);
-		print ("blastoff!");
+		 responseLevel.SendMessage("increaseBar", 1.0f);
+		//print ("blastoff!");
 		blastoff = true;
 	}
 	
