@@ -8,12 +8,12 @@ namespace TestEditor
     {
         // objects
         public Transform WalkableMaster;
-        public GameObject[] Walkables = new GameObject[0];
+        public GameObject[] Walkables;
         public Transform ImpassableMaster;
-        public GameObject[] Impassables = new GameObject[0];
+        public GameObject[] Impassables;
         // options
-        public bool IVisible;
-        public bool WVisible;
+        public bool IVisible = true;
+        public bool WVisible = true;
         public int SelectedWalkable = 0;
         public int SelectedImpassable = 0;
 
@@ -56,28 +56,24 @@ namespace TestEditor
                 impassable.name = "ImpassableMaster";
                 impassable.transform.parent = this.transform;
                 this.ImpassableMaster = impassable.transform;
+            } else
+            {
+
+                for (int i = 0; i < this.ImpassableMaster.childCount; i++)
+                {
+                    if (this.ImpassableMaster.GetChild(i).name == "Impassable")
+                    {
+
+                    }
+                }
             }
+        
             if (!walkableFound)
             {
                 GameObject walkable = new GameObject();
                 walkable.name = "WalkableMaster";
                 walkable.transform.parent = this.transform;
                 this.WalkableMaster = walkable.transform;
-            }
-            List<GameObject> a = new List<GameObject>();
-            if (Walkables.Length < WalkableMaster.childCount)
-            {
-                for (int i = 0; i< WalkableMaster.childCount; i++)
-                    a.Add(WalkableMaster.GetChild(i).gameObject);
-                Debug.Log (a);
-                Walkables = a.ToArray();
-                a.Clear();
-            }
-            if (Impassables.Length < ImpassableMaster.childCount)
-            {
-                for (int i = 0; i< ImpassableMaster.childCount; i++)
-                    a.Add(ImpassableMaster.GetChild(i).gameObject);
-                Impassables = a.ToArray();
             }
         }
 
@@ -164,9 +160,10 @@ namespace TestEditor
         public void CheckImpassables()
         {
             List<GameObject> a = new List<GameObject>();
-            for (int i = 0; i < Impassables.Length; i++)
-                if (Impassables [i])
-                    a.Add(Impassables [i]);
+            if (Impassables.Length > 0)
+                for (int i = 0; i < Impassables.Length; i++)
+                    if (Impassables [i])
+                        a.Add(Impassables [i]);
             Impassables = a.ToArray();
             if (SelectedImpassable > Impassables.Length - 1)
                 SelectedImpassable = Impassables.Length - 1;
@@ -175,9 +172,10 @@ namespace TestEditor
         public void CheckWalkables()
         {
             List<GameObject> a = new List<GameObject>();
-            for (int i = 0; i < Walkables.Length; i++)
-                if (Walkables [i])
-                    a.Add(Walkables [i]);
+            if (Walkables.Length > 0)
+                for (int i = 0; i < Walkables.Length; i++)
+                    if (Walkables [i])
+                        a.Add(Walkables [i]);
             Walkables = a.ToArray();
             if (SelectedWalkable > Walkables.Length - 1)
                 SelectedWalkable = Walkables.Length - 1;
