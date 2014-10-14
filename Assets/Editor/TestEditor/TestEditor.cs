@@ -65,8 +65,10 @@ namespace TestEditor
                     Vector2 bot = new Vector2(x, y - b.size.y / 2);
                     float sx = 0;
                     float sy = 0;
+
                     left = Handles.FreeMoveHandle(left, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap);
                     sx += x - left.x;
+                    //b.center += x / 2;
                     right = Handles.FreeMoveHandle(right, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap);
                     sx += right.x - x;
                     top = Handles.FreeMoveHandle(top, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap);
