@@ -93,7 +93,7 @@ namespace TestEditor
                     }
                     break;
                 case ToolType.Edit:
-                    if (EData.Manager.SelectedWalkable > -1)
+                    if (EData.Manager.SelectedWalkable > -1 && EData.Manager.Walkables.Length > 0)
                     {
                         GameObject o = EData.Manager.Walkables [EData.Manager.SelectedWalkable];
                         EdgeCollider2D edge = o.GetComponent<EdgeCollider2D>();

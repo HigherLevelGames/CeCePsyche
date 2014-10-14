@@ -45,39 +45,60 @@ namespace TestEditor
         void OnFocus()
         {
             this.minSize = new Vector2(200, 600);
-            CheckStuff();
+            CheckForManagers();
         }
 
-        void CheckStuff()
+        void CreateManagers()
+        {
+            if (!EData.Manager)
+            {
+                GameObject man = new GameObject();
+                GameObject imas = new GameObject();
+                GameObject wmas = new GameObject();
+                man.name = "TestEditorManager";
+                man.AddComponent<TestEditorManager>();
+                EData.Manager = man.GetComponent<TestEditorManager>();
+                imas.name = "ImpassableMaster";
+                wmas.name = "WalkableMaster";
+                imas.transform.parent = wmas.transform.parent = EData.Manager.transform;
+                EData.Manager.ImpassableMaster = imas.transform;
+                EData.Manager.WalkableMaster = wmas.transform;
+                EData.Manager.Walkables = new GameObject[0];
+                EData.Manager.Impassables = new GameObject[0];
+            }
+        }
+
+        void CheckForManagers()
         {
             GameObject[] objs = (GameObject[])SceneView.FindObjectsOfType(typeof(GameObject));
             if (!EData.Manager)
+            {
                 for (int i = 0; i < objs.Length; i++)
                     if (objs [i].name == "TestEditorManager")
                     {
                         Selection.activeGameObject = objs [i];
                         EData.Manager = (TestEditorManager)objs [i].GetComponent(typeof(MonoBehaviour));
-                        break;
+                        CheckForManagers();
+                        return;
                     }
-            if (EData.Manager)
-            {
-                if (!EData.Manager.ImpassableMaster)
-                    for (int i = 0; i < objs.Length; i++)
-                        if (objs [i].name == "ImpassableMaster")
-                        {
-                            EData.Manager.ImpassableMaster = objs [i].transform;
-                            break;
-                        }
-                EData.Manager.CheckImpassables();
-                if (!EData.Manager.WalkableMaster)
-                    for (int i = 0; i < objs.Length; i++)
-                        if (objs [i].name == "WalkableMaster")
-                        {
-                            EData.Manager.WalkableMaster = objs [i].transform;
-                            break;
-                        }
-                EData.Manager.CheckWalkables();
+                CreateManagers();
             }
+            for (int i = 0; i < objs.Length; i++)
+                if (objs [i].name == "ImpassableMaster")
+                {
+                    EData.Manager.ImpassableMaster = objs [i].transform;
+                    break;
+                }
+
+            for (int i = 0; i < objs.Length; i++)
+                if (objs [i].name == "WalkableMaster")
+                {
+                    EData.Manager.WalkableMaster = objs [i].transform;
+                    break;
+                }
+            EData.Manager.CheckImpassables();
+            EData.Manager.CheckWalkables();
+
         }
 
         void OnGUI()
