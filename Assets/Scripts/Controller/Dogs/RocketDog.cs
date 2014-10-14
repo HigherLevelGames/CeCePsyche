@@ -12,7 +12,6 @@ public class RocketDog : Dog //MonoBehaviour
 	private Vector3 target;
 	private bool isMovingToEnd = true;
 	private bool blastoff = false;
-	
 	private Vector3 Direction
 	{
 		get
@@ -76,7 +75,7 @@ public class RocketDog : Dog //MonoBehaviour
 
 	void Interact()
 	{
-		this.SendMessage("PerformResponse", true);
+		//this.SendMessage("PerformResponse", true);
 		// technically false, since we're using interact,
 		// but we want to trigger the the strong unconditioned response for demonstration purposes
 		// true = Unconditioned Stimulus (Interact)
