@@ -65,9 +65,7 @@ namespace TestEditor
                     Vector2 bot = new Vector2(x, y - b.size.y / 2);
                     float sx = 0;
                     float sy = 0;
-                    float dx = 0;
-                    float dy = 0;
-
+                    Vector2 oCenter = new Vector2(left.x + right.x, top.y + bot.y);
                     left = Handles.FreeMoveHandle(left, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap);
                     sx += x - left.x;
                     right = Handles.FreeMoveHandle(right, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap);
@@ -77,7 +75,8 @@ namespace TestEditor
                     bot = Handles.FreeMoveHandle(bot, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap);
                     sy += y - bot.y;
                     b.size = new Vector2(sx, sy);
-                    //b.center += new Vector2(dx, dy);
+                    Vector2 deltaP = (new Vector2(left.x + right.x, top.y + bot.y) - oCenter) / 2;
+                    b.center += deltaP;
                     break;
             }
         }
@@ -101,7 +100,7 @@ namespace TestEditor
                     {
                         GameObject o = EData.Manager.Walkables [EData.Manager.SelectedWalkable];
                         EdgeCollider2D edge = o.GetComponent<EdgeCollider2D>();
-                        if (edge.points.Length > 0)
+                        if (edge.points.Length > 1)
                             Handles.DrawLine(o.transform.position.ToVector2() + edge.points [edge.points.Length - 1], mp.ToVector3());
                         if (leftClick)
                             EData.Manager.AddPointToWalkable(mp);

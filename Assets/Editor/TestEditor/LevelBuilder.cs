@@ -212,7 +212,7 @@ namespace TestEditor
                     if (EData.Manager.SelectedWalkable > -1 && EData.Manager.SelectedWalkable < EData.Manager.Walkables.Length)
                     {
                         GameObject o = EData.Manager.Walkables [EData.Manager.SelectedWalkable];
-                        Vector2 v = EditorGUILayout.Vector2Field("Parent", new Vector2(o.transform.position.x, o.transform.position.y));
+                        Vector2 v = EditorGUILayout.Vector2Field("Parent", o.transform.position.ToVector2());
                         o.transform.position = new Vector3(v.x, v.y, o.transform.position.z);
                         EdgeCollider2D edge = o.GetComponent<EdgeCollider2D>();
                         subFoldout2 = EditorGUILayout.Foldout(subFoldout2, "Points on Ledge" + EData.Manager.SelectedWalkable.ToString() + " (" + edge.pointCount.ToString() + " total)");
