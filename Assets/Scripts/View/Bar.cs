@@ -168,4 +168,5 @@ public class Bar : MonoBehaviour
 	{
 		BarFill = amount;
 	}
+	
 }

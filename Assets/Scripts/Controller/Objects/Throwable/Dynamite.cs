@@ -47,7 +47,7 @@ public class Dynamite : MonoBehaviour
 					//ellicit strong response from dog
 					Dog thisDog = dogs[i].GetComponent<Dog>();
 					thisDog.SendMessage("PerformResponse", true);
-					print ("doggie ran");
+			
 				}
 			}
 

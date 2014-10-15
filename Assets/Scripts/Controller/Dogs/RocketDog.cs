@@ -6,7 +6,8 @@ public class RocketDog : Dog //MonoBehaviour
 {
 	public Transform endPos;
 	public float speed = 1.0f;
-	
+
+	private Bar responseLevel;
 	private Vector3 pos1 = Vector3.zero; // start position
 	private Vector3 pos2 = Vector3.zero; // end position
 	private Vector3 target;
@@ -27,6 +28,7 @@ public class RocketDog : Dog //MonoBehaviour
 		pos2 = endPos.position;
 		target = pos2;
 		blastoff = false;
+		responseLevel = this.GetComponent<Bar>();
 		WeakResponseEvent += travelShort; // add whatever methods you want
 		StrongResponseEvent += travelFar; // add whatever methods you want
 	}
@@ -34,20 +36,24 @@ public class RocketDog : Dog //MonoBehaviour
 	// EventArgs is in System
 	void travelShort(object sender, EventArgs e)
 	{
-		 responseLevel.SendMessage("increaseBar", 0.5f);
+		responseLevel.SendMessage("increaseBar", 0.5f);
+		print ("doggie hears");
 		//print ("blastoff!");
 		blastoff = true;
 	}
 
 	void travelFar(object sender, EventArgs e)
 	{
-		 responseLevel.SendMessage("increaseBar", 1.0f);
+		responseLevel.SendMessage("increaseBar", 1.0f);
+		print ("doggie ran");
 		//print ("blastoff!");
 		blastoff = true;
 	}
 	
 	void FixedUpdate ()
 	{
+		if(responseLevel.BarFill > 0)
+			responseLevel.decreaseBar(.1f);
 		if(Vector3.Distance(this.transform.position, target) <= 1.0f)
 		{
 			// reached target, swap target

@@ -67,7 +67,7 @@ public class ControlPanel : MonoBehaviour {
 					//ellicit response from dog
 					Dog thisDog = dogs[i].GetComponent<Dog>();
 					thisDog.SendMessage("PerformResponse", false);
-					print ("doggie hears");
+
 
 				}
 			}

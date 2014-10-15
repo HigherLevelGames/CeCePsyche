@@ -894,7 +894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillDirection: 3
-  startFill: .5
+  startFill: 0
   emptyColor: {r: 1, g: 0, b: 0, a: 1}
   halfColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   fillColor: {r: 0, g: 1, b: 0, a: 1}

@@ -36,7 +36,7 @@ public class Dog : MonoBehaviour
 	}
 
 	//Response Level
-	protected Bar responseLevel;
+	//protected Bar responseLevel;
 
 	// Conditioned State
 	enum ActionState
@@ -60,7 +60,7 @@ public class Dog : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		responseLevel = this.GetComponent<Bar>();
+		//responseLevel = this.GetComponent<Bar>();
 	}
 	
 	// Update is called once per frame
