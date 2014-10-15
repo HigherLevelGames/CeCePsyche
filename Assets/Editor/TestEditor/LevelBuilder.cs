@@ -209,7 +209,6 @@ namespace TestEditor
                     GUILayout.Label("Click a point in the scene to start a new ledge");
                     break;
                 case ToolType.Edit:
-
                     if (EData.Manager.SelectedWalkable > -1 && EData.Manager.SelectedWalkable < EData.Manager.Walkables.Length)
                     {
                         GameObject o = EData.Manager.Walkables [EData.Manager.SelectedWalkable];

@@ -81,7 +81,7 @@ namespace TestEditor
         {
             GameObject obj = new GameObject();
             obj.name = "Ledge";
-            obj.tag = "Platform";
+            obj.layer = LayerMask.NameToLayer("Ground");
             obj.transform.parent = WalkableMaster;
             obj.transform.position = v.ToVector3();
             obj.AddComponent<EdgeCollider2D>();
