@@ -26076,6 +26076,33 @@ Prefab:
   m_RootGameObject: {fileID: 1771102430}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &981234068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 981234069}
+  m_Layer: 0
+  m_Name: WalkableMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &981234069
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 981234068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1587999949}
+  m_RootOrder: 0
 --- !u!1 &982953352
 GameObject:
   m_ObjectHideFlags: 0
@@ -36689,6 +36716,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300006, guid: b4173617522fb45d6bb0b8dcff5cc00c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1363506096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1363506097}
+  m_Layer: 0
+  m_Name: ImpassableMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1363506097
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1363506096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1587999949}
+  m_RootOrder: 1
 --- !u!1001 &1367219716
 Prefab:
   m_ObjectHideFlags: 0
@@ -46584,6 +46638,55 @@ Prefab:
   m_RootGameObject: {fileID: 1673563481}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1587999948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1587999949}
+  - 114: {fileID: 1587999950}
+  m_Layer: 0
+  m_Name: TestEditorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1587999949
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587999948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 981234069}
+  - {fileID: 1363506097}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+--- !u!114 &1587999950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587999948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9a92d285174fa40a78b19b6d3a18bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WalkableMaster: {fileID: 981234069}
+  Walkables: []
+  ImpassableMaster: {fileID: 1363506097}
+  Impassables: []
+  IVisible: 1
+  WVisible: 1
+  SelectedWalkable: -1
+  SelectedImpassable: -1
 --- !u!1 &1589942197
 GameObject:
   m_ObjectHideFlags: 0

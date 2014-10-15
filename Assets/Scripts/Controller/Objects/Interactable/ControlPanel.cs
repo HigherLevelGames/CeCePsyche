@@ -9,12 +9,16 @@ public class ControlPanel : MonoBehaviour {
 	public Door door;
 	public bool isActive;
 	public float activeTime = 1f;
+	public float effectArea;
+	GameObject[] dogs;
 	float timeLeft;
 
 	// Use this for initialization
 	void Start () {
+		dogs = GameObject.FindGameObjectsWithTag("Dog");
 		anim = this.GetComponent<Animator>();
 		timeLeft = activeTime;
+		effectArea = 10;
 	}
 	
 	// Update is called once per frame
@@ -53,6 +57,20 @@ public class ControlPanel : MonoBehaviour {
 
 		if(buzzer != null)
 		{
+			//sound buzzer
+
+			for( int i = 0; i < dogs.Length; i++)
+			{
+				float distance = Vector3.Distance(dogs[i].transform.position, this.transform.position);
+				if (distance <= effectArea)
+				{
+					//ellicit response from dog
+					Dog thisDog = dogs[i].GetComponent<Dog>();
+					thisDog.SendMessage("PerformResponse", false);
+					print ("doggie hears");
+
+				}
+			}
 		}
 	}
 }

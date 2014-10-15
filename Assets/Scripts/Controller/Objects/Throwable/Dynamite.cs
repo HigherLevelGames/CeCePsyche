@@ -39,18 +39,17 @@ public class Dynamite : MonoBehaviour
 			Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
 
 			//Get Responses from nearby dogs
-	
-				for( int i = 0; i < dogs.Length; i++)
+			for( int i = 0; i < dogs.Length; i++)
+			{
+				float distance = Vector3.Distance(dogs[i].transform.position, this.transform.position);
+				if (distance <= effectArea)
 				{
-					float distance = Vector3.Distance(dogs[i].transform.position, this.transform.position);
-					if (distance <= effectArea)
-					{
-						//ellicit strong response from dog
-						Dog thisDog = dogs[i].GetComponent<Dog>();
-						thisDog.SendMessage("PerformResponse", true);
-						print ("doggie ran");
-					}
+					//ellicit strong response from dog
+					Dog thisDog = dogs[i].GetComponent<Dog>();
+					thisDog.SendMessage("PerformResponse", true);
+					print ("doggie ran");
 				}
+			}
 
 				Destroy(this.gameObject);
 		}
