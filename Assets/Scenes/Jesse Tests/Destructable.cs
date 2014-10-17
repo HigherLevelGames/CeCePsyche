@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DoggieCondition : MonoBehaviour {
+public class Destroyable : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

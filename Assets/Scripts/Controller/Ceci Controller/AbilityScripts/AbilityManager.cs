@@ -134,10 +134,7 @@ public class AbilityManager : MonoBehaviour
 		{
 			CurEmotion = Emotion.Scared;
 		}
-		if(Input.GetKeyDown(KeyCode.Alpha4))
-		{
-			CurEmotion = Emotion.Mad;
-		}
+
 		//UseAbility();
 	}
 

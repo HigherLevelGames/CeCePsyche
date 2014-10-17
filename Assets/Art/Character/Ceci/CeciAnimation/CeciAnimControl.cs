@@ -51,6 +51,12 @@ public class CeciAnimControl : MonoBehaviour
 		{
 			anim.speed = 1.0f;
 		}
+
+		//Jesse Hack - using use F to trigger throw animation
+		if(Input.GetKeyDown(KeyCode.F))
+		{
+			anim.SetTrigger("TossTrigger");
+		}
 	}
 
 	void TriggerEmotionAnim(int index)
@@ -73,8 +79,8 @@ public class CeciAnimControl : MonoBehaviour
 				anim.SetTrigger("ShrinkTrigger");
 			}
 			break;
-		case 3: // Mad
-			anim.SetTrigger("RageTrigger");
+		case 3: // Throw
+
 			break;
 		default:
 			break;
