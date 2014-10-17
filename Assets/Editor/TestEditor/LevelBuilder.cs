@@ -78,24 +78,36 @@ namespace TestEditor
                     {
                         Selection.activeGameObject = objs [i];
                         EData.Manager = (TestEditorManager)objs [i].GetComponent(typeof(MonoBehaviour));
-                        CheckForManagers();
-                        return;
+                        break;
                     }
                 CreateManagers();
             }
-            for (int i = 0; i < objs.Length; i++)
-                if (objs [i].name == "ImpassableMaster")
+            int iter = 0;
+            while (!(EData.Manager.ImpassableMaster && EData.Manager.WalkableMaster) && iter < objs.Length)
+            {
+                if (objs [iter].name == "ImpassableMaster")
                 {
-                    EData.Manager.ImpassableMaster = objs [i].transform;
-                    break;
+                    EData.Manager.ImpassableMaster = objs [iter].transform;
                 }
+                if (objs [iter].name == "WalkableMaster")
+                {
+                    EData.Manager.WalkableMaster = objs [iter].transform;
+                }
+                iter++;
+            }
+                
 
             for (int i = 0; i < objs.Length; i++)
-                if (objs [i].name == "WalkableMaster")
+            {
+                if (objs [i].name == "Impassable")
                 {
-                    EData.Manager.WalkableMaster = objs [i].transform;
-                    break;
+                    EData.Manager.AddImpassable(objs [i]);
                 }
+                if (objs [i].name == "Walkable")
+                {
+                    EData.Manager.AddWalkable(objs [i]);
+                }
+            }
             EData.Manager.CheckImpassables();
             EData.Manager.CheckWalkables();
 
