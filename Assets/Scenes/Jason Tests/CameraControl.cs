@@ -26,7 +26,7 @@ public class CameraControl : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     { 
         Vector2 cp = new Vector2(MyCamera.transform.position.x, MyCamera.transform.position.y);
         Vector2 p = new Vector2(PlayerTransform.position.x, PlayerTransform.position.y);

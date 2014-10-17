@@ -77,10 +77,18 @@ namespace TestEditor
             }
         }
 
+        public void AddWalkable(GameObject o)
+        {
+            List<GameObject> a = new List<GameObject>();
+            a.AddRange(Walkables);
+            a.Add(o);
+            Walkables = a.ToArray();
+        }
+
         public void AddWalkable(Vector2 v)
         {
             GameObject obj = new GameObject();
-            obj.name = "Ledge";
+            obj.name = "Walkable";
             obj.layer = LayerMask.NameToLayer("Ground");
             obj.transform.parent = WalkableMaster;
             obj.transform.position = v.ToVector3();
@@ -114,6 +122,14 @@ namespace TestEditor
             a.AddRange(Walkables);
             a.RemoveAt(idx);
             Walkables = a.ToArray();
+        }
+
+        public void AddImpassable(GameObject o)
+        {
+            List<GameObject> a = new List<GameObject>();
+            a.AddRange(Impassables);
+            a.Add(o);
+            Impassables = a.ToArray();
         }
 
         public void AddImpassable(Vector3 v)
