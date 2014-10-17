@@ -95,8 +95,10 @@ namespace TestEditor
                 }
                 iter++;
             }
-                
 
+            EData.Manager.CheckImpassables();
+            EData.Manager.CheckWalkables();
+            if(EData.Manager.Walkables.Length < 1 || EData.Manager.Impassables.Length < 1)
             for (int i = 0; i < objs.Length; i++)
             {
                 if (objs [i].name == "Impassable")
@@ -108,8 +110,6 @@ namespace TestEditor
                     EData.Manager.AddWalkable(objs [i]);
                 }
             }
-            EData.Manager.CheckImpassables();
-            EData.Manager.CheckWalkables();
 
         }
 

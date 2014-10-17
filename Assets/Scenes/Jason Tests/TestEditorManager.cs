@@ -56,18 +56,7 @@ namespace TestEditor
                 impassable.name = "ImpassableMaster";
                 impassable.transform.parent = this.transform;
                 this.ImpassableMaster = impassable.transform;
-            } else
-            {
-
-                for (int i = 0; i < this.ImpassableMaster.childCount; i++)
-                {
-                    if (this.ImpassableMaster.GetChild(i).name == "Impassable")
-                    {
-
-                    }
-                }
-            }
-        
+            } 
             if (!walkableFound)
             {
                 GameObject walkable = new GameObject();
@@ -79,6 +68,9 @@ namespace TestEditor
 
         public void AddWalkable(GameObject o)
         {
+            for (int i = 0; i < Walkables.Length; i++)
+                if (Walkables [i].Equals(o))
+                    return;
             List<GameObject> a = new List<GameObject>();
             a.AddRange(Walkables);
             a.Add(o);
@@ -126,6 +118,9 @@ namespace TestEditor
 
         public void AddImpassable(GameObject o)
         {
+            for (int i = 0; i < Impassables.Length; i++)
+                if (Impassables [i].Equals(o))
+                    return;
             List<GameObject> a = new List<GameObject>();
             a.AddRange(Impassables);
             a.Add(o);
