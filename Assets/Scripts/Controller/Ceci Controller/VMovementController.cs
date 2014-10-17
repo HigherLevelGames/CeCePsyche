@@ -20,6 +20,7 @@ public class VMovementController : MonoBehaviour
 			}
 		}
 	}
+
 	// grounded for CeciAnimControl.cs
 	public bool isGrounded
 	{
@@ -64,36 +65,11 @@ public class VMovementController : MonoBehaviour
 			Movement();
 		}
 	}
-	
+
+	GroundDetect checker = new GroundDetect();
 	void GroundCheck()
 	{
-		BoxCollider2D col = this.collider2D as BoxCollider2D;
-
-		// middle
-		//Vector2 myPos = Utility.toVector2(this.transform.position) + col.center * this.transform.localScale.x;
-		int modifier = (this.transform.rotation.y == 0.0f) ? 1 : -1;
-		Vector2 myPos = Utility.toVector2(this.transform.position) + new Vector2(col.center.x*modifier, col.center.y) * this.transform.localScale.x;
-		Vector2 groundPos = myPos - Vector2.up * col.size.y * 0.55f/*0.75f*/ * this.transform.localScale.x;
-		myPos -= Vector2.up * col.size.y * 0.45f * this.transform.localScale.x;
-		bool grounded = Physics2D.Linecast(myPos, groundPos, 1 << LayerMask.NameToLayer("Ground"));
-		//add trigger check because Ceci will stop no matter what the collider is here
-
-		Debug.DrawLine(myPos, groundPos, Color.magenta);
-
-		// right
-		Vector2 temp = myPos + Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
-		Vector2 temp2 = groundPos + Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
-		bool grounded2 = Physics2D.Linecast(temp, temp2, 1<<LayerMask.NameToLayer("Ground"));
-		Debug.DrawLine(temp, temp2, Color.magenta);
-
-		// left
-		temp = myPos - Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
-		temp2 = groundPos - Vector2.right * col.size.x * 0.5f * this.transform.localScale.x;
-		bool grounded3 = Physics2D.Linecast(temp, temp2, 1<<LayerMask.NameToLayer("Ground"));
-		Debug.DrawLine(temp, temp2, Color.magenta);
-
-	
-		if(grounded || grounded2 || grounded3)
+		if(checker.check(this.transform))
 		{
 			CurJumpState = JumpState.Grounded;
 			this.rigidbody2D.isKinematic = false;
