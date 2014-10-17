@@ -119,7 +119,6 @@ namespace TestEditor
         public void AddImpassable(Vector3 v)
         {
             GameObject obj = new GameObject();
-            obj.tag = "Impassable";
             obj.name = "Impassable";
             obj.transform.parent = ImpassableMaster;
             obj.transform.position = v;
