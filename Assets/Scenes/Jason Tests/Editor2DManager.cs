@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TestEditor
 {
-    public class TestEditorManager : MonoBehaviour
+    public class Editor2DManager : MonoBehaviour
     {
         // objects
         public Transform WalkableMaster;
@@ -13,9 +13,12 @@ namespace TestEditor
         public GameObject[] Impassables;
         // options
         public bool IVisible = true;
+        public Color IColor = Color.red;
         public bool WVisible = true;
+        public Color WColor = Color.white;
         public int SelectedWalkable = 0;
         public int SelectedImpassable = 0;
+
 
         void Awake()
         {
@@ -24,11 +27,31 @@ namespace TestEditor
 
         void OnDrawGizmos()
         {
+
             if (IVisible)
-                for (int i = 0; i < Impassables.Length; i++) 
-                    Gizmos.DrawWireCube(Impassables [i].collider2D.bounds.center, Impassables [i].collider2D.bounds.size);
+            {
+                Gizmos.color = IColor;
+                for (int i = 0; i < Impassables.Length; i++)
+                {
+                    Vector2 p = Impassables [i].transform.position;
+                    PolygonCollider2D poly = Impassables [i].GetComponent<PolygonCollider2D>();
+                    for (int j = 0; j < poly.pathCount; j++)
+                    {
+                        Vector2[] points = poly.GetPath(j);
+                        if (points.Length > 1)
+                        {
+                            Gizmos.DrawLine(p + points [0], p + points [points.Length - 1]);
+                            for (int k = 0; k < points.Length - 1; k++)
+                                Gizmos.DrawLine(p + points [k], p + points [k + 1]);
+                        }
+
+                    }
+                }
+            }
             if (WVisible)
             {
+                Gizmos.color = WColor;
+
                 for (int i = 0; i < Walkables.Length; i++)
                 {
                     EdgeCollider2D edge = Walkables [i].GetComponent<EdgeCollider2D>();
@@ -133,7 +156,8 @@ namespace TestEditor
             obj.name = "Impassable";
             obj.transform.parent = ImpassableMaster;
             obj.transform.position = v;
-            obj.AddComponent<BoxCollider2D>();
+            PolygonCollider2D poly = obj.AddComponent<PolygonCollider2D>();
+            poly.pathCount = 4;
             List<GameObject> a = new List<GameObject>();
             a.AddRange(Impassables);
             a.Add(obj);

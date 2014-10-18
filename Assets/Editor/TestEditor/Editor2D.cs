@@ -2,17 +2,16 @@
 using UnityEditor;
 using System.Collections;
 
-// DO DUST AT FEET
 namespace TestEditor
 {
-    [CustomEditor (typeof(TestEditorManager))]
-    public class TestEditor : Editor
+    [CustomEditor (typeof(Editor2DManager))]
+    public class Editor2D : Editor
     {
         public void OnEnable()
         {
             SceneView.onSceneGUIDelegate = EditorUpdate;
             Tools.current = Tool.None;
-            EData.Manager = (TestEditorManager)target;
+            EData.Manager = (Editor2DManager)target;
         }
 
         void EditorUpdate(SceneView sceneView)
@@ -22,11 +21,7 @@ namespace TestEditor
             Vector2 mp = new Vector2(r.origin.x, r.origin.y);
             leftClick = (e.isMouse && e.type == EventType.MouseDown && e.button == 0);
             rightClick = (e.isMouse && e.type == EventType.MouseDown && e.button == 1);
-            /*
-            shift = (e.isKey && e.type == EventType.KeyDown && (e.keyCode == KeyCode.LeftShift || e.keyCode == KeyCode.RightShift));
-            ctrl = (e.isKey && e.type == EventType.KeyDown && 
-                (e.keyCode == KeyCode.LeftControl || e.keyCode == KeyCode.RightControl || 
-                e.keyCode == KeyCode.LeftCommand || e.keyCode == KeyCode.RightCommand)); */
+
             switch (EData.SetType)
             {
                 case ToolsetType.Walkable:
@@ -45,38 +40,32 @@ namespace TestEditor
         {
             switch (EData.ToolType)
             {
-                case ToolType.Box:
+                case ToolType.Place:
                     if (leftClick)
                         EData.Manager.AddImpassable(mp);
                     else if (rightClick)
                         EData.Manager.RemoveImpassable(mp);
                     break;
-                case ToolType.Ledge:
-                    break;
                 case ToolType.Edit:
-                    GameObject o = EData.Manager.Impassables [EData.Manager.SelectedImpassable];
-                    Vector2 p = o.transform.position;
-                    BoxCollider2D b = o.GetComponent<BoxCollider2D>();
-                    float x = p.x + b.center.x;
-                    float y = p.y + b.center.y;
-                    Vector2 left = new Vector2(x - b.size.x / 2, y);
-                    Vector2 right = new Vector2(x + b.size.x / 2, y);
-                    Vector2 top = new Vector2(x, y + b.size.y / 2);
-                    Vector2 bot = new Vector2(x, y - b.size.y / 2);
-                    float sx = 0;
-                    float sy = 0;
-                    Vector2 oCenter = new Vector2(left.x + right.x, top.y + bot.y);
-                    left = Handles.FreeMoveHandle(left, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap);
-                    sx += x - left.x;
-                    right = Handles.FreeMoveHandle(right, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap);
-                    sx += right.x - x;
-                    top = Handles.FreeMoveHandle(top, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap);
-                    sy += top.y - y;
-                    bot = Handles.FreeMoveHandle(bot, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap);
-                    sy += y - bot.y;
-                    b.size = new Vector2(sx, sy);
-                    Vector2 deltaP = (new Vector2(left.x + right.x, top.y + bot.y) - oCenter) / 2;
-                    b.center += deltaP;
+                    if (EData.Manager.SelectedImpassable > -1 && EData.Manager.Impassables.Length > 0)
+                    {
+                        GameObject o = EData.Manager.Impassables [EData.Manager.SelectedImpassable];
+                        Vector2 p = o.transform.position;
+
+                        PolygonCollider2D poly = o.GetComponent<PolygonCollider2D>();
+                        for (int i = 0; i < poly.pathCount; i++)
+                        {
+                            Vector2[] points = poly.GetPath(i);
+                            for (int j = 0; j < points.Length; j++)
+                            {
+                                points [j] = Handles.FreeMoveHandle(points [j] + p, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap) - p.ToVector3();
+                            }
+                            poly.SetPath(i, points);
+                        }
+                        p = Handles.PositionHandle(p, o.transform.rotation);
+
+                        o.transform.position = p;
+                    }
                     break;
             }
         }
@@ -85,10 +74,7 @@ namespace TestEditor
         {
             switch (EData.ToolType)
             {
-                case ToolType.Box:
-
-                    break;
-                case ToolType.Ledge:
+                case ToolType.Place:
                     if (leftClick)
                     {
                         EData.Manager.AddWalkable(mp);

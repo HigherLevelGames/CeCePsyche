@@ -14,14 +14,13 @@ namespace TestEditor
     public enum ToolType
     {
         None = -1,
-        Box = 0,
-        Ledge = 1,
-        Edit = 2
+        Place = 0,
+        Edit = 1,
     }
         
     public static class EData
     {
-        public static TestEditorManager Manager;
+        public static Editor2DManager Manager;
         public static ToolsetType SetType = ToolsetType.None;
         public static ToolType ToolType = ToolType.None;
         public static Rect SRect = new Rect(0, 0, 20, 20);
@@ -55,9 +54,9 @@ namespace TestEditor
                 GameObject man = new GameObject();
                 GameObject imas = new GameObject();
                 GameObject wmas = new GameObject();
-                man.name = "TestEditorManager";
-                man.AddComponent<TestEditorManager>();
-                EData.Manager = man.GetComponent<TestEditorManager>();
+                man.name = "Editor2D";
+                man.AddComponent<Editor2DManager>();
+                EData.Manager = man.GetComponent<Editor2DManager>();
                 imas.name = "ImpassableMaster";
                 wmas.name = "WalkableMaster";
                 imas.transform.parent = wmas.transform.parent = EData.Manager.transform;
@@ -74,10 +73,10 @@ namespace TestEditor
             if (!EData.Manager)
             {
                 for (int i = 0; i < objs.Length; i++)
-                    if (objs [i].name == "TestEditorManager")
+                    if (objs [i].name == "Editor2D")
                     {
                         Selection.activeGameObject = objs [i];
-                        EData.Manager = (TestEditorManager)objs [i].GetComponent(typeof(MonoBehaviour));
+                        EData.Manager = (Editor2DManager)objs [i].GetComponent(typeof(MonoBehaviour));
                         break;
                     }
                 CreateManagers();
@@ -85,6 +84,10 @@ namespace TestEditor
             int iter = 0;
             while (!(EData.Manager.ImpassableMaster && EData.Manager.WalkableMaster) && iter < objs.Length)
             {
+                if (objs [iter].name == "Editor2D")
+                {
+                    Selection.activeGameObject = objs[iter];
+                }
                 if (objs [iter].name == "ImpassableMaster")
                 {
                     EData.Manager.ImpassableMaster = objs [iter].transform;
@@ -145,9 +148,7 @@ namespace TestEditor
         void ImpassableEditing()
         {
             GUILayout.Label("Impassable Tools");
-            EData.ToolType = (ToolType)GUILayout.Toolbar((int)EData.ToolType, new string[]
-                                                         {
-                "New Box",
+            EData.ToolType = (ToolType)GUILayout.Toolbar((int)EData.ToolType, new string[]{
                 "New Polygon",
                 "Edit"
             });
@@ -166,7 +167,7 @@ namespace TestEditor
             }
             switch (EData.ToolType)
             {
-                case ToolType.Box:
+                case ToolType.Place:
                     GUILayout.Label("Click a point in the scene to place a new Box Collider");
                     EData.SRect = EditorGUILayout.RectField("init size", EData.SRect);
                     EData.PolyCenter = EditorGUILayout.Toggle("center", EData.PolyCenter);
@@ -180,16 +181,14 @@ namespace TestEditor
                         subFoldout2 = EditorGUILayout.Foldout(subFoldout2, "Data");
                         if (subFoldout2)
                         {
-                            BoxCollider2D b = o.GetComponent<BoxCollider2D>();
                             scrollPosition2 = GUILayout.BeginScrollView(scrollPosition2, false, true);
-                            b.center = EditorGUILayout.Vector2Field("Center", b.center);
-                            b.size = EditorGUILayout.Vector2Field("Size", b.size);
+
                             GUILayout.EndScrollView();
                         }
                         GUILayout.Label("Do something");
 
                     } else
-                        EData.Manager.SelectedWalkable = 0;
+                        EData.Manager.SelectedImpassable = 0;
                     break;
             }
         }
@@ -199,7 +198,6 @@ namespace TestEditor
             GUILayout.Label("Walkable Tools");
             EData.ToolType = (ToolType)GUILayout.Toolbar((int)EData.ToolType, new string[]
             {
-                "New Box",
                 "New Ledge",
                 "Edit"
             });
@@ -217,7 +215,7 @@ namespace TestEditor
             }
             switch (EData.ToolType)
             {
-                case ToolType.Ledge:
+                case ToolType.Place:
                     GUILayout.Label("Click a point in the scene to start a new ledge");
                     break;
                 case ToolType.Edit:
