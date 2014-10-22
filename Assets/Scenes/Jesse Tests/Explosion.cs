@@ -45,11 +45,10 @@ public class Explosion : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(exploded)
-		{
 			if((col.gameObject.rigidbody2D != null && col.gameObject.layer.ToString() == "Destructible") ||
 			   (col.gameObject.rigidbody2D != null && col.gameObject.tag.ToString() == "Destructible"))
 			{
+
 				Vector2 target = col.gameObject.transform.position;
 				Vector2 boom = gameObject.transform.position;
 
@@ -64,5 +63,5 @@ public class Explosion : MonoBehaviour {
 				col.gameObject.rigidbody2D.AddForce(explosiveForce);
 			}
 		}
-	}
+
 }

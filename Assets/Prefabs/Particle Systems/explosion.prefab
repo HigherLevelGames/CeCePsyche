@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.27680016, y: -2.07660007, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   expoRate: 1
   expoMaxSize: 10
   curRadius: 0
-  forceMultiplier: 500
+  forceMultiplier: 50
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
