@@ -8,7 +8,8 @@ namespace TestEditor
     {
         None = -1,
         Impassable = 0,
-        Walkable = 1
+        Walkable = 1,
+        SpriteObject
     }
 
     public enum ToolType
@@ -86,7 +87,7 @@ namespace TestEditor
             {
                 if (objs [iter].name == "Editor2D")
                 {
-                    Selection.activeGameObject = objs[iter];
+                    Selection.activeGameObject = objs [iter];
                 }
                 if (objs [iter].name == "ImpassableMaster")
                 {
@@ -101,18 +102,18 @@ namespace TestEditor
 
             EData.Manager.CheckImpassables();
             EData.Manager.CheckWalkables();
-            if(EData.Manager.Walkables.Length < 1 || EData.Manager.Impassables.Length < 1)
-            for (int i = 0; i < objs.Length; i++)
-            {
-                if (objs [i].name == "Impassable")
+            if (EData.Manager.Walkables.Length < 1 || EData.Manager.Impassables.Length < 1)
+                for (int i = 0; i < objs.Length; i++)
                 {
-                    EData.Manager.AddImpassable(objs [i]);
+                    if (objs [i].name == "Impassable")
+                    {
+                        EData.Manager.AddImpassable(objs [i]);
+                    }
+                    if (objs [i].name == "Walkable")
+                    {
+                        EData.Manager.AddWalkable(objs [i]);
+                    }
                 }
-                if (objs [i].name == "Walkable")
-                {
-                    EData.Manager.AddWalkable(objs [i]);
-                }
-            }
 
         }
 
@@ -139,6 +140,9 @@ namespace TestEditor
                     case ToolsetType.Walkable:
                         WalkableEditing();
                         break;
+                    case ToolsetType.SpriteObject:
+                        ObjectEditing();
+                        break;
                     case ToolsetType.None:
                         break;
                 }
@@ -160,8 +164,12 @@ namespace TestEditor
                 for (int i = 0; i < EData.Manager.Impassables.Length; i++)
                 {
                     GameObject o = EData.Manager.Impassables [i];
-                    Vector3 p = o.transform.position;
-                    EditorObjectButton(o, p, i, i == EData.Manager.SelectedImpassable);
+                    if (o)
+                    {
+                        Vector3 p = o.transform.position;
+                        EditorObjectButton(o, p, i, i == EData.Manager.SelectedImpassable);
+                    } else
+                        EData.Manager.RemoveImpassable(i);
                 }
                 GUILayout.EndScrollView();
             }
@@ -238,6 +246,26 @@ namespace TestEditor
                         EData.Manager.SelectedWalkable = 0;
                     break;
             }
+        }
+
+        bool hasCollider = false;
+        Vector2 newPosition = new Vector2();
+        Vector2 newScale = new Vector2();
+        float newRotation = 0.0f;
+
+        void ObjectEditing()
+        {
+            GUILayout.Label("2D Sprite Objects");
+            hasCollider = GUILayout.Toggle(hasCollider, "Has Collider");
+            newPosition = EditorGUILayout.Vector2Field("Position", newPosition);
+            newScale = EditorGUILayout.Vector2Field("Scale", newScale);
+            newRotation = EditorGUILayout.FloatField("Rotation", newRotation);
+            if (GUILayout.Button("Create"))
+            {
+
+            }
+
+
         }
 
         void EditorObjectButton(GameObject o, Vector2 p, int idx, bool selected)

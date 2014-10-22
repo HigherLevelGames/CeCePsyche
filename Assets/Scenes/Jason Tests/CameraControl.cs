@@ -7,8 +7,10 @@ public class CameraControl : MonoBehaviour
 
     public Camera MyCamera;
     public Transform PlayerTransform;
+    public Vector2 Offset = new Vector2(8, 0);
     public BoxCollider[] LevelBoxes;
     public float SpringSpeed = 2.0f;
+    public int Face = 1;
     Vector2 Target;
     CameraBounds[] camBounds;
     int curBounds;
@@ -32,7 +34,7 @@ public class CameraControl : MonoBehaviour
         Vector2 p = new Vector2(PlayerTransform.position.x, PlayerTransform.position.y);
         FindClosestBounds(p);
         if (curBounds > -1)
-            Target = camBounds [curBounds].InBoundsPoint(p);
+            Target = camBounds [curBounds].InBoundsPoint(p + Offset * Face);
         cp += (Target - cp) * Time.deltaTime * SpringSpeed;
         MyCamera.transform.position = new Vector3(cp.x, cp.y, MyCamera.transform.position.z);
             

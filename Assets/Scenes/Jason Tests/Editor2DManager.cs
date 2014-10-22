@@ -157,7 +157,7 @@ namespace TestEditor
             obj.transform.parent = ImpassableMaster;
             obj.transform.position = v;
             PolygonCollider2D poly = obj.AddComponent<PolygonCollider2D>();
-            poly.pathCount = 4;
+            poly.CreatePrimitive(3);
             List<GameObject> a = new List<GameObject>();
             a.AddRange(Impassables);
             a.Add(obj);
