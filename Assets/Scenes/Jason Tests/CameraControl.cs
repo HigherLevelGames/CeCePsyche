@@ -34,7 +34,6 @@ public class CameraControl : MonoBehaviour
         Vector2 p = new Vector2(PlayerTransform.position.x, PlayerTransform.position.y);
         FindClosestBounds(p);
         Vector2 off = MyCamera.ViewportToScreenPoint(Offset.ToVector3());
-        Debug.Log(off);
         if (curBounds > -1)
             Target = camBounds [curBounds].InBoundsPoint(p + off * Face * 0.008f);
         cp += (Target - cp) * Time.deltaTime * SpringSpeed;

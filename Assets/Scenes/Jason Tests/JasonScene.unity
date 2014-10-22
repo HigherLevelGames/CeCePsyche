@@ -6272,11 +6272,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyCamera: {fileID: 2100077862}
   PlayerTransform: {fileID: 806050411}
+  Offset: {x: .699999988, y: 0}
   LevelBoxes:
   - {fileID: 468302058}
   - {fileID: 1395926659}
   SpringSpeed: 2
-  face: 1
+  Face: 1
 --- !u!1 &2141619111
 GameObject:
   m_ObjectHideFlags: 0
