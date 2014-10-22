@@ -11,8 +11,9 @@ GameObject:
   - 212: {fileID: 21200000}
   - 95: {fileID: 9500000}
   - 114: {fileID: 11400000}
-  - 58: {fileID: 5800000}
   - 50: {fileID: 5000000}
+  - 114: {fileID: 11400002}
+  - 58: {fileID: 5800000}
   m_Layer: 0
   m_Name: explosion
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.95149994, y: 0, z: 0}
+  m_LocalPosition: {x: 5.27680016, y: -2.07660007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +56,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Radius: 1.27999997
   m_Center: {x: 0, y: 0}
 --- !u!95 &9500000
@@ -79,12 +80,28 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77fcb905fd6c54f92bf868b80f9b18e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeLeft: 2
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6804c5da412494bcc9e396078dad63b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expoDelay: 0
+  expoRate: 1
+  expoMaxSize: 10
+  curRadius: 0
+  forceMultiplier: 500
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

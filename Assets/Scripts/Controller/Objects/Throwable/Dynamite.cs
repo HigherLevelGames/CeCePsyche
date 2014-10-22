@@ -11,10 +11,10 @@ public class Dynamite : MonoBehaviour
 	void Start()
 	{
 		dogs = GameObject.FindGameObjectsWithTag("Dog");
-		for( int i = 0; i < dogs.Length; i++)
+		/*for( int i = 0; i < dogs.Length; i++)
 		{
 			print (dogs[i].ToString());
-		}
+		}*/
 		effectArea = 10;
 	}
 

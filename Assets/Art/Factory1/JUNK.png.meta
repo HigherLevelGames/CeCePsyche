@@ -1,0 +1,268 @@
+fileFormatVersion: 2
+guid: 92f3264627ea5447884f3bc20cb49fe2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: JUNK
+    21300002: JUNK_0
+    21300004: JUNK_1
+    21300006: JUNK_2
+    21300008: JUNK_3
+    21300010: JUNK_4
+    21300012: JUNK_5
+    21300014: JUNK_6
+    21300016: JUNK_7
+    21300018: JUNK_8
+    21300020: JUNK_9
+    21300022: JUNK_10
+    21300024: JUNK_11
+    21300026: JUNK_12
+    21300028: JUNK_13
+    21300030: JUNK_14
+    21300032: JUNK_15
+    21300034: JUNK_16
+    21300036: JUNK_17
+    21300038: JUNK_18
+    21300040: JUNK_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: JUNK_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1651
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_1
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 1651
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_2
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1651
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_3
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 1651
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1252
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_5
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 1252
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_6
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1252
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_7
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 1252
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 853
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_9
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 853
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_10
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 853
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_11
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 853
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 454
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_13
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 454
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_14
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 454
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_15
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 454
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_17
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 55
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_18
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 55
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JUNK_19
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 55
+        width: 415
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
