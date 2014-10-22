@@ -7,10 +7,11 @@ public class CameraControl : MonoBehaviour
 
     public Camera MyCamera;
     public Transform PlayerTransform;
-    public Vector2 Offset = new Vector2(0.7f, 0);
+    public float xOffset = 0.7f;
+    public float yOffset = 0.0f;
     public BoxCollider[] LevelBoxes;
     public float SpringSpeed = 2.0f;
-    public int Face = 1;
+    public HMovementController LeftRightController;
     Vector2 Target;
     CameraBounds[] camBounds;
     int curBounds;
@@ -30,12 +31,13 @@ public class CameraControl : MonoBehaviour
 
     void FixedUpdate()
     { 
+        int face = LeftRightController.isFacingRight ? 1 : -1;
         Vector2 cp = new Vector2(MyCamera.transform.position.x, MyCamera.transform.position.y);
         Vector2 p = new Vector2(PlayerTransform.position.x, PlayerTransform.position.y);
         FindClosestBounds(p);
-        Vector2 off = MyCamera.ViewportToScreenPoint(Offset.ToVector3());
+        Vector2 off = MyCamera.ViewportToScreenPoint(new Vector3(xOffset * face, yOffset, 0));
         if (curBounds > -1)
-            Target = camBounds [curBounds].InBoundsPoint(p + off * Face * 0.008f);
+            Target = camBounds [curBounds].InBoundsPoint(p + off * 0.008f);
         cp += (Target - cp) * Time.deltaTime * SpringSpeed;
         MyCamera.transform.position = new Vector3(cp.x, cp.y, MyCamera.transform.position.z);
             
