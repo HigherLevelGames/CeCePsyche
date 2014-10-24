@@ -14,6 +14,7 @@ TagManager:
   - Platform
   - Impassable
   - Destructible
+  - CameraBoundaries
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

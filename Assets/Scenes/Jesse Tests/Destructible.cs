@@ -8,7 +8,7 @@ public class Destructible : MonoBehaviour {
 	private float alphaLvl = 1f;
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 
 	// Update is called once per frame
@@ -37,7 +37,6 @@ public class Destructible : MonoBehaviour {
 				stuff.name = stuff.name.Substring(0,stuff.name.Length-7); // remove "(Clone)" at end of name
 			}
 		}
-		print (stuff.ToString());
 		if(stuff.ToString() == destroyedBy.ToString())
 		{
 			isDestroyed = true;
