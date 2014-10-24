@@ -61,8 +61,8 @@ public class GroundDetect
 			// find specific point (and edges) of collision (if any)
 			Vector2 colPoint = Vector2.zero;
 			EdgeCollider2D edges = new EdgeCollider2D();
-			BoxCollider2D col = (player.transform.collider2D) as BoxCollider2D;
-			if(hitLeft)
+			BoxCollider2D col = (player.collider2D) as BoxCollider2D;
+			/*if(hitLeft)
 			{
 				colPoint = hitLeft.point;
 				edges = hitLeft.collider as EdgeCollider2D;
@@ -71,7 +71,7 @@ public class GroundDetect
 			{
 				colPoint = hitRight.point;
 				edges = hitRight.collider as EdgeCollider2D;
-			}
+			}//*/
 			if(hitCenter)
 			{
 				colPoint = hitCenter.point;
@@ -97,7 +97,7 @@ public class GroundDetect
 
 						// find newY where newX is located
 						float newY = getY(Utility.toVector2(temp), Utility.toVector2(temp2), newX);
-						newY += (player.collider2D as BoxCollider2D).size.y * (0.5f-lineLength) * player.localScale.x;
+						newY += col.size.y * (0.5f-lineLength) * player.localScale.x;
 						return newY;
 					}
 				}
@@ -107,6 +107,7 @@ public class GroundDetect
 		return player.position.y;
 	}
 
+	#region Helper Functions
 	public bool isInBound(Vector3 pt1, Vector3 pt2, Vector2 check)
 	{
 		Vector3 mid = getMidpoint(pt1, pt2);
@@ -140,4 +141,5 @@ public class GroundDetect
 		Vector2 temp = pt2-pt1;
 		return temp.y/temp.x;
 	}
+	#endregion
 }
