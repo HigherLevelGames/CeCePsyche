@@ -1348,7 +1348,8 @@ MonoBehaviour:
   isStartClimb: 0
   isClimbing: 0
   JumpSpeed: 10
-  VVelocity: 0
+  VVelocity: {x: 0, y: 0, z: 0}
+  VarJumpTime: .5
   lockVertical: 0
 --- !u!114 &214255632
 MonoBehaviour:
@@ -6520,7 +6521,7 @@ GameObject:
   - 114: {fileID: 2100077864}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: CameraBoundaries
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
