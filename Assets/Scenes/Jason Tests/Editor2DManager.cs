@@ -6,27 +6,33 @@ namespace TestEditor
 {
     public class Editor2DManager : MonoBehaviour
     {
+        // actions
+        public bool CheckForChildren = false;
         // objects
         public Transform WalkableMaster;
         public GameObject[] Walkables;
         public Transform ImpassableMaster;
         public GameObject[] Impassables;
+        public GameObject CameraBounds;
         // options
         public bool IVisible = true;
         public Color IColor = Color.red;
         public bool WVisible = true;
         public Color WColor = Color.white;
+        public bool CVisible = true;
+        public Color CColor = Color.blue;
         public int SelectedWalkable = 0;
         public int SelectedImpassable = 0;
+        public int PolySides = 3;
 
-
-        void Awake()
-        {
-            FindChildren();
-        }
 
         void OnDrawGizmos()
         {
+            if (CheckForChildren)
+            {
+                FindChildren();
+                CheckForChildren = false;
+            }
 
             if (IVisible)
             {
@@ -35,19 +41,13 @@ namespace TestEditor
                 {
                     Vector2 p = Impassables [i].transform.position;
                     PolygonCollider2D poly = Impassables [i].GetComponent<PolygonCollider2D>();
-                    for (int j = 0; j < poly.pathCount; j++)
-                    {
-                        Vector2[] points = poly.GetPath(j);
-                        if (points.Length > 1)
-                        {
-                            Gizmos.DrawLine(p + points [0], p + points [points.Length - 1]);
-                            for (int k = 0; k < points.Length - 1; k++)
-                                Gizmos.DrawLine(p + points [k], p + points [k + 1]);
-                        }
-
-                    }
+                    Vector2[] path = poly.GetPath(0);
+                    Gizmos.DrawLine(p + path [0], p + path [path.Length - 1]);
+                    for (int j = 0; j < path.Length - 1; j++)
+                        Gizmos.DrawLine(p + path [j], p + path [j + 1]);
                 }
             }
+
             if (WVisible)
             {
                 Gizmos.color = WColor;
@@ -60,18 +60,31 @@ namespace TestEditor
                         Gizmos.DrawLine(p + edge.points [j], p + edge.points [j + 1]);
                 }
             }
+            if (CVisible)
+            {
+                Gizmos.color = CColor;
+                PolygonCollider2D poly = CameraBounds.GetComponent<PolygonCollider2D>();
+                Vector2 p = CameraBounds.transform.position.ToVector2();
+                Vector2[] path = poly.GetPath(0);
+                for (int i = 0; i < path.Length - 1; i++)
+                    Gizmos.DrawLine(p + path [i], p + path [i + 1]);
+                Gizmos.DrawLine(p + path [0], p + path [path.Length - 1]);
+            }
         }
 
         void FindChildren()
         {
             bool impassableFound = false;
             bool walkableFound = false;
+            bool camBoundsFound = false;
             for (int i = 0; i < this.transform.childCount; i++)
             {
                 if (this.transform.GetChild(i).name == "ImpassableMaster")
                     impassableFound = true;
                 if (this.transform.GetChild(i).name == "WalkableMaster")
                     walkableFound = true;
+                if (this.transform.GetChild(i).tag == "CameraBoundaries")
+                    camBoundsFound = true;
             }
             if (!impassableFound)
             {
@@ -86,6 +99,15 @@ namespace TestEditor
                 walkable.name = "WalkableMaster";
                 walkable.transform.parent = this.transform;
                 this.WalkableMaster = walkable.transform;
+            }
+            if (!camBoundsFound)
+            {
+                GameObject cambounds = new GameObject();
+                cambounds.name = "CameraBoundaries";
+                cambounds.transform.parent = this.transform;
+                cambounds.tag = "CameraBoundaries";
+                cambounds.AddComponent<PolygonCollider2D>();
+                this.CameraBounds = cambounds;
             }
         }
 
@@ -157,7 +179,7 @@ namespace TestEditor
             obj.transform.parent = ImpassableMaster;
             obj.transform.position = v;
             PolygonCollider2D poly = obj.AddComponent<PolygonCollider2D>();
-            poly.CreatePrimitive(3);
+            poly.CreatePrimitive(PolySides);
             List<GameObject> a = new List<GameObject>();
             a.AddRange(Impassables);
             a.Add(obj);

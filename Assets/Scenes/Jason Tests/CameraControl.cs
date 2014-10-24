@@ -4,134 +4,68 @@ using System.Collections.Generic;
 
 public class CameraControl : MonoBehaviour
 {
+    public Camera MyCamera; // the camera to control
+    public Transform PlayerTransform; // the players position can be found here
+    public PolygonCollider2D Boundary; // the camera will remain in here, or else.
+    public float xOffset = 0.7f; // how far in front of the player the camera will follow
+    public float yOffset = 0.0f; // how far above or below the camera will naturally follow the player
+    public float SpringSpeed = 2.0f; // how quick the camera will follow the player, 0 = will not follow
+    public HMovementController LeftRightController; // is the player facing left or right?
 
-    public Camera MyCamera;
-    public Transform PlayerTransform;
-    public float xOffset = 0.7f;
-    public float yOffset = 0.0f;
-    public BoxCollider[] LevelBoxes;
-    public float SpringSpeed = 2.0f;
-    public HMovementController LeftRightController;
-    Vector2 Target;
-    CameraBounds[] camBounds;
-    int curBounds;
+    Vector2 Target; // The camera will be attracted to this point
 
     void Start()
     {
-        curBounds = -1;
         Target = new Vector2();
-        camBounds = new CameraBounds[LevelBoxes.Length];
-        for (int i = 0; i < LevelBoxes.Length; i++)
-        {
-            camBounds [i] = new CameraBounds(LevelBoxes, i);
-            if (LevelBoxes [i].bounds.Contains(PlayerTransform.position))
-                curBounds = i;
-        }
+        Boundary.isTrigger = true;
     }
 
     void FixedUpdate()
     { 
         int face = LeftRightController.isFacingRight ? 1 : -1;
-        Vector2 cp = new Vector2(MyCamera.transform.position.x, MyCamera.transform.position.y);
-        Vector2 p = new Vector2(PlayerTransform.position.x, PlayerTransform.position.y);
-        FindClosestBounds(p);
+        Vector2 cp = MyCamera.transform.position;
+        Vector2 p = PlayerTransform.position;
         Vector2 off = MyCamera.ViewportToScreenPoint(new Vector3(xOffset * face, yOffset, 0));
-        if (curBounds > -1)
-            Target = camBounds [curBounds].InBoundsPoint(p + off * 0.008f);
-        cp += (Target - cp) * Time.deltaTime * SpringSpeed;
-        MyCamera.transform.position = new Vector3(cp.x, cp.y, MyCamera.transform.position.z);
-            
+
+        Target = InBoundsPoint(p + off * 0.008f);
+        cp += (Target - cp) * Time.deltaTime * SpringSpeed; // move toward the target at a certain speed
+        MyCamera.transform.position = new Vector3(cp.x, cp.y, MyCamera.transform.position.z);           
     }
 
-    void FindClosestBounds(Vector2 p)
+    Vector2 InBoundsPoint(Vector2 p)
     {
-        if (curBounds != -1)
+        Vector2 v = new Vector2();
+        if (Boundary.OverlapPoint(p))
+            v = p;
+        else
         {
-            if (camBounds [curBounds].Contains(p))
-                return;
-            for (int i = 0; i < camBounds[curBounds].neighbours.Length; i++)
-                if (camBounds [camBounds [curBounds].neighbours [i]].Contains(p))
-                {
-                    curBounds = camBounds [curBounds].neighbours [i];
-                    return;
-                }   
-        } else 
-            for (int i = 0; i < camBounds.Length; i++) 
-                if (camBounds [i].Contains(p))
-                {
-                    curBounds = i;
-                    return;
-                }
-    }
-}
-
-public class Rectangle
-{
-    public float Left, Right, Top, Bottom;
-
-    public Rectangle()
-    {
-
-    }
-
-    public void SetBounds(BoxCollider box)
-    {
-        Left = box.bounds.min.x;
-        Right = box.bounds.max.x;
-        Top = box.bounds.max.y;
-        Bottom = box.bounds.min.y;
-    }
-}
-
-public class CameraBounds : Rectangle
-{
-    public int[] neighbours;
-
-    public CameraBounds(BoxCollider[] boxes, int i)
-    {
-        SetBounds(boxes [i]);
-        FindNeighbours(boxes, i);
-    }
-    /// <summary>
-    /// A point inside the rectangle
-    /// </summary>
-    /// <returns>A Vector2 converted into a valid Vector2 at the nearest point inside the rectangle.</returns>
-    /// <param name="v">The desired Vector2 for conversion.</param>
-    public Vector2 InBoundsPoint(Vector2 v)
-    {
-        Vector2 returnVector = v;
-        if (v.x > Right)
-            returnVector.x = Right;
-        else if (v.x < Left)
-            returnVector.x = Left;
-        if (v.y > Top)
-            returnVector.y = Top;
-        else if (v.y < Bottom)
-            returnVector.y = Bottom;
-
-        return returnVector;
-    }
-
-    public bool Contains(Vector2 v)
-    {
-        return (v.x < Right && v.x > Left && v.y < Top && v.y > Bottom);
-    }
-
-    public void FindNeighbours(BoxCollider[] boxes, int index)
-    {
-        List<int> idxs = new List<int>();
-        for (int i = 0; i < boxes.Length; i++)
-        {
-            if (i != index)
+            float dist = 20;
+            Vector2 pos = Boundary.gameObject.transform.position.ToVector2();
+            Vector2[] path = Boundary.GetPath(0);
+            for (int i = 0; i < path.Length; i++)
             {
-                if (boxes [i].bounds.Intersects(boxes [index].bounds))
-                    idxs.Add(i);
+                Vector2 vec = new Vector2(); 
+                if (i == path.Length - 1)
+                    vec = ClosestPointOnLine(path [0], path [path.Length - 1], p - pos);
+                else
+                    vec = ClosestPointOnLine(path [i], path [i + 1], p - pos);
+                float newDist = Vector2.Distance(vec, p);
+                if (newDist < dist)
+                {
+                    v = vec;
+                    dist = newDist;
+                }   
             }
         }
-        neighbours = new int[idxs.Count];
-        for (int i = 0; i < idxs.Count; i++)
-        {
-            neighbours [i] = idxs [i];
-        }
+        return v;
+    }
+
+    Vector2 ClosestPointOnLine(Vector2 a, Vector2 b, Vector2 p)
+    {
+        Vector2 v1 = (b - a);
+        Vector2 v2 = (p - a);
+        float dot = Mathf.Clamp(Vector2.Dot(v2.normalized, v1.normalized) * v2.magnitude, 0, v1.magnitude);
+        
+        return a + v1.normalized * dot;
     }
 }

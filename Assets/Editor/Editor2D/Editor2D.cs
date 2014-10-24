@@ -8,6 +8,9 @@ namespace TestEditor
     [CustomEditor (typeof(Editor2DManager))]
     public class Editor2D : Editor
     {
+        bool leftClick = false;
+        bool rightClick = false;
+
         public void OnEnable()
         {
             SceneView.onSceneGUIDelegate = EditorUpdate;
@@ -31,6 +34,12 @@ namespace TestEditor
                 case ToolsetType.Impassable:
                     ImpassablesUpdate(e, mp);
                     break;
+                case ToolsetType.SpriteObject:
+                    break;
+                case ToolsetType.CameraBounds:
+
+                    break;
+                     
                 case ToolsetType.None:
                     break;
             }
@@ -48,74 +57,9 @@ namespace TestEditor
                         EData.Manager.RemoveImpassable(mp);
                     break;
                 case ToolType.Edit:
-                    if (EData.Manager.SelectedImpassable > -1 && EData.Manager.Impassables.Length > 0)
-                    {/*
-                        GameObject o = EData.Manager.Impassables [EData.Manager.SelectedImpassable];
-                        Vector2 p = o.transform.position;
-
-                        PolygonCollider2D poly = o.GetComponent<PolygonCollider2D>();
-                        Vector2[] path = poly.GetPath(0);
-                        Vector3[] handlePath = new Vector3[path.Length + 1];
-                        for (int i = 0; i < path.Length; i++)
-                            handlePath [i] = path [i] + p;
-                        handlePath [path.Length] = path [0] + p;
-                        Vector2 v = HandleUtility.ClosestPointToPolyLine(handlePath);
-
-                        if (closestPoint > -1)
-                        {
-                            if (e.isMouse && e.type == EventType.MouseDrag && e.button == 0)
-                                path [closestPoint] = Handles.FreeMoveHandle(path [closestPoint], o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap) - p.ToVector3();
-                            
-                            if (e.type == EventType.MouseUp)
-                                closestPoint = -1;
-                        } else
-                        {
-                            if (leftClick)
-                            {
-                                for (int i = 0; i < path.Length; i++)
-                                    if (Vector2.Distance(path [i] + p, mp) < 0.1f)
-                                        closestPoint = i;
-                                if (closestPoint == -1)
-                                {
-                                    if (closestPath > -1)
-                                    {
-                                        addPointToPoly(closestPath, v - p, poly);
-                                        closestPoint = closestPath + 1;
-                                        path = poly.GetPath(0);
-                                    }
-
-                                }
-                            }
-
-                            Handles.FreeMoveHandle(v, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap);
-                        }
-
-                        float closestDist = 1f;
-                        for (int j = 0; j < path.Length; j++)
-                        {
-                            int j2 = j == path.Length - 1 ? 0 : j + 1;
-                            float dist = Vector3.Distance(closestPointOnLine(path [j], path [j2], mp - p) + p, mp);
-                            if (dist < closestDist)
-                            {
-                                closestPath = j;
-                                closestDist = dist;
-                            }
-
-                            path [j] = Handles.FreeMoveHandle(path [j] + p, o.transform.rotation, 0.1f, Vector3.zero, Handles.DotCap) - p.ToVector3();
-                        }
-                        if (closestPoint == -1)
-                        {
-                            p = Handles.PositionHandle(p, o.transform.rotation);
-                            o.transform.position = p;
-                        }
-                        poly.SetPath(0, path);
-                    */}
                     break;
             }
         }
-
-        int closestPath = -1;
-        int closestPoint = -1;
 
         void addPointToPoly(int idx, Vector2 v, PolygonCollider2D poly)
         {
@@ -161,9 +105,5 @@ namespace TestEditor
                     break;
             }
         }
-
-        bool leftClick = false;
-        bool rightClick = false;
-
     }
 }
