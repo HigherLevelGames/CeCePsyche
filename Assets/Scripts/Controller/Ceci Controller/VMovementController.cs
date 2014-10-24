@@ -5,18 +5,19 @@ using Common;
 [RequireComponent(typeof(BoxCollider2D))]
 public class VMovementController : MonoBehaviour
 {
+	#region Properties for CeciAnimControl.cs
 	// vspeed for CeciAnimControl.cs
 	public int vSpeed
 	{
 		get
 		{
-			if(isGrounded || VVelocity == 0.0f)
+			if(isGrounded || VVelocity == Vector3.zero)//0.0f)
 			{
 				return 0;
 			}
 			else
 			{
-				return (int)Mathf.Sign(VVelocity);
+				return (int)Mathf.Sign(VVelocity.y);
 			}
 		}
 	}
@@ -29,6 +30,7 @@ public class VMovementController : MonoBehaviour
 			return CurJumpState == JumpState.Grounded;
 		}
 	}
+	#endregion
 
 	public bool isStartClimb = false;
 	public bool isClimbing = false;
@@ -37,7 +39,7 @@ public class VMovementController : MonoBehaviour
 
 	// Jump Variables
 	public float JumpSpeed = 10.0f;
-	public float VVelocity = 0.0f;
+	public Vector3 VVelocity = Vector3.zero;
 	public enum JumpState
 	{
 		Grounded,
@@ -47,14 +49,18 @@ public class VMovementController : MonoBehaviour
 	JumpState CurJumpState = JumpState.Grounded;
 	
 	// Variable Jump Variables
-	bool CanVarJump = true;
-	float VarJumpTime = 0.5f;//half a second, for when the player holds down jump key
+	public float VarJumpTime = 0.5f;//half a second, for when the player holds down jump key
+	private bool CanVarJump = true;
 	private float VarJumpElapsedTime = 0.0f;
-	//float JumpTime, JumpDelay = 0.3f;
 
 	public bool lockVertical = false;
 
-	void Start() { }
+	void Start()
+	{
+		// don't use rigidbody2D's weird 2D physics
+		this.rigidbody2D.gravityScale = 0.0f;
+		this.rigidbody2D.isKinematic = false;
+	}
 	
 	void FixedUpdate()
 	{
@@ -72,7 +78,6 @@ public class VMovementController : MonoBehaviour
 		if(checker.check(this.transform))
 		{
 			CurJumpState = JumpState.Grounded;
-			this.rigidbody2D.isKinematic = false;
 		}
 		else
 		{
@@ -84,12 +89,12 @@ public class VMovementController : MonoBehaviour
 	{
 		if(CurJumpState == JumpState.Grounded)
 		{
-			VVelocity = 0.0f;
+			VVelocity = Vector3.zero;
 		}
 		else
 		{
-			this.transform.position += Vector3.up * VVelocity * Time.deltaTime;
-			VVelocity -= 0.5f;// * Time.deltaTime;
+			this.transform.position += VVelocity * Time.deltaTime;
+			VVelocity += 0.5f*Vector3.down;
 		}
 	}
 
@@ -99,20 +104,14 @@ public class VMovementController : MonoBehaviour
 	{
 		int curVValue = RebindableInput.GetAxis("Vertical");
 
-		this.rigidbody2D.gravityScale = (curVValue < 0) ? 1.0f : 0.0f;
-
 		// pressed jump once
 		if((RebindableInput.GetKeyDown("Jump") || (curVValue > 0 && prevVValue == 0))
 				&& CurJumpState == JumpState.Grounded)
 		{
 			CurJumpState = JumpState.Jumping;
-			VVelocity = JumpSpeed;
+			VVelocity = JumpSpeed*Vector3.up;
 			VarJumpElapsedTime = 0.0f;
 			CanVarJump = true;
-			
-			//JumpTime = JumpDelay;
-			//anim.SetTrigger("Jump");
-			//hasJumped = true;
 		}
 
 		// press and hold jump button
@@ -123,12 +122,11 @@ public class VMovementController : MonoBehaviour
 			if(VarJumpElapsedTime < VarJumpTime)
 			{
 				CurJumpState = JumpState.Jumping;
-				VVelocity = JumpSpeed;
+				VVelocity = JumpSpeed*Vector3.up;
 			}
-			else
+			else // time for variable jump is up
 			{
 				CurJumpState = JumpState.Falling;
-				VVelocity = 0.0f;
 				CanVarJump = false;
 			}
 		}
@@ -137,18 +135,9 @@ public class VMovementController : MonoBehaviour
 		if(RebindableInput.GetKeyUp("Jump") || (curVValue == 0 && prevVValue != 0))
 		{
 			CurJumpState = JumpState.Falling;
-			VVelocity = (VVelocity > 0.0f) ? 0.0f : VVelocity;
 			CanVarJump = false;
 		}
-		//Debug.Log(CurJumpState);
-		
-		/*
-		jumpTime -= Time.deltaTime;
-		if(jumpTime <= 0 && grounded && jumped)
-		{
-			anim.SetTrigger("Land");
-			jumped = false;
-		}//*/
+
 		prevVValue = RebindableInput.GetAxis("Vertical");
 	}
 
@@ -157,7 +146,6 @@ public class VMovementController : MonoBehaviour
 	{
 		if(col.gameObject.tag == "Ladder")
 		{
-			rigidbody2D.gravityScale = 0.0f;
 			lockVertical = true;
 			isStartClimb = true;
 		}
@@ -167,7 +155,6 @@ public class VMovementController : MonoBehaviour
 	{
 		if(col.gameObject.tag == "Ladder")
 		{
-			rigidbody2D.gravityScale = 1.0f;
 			lockVertical = false;
 			isStartClimb = false;
 			isClimbing = false;
@@ -181,16 +168,8 @@ public class VMovementController : MonoBehaviour
 		{
 			lockVertical = true;
 			isClimbing = true;
-			VVelocity = RebindableInput.GetAxis("Vertical") * ClimbSpeed;//0.0f;
-
-			if(RebindableInput.GetAxis("Vertical") != 0)
-			{
-				this.transform.position = new Vector3(col.transform.position.x, this.transform.position.y + VVelocity * Time.deltaTime, this.transform.position.z);
-			}
-			else
-			{
-				rigidbody2D.velocity = Vector2.zero;
-			}
+			VVelocity.y = RebindableInput.GetAxis("Vertical") * ClimbSpeed * Time.deltaTime;
+			this.transform.position += VVelocity;
 		}
 	}
 	#endregion

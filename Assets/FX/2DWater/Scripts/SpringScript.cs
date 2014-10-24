@@ -47,7 +47,7 @@ public class SpringScript : MonoBehaviour
 		VMovementController vControl = other.gameObject.GetComponent<VMovementController>();
 		if(vControl != null)
 		{
-			Water.Splash(vControl.VVelocity, ID, other.transform);
+			Water.Splash(vControl.VVelocity.y, ID, other.transform);
 		}
 		else
 		{

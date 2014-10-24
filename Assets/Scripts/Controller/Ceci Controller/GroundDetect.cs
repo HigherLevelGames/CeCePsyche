@@ -61,6 +61,7 @@ public class GroundDetect
 			// find specific point (and edges) of collision (if any)
 			Vector2 colPoint = Vector2.zero;
 			EdgeCollider2D edges = new EdgeCollider2D();
+			BoxCollider2D col = (player.transform.collider2D) as BoxCollider2D;
 			if(hitLeft)
 			{
 				colPoint = hitLeft.point;
