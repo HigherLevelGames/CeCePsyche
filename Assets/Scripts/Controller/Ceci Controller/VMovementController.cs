@@ -60,6 +60,7 @@ public class VMovementController : MonoBehaviour
 		// don't use rigidbody2D's weird 2D physics
 		this.rigidbody2D.gravityScale = 0.0f;
 		this.rigidbody2D.isKinematic = false;
+		CurJumpState = JumpState.Falling;
 	}
 	
 	void FixedUpdate()

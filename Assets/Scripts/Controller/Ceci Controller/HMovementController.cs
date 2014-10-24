@@ -65,11 +65,13 @@ public class HMovementController : MonoBehaviour
 			isFacingRight = RebindableInput.GetAxis("Horizontal") > 0;
 		}
 
+		float newY = this.transform.position.y;
 		// consideration for slopes
-		float newY = checker.checkForward(this.transform, newX);
-		if(RebindableInput.GetAxis("Vertical") != 0.0f || RebindableInput.GetKeyDown("Jump") )
+		if(RebindableInput.GetAxis("Horizontal") != 0
+				&& RebindableInput.GetAxis("Vertical") == 0
+				&& !RebindableInput.GetKeyDown("Jump") )
 		{
-			newY = this.transform.position.y;
+			newY = checker.checkForward(this.transform, newX);
 		}
 
 		// actually move Ceci
