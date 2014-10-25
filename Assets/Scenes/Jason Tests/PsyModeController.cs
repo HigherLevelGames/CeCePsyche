@@ -6,6 +6,7 @@ public class PsyModeController : MonoBehaviour
    
     public GameObject Player;
     public GameObject Other;
+    public Texture[] textures;
     SpriteRenderer spr;
     Camera cam;
     float localScalar = 1.0f;
@@ -28,12 +29,12 @@ public class PsyModeController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Z))
                 DisablePsyMode();
-            localScalar = Mathf.Max(0, localScalar * 0.9f);
+            localScalar = Mathf.Max(0, localScalar * 0.90f);
         } else
         {
             if (Input.GetKeyDown(KeyCode.Z))
                 EnablePsyMode();
-            localScalar = Mathf.Min(1.0f, 0.1f + localScalar * 1.1f);
+            localScalar = Mathf.Min(1.0f, 0.1f + localScalar * 1.02f);
         }
         Time.timeScale = localScalar;
         spr.color = new Color(c.r, c.g, c.b, c.a * antiScalar);
@@ -48,28 +49,48 @@ public class PsyModeController : MonoBehaviour
             Vector2 o = cam.WorldToScreenPoint(Other.transform.position).ToVector2();
             float xa = 75 * antiScalar;
             // Draw selectable stimuli next to Ceci
-            GUI.Window(0, new Rect(p.x - xa, p.y - xa, xa * 2, xa * 2), PlayerWindow, "Stimuli");
+            GUI.Window(0, new Rect(p.x - xa, p.y - xa, xa * 2, xa * 2), PlayerWindow, "Stimuli", GUIStyle.none);
             // Draw unconditioned response next to target
             float xd = antiScalar * 25;
             GUI.Button(new Rect(o.x - xd, Screen.height - o.y - xd, xd * 2, xd * 2), "Response");
-            // Draw!
-            GUI.Window(1, new Rect(-5, -3, Screen.width + 10, Screen.height * 0.1f * antiScalar), EnvironmentWindow, "Environmental");
+            // Draw environmental/unconditioned stimuli
+            GUI.Window(1, new Rect(-5, -3, Screen.width + 10, Screen.height * 0.1f * antiScalar), EnvironmentWindow, "Environmental", GUIStyle.none);
 
         }         
     }
 
     void EnvironmentWindow(int id)
     {
-        GUILayout.Button("LIGHTNING BOLTS FROM HIS ARSE", new GUILayoutOption[]
+        int numStim = 25;
+
+        for (int i = 0; i < numStim; i++)
         {
-            GUILayout.MaxWidth(100),
-            GUILayout.MaxHeight(100)
-        });
+            float r = ((float)i / numStim);
+            float t = Mathf.Sin(r * Mathf.PI * 2);
+            float x = 20 + r * Screen.width;
+            float n = (i + 1) * 60 * t;
+            float y = n * antiScalar - n + 10;
+            GUI.Button(new Rect(x, y, 70, 55), i.ToString());
+        }
     }
 
     void PlayerWindow(int id)
     {
-        GUILayout.Button("Hello");
+        int numButtons = 3;
+        int numDiff = 4;
+        float rad = 34.0f * antiScalar;
+        Vector2 center = new Vector2(75 * antiScalar, 80 * antiScalar);
+        float wa = 60 * antiScalar;
+        float wb = 30 * antiScalar;
+        float bonusRotation = Mathf.PI * 2 * antiScalar - Mathf.PI * 0.75f;
+        for(int i = 0; i < numButtons; i++)
+        {
+            float r = ((float)i / numButtons) * Mathf.PI * 2 * antiScalar + bonusRotation;
+            float x = center.x + rad*(Mathf.Cos(r) - Mathf.Sin(r));
+            float y = center.y + rad*(Mathf.Sin(r) + Mathf.Cos(r));
+            Rect rec = new Rect(x - wb, y - wb, wa, wa);
+            GUI.DrawTexture(rec, textures[i % numDiff]);
+        }
     }
 
     void EnablePsyMode()

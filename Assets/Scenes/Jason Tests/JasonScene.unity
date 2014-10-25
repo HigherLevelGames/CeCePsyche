@@ -3087,7 +3087,7 @@ Transform:
   m_GameObject: {fileID: 1157272227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
+  m_LocalScale: {x: .200000003, y: .200000003, z: .400000006}
   m_Children: []
   m_Father: {fileID: 2100077863}
   m_RootOrder: 0
@@ -3099,11 +3099,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1157272227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85c12744910318941b6e2a936f3f1ffd, type: 3}
+  m_Script: {fileID: 11500000, guid: ce41709f6b006d2448fdfa2131949621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 214255621}
   Other: {fileID: 1642301506}
+  textures:
+  - {fileID: 2800000, guid: 5b9d32862cf1b5e409b74f13c804a86f, type: 3}
+  - {fileID: 2800000, guid: 156a3e8697c84564b8b5d02003c4e240, type: 3}
+  - {fileID: 2800000, guid: db56d6336abe28f4c8e069b69f0baf41, type: 3}
+  - {fileID: 2800000, guid: 1bb2c2efda59ade4bb04d1902d4ef82f, type: 3}
 --- !u!1 &1258871684
 GameObject:
   m_ObjectHideFlags: 0
