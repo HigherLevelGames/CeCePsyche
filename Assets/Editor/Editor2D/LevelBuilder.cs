@@ -62,24 +62,46 @@ namespace TestEditor
             if (!EData.Manager)
             {
                 GameObject man = new GameObject();
-                GameObject imas = new GameObject();
-                GameObject wmas = new GameObject();
-                GameObject cam = new GameObject();
                 man.name = "Editor2D";
                 man.AddComponent<Editor2DManager>();
                 EData.Manager = man.GetComponent<Editor2DManager>();
-                imas.name = "ImpassableMaster";
-                wmas.name = "WalkableMaster";
-                cam.name = "CameraBoundaries";
-                cam.tag = "CameraBoundaries";
-                cam.AddComponent<PolygonCollider2D>();
-                cam.transform.parent = imas.transform.parent = wmas.transform.parent = EData.Manager.transform;
-                EData.Manager.ImpassableMaster = imas.transform;
-                EData.Manager.WalkableMaster = wmas.transform;
-                EData.Manager.CameraBounds = cam;
-                EData.Manager.Walkables = new GameObject[0];
-                EData.Manager.Impassables = new GameObject[0];
             }
+            if (!EData.Manager.WalkableMaster)
+                InstantiateWalkables();
+            if (!EData.Manager.ImpassableMaster)
+                InstantiateImpassables();            
+            if (!EData.Manager.CameraBounds)
+                InstantiateCamera();
+        }
+
+        void InstantiateWalkables()
+        {
+            GameObject w = new GameObject();
+            w.name = "WalkableMaster";
+            w.transform.parent = EData.Manager.transform;
+            EData.Manager.WalkableMaster = w.transform;
+            EData.Manager.Walkables = new GameObject[0];
+
+        }
+
+        void InstantiateImpassables()
+        {
+            GameObject i = new GameObject();
+            i.name = "ImpassableMaster";
+            i.transform.parent = EData.Manager.transform;
+            EData.Manager.ImpassableMaster = i.transform;
+            EData.Manager.Impassables = new GameObject[0];
+        }
+
+        void InstantiateCamera()
+        {
+            GameObject c = new GameObject();
+            c.name = "CameraBoundaries";
+            c.tag = "CameraBoundaries";
+            PolygonCollider2D poly = c.AddComponent<PolygonCollider2D>();
+            poly.isTrigger = true;
+            c.transform.parent = EData.Manager.transform;
+            EData.Manager.CameraBounds = c;
         }
 
         void CheckForManagers()
@@ -183,7 +205,7 @@ namespace TestEditor
             subFoldout1 = EditorGUILayout.Foldout(subFoldout1, "Impassables (" + EData.Manager.Impassables.Length.ToString() + " total)");
             if (subFoldout1)
             {
-                scrollPosition1 = GUILayout.BeginScrollView(scrollPosition1, false, true);
+                scrollPosition1 = GUILayout.BeginScrollView(scrollPosition1, false, true, GUILayout.MaxHeight(350));
                 for (int i = 0; i < EData.Manager.Impassables.Length; i++)
                 {
                     GameObject o = EData.Manager.Impassables [i];
@@ -212,14 +234,7 @@ namespace TestEditor
                         o.transform.position = new Vector3(v.x, v.y, o.transform.position.z);
                         subFoldout2 = EditorGUILayout.Foldout(subFoldout2, "Data");
                         if (subFoldout2)
-                        {
-                            scrollPosition2 = GUILayout.BeginScrollView(scrollPosition2, false, true);
                             EditorGUILayout.BoundsField(o.collider2D.bounds);
-
-                            GUILayout.EndScrollView();
-                        }
-                        GUILayout.Label("Do something");
-
                     } else
                         EData.Manager.SelectedImpassable = 0;
                     break;
@@ -240,7 +255,7 @@ namespace TestEditor
             subFoldout1 = EditorGUILayout.Foldout(subFoldout1, "Walkables (" + EData.Manager.Walkables.Length + " total)");
             if (subFoldout1)
             {
-                scrollPosition1 = GUILayout.BeginScrollView(scrollPosition1, false, true,GUILayout.MaxHeight(250));
+                scrollPosition1 = GUILayout.BeginScrollView(scrollPosition1, false, true, GUILayout.MaxHeight(350));
                 for (int i = 0; i < EData.Manager.Walkables.Length; i++)
                 {
                     GameObject o = EData.Manager.Walkables [i];
@@ -264,7 +279,7 @@ namespace TestEditor
                         subFoldout2 = EditorGUILayout.Foldout(subFoldout2, "Points on Ledge" + EData.Manager.SelectedWalkable.ToString() + " (" + edge.pointCount.ToString() + " total)");
                         if (subFoldout2)
                         {
-                            scrollPosition2 = GUILayout.BeginScrollView(scrollPosition2, false, true, GUILayout.MaxHeight(150));
+                            scrollPosition2 = GUILayout.BeginScrollView(scrollPosition2, false, true, GUILayout.MaxHeight(200));
                             for (int i = 0; i < edge.pointCount; i++)
                                 edge.points [i] = EditorGUILayout.Vector2Field("Point" + i.ToString(), edge.points [i]);
                             GUILayout.EndScrollView();
@@ -300,8 +315,8 @@ namespace TestEditor
             for (int i = 0; i < path.Length; i++)
             {
                 GUILayout.BeginHorizontal();
-                path [i] = EditorGUILayout.Vector2Field(i.ToString() + ":", path [i]);
-                if (GUILayout.Button("Focus"))
+                path [i] = EditorGUILayout.Vector2Field(i.ToString() + ":", path [i], GUILayout.MaxWidth(160));
+                if (GUILayout.Button("Focus", GUILayout.MaxWidth (70)))
                 {
                     SceneView.currentDrawingSceneView.pivot = p + path [i];
                     Selection.activeGameObject = EData.Manager.CameraBounds;
