@@ -11,7 +11,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Road Home.unity
   - enabled: 0
     path: Assets/Scenes/Transitions/Brain Menu.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Garden.unity
   - enabled: 0
     path: Assets/Scenes/Levels/House.unity
@@ -23,3 +23,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Transitions/Concept.unity
   - enabled: 0
     path: Assets/Scenes/Transitions/Cutscenes.unity
+  - enabled: 1
+    path: Assets/Scenes/Levels/1_1.unity
+  - enabled: 1
+    path: Assets/Scenes/Levels/1_2.unity

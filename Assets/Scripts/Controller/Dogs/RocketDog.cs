@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class RocketDog : Dog //MonoBehaviour
+public class RocketDog : Conditionable //MonoBehaviour
 {
 	public Transform endPos;
 	public float speed = 1.0f;
@@ -37,16 +37,12 @@ public class RocketDog : Dog //MonoBehaviour
 	void travelShort(object sender, EventArgs e)
 	{
 		responseLevel.SendMessage("increaseBar", 0.5f);
-		print ("doggie hears");
-		//print ("blastoff!");
 		blastoff = true;
 	}
 
 	void travelFar(object sender, EventArgs e)
 	{
 		responseLevel.SendMessage("increaseBar", 1.0f);
-		print ("doggie ran");
-		//print ("blastoff!");
 		blastoff = true;
 	}
 	

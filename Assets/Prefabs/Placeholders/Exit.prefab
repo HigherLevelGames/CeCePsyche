@@ -80,6 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5fd3210731c44d7aa0416a32fdc74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: 0
+  movieToPlay: 0
   levelName: 
   enterButton: {fileID: 0}
   blurb: {fileID: 0}

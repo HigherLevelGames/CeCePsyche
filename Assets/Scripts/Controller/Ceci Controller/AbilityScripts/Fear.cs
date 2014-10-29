@@ -25,11 +25,11 @@ public class Fear : Ability
 	{
 		if(isSmall && this.transform.localScale != Percentage*Vector3.one)
 		{
-			Shrink(1.0f, Percentage);
+			//Shrink(1.0f, Percentage);
 		}
 		else if(!isSmall && this.transform.localScale != Vector3.one)
 		{
-			Shrink(Percentage, 1.0f);
+			//Shrink(Percentage, 1.0f);
 		}
 	}
 

@@ -12,7 +12,7 @@ using System.Collections;
 // then the environment can illicit the conditioned response.
 // ("Interact" with environment)
 [RequireComponent(typeof(Bar))]
-public class Dog : MonoBehaviour
+public class Conditionable : MonoBehaviour
 {
 	//Response Actions
 	public delegate void WeakResponseEventHandler(object sender, EventArgs e);
@@ -54,6 +54,13 @@ public class Dog : MonoBehaviour
 		get
 		{
 			return timesConditioned >= 3;
+		}
+	}
+	private bool inExtinction
+	{
+		get
+		{
+			return timesConditioned > 3;
 		}
 	}
 

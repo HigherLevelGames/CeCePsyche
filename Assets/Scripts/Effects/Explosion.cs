@@ -10,6 +10,7 @@ public class Explosion : MonoBehaviour {
 
 	bool exploded = false;
 	CircleCollider2D expoRadius;
+	GameObject[] dogs;
 
 	// Use this for initialization
 	void Start () {
@@ -45,9 +46,9 @@ public class Explosion : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-			if((col.gameObject.rigidbody2D != null && col.gameObject.layer.ToString() == "Destructible") ||
-			   (col.gameObject.rigidbody2D != null && col.gameObject.tag.ToString() == "Destructible"))
-			{
+		if((col.gameObject.rigidbody2D != null && col.gameObject.layer.ToString() == "Destructible") ||
+		   (col.gameObject.rigidbody2D != null && col.gameObject.tag.ToString() == "Destructible"))
+		{
 
 				Vector2 target = col.gameObject.transform.position;
 				Vector2 boom = gameObject.transform.position;
@@ -61,7 +62,13 @@ public class Explosion : MonoBehaviour {
 					power = 0;
 				Vector2 explosiveForce = direction.normalized * power * forceMultiplier; 
 				col.gameObject.rigidbody2D.AddForce(explosiveForce);
-			}
 		}
+
+		if( col.gameObject.tag == "Conditionable")
+		{
+			Conditionable thisObj = col.gameObject.GetComponent<Conditionable>();
+			thisObj.SendMessage("PerformResponse", true);
+		}
+	}
 
 }

@@ -65,7 +65,7 @@ public class ControlPanel : MonoBehaviour {
 				if (distance <= effectArea)
 				{
 					//ellicit response from dog
-					Dog thisDog = dogs[i].GetComponent<Dog>();
+					Conditionable thisDog = dogs[i].GetComponent<Conditionable>();
 					thisDog.SendMessage("PerformResponse", false);
 
 
