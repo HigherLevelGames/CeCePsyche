@@ -27,12 +27,12 @@ Material:
         second: 0
       data:
         first:
-          name: GlowRate
-        second: -.140000001
+          name: _GlowRate
+        second: 0
       data:
         first:
-          name: _GlowRate
-        second: .929093659
+          name: GlowRate
+        second: -.140000001
     m_Colors:
       data:
         first:
