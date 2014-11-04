@@ -21,7 +21,7 @@ public class HexItem
             
     public void Scale(float scalar)
     {
-        g.transform.localScale = Vector3.one * scalar;
+        g.transform.localScale = new Vector3(scalar, scalar, 1);
     }
             
     public void Glow()

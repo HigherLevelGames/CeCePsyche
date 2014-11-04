@@ -43,7 +43,7 @@ public class PsyModeController : MonoBehaviour
     bool cooling;
     bool psyOn;
     int menuTarget = -1;
-    int slotTarget = -1;
+    int slotTarget = 0;
     Camera cam;
     SpriteRenderer bgrender;
 
@@ -51,11 +51,16 @@ public class PsyModeController : MonoBehaviour
     {
         PsyData.parent = this.transform;
         PsyData.menuhex = MenuHex;
-        nMenu = new PsyMenu();
-        uMenu = new PsyMenu();
+        nMenu = new PsyMenu(3);
+        nMenu.hex.name = "Player Menu";
+        uMenu = new PsyMenu(3);
+        uMenu.hex.name = "Environemnt Menu";
         tMenus = new PsyMenu[Others.Length];
         for (int i = 0; i < tMenus.Length; i++)
-            tMenus [i] = new PsyMenu();
+        {
+            tMenus [i] = new PsyMenu(6);
+            tMenus [i].hex.name = Others [i].name + " Menu";
+        }
 
         hexItems.Add(new HexItem(Neutrals [0], PMType.Neutral));
         hexItems.Add(new HexItem(Environmentals [0], PMType.Unconditioned));
@@ -82,13 +87,16 @@ public class PsyModeController : MonoBehaviour
                 localScalar = Mathf.Min(1, localScalar + Time.unscaledDeltaTime * 2);
             if (menuTarget > -1)
             {
-
-                if (Input.GetKeyDown(KeyCode.X))
-                    Confirm();
-                if (Input.GetKeyDown(KeyCode.A))
-                    GetNextSlot();
-                if (Input.GetKeyDown(KeyCode.D))
-                    GetPrevSlot();
+                if (!cooling)
+                {
+                    if (Input.GetKeyDown(KeyCode.X))
+                        Confirm();
+                    if (Input.GetKeyDown(KeyCode.A))
+                        GetPrevSlot();
+                    if (Input.GetKeyDown(KeyCode.D))
+                        GetNextSlot();
+                }
+                ShowSelection();
                 SetPositions();
                 for (int i = 0; i < hexItems.Count; i++)
                     hexItems [i].Scale(localScalar);
@@ -111,49 +119,77 @@ public class PsyModeController : MonoBehaviour
         uMenu.position = cam.ScreenToWorldPoint(new Vector3(Screen.width * 0.03f, Screen.height * 0.93f, 10));
         uMenu.BoxMenuAnimate();
         for (int i = 0; i < Others.Length; i++)
-            if (Others [i] && i != menuTarget)
+            if (Others [i])
             {
                 tMenus [i].position = Others [i].transform.position.ToVector2();
-                tMenus [i].SoloAnimate();
+                tMenus [i].RoundMenuAnimate();
             }
-        tMenus [menuTarget].position = Others [menuTarget].transform.position.ToVector2();
-        tMenus [menuTarget].RoundMenuAnimate();
     }
     #endregion
 
 
-
+    void ShowSelection()
+    {
+        tMenus [menuTarget].Glow();
+        if (slotTarget < 0)
+            return;
+        switch (stage)
+        {
+            case MenuStage.Player:
+                nMenu.Slots [slotTarget].Glow();
+                break;
+            case MenuStage.Environment:
+                uMenu.Slots [slotTarget].Glow();
+                break;
+            case MenuStage.Apply:
+                break;
+        }
+    }
 
     #region Tools
     void Cool()
     {
         cooling = true;
-        uMenu.Deselect();
-        nMenu.Deselect();
+        uMenu.Cool();
+        nMenu.Cool();
         for (int i = 0; i < tMenus.Length; i++)
-            tMenus [i].Deselect();
+            tMenus [i].Cool();
     }
 
     void WarmMenu()
     {
+        Debug.Log("1: " + slotTarget.ToString());
         psyOn = true;
         cooling = false;
         menuTarget = -1;
+        slotTarget = 0;
+        for (int i = 0; i < Others.Length; i++)
+            tMenus [i].position = Others [i].transform.position.ToVector2();
         for (int i = 0; i < tMenus.Length; i++)
             if (isTargetOnScreen(i))
+            {
                 menuTarget = i;
+                break;
+            }
         if (menuTarget > -1)
         {
             for (int i = 0; i < hexItems.Count; i++)
                 hexItems [i].SetActive(true);
             nMenu.Open();
+            nMenu.Select();
             uMenu.Open();
-            tMenus [menuTarget].Open();
+            uMenu.Select();
             for (int i = 0; i < tMenus.Length; i++)
+            {
                 tMenus [i].SetActive(true);
+                if (menuTarget != i)
+                    tMenus [i].Deselect();
+            }
+            tMenus [menuTarget].Open();
             SetPositions();
         }
-
+        stage = MenuStage.Player;
+        Debug.Log("2: " + slotTarget.ToString());
     }
     
     void CloseMenu()
@@ -169,29 +205,40 @@ public class PsyModeController : MonoBehaviour
             tMenus [i].Close();
     }
 
-    bool isTargetOnScreen(int i)
-    {
-        Vector2 p = cam.WorldToViewportPoint(new Vector3(tMenus [i].position.x, tMenus [i].position.y, 0));
-        if (p.x > 0 && p.x < 1 && p.y > 0 && p.y < 1)
-            return true;
-        return false;           
-    }
-
     void GetPrevSlot()
     {
         int n;
         switch (stage)
         {
             case MenuStage.Player:
+                nMenu.Slots [slotTarget].Deselect();
+                slotTarget = (slotTarget + 1) % nMenu.Slots.Length; 
+                nMenu.Slots [slotTarget].Select();
                 break;
             case MenuStage.Target:
-                tMenus [menuTarget].Deselect();
-                for (int i = menuTarget; i > -1; i--)
-                    if (isTargetOnScreen(i))
-                        menuTarget = i;
+                int t = -1;
+                float cdist = 100;
+                for (int i = 0; i < tMenus.Length; i++)
+                    if (i != menuTarget && isTargetOnScreen(i))
+                    {
+                        float d = tMenus [i].position.x - tMenus [menuTarget].position.x;
+                        if (d < 0 && d < cdist)
+                        {
+                            cdist = d;
+                            t = i;
+                        }
+                    }
+                if (t > -1)
+                {
+                    tMenus [menuTarget].Deselect();
+                    tMenus [t].Select();
+                    menuTarget = t;
+                }
                 break;
             case MenuStage.Environment:
-                slotTarget = Mathf.Max(slotTarget - 1, 0);
+                uMenu.Slots [slotTarget].Deselect();
+                slotTarget = (slotTarget + uMenu.Slots.Length - 1) % uMenu.Slots.Length; 
+                uMenu.Slots [slotTarget].Select();
                 break;
             case MenuStage.Apply:
                 break;
@@ -203,15 +250,23 @@ public class PsyModeController : MonoBehaviour
         switch (stage)
         {
             case MenuStage.Player:
-                stage = MenuStage.Target;
+                stage = MenuStage.Environment;
+                nMenu.Slots [slotTarget].Select();
+                nMenu.SortTo(10002);
+                slotTarget = 0;
                 break;
             case MenuStage.Target:
+                stage = MenuStage.Apply;
+                slotTarget = 0;
                 break;
             case MenuStage.Environment:
+                stage = MenuStage.Target;
+                uMenu.Slots [slotTarget].Select();
+                uMenu.SortTo(10002);
+                slotTarget = 0;
                 break;
             case MenuStage.Apply:
                 break;
-                
         }
     }
 
@@ -221,45 +276,53 @@ public class PsyModeController : MonoBehaviour
         switch (stage)
         {
             case MenuStage.Player:
+                nMenu.Slots [slotTarget].Deselect();
+                slotTarget = (slotTarget + nMenu.Slots.Length - 1) % nMenu.Slots.Length; 
+                nMenu.Slots [slotTarget].Select();
                 break;
             case MenuStage.Target:
-                tMenus [menuTarget].Deselect();
-                for (int i = menuTarget; i < tMenus.Length; i++)
-                    if (isTargetOnScreen(i))
-                        menuTarget = i;
+                int t = -1;
+                float cdist = 100;
+                for (int i = 0; i < tMenus.Length; i++)
+                    if (i != menuTarget && isTargetOnScreen(i))
+                    {
+                        float d = tMenus [i].position.x - tMenus [menuTarget].position.x;
+                        if (d > 0 && d < cdist)
+                        {
+                            cdist = d;
+                            t = i;
+                        }
+                    }
+                if (t > -1)
+                {
+                    tMenus [menuTarget].Deselect();
+                    tMenus [t].Select();
+                    menuTarget = t;
+                }
                 break;
             case MenuStage.Environment:
-                slotTarget = Mathf.Min(slotTarget + 1, uMenu.Slots.Length); 
+                uMenu.Slots [slotTarget].Deselect();
+                slotTarget = (slotTarget + 1) % uMenu.Slots.Length; 
+                uMenu.Slots [slotTarget].Select();
                 break;
             case MenuStage.Apply:
-                break;
-                        
+                break;       
         }
+    }
+
+    bool isTargetOnScreen(int i)
+    {
+        Vector2 p = cam.WorldToViewportPoint(new Vector3(tMenus [i].position.x, tMenus [i].position.y, 0));
+        if (p.x > 0 && p.x < 1 && p.y > 0 && p.y < 1)
+            return true;
+        return false;           
     }
     #endregion
     #region Debug
-    void OnDrawGizmos()
-    {
-        /*
-        if (psyOn)
-        {
-            for (int i = 0; i < nSlots.Length; i++)
-                Gizmos.DrawIcon(nSlots [i].position.ToVector3(), "icon.tiff");
-            for (int i = 0; i < uSlots.Length; i++)
-                Gizmos.DrawIcon(uSlots [i].position.ToVector3(), "icon.tiff");
-            for (int j = 0; j < targets.Length; j++)
-                for (int i = 0; i < targets[j].Slots .Length; i++)
-                    Gizmos.DrawIcon(targets [j].Slots [i].position.ToVector3(), "icon.tiff");
-        }
-        */
-    }
-
     void OnGUI()
     {
         if (menuTarget < 0 && psyOn)
-        {
             GUI.Label(new Rect(Screen.width * 0.5f, Screen.height * 0.5f, 100, 50), "No Targets Found.");
-        }
     }
     #endregion
 }
