@@ -1,6 +1,15 @@
 fileFormatVersion: 2
 guid: 3953263e949254e579cb89e01d7c1f35
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: DOG RUN_0
+    21300002: DOG RUN_1
+    21300004: DOG RUN_2
+    21300006: DOG RUN_3
+    21300008: DOG RUN_4
+    21300010: DOG RUN_5
+    21300012: DOG RUN_6
+    21300014: DOG RUN_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +44,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -52,8 +62,9 @@ TextureImporter:
         y: 2
         width: 123
         height: 122
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DOG RUN_1
       rect:
         serializedVersion: 2
@@ -61,8 +72,9 @@ TextureImporter:
         y: 2
         width: 123
         height: 122
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DOG RUN_2
       rect:
         serializedVersion: 2
@@ -70,8 +82,9 @@ TextureImporter:
         y: 2
         width: 123
         height: 122
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DOG RUN_3
       rect:
         serializedVersion: 2
@@ -79,8 +92,9 @@ TextureImporter:
         y: 2
         width: 123
         height: 122
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DOG RUN_4
       rect:
         serializedVersion: 2
@@ -88,8 +102,9 @@ TextureImporter:
         y: 2
         width: 123
         height: 122
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DOG RUN_5
       rect:
         serializedVersion: 2
@@ -97,8 +112,9 @@ TextureImporter:
         y: 2
         width: 123
         height: 122
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DOG RUN_6
       rect:
         serializedVersion: 2
@@ -106,8 +122,9 @@ TextureImporter:
         y: 2
         width: 123
         height: 122
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DOG RUN_7
       rect:
         serializedVersion: 2
@@ -115,7 +132,8 @@ TextureImporter:
         y: 2
         width: 123
         height: 122
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

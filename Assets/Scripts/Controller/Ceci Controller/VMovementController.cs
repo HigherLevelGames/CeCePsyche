@@ -96,6 +96,7 @@ public class VMovementController : MonoBehaviour
 		{
 			this.transform.position += VVelocity * Time.deltaTime;
 			VVelocity += 0.5f*Vector3.down;
+
 		}
 	}
 

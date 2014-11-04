@@ -38,9 +38,9 @@ public class Explosion : MonoBehaviour {
 			}
 			else
 			{
-				Destroy(this.gameObject);
+				//Destroy(this.gameObject);
 			}
-			expoRadius.radius = curRadius;
+			//expoRadius.radius = curRadius;
 		}
 	}
 

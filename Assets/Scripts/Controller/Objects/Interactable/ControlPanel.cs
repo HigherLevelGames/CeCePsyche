@@ -10,6 +10,8 @@ public class ControlPanel : MonoBehaviour {
 	public bool isActive;
 	public float activeTime = 1f;
 	public float effectArea;
+	public GameObject objectToSpawn;
+	public Transform spawnPos;
 	GameObject[] dogs;
 	float timeLeft;
 
@@ -39,6 +41,11 @@ public class ControlPanel : MonoBehaviour {
 		if(!isActive)
 		{
 			isActive = true;
+			if(objectToSpawn != null && spawnPos != null)
+			{
+				Vector3 spawnSpot = new Vector3(spawnPos.position.x, spawnPos.position.y, spawnPos.position.z);
+				Instantiate(objectToSpawn,spawnSpot, Quaternion.identity);
+			}
 		}
 		if(door != null)
 		{
