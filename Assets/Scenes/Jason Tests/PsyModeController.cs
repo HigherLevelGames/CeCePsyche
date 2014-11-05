@@ -149,6 +149,7 @@ public class PsyModeController : MonoBehaviour
     #region Tools
     void Cool()
     {
+        slotTarget = 0;
         cooling = true;
         uMenu.Cool();
         nMenu.Cool();
@@ -158,7 +159,6 @@ public class PsyModeController : MonoBehaviour
 
     void WarmMenu()
     {
-        Debug.Log("1: " + slotTarget.ToString());
         psyOn = true;
         cooling = false;
         menuTarget = -1;
@@ -189,7 +189,6 @@ public class PsyModeController : MonoBehaviour
             SetPositions();
         }
         stage = MenuStage.Player;
-        Debug.Log("2: " + slotTarget.ToString());
     }
     
     void CloseMenu()
