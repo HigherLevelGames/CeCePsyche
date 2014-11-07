@@ -28,13 +28,16 @@ namespace TestEditor
             rightClick = (e.isMouse && e.type == EventType.MouseDown && e.button == 1);
             if (e.isKey)
             {
-                if (e.keyCode == KeyCode.LeftControl || e.keyCode == KeyCode.RightControl || e.command)
+                if (e.keyCode == KeyCode.LeftControl || e.keyCode == KeyCode.RightControl)
                 {
                     if (e.type == EventType.KeyDown)
                         ctrl = true;
                     else if (e.type == EventType.KeyUp)
                         ctrl = false;
                 }
+				else{
+					ctrl = e.command;
+				}
             }
 
             switch (EData.SetType)
