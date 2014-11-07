@@ -25,7 +25,6 @@ namespace TestEditor
         public int SelectedImpassable = 0;
         public int PolySides = 3;
 
-
         void OnDrawGizmos()
         {
             if (CheckForChildren)
@@ -122,14 +121,15 @@ namespace TestEditor
             Walkables = a.ToArray();
         }
 
-        public void AddWalkable(Vector2 v)
+        public void AddWalkable(Vector2 v1, Vector2 v2)
         {
             GameObject obj = new GameObject();
             obj.name = "Walkable";
             obj.layer = LayerMask.NameToLayer("Ground");
             obj.transform.parent = WalkableMaster;
-            obj.transform.position = v.ToVector3();
-            obj.AddComponent<EdgeCollider2D>();
+            obj.transform.position = v1.ToVector3();
+            EdgeCollider2D edge = obj.AddComponent<EdgeCollider2D>();
+            edge.points = new Vector2[] { Vector2.zero, v2 - v1 };
             List<GameObject> a = new List<GameObject>();
             a.AddRange(Walkables);
             a.Add(obj);

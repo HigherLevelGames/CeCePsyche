@@ -10,6 +10,7 @@ namespace TestEditor
     {
         bool leftClick = false;
         bool rightClick = false;
+        bool ctrl = false;
 
         public void OnEnable()
         {
@@ -25,6 +26,16 @@ namespace TestEditor
             Vector2 mp = new Vector2(r.origin.x, r.origin.y);
             leftClick = (e.isMouse && e.type == EventType.MouseDown && e.button == 0);
             rightClick = (e.isMouse && e.type == EventType.MouseDown && e.button == 1);
+            if (e.isKey)
+            {
+                if (e.keyCode == KeyCode.LeftControl || e.keyCode == KeyCode.RightControl)
+                {
+                    if (e.type == EventType.KeyDown)
+                        ctrl = true;
+                    else if (e.type == EventType.KeyUp)
+                        ctrl = false;
+                }
+            }
 
             switch (EData.SetType)
             {
@@ -79,6 +90,8 @@ namespace TestEditor
             return a + v1.normalized * dot;
         }
 
+        bool creatingWalkable = false;
+
         void WalkablesUpdate(Event e, Vector2 mp)
         {
             switch (EData.ToolType)
@@ -86,21 +99,39 @@ namespace TestEditor
                 case ToolType.Place:
                     if (leftClick)
                     {
-                        EData.Manager.AddWalkable(mp);
+                        creatingWalkable = true;
                         EData.ToolType = ToolType.Edit;
+                        EData.Manager.AddWalkable(mp, mp);
                     }
+
                     break;
                 case ToolType.Edit:
-                    if (EData.Manager.SelectedWalkable > -1 && EData.Manager.Walkables.Length > 0)
+                    if (EData.Manager.SelectedWalkable > -1 && EData.Manager.SelectedWalkable < EData.Manager.Walkables.Length)
                     {
                         GameObject o = EData.Manager.Walkables [EData.Manager.SelectedWalkable];
                         EdgeCollider2D edge = o.GetComponent<EdgeCollider2D>();
-                        if (edge.points.Length > 1)
+
+                        if (edge.points.Length > 1 && ctrl)
                             Handles.DrawLine(o.transform.position.ToVector2() + edge.points [edge.points.Length - 1], mp.ToVector3());
-                        if (leftClick)
-                            EData.Manager.AddPointToWalkable(mp);
-                        else if (rightClick)
-                            EData.Manager.RemovePointFromWalkable();
+                        if (creatingWalkable)
+                        {
+                            edge.points = new Vector2[]
+                            {
+                                edge.points [0],
+                                mp - o.transform.position.ToVector2()
+                            };
+                            if (leftClick)
+                                creatingWalkable = false;
+                            else if (rightClick)
+                                EData.Manager.RemoveWalkable(EData.Manager.SelectedWalkable);
+                        
+                        } else
+                        {
+                            if (leftClick && ctrl)
+                                EData.Manager.AddPointToWalkable(mp);
+                            else if (rightClick)
+                                EData.Manager.RemovePointFromWalkable();
+                        }
                     }
                     break;
             }

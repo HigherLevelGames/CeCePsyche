@@ -268,6 +268,7 @@ namespace TestEditor
             {
                 case ToolType.Place:
                     GUILayout.Label("Click a point in the scene to start a new ledge");
+
                     break;
                 case ToolType.Edit:
                     if (EData.Manager.SelectedWalkable > -1 && EData.Manager.SelectedWalkable < EData.Manager.Walkables.Length)
@@ -284,7 +285,7 @@ namespace TestEditor
                                 edge.points [i] = EditorGUILayout.Vector2Field("Point" + i.ToString(), edge.points [i]);
                             GUILayout.EndScrollView();
                         }
-                        GUILayout.Label("Click a point in the scene to add points to the ledge.");
+                        GUILayout.Label("Ctrl + Click a point in the scene to add points to the ledge.");
                     } else
                         EData.Manager.SelectedWalkable = 0;
                     break;

@@ -13,25 +13,31 @@ public class Footfalls : MonoBehaviour
     public float StepSpriteInterval = 0.33f;
     public float StepSpriteLifeTime = 0.5f;
     private List<Footfall> footfalls = new List<Footfall>();
-
+    private HMovementController horizontal;
+    private VMovementController vertical;
     void Start()
     {
         if (Sprites.Length < 1)
             Debug.Log("This script cannot function without sprites");
+        horizontal = this.GetComponentInParent<HMovementController>();
+        vertical = this.GetComponentInParent<VMovementController>();
     }
 
     void Update()
     {
+        Flip = !horizontal.isFacingRight;
+        Grounded = vertical.isGrounded;
         if (Grounded)
         if (StepTrigger)
         {
-            footfalls.Add(new Footfall(Sprites, StepSpriteInterval, Flip));
+            Vector2 p = Origin.position.ToVector2();
+            footfalls.Add(new Footfall(Sprites, p, StepSpriteInterval, Flip));
             StepTrigger = false;
         }
 
         for (int i = 0; i < footfalls.Count; i++)
         {
-            footfalls [i].Update(StepSpriteLifeTime, Origin);
+            footfalls [i].Update(StepSpriteLifeTime);
             if (!footfalls [i].Exists)
             {
                 footfalls.RemoveAt(i);
@@ -48,15 +54,16 @@ public class Footfalls : MonoBehaviour
         float time;
         int pastIdx = -1;
         bool flipped;
-        
-        public Footfall(Sprite[] sprs, float t, bool flip)
+        Vector2 position;
+        public Footfall(Sprite[] sprs, Vector2 p, float t, bool flip)
         {
+            position = p;
             flipped = flip;
             time = remainingTime = t * (sprs.Length - 1);
             sprites = sprs;
         }
         
-        public void Update(float spriteLife, Transform parent)
+        public void Update(float spriteLife)
         {
             remainingTime -= Time.deltaTime;
             int idx = Mathf.FloorToInt((time - remainingTime) / time);
@@ -64,7 +71,7 @@ public class Footfalls : MonoBehaviour
             {
                 if (pastIdx < idx)
                 {
-                    objs.Add(new StepSprite(sprites [idx], spriteLife, flipped, parent));
+                    objs.Add(new StepSprite(sprites [idx], spriteLife, flipped, position));
                     pastIdx = idx;
                 }
             } 
@@ -95,11 +102,10 @@ public class Footfalls : MonoBehaviour
         float lifeTime;
         float totalLife;
         
-        public StepSprite(Sprite s, float life, bool flipped, Transform parent)
+        public StepSprite(Sprite s, float life, bool flipped, Vector2 p)
         {
             obj = new GameObject();
-            obj.transform.position = parent.position;
-            obj.transform.parent = parent;
+            obj.transform.position = p;
             obj.name = "footfall";
             if (flipped)
                 obj.transform.localScale = new Vector3(-1, 1, 1);

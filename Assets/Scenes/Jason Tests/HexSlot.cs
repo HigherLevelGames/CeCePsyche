@@ -145,7 +145,7 @@ public class PsyMenu : HexSlot
         cooling = true;
         Deselect();
     }
-    public void Deselect()
+    public new void Deselect()
     {
         itemCooling = true;
         hex.renderer.material.SetFloat("_GlowRate", -0.2f);
@@ -156,7 +156,7 @@ public class PsyMenu : HexSlot
             Slots[i].hex.renderer.sortingOrder = 10002;
         }
     }
-    public void Select()
+    public new void Select()
     {
         Active = true;
         cooling = false;

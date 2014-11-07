@@ -4,7 +4,6 @@ public class PMenuItem
 {
     public int ActionID;
     public Vector2 Target;
-    bool reverse;
     float glowValue;
     public GameObject obj;
     SpriteRenderer spr;
@@ -41,15 +40,11 @@ public class PMenuItem
     }
     public void Glow()
     {
-        if (glowValue > 1)
-            reverse = true;
-        if (glowValue < 0)
-            reverse = false;
-        if (reverse)
-            glowValue -= Time.unscaledDeltaTime;
-        else
-            glowValue += Time.unscaledDeltaTime;
-        spr.material.SetFloat("_GlowRate", glowValue);
+        glowValue += Time.deltaTime * 4;
+        if (glowValue > Mathf.PI * 2)
+            glowValue -= Mathf.PI * 2;
+        float a = Mathf.Sin(glowValue) + 0.9f;
+        spr.material.SetFloat("_GlowRate", a);
     }
     public void Mute()
     {

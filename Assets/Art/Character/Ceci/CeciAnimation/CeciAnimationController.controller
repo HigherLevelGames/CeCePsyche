@@ -497,7 +497,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: New Bool
     m_EventTreshold: 0
     m_ExitTime: .866071463
   m_Atomic: 1
@@ -1014,6 +1014,9 @@ StateMachine:
       first: {fileID: 110232410}
       second:
       - {fileID: 110174614}
+    data:
+      first: {fileID: 110270980}
+      second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -228, y: -36, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

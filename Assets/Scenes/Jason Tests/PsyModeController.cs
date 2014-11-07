@@ -206,7 +206,6 @@ public class PsyModeController : MonoBehaviour
 
     void GetPrevSlot()
     {
-        int n;
         switch (stage)
         {
             case MenuStage.Player:
@@ -271,7 +270,6 @@ public class PsyModeController : MonoBehaviour
 
     void GetNextSlot()
     {
-        int n;
         switch (stage)
         {
             case MenuStage.Player:
