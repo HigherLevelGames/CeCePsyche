@@ -103,7 +103,7 @@ public class Bar : MonoBehaviour
 
 		// keeping the bar relative to the object
 		Vector3 position = Camera.main.WorldToScreenPoint(this.transform.position);
-		Vector2 pos = Utility.unadjPoint(Utility.toVector2(position));
+		Vector2 pos = Utility.unadjPoint(position.ToVector2());
 		area.x = offset.x + pos.x;
 		area.y = offset.y + 100.0f - pos.y;
 	}

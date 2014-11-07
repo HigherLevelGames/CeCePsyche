@@ -10,11 +10,11 @@ public class BouncePlatform : MonoBehaviour
 	{
 		if(col.gameObject.tag == "Player")
 		{
-			VMovementController vControl = col.gameObject.GetComponent<VMovementController>();
-			if(vControl.VVelocity.y < 0)
+			MovementController vControl = col.gameObject.GetComponent<MovementController>();
+			if(vControl.velocity.y < 0)
 			{
-				float temp = vControl.VVelocity.y * multiplier;
-				vControl.VVelocity.y = Mathf.Clamp(temp, 0.0f, maxVelocity);
+				float temp = vControl.velocity.y * multiplier;
+				vControl.velocity.y = Mathf.Clamp(temp, 0.0f, maxVelocity);
 			}
 		}
 	}

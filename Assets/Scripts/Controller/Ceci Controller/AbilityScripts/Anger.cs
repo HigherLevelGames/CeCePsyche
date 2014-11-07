@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof(HMovementController))]
+//[RequireComponent (typeof(HMovementController))]
 public class Anger : Ability
 {
 	float speed = -10.0f;
@@ -22,7 +22,7 @@ public class Anger : Ability
 
 		// Deion's dash ability
 		float force = speed;
-		if(this.GetComponent<HMovementController>().isFacingRight)
+		if(this.GetComponent<MovementController>().isFacingRight)
 		{
 			force *= -1.0f;
 		}

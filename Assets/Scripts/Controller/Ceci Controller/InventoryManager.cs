@@ -71,7 +71,7 @@ public class InventoryManager : MonoBehaviour
 
 		// Get direction ceci is facing to figure out where item should spawn
 		Vector3 pos = this.transform.position;
-		HMovementController hControl = this.GetComponent<HMovementController>();
+		MovementController hControl = this.GetComponent<MovementController>();
 		pos += new Vector3(hControl.isFacingRight? 1.5f:-1.5f,0.0f,0.0f);
 
 		// Remove an item from inventory

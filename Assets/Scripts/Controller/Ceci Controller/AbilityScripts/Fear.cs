@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof(HMovementController))]
-[RequireComponent (typeof(VMovementController))]
+//[RequireComponent (typeof(HMovementController))]
+//[RequireComponent (typeof(VMovementController))]
 public class Fear : Ability
 {
 	public float Percentage = 0.5f;
@@ -10,14 +10,16 @@ public class Fear : Ability
 	private float TimeToShrink = 0.5f;
 	private float StartTime = 0.0f;
 	private bool isSmall = false;
-	private HMovementController hControl;
-	private VMovementController vControl;
+	//private HMovementController hControl;
+	//private VMovementController vControl;
+	private MovementController control;
 
 	// Use this for initialization
 	void Start ()
 	{
-		hControl = this.GetComponent<HMovementController>();
-		vControl = this.GetComponent<VMovementController>();
+		control = this.GetComponent<MovementController>();
+		//hControl = this.GetComponent<HMovementController>();
+		//vControl = this.GetComponent<VMovementController>();
 	}
 
 	// LateUpdate so we can override animation transform.localScale values
@@ -41,8 +43,8 @@ public class Fear : Ability
 		// half transform size
 		StartTime = Time.time;
 		isSmall = !isSmall;
-		hControl.MaxSpeed *= 0.5f;
-		vControl.JumpSpeed *= 0.5f;
+		control.MaxSpeed *= 0.5f;
+		control.JumpSpeed *= 0.5f;
 	}
 
 	public override void EndAbility()
@@ -53,8 +55,8 @@ public class Fear : Ability
 		// double transform size
 		StartTime = Time.time;
 		isSmall = !isSmall;
-		hControl.MaxSpeed *= 2.0f;
-		vControl.JumpSpeed *= 2.0f;
+		control.MaxSpeed *= 2.0f;
+		control.JumpSpeed *= 2.0f;
 	}
 
 	void Shrink(float start, float end)

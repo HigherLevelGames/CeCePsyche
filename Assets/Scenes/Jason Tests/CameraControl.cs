@@ -10,7 +10,7 @@ public class CameraControl : MonoBehaviour
     public float xOffset = 0.7f; // how far in front of the player the camera will follow
     public float yOffset = 0.0f; // how far above or below the camera will naturally follow the player
     public float SpringSpeed = 2.0f; // how quick the camera will follow the player, 0 = will not follow
-    public HMovementController LeftRightController; // is the player facing left or right?
+    public MovementController LeftRightController; // is the player facing left or right?
 
     Vector2 Target; // The camera will be attracted to this point
 

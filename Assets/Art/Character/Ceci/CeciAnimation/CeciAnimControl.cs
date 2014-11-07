@@ -1,30 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(AbilityManager))]
-[RequireComponent(typeof(HMovementController))]
-[RequireComponent(typeof(VMovementController))]
+//[RequireComponent(typeof(AbilityManager))]
+[RequireComponent(typeof(MovementController))]
 [RequireComponent(typeof(Animator))]
 public class CeciAnimControl : MonoBehaviour
 {
 	private Animator anim;
-	private HMovementController hControl;
-	private VMovementController vControl;
-	private AbilityManager emoControl;
-
+	private MovementController moveControl;
+	//private AbilityManager emoControl;
+	
 	// Use this for initialization
 	void Start ()
 	{
 		anim = this.GetComponent<Animator>();
-		hControl = this.GetComponent<HMovementController>();
-		vControl = this.GetComponent<VMovementController>();
-		emoControl = this.GetComponent<AbilityManager>();
+		moveControl = this.GetComponent<MovementController>();
+		//emoControl = this.GetComponent<AbilityManager>();
 	}
-
+	
 	//int jumpHash = Animator.StringToHash("Jump");
 	//int runStateHash = Animator.StringToHash("Base Layer.Run");
 	int climbingStateHash = Animator.StringToHash("Base Layer.Ceci_Climbing");
-
+	
 	// Update is called once per frame
 	void Update ()
 	{
@@ -35,15 +32,16 @@ public class CeciAnimControl : MonoBehaviour
 			anim.SetTrigger (jumpHash);
 		}//*/
 
-		anim.SetInteger("hspeed", hControl.hSpeed);
-		anim.SetInteger("vspeed", vControl.vSpeed);
-		anim.SetBool("grounded", vControl.isGrounded);
-		anim.SetBool("floating", emoControl.isFloating);
-		anim.SetBool("climbing", vControl.isClimbing);
-		anim.SetBool("startClimbing", vControl.isStartClimb);
-
+		Debug.Log("Hspeed: "+moveControl.hSpeed + " Vspeed: " + moveControl.vSpeed);
+		anim.SetInteger("hspeed", moveControl.hSpeed);
+		anim.SetInteger("vspeed", moveControl.vSpeed);
+		anim.SetBool("grounded", moveControl.isGrounded);
+		//anim.SetBool("floating", emoControl.isFloating);
+		anim.SetBool("climbing", moveControl.isClimbing);
+		anim.SetBool("startClimbing", moveControl.isStartClimb);
+		
 		AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-		if(stateInfo.nameHash == climbingStateHash && vControl.vSpeed == 0.0f)
+		if(stateInfo.nameHash == climbingStateHash && moveControl.vSpeed == 0.0f)
 		{
 			anim.speed = 0.0f;
 		}
@@ -51,14 +49,15 @@ public class CeciAnimControl : MonoBehaviour
 		{
 			anim.speed = 1.0f;
 		}
-
+		
 		//Jesse Hack - using use F to trigger throw animation
 		if(Input.GetKeyDown(KeyCode.F))
 		{
 			anim.SetTrigger("TossTrigger");
 		}
 	}
-
+	
+	/*
 	void TriggerEmotionAnim(int index)
 	{
 		switch(index)
@@ -80,10 +79,10 @@ public class CeciAnimControl : MonoBehaviour
 			}
 			break;
 		case 3: // Throw
-
+			
 			break;
 		default:
 			break;
 		}
-	}
+	}*/
 }

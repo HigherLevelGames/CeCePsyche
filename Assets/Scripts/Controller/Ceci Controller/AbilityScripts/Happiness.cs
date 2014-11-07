@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof(VMovementController))]
+//[RequireComponent (typeof(VMovementController))]
 public class Happiness : Ability
 {
 	private bool isHappy = false;
@@ -27,7 +27,7 @@ public class Happiness : Ability
 		// Jason TODO
 
 		// set flag in controller to have CeCi float in the air
-		this.GetComponent<VMovementController>().lockVertical = true;
+		this.GetComponent<MovementController>().lockVertical = true;
 		this.rigidbody2D.gravityScale = 0.0f;
 		isHappy = true;
 	}
@@ -38,7 +38,7 @@ public class Happiness : Ability
 		// Jason TODO
 
 		// stop ability to float/fly
-		this.GetComponent<VMovementController>().lockVertical = false;
+		this.GetComponent<MovementController>().lockVertical = false;
 		this.rigidbody2D.gravityScale = 0.0f;//1.0f;
 		this.rigidbody2D.isKinematic = true;
 		isHappy = false;

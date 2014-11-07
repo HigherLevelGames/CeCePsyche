@@ -4,7 +4,7 @@ using System.Collections;
 public class PointNClickController : MonoBehaviour
 {
     public GameObject ConditionableCharacter;
-    public HMovementController HController;
+    public MovementController HController;
     public GameObject[] Others;
     public GameObject[] Neutrals;
     public GameObject[] Environmentals;
@@ -38,7 +38,7 @@ public class PointNClickController : MonoBehaviour
             items [i] = new PMenuItem(g, i);
             items[i].SetActive(true);
         }
-        HController = ConditionableCharacter.GetComponent<HMovementController>();
+        HController = ConditionableCharacter.GetComponent<MovementController>();
 
         totalSeconds = secondsRemaining = 30.0f;
     }

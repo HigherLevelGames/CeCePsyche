@@ -13,20 +13,22 @@ public class Footfalls : MonoBehaviour
     public float StepSpriteInterval = 0.33f;
     public float StepSpriteLifeTime = 0.5f;
     private List<Footfall> footfalls = new List<Footfall>();
-    private HMovementController horizontal;
-    private VMovementController vertical;
+    //private HMovementController horizontal;
+    //private VMovementController vertical;
+	private MovementController moveControl;
     void Start()
     {
         if (Sprites.Length < 1)
             Debug.Log("This script cannot function without sprites");
-        horizontal = this.GetComponentInParent<HMovementController>();
-        vertical = this.GetComponentInParent<VMovementController>();
+		moveControl = this.GetComponentInParent<MovementController>();
+        //horizontal = this.GetComponentInParent<HMovementController>();
+        //vertical = this.GetComponentInParent<VMovementController>();
     }
 
     void Update()
     {
-        Flip = !horizontal.isFacingRight;
-        Grounded = vertical.isGrounded;
+		Flip = !moveControl.isFacingRight;//horizontal.isFacingRight;
+		Grounded = moveControl.isGrounded;//vertical.isGrounded;
         if (Grounded)
         if (StepTrigger)
         {
