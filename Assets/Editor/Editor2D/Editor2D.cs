@@ -28,7 +28,7 @@ namespace TestEditor
             rightClick = (e.isMouse && e.type == EventType.MouseDown && e.button == 1);
             if (e.isKey)
             {
-                if (e.keyCode == KeyCode.LeftControl || e.keyCode == KeyCode.RightControl)
+                if (e.keyCode == KeyCode.LeftControl || e.keyCode == KeyCode.RightControl || e.keyCode == KeyCode.LeftCommand || e.keyCode == KeyCode.RightCommand)
                 {
                     if (e.type == EventType.KeyDown)
                         ctrl = true;
