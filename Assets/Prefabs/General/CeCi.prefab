@@ -12,9 +12,9 @@ GameObject:
   - 61: {fileID: 6100000}
   - 212: {fileID: 21200000}
   - 114: {fileID: 11400018}
-  - 95: {fileID: 9500000}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400002}
+  - 95: {fileID: 9500000}
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: CeCi
@@ -130,7 +130,7 @@ Animator:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 190af4a25e19c4e60920c4bce8a04b6b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 85608f71d60d764469124c3bfd7a6c84, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1846171bb20f64f269ba61c2589bf4f9, type: 3}
+  m_Script: {fileID: 11500000, guid: a970d871504f11642b88071abf5d5273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11400002
@@ -295,7 +295,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 4289664103
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 74104eeaba58141f18eb44588829d778, type: 3}
+  m_Sprite: {fileID: 21300000, guid: efc92773bb0bb834297357c31db8c38f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
