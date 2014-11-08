@@ -4,7 +4,7 @@ using System.Collections;
 public class PointNClickController : MonoBehaviour
 {
     public GameObject ConditionableCharacter;
-    public MovementController HController;
+    public MovementController Controller;
     public GameObject[] Others;
     public GameObject[] Neutrals;
     public GameObject[] Environmentals;
@@ -38,7 +38,7 @@ public class PointNClickController : MonoBehaviour
             items [i] = new PMenuItem(g, i);
             items[i].SetActive(true);
         }
-        HController = ConditionableCharacter.GetComponent<MovementController>();
+        Controller = ConditionableCharacter.GetComponent<MovementController>();
 
         totalSeconds = secondsRemaining = 30.0f;
     }
@@ -54,10 +54,9 @@ public class PointNClickController : MonoBehaviour
         float x = WalkToTarget.x - p.x;
         if (Mathf.Abs(x) > 0.5f)
         {
-            HController.Right = x > 0;
-            HController.Left = x < 0;
-        } else 
-            HController.Remote = false;
+            Controller.Right = x > 0;
+            Controller.Left = x < 0;
+        } 
         if (secondsRemaining > 0)
         {
             Vector2 psp = cam.ViewportToWorldPoint(new Vector3(0.05f, 0.95f, 10));
@@ -106,7 +105,6 @@ public class PointNClickController : MonoBehaviour
             {
                 case -1:
                     // algorithm to find walkable point?
-                    HController.Remote = true;
                     WalkToTarget = mp;
                     break;
                 case 0:
