@@ -35,10 +35,10 @@ namespace TestEditor
                     else if (e.type == EventType.KeyUp)
                         ctrl = false;
                 }
-				else{
-					ctrl = e.command;
-				}
+
             }
+			if(Application.platform == RuntimePlatform.OSXEditor)
+				ctrl = e.command;
 
             switch (EData.SetType)
             {
