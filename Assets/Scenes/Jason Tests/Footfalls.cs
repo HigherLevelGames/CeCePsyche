@@ -4,31 +4,26 @@ using System.Collections.Generic;
 
 public class Footfalls : MonoBehaviour
 {
+	public MovementController Control;
     public Transform Origin;
     public Sprite[] Sprites;
     public bool Flip = false;
     public bool Grounded = false;
     public bool StepTrigger = false;
-
     public float StepSpriteInterval = 0.33f;
     public float StepSpriteLifeTime = 0.5f;
+
     private List<Footfall> footfalls = new List<Footfall>();
-    //private HMovementController horizontal;
-    //private VMovementController vertical;
-	private MovementController moveControl;
     void Start()
     {
         if (Sprites.Length < 1)
             Debug.Log("This script cannot function without sprites");
-		moveControl = this.GetComponentInParent<MovementController>();
-        //horizontal = this.GetComponentInParent<HMovementController>();
-        //vertical = this.GetComponentInParent<VMovementController>();
     }
 
     void Update()
     {
-		Flip = !moveControl.isFacingRight;//horizontal.isFacingRight;
-		Grounded = moveControl.isGrounded;//vertical.isGrounded;
+		Flip = !Control.isFacingRight;//horizontal.isFacingRight;
+		Grounded = Control.isGrounded;//vertical.isGrounded;
         if (Grounded)
         if (StepTrigger)
         {
