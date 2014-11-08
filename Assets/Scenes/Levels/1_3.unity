@@ -1301,13 +1301,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d146399cd8c6cc9418293fbf446967c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyCamera: {fileID: 353566382}
-  PlayerTransform: {fileID: 696605998}
+  Player: {fileID: 696605989}
   Boundary: {fileID: 1221622352}
   xOffset: .699999988
   yOffset: 0
   SpringSpeed: 2
-  LeftRightController: {fileID: 696605991}
 --- !u!81 &353566379
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1760,7 +1758,6 @@ GameObject:
   - 212: {fileID: 696605995}
   - 114: {fileID: 696605994}
   - 95: {fileID: 696605993}
-  - 114: {fileID: 696605992}
   - 114: {fileID: 696605991}
   - 114: {fileID: 696605990}
   m_Layer: 0
@@ -1794,33 +1791,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95d641dcc4d345cea75b7568edfbbd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 10
+  MaxHSpeed: 10
+  ClimbSpeed: 10
+  JumpSpeed: 10
+  VarJumpTime: .5
+  MaxFallSpeed: -50
+  isFacingRight: 1
   Left: 0
   Right: 0
   UpPress: 0
   UpHold: 0
   UpRelease: 0
-  isFacingRight: 1
+  Up: 0
+  Down: 0
   velocity: {x: 0, y: 0}
-  isStartClimb: 0
-  isClimbing: 1
-  ClimbSpeed: 10
   lockVertical: 0
-  JumpSpeed: 10
-  VarJumpTime: .5
+  lockHorizontal: 0
+  isStartClimb: 0
+  isClimbing: 0
 --- !u!114 &696605992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400008, guid: 0499fb95d4894485aadb1be5596fbc4d,
     type: 2}
   m_PrefabInternal: {fileID: 1943841770}
-  m_GameObject: {fileID: 696605989}
+  m_GameObject: {fileID: 987383617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11408ad05df904b0ca6b4537e7c2ef3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b6367e0e7a2a634e949c8a8a1c2b0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TreatObj: {fileID: 0}
+  Control: {fileID: 696605991}
+  Origin: {fileID: 987383618}
+  Sprites:
+  - {fileID: 21300002, guid: 34a046d3820181049942f1df6e67ece3, type: 3}
+  - {fileID: 21300004, guid: 34a046d3820181049942f1df6e67ece3, type: 3}
+  - {fileID: 21300006, guid: 34a046d3820181049942f1df6e67ece3, type: 3}
+  Flip: 0
+  Grounded: 1
+  StepTrigger: 0
+  StepSpriteInterval: .100000001
+  StepSpriteLifeTime: .400000006
 --- !u!95 &696605993
 Animator:
   serializedVersion: 3
@@ -1912,6 +1923,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1473644581}
+  - {fileID: 987383618}
   m_Father: {fileID: 0}
   m_RootOrder: 12
 --- !u!1 &792918994
@@ -2213,6 +2225,34 @@ Prefab:
   m_RootGameObject: {fileID: 2062983757}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &987383617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100006, guid: 0499fb95d4894485aadb1be5596fbc4d, type: 2}
+  m_PrefabInternal: {fileID: 1943841770}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 987383618}
+  - 114: {fileID: 696605992}
+  m_Layer: 0
+  m_Name: Footfaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &987383618
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400006, guid: 0499fb95d4894485aadb1be5596fbc4d, type: 2}
+  m_PrefabInternal: {fileID: 1943841770}
+  m_GameObject: {fileID: 987383617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.74637401, y: -1.89011431, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 696605998}
+  m_RootOrder: 1
 --- !u!1001 &1037493699
 Prefab:
   m_ObjectHideFlags: 0
