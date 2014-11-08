@@ -5,7 +5,7 @@ using System.Collections;
 public class MovementController : MonoBehaviour
 {
 	public float MaxSpeed = 10.0f;
-	public bool Left, Right, Remote;
+	public bool Left, Right;
 	public bool UpPress, UpHold, UpRelease;
 	private bool prevUp;
 
@@ -156,11 +156,6 @@ public class MovementController : MonoBehaviour
 		if(Right)
 		{
 			newPos.x = prevPos.x + 1 * MaxSpeed * Time.deltaTime;
-			if(CurJumpState == JumpState.Falling)
-			{
-				Debug.Log (CurJumpState);
-				Debug.Log ("IMPOSSIIIIIBBBBBUYUUUUUL");
-			}
 		}
 		else if(Left)
 		{
