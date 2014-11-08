@@ -61,6 +61,7 @@ public class GroundDetect
 		}*/
 		//myPos -= Vector2.up * col.size.y * (0.5f-lineLength) * player.localScale.x;
 		hitCenter = Physics2D.Linecast(myPos, groundPos, 1 << LayerMask.NameToLayer("Ground"));
+
 		//add trigger check because Ceci will stop no matter what the collider is here
 
 		Debug.DrawLine(myPos, groundPos, Color.magenta);

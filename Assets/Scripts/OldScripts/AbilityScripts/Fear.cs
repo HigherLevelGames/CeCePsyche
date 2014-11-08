@@ -43,7 +43,7 @@ public class Fear : Ability
 		// half transform size
 		StartTime = Time.time;
 		isSmall = !isSmall;
-		control.MaxSpeed *= 0.5f;
+		control.MaxHSpeed *= 0.5f;
 		control.JumpSpeed *= 0.5f;
 	}
 
@@ -55,7 +55,7 @@ public class Fear : Ability
 		// double transform size
 		StartTime = Time.time;
 		isSmall = !isSmall;
-		control.MaxSpeed *= 2.0f;
+		control.MaxHSpeed *= 2.0f;
 		control.JumpSpeed *= 2.0f;
 	}
 

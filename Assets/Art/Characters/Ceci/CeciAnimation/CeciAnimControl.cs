@@ -32,7 +32,6 @@ public class CeciAnimControl : MonoBehaviour
 			anim.SetTrigger (jumpHash);
 		}//*/
 
-		Debug.Log("Hspeed: "+moveControl.hSpeed + " Vspeed: " + moveControl.vSpeed);
 		anim.SetInteger("hspeed", moveControl.hSpeed);
 		anim.SetInteger("vspeed", moveControl.vSpeed);
 		anim.SetBool("grounded", moveControl.isGrounded);

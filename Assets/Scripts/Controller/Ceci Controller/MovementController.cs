@@ -4,19 +4,52 @@ using System.Collections;
 [RequireComponent(typeof(BoxCollider2D))]
 public class MovementController : MonoBehaviour
 {
-	public float MaxSpeed = 10.0f;
-	public bool Left, Right;
-	public bool UpPress, UpHold, UpRelease;
-	private bool prevUp;
+	#region Speed Variables
+	public float MaxHSpeed = 10.0f;
+	public float ClimbSpeed = 10.0f;
+	public float JumpSpeed = 10.0f;
+	public float VarJumpTime = 0.5f;//half a second, how long player can hold down jump key
+	public float MaxFallSpeed = -50.0f;
+	#endregion
 
 	public bool isFacingRight = true; // default, public for Anger Ability to reference
 	private Quaternion reverseRotation = new Quaternion(0.0f, 180.0f, 0.0f, 0.0f);
 
-	// 2D Platformer physics
+	#region Remote Controls
+	public bool Left, Right;
+	public bool UpPress, UpHold, UpRelease;
+	public bool Up, Down; // ladder
+	private bool prevUp;
+	#endregion
+
+	#region 2D Platformer physics
 	private Vector2 prevPos = Vector2.zero;
 	private Vector2 newPos = Vector2.zero;
 	public Vector2 velocity = Vector2.zero;
 	private GroundDetect checker = new GroundDetect();
+	#endregion
+
+	#region climbing variables
+	public bool lockVertical = false;
+	public bool lockHorizontal = false;
+	public bool isStartClimb = false;
+	public bool isClimbing = false;
+	#endregion
+	
+	#region Jump Variables
+	// Basic Jump Variables
+	private enum JumpState
+	{
+		Grounded,
+		Jumping, // moving upwards
+		Falling, // moving downwards
+	}
+	JumpState CurJumpState = JumpState.Grounded;
+	
+	// Variable Jump Variables
+	private bool CanVarJump = true;
+	private float VarJumpElapsedTime = 0.0f;
+	#endregion
 
 	#region Properties for CeciAnimControl.cs
 	// hspeed for CeciAnimControl.cs
@@ -34,7 +67,7 @@ public class MovementController : MonoBehaviour
 			}
 		}
 	}
-
+	
 	// vspeed for CeciAnimControl.cs
 	public int vSpeed
 	{
@@ -61,30 +94,6 @@ public class MovementController : MonoBehaviour
 	}
 	#endregion
 
-	#region climbing variables
-	public bool isStartClimb = false;
-	public bool isClimbing = false;
-	public float ClimbSpeed = 10.0f;
-	public bool lockVertical = false;
-	#endregion
-	
-	#region Jump Variables
-	// Basic Jump Variables
-	public float JumpSpeed = 10.0f;
-	private enum JumpState
-	{
-		Grounded,
-		Jumping, // moving upwards
-		Falling, // moving downwards
-	}
-	JumpState CurJumpState = JumpState.Grounded;
-	
-	// Variable Jump Variables
-	public float VarJumpTime = 0.5f;//half a second, how long player can hold down jump key
-	private bool CanVarJump = true;
-	private float VarJumpElapsedTime = 0.0f;
-	#endregion
-
 	void Start()
 	{
 		// don't use rigidbody2D's weird 2D physics
@@ -96,25 +105,35 @@ public class MovementController : MonoBehaviour
 	void FixedUpdate()
 	{
 		CheckInput();
-		//if(!lockVertical)
-		//{
-			JumpControl();
-			//Movement();
-		//}
-		// Vertical above, Horizontal below
-		Movement();
-		GroundCheck();
 
-		// temp vars for storing camera rotation/position
-		// since we made the camera a child of Ceci
-		//Quaternion tempRot = Camera.main.transform.rotation;
-		//Vector3 tempPos = Camera.main.transform.position;
-		
-		FaceDirection();
-		
-		// give temp vars back to camera
-		//Camera.main.transform.rotation = tempRot;
-		//Camera.main.transform.position = tempPos;
+		if(isStartClimb && (Up || Down))
+		{
+			isClimbing = true;
+		}
+
+		if(lockVertical)
+		{
+			velocity.y = 0.0f;
+		}
+		if(lockHorizontal)
+		{
+			velocity.x = 0.0f;
+		}
+
+		HMovement();
+		if(isClimbing)
+		{
+			Climb ();
+		}
+		else // Normal Movement
+		{
+			GroundCheck();
+			JumpControl();
+			Fall();
+			FaceDirection();
+		}
+
+		Move ();
 	}
 
 	// JNN: will delete sometime in the future after debugging's done and through
@@ -139,36 +158,83 @@ public class MovementController : MonoBehaviour
 			isFacingRight = Right;
 		}
 
-		// Jumping Stuff
+		// Ladder Stuff
 		int rawV = RebindableInput.GetAxis("Vertical");
+		Up = rawV > 0;
+		Down = rawV < 0;
+
+		// Jumping Stuff
 		bool pressJump = RebindableInput.GetKeyDown("Jump");
-		UpPress = rawV > 0 || pressJump;
+		UpPress = Up || pressJump;
 		UpHold = UpPress && (prevUp == UpPress);
 		UpRelease = !UpPress && prevUp;
 		prevUp = UpPress;
 	}
 
-	void Movement()
+	void Move()
+	{
+		// Actually Move Ceci
+		newPos = prevPos + velocity * Time.deltaTime;
+
+		// Slope Movement
+		if((Right || Left) && !UpPress && CurJumpState == JumpState.Grounded)
+		{
+			newPos.y = checker.checkForward(this.transform, newPos, isFacingRight);
+		}
+
+		this.transform.position = newPos;
+	}
+
+	void Climb()
 	{
 		prevPos = newPos = this.transform.position;
 
 		// Horizontal Movement
 		if(Right)
 		{
-			newPos.x = prevPos.x + 1 * MaxSpeed * Time.deltaTime;
+			velocity.x = MaxHSpeed;
 		}
 		else if(Left)
 		{
-			newPos.x = prevPos.x - 1 * MaxSpeed * Time.deltaTime;
+			velocity.x = -MaxHSpeed;
 		}
-		
-		// Slope Movement
-		if((Right || Left) && !UpPress)
+		else
 		{
-			newPos.y = checker.checkForward(this.transform, newPos, isFacingRight);
+			velocity.x = 0.0f;
 		}
 
+		// Vertical Movement
+		if(Up)
+		{
+			velocity.y = ClimbSpeed;
+		}
+		else if(Down)
+		{
+			velocity.y = -ClimbSpeed;
+		}
+	}
 
+	void HMovement()
+	{
+		prevPos = newPos = this.transform.position;
+
+		// Horizontal Movement
+		if(Right)
+		{
+			velocity.x = MaxHSpeed;
+		}
+		else if(Left)
+		{
+			velocity.x = -MaxHSpeed;
+		}
+		else
+		{
+			velocity.x = 0.0f;
+		}
+	}
+
+	void Fall()
+	{
 		// Falling
 		if(CurJumpState == JumpState.Grounded)
 		{
@@ -176,17 +242,11 @@ public class MovementController : MonoBehaviour
 		}
 		else
 		{
-			newPos.y += velocity.y * Time.deltaTime;
 			velocity.y += 4.0f * Physics.gravity.y * Time.deltaTime;
+			velocity.y = Mathf.Max(velocity.y, MaxFallSpeed);
 		}
-
-		Vector3 dir = newPos.ToVector3() - this.transform.position;
-		Debug.DrawLine (this.transform.position, this.transform.position+dir);
-
-		// actually move Ceci
-		this.transform.position = new Vector2(newPos.x, newPos.y);
 	}
-	
+
 	void FaceDirection()
 	{
 		// face left or right by changing the y rotation value
@@ -219,7 +279,7 @@ public class MovementController : MonoBehaviour
 		if((UpPress && !UpHold) && CurJumpState == JumpState.Grounded)
 		{
 			CurJumpState = JumpState.Jumping;
-			velocity = JumpSpeed * Vector2.up;
+			velocity.y = JumpSpeed;
 			VarJumpElapsedTime = 0.0f;
 			CanVarJump = true;
 		}
@@ -231,7 +291,7 @@ public class MovementController : MonoBehaviour
 			if(VarJumpElapsedTime < VarJumpTime)
 			{
 				CurJumpState = JumpState.Jumping;
-				velocity = JumpSpeed*Vector2.up;
+				velocity.y = JumpSpeed;
 			}
 			else // time for variable jump is up
 			{
@@ -248,7 +308,6 @@ public class MovementController : MonoBehaviour
 		}
 	}
 
-	/*
 	#region Ladder Trigger Zone
 	void OnTriggerEnter2D(Collider2D col)
 	{
@@ -257,6 +316,17 @@ public class MovementController : MonoBehaviour
 			lockVertical = true;
 			isStartClimb = true;
 		}
+	}
+
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		lockVertical = true;
+		lockHorizontal = true;
+	}
+	void OnCollisionExit2D(Collision2D col)
+	{
+		lockVertical = false;
+		lockHorizontal = false;
 	}
 	
 	void OnTriggerExit2D(Collider2D col)
@@ -268,16 +338,13 @@ public class MovementController : MonoBehaviour
 			isClimbing = false;
 		}
 	}
-	
+
 	void OnTriggerStay2D(Collider2D col)
 	{
-		// Vertical Movement
 		if(col.gameObject.tag == "Ladder")
 		{
 			lockVertical = true;
-			isClimbing = true;
-			VVelocity.y = RebindableInput.GetAxis("Vertical") * ClimbSpeed * Time.deltaTime;
-			this.transform.position += VVelocity;
+			isStartClimb = true;
 		}
 	}
 	#endregion*/
