@@ -73,7 +73,7 @@ public class MovementController : MonoBehaviour
 	{
 		get
 		{
-			if(Mathf.Abs(newPos.y-prevPos.y) < 0.05f) // if(isGrounded || velocity.y == 0.0f)
+			if(isGrounded || Mathf.Abs(newPos.y-prevPos.y) < 0.05f) // if(isGrounded || velocity.y == 0.0f)
 			{
 				return 0;
 			}
@@ -344,7 +344,7 @@ public class MovementController : MonoBehaviour
 		if(col.gameObject.tag == "Ladder")
 		{
 			lockVertical = true;
-			isStartClimb = true;
+			isClimbing = true;
 		}
 	}
 	#endregion*/
