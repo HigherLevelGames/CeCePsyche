@@ -805,7 +805,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0499fb95d4894485aadb1be5596fbc4d, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0499fb95d4894485aadb1be5596fbc4d, type: 2}
       propertyPath: m_IsActive
@@ -991,7 +991,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0499fb95d4894485aadb1be5596fbc4d, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0499fb95d4894485aadb1be5596fbc4d, type: 2}
@@ -1313,6 +1313,7 @@ GameObject:
   - 95: {fileID: 1469674984}
   - 114: {fileID: 1469674982}
   - 114: {fileID: 1469674983}
+  - 114: {fileID: 1469674989}
   m_Layer: 0
   m_Name: CeCi
   m_TagString: Player
@@ -1457,6 +1458,18 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!114 &1469674989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: 0499fb95d4894485aadb1be5596fbc4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 708092290}
+  m_GameObject: {fileID: 1469674980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc668322f364f37409e2cab9d70f2446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1642301506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1499,6 +1512,7 @@ GameObject:
   - 95: {fileID: 1693296458}
   - 114: {fileID: 1693296457}
   - 114: {fileID: 1693296456}
+  - 114: {fileID: 1693296464}
   - 114: {fileID: 1693296463}
   m_Layer: 0
   m_Name: CeCi
@@ -1649,6 +1663,18 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1693296454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc668322f364f37409e2cab9d70f2446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1693296464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: 0499fb95d4894485aadb1be5596fbc4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1026129342}
   m_GameObject: {fileID: 1693296454}
   m_Enabled: 1
   m_EditorHideFlags: 0
