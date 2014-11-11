@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: aeb1c536b5cb8814395eb32ba3c04a1f
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - renderer: {instanceID: 0}
+  - prompt: {fileID: 8300000, guid: 25fd01f2e14b3434798ded3fa941bee5, type: 3}
+  - farewell: {fileID: 8300000, guid: 1d063b7c0fdfbb643a09fbe97946d309, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

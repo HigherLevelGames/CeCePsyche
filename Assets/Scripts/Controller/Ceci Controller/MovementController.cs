@@ -17,9 +17,8 @@ public class MovementController : MonoBehaviour
 
 	#region Remote Controls
 	public bool Left, Right;
-	public bool UpPress, UpHold, UpRelease;
+	public bool UpPress, UpHold, UpRelease, PrevUp;
 	public bool Up, Down; // ladder
-	private bool prevUp;
 	#endregion
 
 	#region 2D Platformer physics
@@ -104,8 +103,6 @@ public class MovementController : MonoBehaviour
 	
 	void FixedUpdate()
 	{
-		CheckInput();
-
 		if(isStartClimb && (Up || Down))
 		{
 			isClimbing = true;
@@ -134,6 +131,7 @@ public class MovementController : MonoBehaviour
 		}
 
 		Move ();
+        PrevUp = UpPress;
 	}
 
 	// JNN: will delete sometime in the future after debugging's done and through
@@ -145,30 +143,6 @@ public class MovementController : MonoBehaviour
 		Gizmos.DrawSphere(checker.pt2, 0.1f);
 		Gizmos.color = Color.blue;
 		Gizmos.DrawSphere(checker.pt3, 0.1f);
-	}
-
-	void CheckInput()
-	{
-		// Left and Right Stuff
-		int rawH = RebindableInput.GetAxis("Horizontal");
-		Right = rawH > 0;
-		Left = rawH < 0;
-		if(Right || Left) // check needed in case standing still
-		{
-			isFacingRight = Right;
-		}
-
-		// Ladder Stuff
-		int rawV = RebindableInput.GetAxis("Vertical");
-		Up = rawV > 0;
-		Down = rawV < 0;
-
-		// Jumping Stuff
-		bool pressJump = RebindableInput.GetKeyDown("Jump");
-		UpPress = Up || pressJump;
-		UpHold = UpPress && (prevUp == UpPress);
-		UpRelease = !UpPress && prevUp;
-		prevUp = UpPress;
 	}
 
 	void Move()
