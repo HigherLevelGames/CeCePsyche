@@ -101,6 +101,43 @@ public class MovementController : MonoBehaviour
 
     float friction = 1.0f;
 
+	/*
+	void JumpControl()
+	{
+		// pressed jump once
+		if((UpPress && !UpHold) && CurJumpState == JumpState.Grounded)
+		{
+			CurJumpState = JumpState.Jumping;
+			velocity.y = JumpSpeed;
+			VarJumpElapsedTime = 0.0f;
+			CanVarJump = true;
+		}
+		
+		// press and hold jump button
+		if(UpHold && CanVarJump)
+		{
+			VarJumpElapsedTime += Time.deltaTime;
+			if(VarJumpElapsedTime < VarJumpTime)
+			{
+				CurJumpState = JumpState.Jumping;
+				velocity.y = JumpSpeed;
+			}
+			else // time for variable jump is up
+			{
+				CurJumpState = JumpState.Falling;
+				CanVarJump = false;
+			}
+		}
+		
+		// released Jump Button
+		if(UpRelease)
+		{
+			CurJumpState = JumpState.Falling;
+			CanVarJump = false;
+		}
+	}
+	 */
+
     void FixedUpdate()
     {
         Vector3 position = prevPos = transform.position;
