@@ -8,6 +8,8 @@ public class PointNClickController : MonoBehaviour
     public GameObject[] InventoryObjects;
     public GameObject MouseIcon;
     public GameObject Tray;
+    public AudioClip BeepBoop;
+    public AudioClip Bing;
 
     MovementController controller;
     Camera cam;
@@ -44,11 +46,12 @@ public class PointNClickController : MonoBehaviour
             ClickedResponse(mp);
         TrayUpdate(mp);
         float x = WalkToTarget.x - p.x;
-        if (Mathf.Abs(x) > 0.01f)
+        if (Mathf.Abs(x) > 0.5f)
         {
             controller.Right = x > 0;
             controller.Left = x < 0;
-        } 
+        } else
+            controller.Right = controller.Left = false;
     }
 
     void TrayUpdate(Vector2 mp)

@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.346390009, y: 1.61029994, z: 0}
+  m_LocalPosition: {x: -4.87153435, y: -11.0510979, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,15 +73,15 @@ MonoBehaviour:
   JumpSpeed: 10
   VarJumpTime: .5
   MaxFallSpeed: -50
-  isFacingRight: 1
-  Left: 1
+  isFacingRight: 0
+  Left: 0
   Right: 0
-  UpPress: 1
-  UpHold: 1
-  UpRelease: 1
+  UpPress: 0
+  UpHold: 0
+  UpRelease: 0
   PrevUp: 0
-  Up: 1
-  Down: 1
+  Up: 0
+  Down: 0
   velocity: {x: 0, y: 0}
   lockVertical: 0
   lockHorizontal: 0

@@ -18,18 +18,20 @@ public class MiniGameController : InGameButtonPrompt
     public GameObject Ceci;
     public GameObject Prompt;
     public GameObject Hint;
-    public GameObject Game;
+
     public GameObject Lose;
     public GameObject Win;
 
+    GameObject Game;
     float gameTimeLimit = 15;
     float promptTimeLimit = 10;
     float quickTimeLimit = 5f;
     float timer;
     bool win;
     GameObject currentEventObject;
-    void Start()
+    void Awake()
     {
+        Game = MiniGameCamera.gameObject.transform.GetChild(0).gameObject;
     }
 
     void Update()
@@ -47,7 +49,7 @@ public class MiniGameController : InGameButtonPrompt
                     BeginMiniGame();
                 break;
             case MiniGameState.Playing:
-                //timer -= Time.deltaTime;
+                timer -= Time.deltaTime;
                 if(win)
                     Success();
                 else if(timer < 0)
@@ -79,14 +81,13 @@ public class MiniGameController : InGameButtonPrompt
     {
         timer = gameTimeLimit;
         DestroyImmediate(currentEventObject);
-        currentEventObject = Instantiate(Game) as GameObject;
-        currentEventObject.transform.parent = MiniGameCamera.transform;
+        Game.SetActive(true);
         state = MiniGameState.Playing;
     }
     void Fail()
     {
         timer = quickTimeLimit;
-        DestroyImmediate(currentEventObject);
+        Game.SetActive(false);
         currentEventObject = Instantiate(Lose) as GameObject;
         state = MiniGameState.Losing;
     }
@@ -100,7 +101,7 @@ public class MiniGameController : InGameButtonPrompt
     void Success()
     {
         timer = quickTimeLimit;
-        DestroyImmediate(currentEventObject);
+        Game.SetActive(false);
         currentEventObject = Instantiate(Win) as GameObject;
         state = MiniGameState.Winning;
     }
