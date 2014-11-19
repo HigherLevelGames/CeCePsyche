@@ -49,7 +49,7 @@ public class MiniGameController : InGameButtonPrompt
                     BeginMiniGame();
                 break;
             case MiniGameState.Playing:
-                timer -= Time.deltaTime;
+                //timer -= Time.deltaTime;
                 if(win)
                     Success();
                 else if(timer < 0)
