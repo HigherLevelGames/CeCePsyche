@@ -1,44 +1,60 @@
 using System;
 using UnityEngine;
+
 public class PNCItem
 {
+
     public ItemActions ActionID;
-    public Vector2 Target;
-    float glowValue;
     public GameObject obj;
-    public bool Fired;
+
+    public Vector2 position
+    {
+        get { return obj.transform.position.ToVector2(); }
+        set { obj.transform.position = value; }
+    }
+
+    public bool Active
+    {
+        get { return obj.activeSelf;}
+        set { obj.SetActive(value); }
+    }
+
+    public bool Fired
+    { 
+        get { return Fireable ? Fireable.Fire : false;}
+        set { if(Fireable) Fireable.Fire = value; }
+    }
+
+
     SpriteRenderer spr;
-    
+    FireAction Fireable;
+    float glowValue;
+
     public PNCItem(GameObject g, ItemActions ia)
     {
         this.obj = g;
-        this.spr = this.obj.GetComponentInChildren<SpriteRenderer>();
         this.ActionID = ia;
-        this.Target = this.obj.transform.position;
-
+        BaseInitialization();
     }
+
     public PNCItem(GameObject g)
     {
         this.obj = g;
-        this.spr = this.obj.GetComponentInChildren<SpriteRenderer>();
         this.ActionID = ItemActions.Nothing;
-        this.Target = this.obj.transform.position;
+        BaseInitialization();
     }
-    public void setCursor(GameObject g, ItemActions i)
+
+    void BaseInitialization()
     {
-        GameObject.DestroyImmediate(this.obj);
-        this.ActionID = i;
-        this.obj = GameObject.Instantiate(g) as GameObject;
-        this.obj.transform.localScale = Vector3.one;
+        Fireable = obj.GetComponent<FireAction>();
+        spr = obj.GetComponentInChildren<SpriteRenderer>();
     }
-    public void Scale(float scalar)
-    {
-        obj.transform.localScale = new Vector3(scalar, scalar, 1);
-    }
+
     public bool IsMouseOver(Vector2 p)
     {
-        return obj.transform.GetChild(0).collider2D.bounds.Contains(p.ToVector3());
+        return obj.collider2D.bounds.Contains(p);
     }
+
     public void Glow()
     {
         glowValue += Time.deltaTime * 4;
@@ -47,6 +63,7 @@ public class PNCItem
         float a = Mathf.Sin(glowValue) + 0.9f;
         spr.material.SetFloat("_GlowRate", a);
     }
+
     public void Mute()
     {
         if (glowValue > 0)
@@ -55,17 +72,6 @@ public class PNCItem
             spr.material.SetFloat("_GlowRate", glowValue);
         }
     }
-    public void SetActive(bool val)
-    {
-        obj.SetActive(val);
-    }
-    public void Fire()
-    {
-        Fired = true;
-    }
-    public Vector2 position
-    {
-        get { return obj.transform.position.ToVector2(); }
-        set { obj.transform.position = value; }
-    }
+
+
 }

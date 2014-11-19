@@ -75,7 +75,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: d4687ed344dda1d46abb947ab7e1815b, type: 2}
+  - {fileID: 7400000, guid: fdfe4fc25aa44c84093e1fb83a44a44e, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 240, y: 60, z: 0}
   m_IKOnFeet: 0
@@ -90,9 +90,24 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: 1dfec611fbd37c34bb7ade32311f29fe, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: -12, y: 60, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110226058
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: zeropositionchild
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 1dfec611fbd37c34bb7ade32311f29fe, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 23, y: 125, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -107,6 +122,7 @@ StateMachine:
   m_States:
   - {fileID: 110200000}
   - {fileID: 110204022}
+  - {fileID: 110226058}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:

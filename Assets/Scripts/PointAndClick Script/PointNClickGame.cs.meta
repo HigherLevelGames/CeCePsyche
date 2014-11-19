@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7d0157c61aeba744589d92dfbbe3710c
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - ConditionableCharacter: {instanceID: 0}
+  - Tray: {fileID: 100000, guid: 41ec2520cc6512f4ea1cff005b6dc06d, type: 2}
+  - Prompt: {instanceID: 0}
+  - Hint: {instanceID: 0}
+  - Lose: {instanceID: 0}
+  - Win: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
