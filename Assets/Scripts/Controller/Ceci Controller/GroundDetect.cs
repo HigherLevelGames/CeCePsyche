@@ -44,7 +44,7 @@ public class GroundDetect
 	}
 	
 	// generic ground check
-	public bool check(Transform player, Vector2 newPos)
+	public bool check(Transform player)
 	{
 		//get box collider
 		BoxCollider2D col = player.collider2D as BoxCollider2D;
@@ -52,8 +52,8 @@ public class GroundDetect
 		// middle
 		//Vector2 myPos = player.position.ToVector2() + col.center * player.localScale.x;
 		int modifier = (player.rotation.y == 0.0f) ? 1 : -1;
-		Vector2 myPos = newPos + new Vector2(col.center.x*modifier, col.center.y) * player.localScale.x;
-		Vector2 groundPos = myPos - Vector2.up * col.size.y * (0.5f+lineLength) * player.localScale.x;
+		Vector2 myPos = player.transform.position.ToVector2() + new Vector2(col.center.x*modifier, col.center.y) * player.localScale.x;
+		Vector2 groundPos = myPos - Vector2.up * col.size.y * 1.1f*(0.5f+lineLength) * player.localScale.x;
 		//Vector2 groundPos = pos - Vector2.up * col.size.y * (0.5f+lineLength) * player.localScale.x;
 		/*if(velocity.y < 0)
 		{
@@ -81,54 +81,6 @@ public class GroundDetect
 		Debug.DrawLine(temp, temp2, Color.magenta);
 
 		return grounded;
-	}
-
-	public float checkForward(Transform player, Vector2 newPos, bool isRight)
-	{
-		if(check(player, newPos))
-		{
-			// find specific point (and edges) of collision (if any)
-			Vector2 colPoint = Vector2.zero;
-			EdgeCollider2D edges = new EdgeCollider2D();
-			BoxCollider2D col = (player.collider2D) as BoxCollider2D;
-			if(isRight)
-			{
-				colPoint = hitLeft.point;
-				edges = hitLeft.collider as EdgeCollider2D;
-			}
-			else
-			{
-				colPoint = hitRight.point;
-				edges = hitRight.collider as EdgeCollider2D;
-			}
-
-			if(edges != null)
-			{
-				// check all edges
-				for(int i = 0; i < edges.pointCount-1; i++)
-				{
-					// transform edge points from local space to world space
-					Vector3 temp = edges.gameObject.transform.TransformPoint(edges.points[i]);
-					Vector3 temp2 = edges.gameObject.transform.TransformPoint(edges.points[i+1]);
-
-					// figure out if the point 
-					if(isColinear(temp,temp2,colPoint) && isInBound(temp, temp2, colPoint))
-					{
-						// Colors! (see HMovementController.cs OnDrawGizmo())
-						pt1 = temp;
-						pt2 = temp2;
-						pt3 = colPoint;
-
-						// find newY where newX is located
-						float newY = getY(temp.ToVector2(), temp2.ToVector2(), newPos.x);
-						newY += col.size.y * (0.5f+2.0f*lineLength) * player.localScale.y;
-						return newY;
-					}
-				}
-			}
-		}
-
-		return player.position.y;
 	}
 
 	#region Helper Functions
