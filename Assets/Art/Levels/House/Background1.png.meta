@@ -1,8 +1,6 @@
 fileFormatVersion: 2
-guid: 8374d60764d15db48a6d9fc6247a4ec8
+guid: b55d12a55d3a84776949f0bb2130ba4f
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: hextempr
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,11 +35,14 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
   spriteSheet:
     sprites: []
   spritePackingTag: 
