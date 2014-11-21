@@ -108,7 +108,7 @@ public class Conditionable : MonoBehaviour
     public bool Consuming;
     public bool PreConditioned;
     public int PreviousConditionedStimulus = -1;
-    public int PreviousUnonditionedStimulus = -1;
+    public int PreviousUnonditionedResponse = -1;
 
     void Start()
     {
@@ -149,7 +149,7 @@ public class Conditionable : MonoBehaviour
         {
             if (PreConditioned)
             {
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < pairs.GetLength(0); i++)
                     Condition(un);
                 AttemptSpontaneousRecovery();
             } else if (counter < 3)
@@ -187,7 +187,7 @@ public class Conditionable : MonoBehaviour
     {
         bool ok;
         ok = pairs [0, 0] == PreviousConditionedStimulus &&
-            pairs [0, 1] == PreviousUnonditionedStimulus;
+            pairs [0, 1] == PreviousUnonditionedResponse;
         if (!ok)
             RevertPairs();
     }

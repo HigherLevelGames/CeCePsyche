@@ -12,14 +12,21 @@ namespace AssemblyCSharp
         {
             Initialize();
             GetCondition.PreviousConditionedStimulus = (int)previousConditioned;
-            GetCondition.PreviousUnonditionedStimulus = (int)previousUnconditioned;
+            GetCondition.PreviousUnonditionedResponse = (int)previousUnconditioned;
             GetCondition.PreConditioned = true;
         }
 
-        public override void CheckWinCondition()
+        public override void CheckWinCondition(ItemActions action)
         {
-            if (GetCondition.ConditionedStimulus == GetCondition.PreviousConditionedStimulus && GetCondition.ConditionedResponse == GetCondition.PreviousUnonditionedStimulus)
+            if ((int)action == GetCondition.PreviousConditionedStimulus && 
+                GetCondition.ConditionedResponse == GetCondition.PreviousUnonditionedResponse)
+            {
                 WinConditionMet = true;
+                Debug.Log(GetCondition.ConditionedStimulus);
+                Debug.Log(GetCondition.ConditionedResponse);
+                Debug.Log(GetCondition.PreviousConditionedStimulus);
+                Debug.Log(GetCondition.PreviousUnonditionedResponse);
+            }
         }
     }
 }

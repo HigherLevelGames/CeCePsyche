@@ -5,10 +5,10 @@ MonoImporter:
   defaultReferences:
   - ConditionableCharacter: {instanceID: 0}
   - Tray: {fileID: 100000, guid: 41ec2520cc6512f4ea1cff005b6dc06d, type: 2}
-  - Prompt: {fileID: 100002, guid: b003c4b5db3105f4b83fd67de9c3a87d, type: 2}
-  - Hint: {fileID: 100004, guid: e99034f3e2748584f95b7b983079b3e1, type: 2}
-  - Lose: {fileID: 100002, guid: c10209c817f572c45bc8f7f0c7280452, type: 2}
-  - Win: {fileID: 100002, guid: b95c6325fd7fce44ea034af9aedda5e8, type: 2}
+  - Prompt: {fileID: 100000, guid: 3519560aac3aa1946a690ad25fbcf229, type: 2}
+  - Hint: {fileID: 100002, guid: 88c1c055d51dd96478479daaf5c1b1cc, type: 2}
+  - Lose: {fileID: 100002, guid: 41f967feac3edd0438e9db68b76fd5b2, type: 2}
+  - Win: {fileID: 100000, guid: 107548d145a0cd749adf945f2a18f0a1, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

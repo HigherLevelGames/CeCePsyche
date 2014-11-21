@@ -113,9 +113,9 @@ public class PointNClickGame : MonoBehaviour
     {
         Animator anim = ConditionableCharacter.GetComponentInChildren<Animator>();
         PlaySound ps = ConditionableCharacter.GetComponentInChildren<PlaySound>();
+        CheckWinCondition(action);
         if (condition.ConditionedStimulus > -1)
             action = (ItemActions)condition.ConditionedResponse;
-        CheckWinCondition();
         switch (action)
         {
             case ItemActions.TuningFork:
@@ -132,7 +132,7 @@ public class PointNClickGame : MonoBehaviour
         }
     }
 
-    public virtual void CheckWinCondition()
+    public virtual void CheckWinCondition(ItemActions action)
     {
     }
 

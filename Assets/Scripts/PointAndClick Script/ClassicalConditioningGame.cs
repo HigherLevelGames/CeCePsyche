@@ -10,7 +10,7 @@ namespace AssemblyCSharp
             Initialize();
         }
 
-        public override void CheckWinCondition()
+        public override void CheckWinCondition(ItemActions action)
         {
             if (GetCondition.ConditionedStimulus > -1)
                 WinConditionMet = true;
