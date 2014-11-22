@@ -20,14 +20,7 @@ namespace AssemblyCSharp
         {
             if ((int)action == GetCondition.PreviousConditionedStimulus && 
                 GetCondition.ConditionedResponse == GetCondition.PreviousUnonditionedResponse)
-            {
                 WinConditionMet = true;
-                Debug.Log(GetCondition.ConditionedStimulus);
-                Debug.Log(GetCondition.ConditionedResponse);
-                Debug.Log(GetCondition.PreviousConditionedStimulus);
-                Debug.Log(GetCondition.PreviousUnonditionedResponse);
-            }
         }
     }
 }
-

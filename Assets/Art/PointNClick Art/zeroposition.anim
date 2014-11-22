@@ -20,15 +20,15 @@ AnimationClip:
         value: {x: 0, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
+        tangentMode: 1123024896
       - time: 1
         value: {x: 0, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 102816908
+        tangentMode: 7667777
       m_PreInfinity: 2
       m_PostInfinity: 2
-    path: 
+    path: DoggyDog
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -39,7 +39,7 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 0
+    - path: 3690984020
       attribute: 1
       script: {fileID: 0}
       classID: 4
@@ -80,7 +80,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.x
-    path: 
+    path: DoggyDog
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -99,7 +99,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.y
-    path: 
+    path: DoggyDog
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -118,7 +118,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.z
-    path: 
+    path: DoggyDog
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []

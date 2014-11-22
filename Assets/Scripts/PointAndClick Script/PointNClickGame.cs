@@ -10,7 +10,7 @@ public class PointNClickGame : MonoBehaviour
     public GameObject Hint;
     public GameObject Lose;
     public GameObject Win;
-    public bool WinConditionMet;
+    public bool WinConditionMet, ClickToMove;
     Conditionable condition;
 
     public Conditionable GetCondition
@@ -36,7 +36,7 @@ public class PointNClickGame : MonoBehaviour
         items = new PNCItem[InventoryObjects.Length];
         for (int i = 0; i < InventoryObjects.Length; i++)
         {
-            items [i] = new PNCItem(Instantiate(InventoryObjects [i]) as GameObject, ItemActions.TuningFork);
+            items [i] = new PNCItem(Instantiate(InventoryObjects [i]) as GameObject, ItemActions.StinkyPerfume);
             items [i].obj.transform.parent = this.transform;
             items [i].obj.name = "Slot" + i.ToString();
             items [i].Active = true;
@@ -59,12 +59,15 @@ public class PointNClickGame : MonoBehaviour
             condition.Consuming = false;
         }
         float x = WalkToTarget.x - p.x;
-        if (Mathf.Abs(x) > 1)
+        if (ClickToMove)
         {
-            controller.Right = x > 0;
-            controller.Left = x < 0;
-        } else
-            controller.Right = controller.Left = false;
+            if (Mathf.Abs(x) > 1)
+            {
+                controller.Right = x > 0;
+                controller.Left = x < 0;
+            } else
+                controller.Right = controller.Left = false;
+        }
     }
 
     void TrayUpdate(Vector2 mp)
@@ -98,7 +101,8 @@ public class PointNClickGame : MonoBehaviour
             }
         } else
         {
-            WalkToTarget = mp;
+            if (ClickToMove)
+                WalkToTarget = mp;
         }
     }
 
@@ -129,6 +133,13 @@ public class PointNClickGame : MonoBehaviour
                 condition.AddUnconditioned((int)action);
                 anim.SetTrigger("SetHappy");
                 break;
+            case ItemActions.StinkyPerfume:
+                if (condition.PreviousEnjoyedStimulus > -1)
+                    condition.AddCombo((int)action, condition.PreviousEnjoyedStimulus);
+                else
+                    condition.AddUnconditioned((int)action);
+                anim.SetTrigger("SetDisgusted");
+                break;
         }
     }
 
@@ -149,5 +160,8 @@ public enum ItemActions
     Nothing = -1,
     TuningFork = 0, // plays a note and gets the dog's attention
     Dynamite = 1,
-    DogBone = 2
+    DogBone = 2,
+    StinkyPerfume = 3,
+    ZapNectar = 4,
+    Squirrel = 5
 }
