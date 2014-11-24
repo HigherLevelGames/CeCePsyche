@@ -21,5 +21,13 @@ public class OneWayPlatformPassable : MonoBehaviour
 		}
 	}
 	
-
+	void OnTriggerExit2D(Collider2D player)
+	{
+		if(player.tag == "Player")
+		{
+			// let player pass through
+			this.transform.parent.collider2D.isTrigger = false;
+			
+		}
+	}
 }
