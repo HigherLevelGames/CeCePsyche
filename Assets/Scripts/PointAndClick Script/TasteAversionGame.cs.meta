@@ -6,8 +6,8 @@ MonoImporter:
   - ConditionableCharacter: {instanceID: 0}
   - Tray: {fileID: 100000, guid: 41ec2520cc6512f4ea1cff005b6dc06d, type: 2}
   - Prompt: {fileID: 100000, guid: f7aea4e81e130a7409ccd66af38dc170, type: 2}
-  - Hint: {fileID: 100002, guid: c2c90a4471c39a949a1bfdb14d5df0ff, type: 2}
-  - Lose: {fileID: 100002, guid: 1397c6a433aeb8643bc9e4f169177a6a, type: 2}
+  - Hint: {fileID: 100000, guid: eddb084154135d94c8482ca48b4f3510, type: 2}
+  - Lose: {fileID: 100000, guid: 1397c6a433aeb8643bc9e4f169177a6a, type: 2}
   - Win: {fileID: 100000, guid: e9d11c0d80cbb8f4aa5870ffed14aa0a, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

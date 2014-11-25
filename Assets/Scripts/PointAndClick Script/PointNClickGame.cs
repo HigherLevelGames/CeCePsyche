@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 public class PointNClickGame : MonoBehaviour
 {
     public GameObject ConditionableCharacter;
+    public GameObject[] OtherCharacters;
     public GameObject[] InventoryObjects;
     public GameObject Tray;
     public GameObject Prompt;
@@ -23,10 +24,15 @@ public class PointNClickGame : MonoBehaviour
     PNCMenuTray tray;
     PNCItem[] items;
     Vector2 WalkToTarget;
-
-    public void Initialize()
+    public void Activate()
     {
         Screen.showCursor = true;
+        ConditionableCharacter.SetActive(true);
+        for (int i = 0; i < OtherCharacters.Length; i++)
+            OtherCharacters [i].SetActive(true);
+    }
+    public void Initialize()
+    {
         controller = ConditionableCharacter.GetComponent<MovementController>();
         condition = ConditionableCharacter.GetComponent<Conditionable>();
         WalkToTarget = ConditionableCharacter.transform.position;
@@ -120,6 +126,10 @@ public class PointNClickGame : MonoBehaviour
         CheckWinCondition(action);
         if (condition.ConditionedStimulus > -1)
             action = (ItemActions)condition.ConditionedResponse;
+        if (condition.CurrentEnjoyedBehavior > -1)
+            condition.AttemptAversionWith((int)action);
+        if (condition.TasteAvertedBehavior == (int)action)
+            return;
         switch (action)
         {
             case ItemActions.TuningFork:
@@ -134,13 +144,16 @@ public class PointNClickGame : MonoBehaviour
                 anim.SetTrigger("SetHappy");
                 break;
             case ItemActions.StinkyPerfume:
-                if (condition.PreviousEnjoyedStimulus > -1)
-                    condition.AddCombo((int)action, condition.PreviousEnjoyedStimulus);
-                else
-                    condition.AddUnconditioned((int)action);
+                condition.AddUnconditioned((int)action);
                 anim.SetTrigger("SetDisgusted");
                 break;
+            case ItemActions.Squirrel:
+                condition.CurrentEnjoyedBehavior = (int)action;
+                anim.SetTrigger("SetChase");
+                Debug.Log(1);
+                break;
         }
+
     }
 
     public virtual void CheckWinCondition(ItemActions action)
@@ -152,6 +165,13 @@ public class PointNClickGame : MonoBehaviour
         WinConditionMet = false;
         controller.Right = controller.Left = false;
         condition.Reset();
+    }
+    public void Cleanup()
+    {
+        Screen.showCursor = false;
+        ConditionableCharacter.SetActive(false);
+        for (int i = 0; i < OtherCharacters.Length; i++)
+            OtherCharacters [i].SetActive(false);
     }
 }
 

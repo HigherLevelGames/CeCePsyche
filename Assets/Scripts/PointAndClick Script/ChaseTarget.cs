@@ -5,8 +5,8 @@ public class ChaseTarget : MonoBehaviour
 {
 
     public Transform targetTransform;
+    public bool Chase = false;
     MovementController controller;
-    public bool Chase = true;
 
     void Start()
     {
@@ -24,12 +24,16 @@ public class ChaseTarget : MonoBehaviour
                 controller.Right = t.x > p.x;
                 controller.Left = t.x < p.x;
             }
-        } else
-            controller.Right = controller.Left = false;
+        }
     }
 
     public void ChaseOff()
     {
+        controller.Right = controller.Left = false;
         Chase = false;
+    }
+    public void ChaseOn()
+    {
+        Chase = true;
     }
 }

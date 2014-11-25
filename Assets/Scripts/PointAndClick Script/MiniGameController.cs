@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MiniGameController : InGameButtonPrompt
@@ -19,10 +20,10 @@ public class MiniGameController : InGameButtonPrompt
     PointNClickGame GameController;
     float gameTimeLimit = 30;
     float promptTimeLimit = 10;
-    float quickTimeLimit = 5f;
+    float quickTimeLimit = 4;
     float timer;
     bool win;
-    GameObject currentEventObject;
+    Text[] currentEventText = new Text[2];
 
     void Awake()
     {
@@ -71,15 +72,17 @@ public class MiniGameController : InGameButtonPrompt
         GameCamera.enabled = false;
         Ceci.SetActive(false);
         MiniGameCamera.enabled = true;
-        currentEventObject = Instantiate(GameController.Prompt) as GameObject;
+        currentEventText[0] = Instantiate(GameController.Prompt) as Text;
+        Debug.Log(currentEventText [0]);
         state = MiniGameState.Prompting;
     }
 
     void BeginMiniGame()
     {
         timer = gameTimeLimit;
-        DestroyImmediate(currentEventObject);
+        ClearEventObject();
         Game.SetActive(true);
+        GameController.Activate();
         state = MiniGameState.Playing;
     }
 
@@ -88,15 +91,16 @@ public class MiniGameController : InGameButtonPrompt
         timer = quickTimeLimit;
         GameController.Reset();
         Game.SetActive(false);
-        currentEventObject = Instantiate(GameController.Lose) as GameObject;
+        currentEventText[0] = Instantiate(GameController.Lose) as Text;
         state = MiniGameState.Losing;
     }
 
     void RePrompt()
     {
         timer = promptTimeLimit;
-        DestroyImmediate(currentEventObject);
-        currentEventObject = Instantiate(GameController.Hint) as GameObject;
+        ClearEventObject();
+        currentEventText [0] = Instantiate(GameController.Prompt) as Text;
+        currentEventText[1] = Instantiate(GameController.Hint) as Text;
         state = MiniGameState.Prompting;
     }
 
@@ -105,18 +109,23 @@ public class MiniGameController : InGameButtonPrompt
         timer = quickTimeLimit;
         GameController.Reset();
         Game.SetActive(false);
-        currentEventObject = Instantiate(GameController.Win) as GameObject;
+        currentEventText[0] = Instantiate(GameController.Win) as Text;
         state = MiniGameState.Winning;
     }
 
     void Cleanup()
     {
-        DestroyImmediate(currentEventObject);
-
+        ClearEventObject();
+        GameController.Cleanup();
         GameCamera.enabled = true;
         MiniGameCamera.enabled = false;
         Ceci.SetActive(true);
         state = MiniGameState.Uninitialized;
     }
-
+    void ClearEventObject()
+    {
+        for (int i = 0; i < currentEventText.Length; i++)
+            if (currentEventText[i])
+                DestroyImmediate(currentEventText [i]);
+    }
 }

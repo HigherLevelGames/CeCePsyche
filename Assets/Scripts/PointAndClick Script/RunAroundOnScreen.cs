@@ -27,4 +27,5 @@ public class RunAroundOnScreen : MonoBehaviour {
         onScreenPoint = cam.ViewportToWorldPoint(new Vector3(Random.value, 0,0));
         anim.SetTrigger("SetRunning");
     }
+
 }

@@ -10,13 +10,12 @@ namespace AssemblyCSharp
         void Start()
         {
             Initialize();
-            GetCondition.PreviousEnjoyedStimulus = (int)EnjoyedStimulus;
+            GetCondition.CurrentEnjoyedBehavior = (int)EnjoyedStimulus;
         }
         
         public override void CheckWinCondition(ItemActions action)
         {
-            if (GetCondition.TasteAvertedStimulus > -1 && 
-                GetCondition.PreviousEnjoyedStimulus == GetCondition.TasteAvertedStimulus)
+            if (GetCondition.TasteAvertedBehavior == (int)action)
                 WinConditionMet = true;
         }
     }
