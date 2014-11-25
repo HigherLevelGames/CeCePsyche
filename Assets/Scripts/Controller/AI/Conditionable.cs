@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 // for EventArgs
 using UnityEngine;
@@ -110,8 +110,8 @@ public class Conditionable : MonoBehaviour
         PreConditioned;
     public int PreviousConditionedStimulus = -1;
     public int PreviousUnonditionedResponse = -1;
-    public int PreviousEnjoyedStimulus = -1;
-    public int TasteAvertedStimulus = -1;
+    public int CurrentEnjoyedBehavior = -1;
+    public int TasteAvertedBehavior = -1;
     void Start()
     {
         RevertPairs();
@@ -179,10 +179,10 @@ public class Conditionable : MonoBehaviour
         if (!ok)
             RevertPairs();
     }
-    void AttemptTasteAversion()
+    public void AttemptAversionWith(int item)
     {
-        if(isAversive(pairs[0,0]) && PreviousEnjoyedStimulus == pairs[0,1])
-            TasteAvertedStimulus =  PreviousEnjoyedStimulus;
+        if (isAversive(item))
+            TasteAvertedBehavior = CurrentEnjoyedBehavior;
     }
     public void AddNeutral(int n)
     {
@@ -202,12 +202,6 @@ public class Conditionable : MonoBehaviour
             } else if (counter < 3)
                 Condition(un);
         }
-    }
-    public void AddCombo(int n, int u)
-    {
-        AddNeutral(n);
-        AddUnconditioned(u);
-        AttemptTasteAversion();
     }
     public void Reset()
     {

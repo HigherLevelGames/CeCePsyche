@@ -11,7 +11,7 @@ GameObject:
   - 222: {fileID: 22200000}
   - 114: {fileID: 11400000}
   m_Layer: 5
-  m_Name: TAWin
+  m_Name: PWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Win! The behavior was successfully averted.
+  m_Text: 'You win!
+
+    The behavior has ceased!'
 --- !u!222 &22200000
 CanvasRenderer:
   m_ObjectHideFlags: 1
