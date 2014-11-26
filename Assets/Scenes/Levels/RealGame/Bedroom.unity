@@ -292,7 +292,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 4289664103
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a9bdf63af7459460d88e9bd1150bd565, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -520,6 +520,10 @@ Prefab:
     - target: {fileID: 100000, guid: ffb44d40c27284f638fe05a4050ce4d1, type: 2}
       propertyPath: m_Name
       value: DogSleep_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: ffb44d40c27284f638fe05a4050ce4d1, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 4289664103
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ffb44d40c27284f638fe05a4050ce4d1, type: 2}
