@@ -1,6 +1,16 @@
 fileFormatVersion: 2
 guid: e1cb16420d1c942c996c5b91d0ebe5c7
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: DoggieStuff_0
+    21300002: DoggieStuff_1
+    21300004: DoggieStuff_2
+    21300006: DoggieStuff_3
+    21300008: DoggieStuff_4
+    21300010: DoggieStuff_5
+    21300012: DoggieStuff_6
+    21300014: DoggieStuff_7
+    21300016: DoggieStuff_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +45,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -54,6 +65,7 @@ TextureImporter:
         height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DoggieStuff_1
       rect:
         serializedVersion: 2
@@ -63,6 +75,7 @@ TextureImporter:
         height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DoggieStuff_2
       rect:
         serializedVersion: 2
@@ -72,6 +85,7 @@ TextureImporter:
         height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DoggieStuff_3
       rect:
         serializedVersion: 2
@@ -81,6 +95,7 @@ TextureImporter:
         height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DoggieStuff_4
       rect:
         serializedVersion: 2
@@ -90,6 +105,7 @@ TextureImporter:
         height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DoggieStuff_5
       rect:
         serializedVersion: 2
@@ -99,6 +115,7 @@ TextureImporter:
         height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DoggieStuff_6
       rect:
         serializedVersion: 2
@@ -108,6 +125,7 @@ TextureImporter:
         height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DoggieStuff_7
       rect:
         serializedVersion: 2
@@ -117,6 +135,7 @@ TextureImporter:
         height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: DoggieStuff_8
       rect:
         serializedVersion: 2
@@ -126,5 +145,6 @@ TextureImporter:
         height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
