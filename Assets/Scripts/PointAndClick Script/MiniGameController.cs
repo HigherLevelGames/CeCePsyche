@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MiniGameController : InGameButtonPrompt
@@ -8,10 +9,11 @@ public class MiniGameController : InGameButtonPrompt
         Uninitialized,
         Prompting,
         Playing,
-        Winning, 
+        Winning,
         Losing
     }
     MiniGameState state = MiniGameState.Uninitialized;
+    public Canvas MasterCanvas;
     public Camera MiniGameCamera;
     public Camera GameCamera;
     public GameObject Ceci;
@@ -19,15 +21,22 @@ public class MiniGameController : InGameButtonPrompt
     PointNClickGame GameController;
     float gameTimeLimit = 30;
     float promptTimeLimit = 10;
-    float quickTimeLimit = 5f;
+    float quickTimeLimit = 4;
     float timer;
     bool win;
-    GameObject currentEventObject;
+    Text text;
+    Text hint;
 
     void Awake()
     {
         Game = MiniGameCamera.gameObject.transform.GetChild(0).gameObject;
         GameController = Game.GetComponent<PointNClickGame>();
+        Text[] texts = MasterCanvas.GetComponentsInChildren<Text>();
+        Debug.Log(texts.Length);
+        text = texts [0];
+        hint = texts [1];
+        text.text = "";
+        hint.text = "";
     }
 
     void Update()
@@ -71,15 +80,17 @@ public class MiniGameController : InGameButtonPrompt
         GameCamera.enabled = false;
         Ceci.SetActive(false);
         MiniGameCamera.enabled = true;
-        currentEventObject = Instantiate(GameController.Prompt) as GameObject;
+        text.text = GameController.Prompt;
         state = MiniGameState.Prompting;
     }
 
     void BeginMiniGame()
     {
         timer = gameTimeLimit;
-        DestroyImmediate(currentEventObject);
         Game.SetActive(true);
+        text.text = "";
+        hint.text = "";
+        GameController.Activate();
         state = MiniGameState.Playing;
     }
 
@@ -88,15 +99,15 @@ public class MiniGameController : InGameButtonPrompt
         timer = quickTimeLimit;
         GameController.Reset();
         Game.SetActive(false);
-        currentEventObject = Instantiate(GameController.Lose) as GameObject;
+        text.text = GameController.Lose;
         state = MiniGameState.Losing;
     }
 
     void RePrompt()
     {
         timer = promptTimeLimit;
-        DestroyImmediate(currentEventObject);
-        currentEventObject = Instantiate(GameController.Hint) as GameObject;
+        text.text = GameController.Prompt;
+        hint.text = GameController.Hint;
         state = MiniGameState.Prompting;
     }
 
@@ -105,18 +116,18 @@ public class MiniGameController : InGameButtonPrompt
         timer = quickTimeLimit;
         GameController.Reset();
         Game.SetActive(false);
-        currentEventObject = Instantiate(GameController.Win) as GameObject;
+        text.text = GameController.Win;
         state = MiniGameState.Winning;
     }
 
     void Cleanup()
     {
-        DestroyImmediate(currentEventObject);
-
+        text.text = "";
+        hint.text = "";
+        GameController.Cleanup();
         GameCamera.enabled = true;
         MiniGameCamera.enabled = false;
         Ceci.SetActive(true);
         state = MiniGameState.Uninitialized;
     }
-
 }

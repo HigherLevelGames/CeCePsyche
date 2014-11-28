@@ -12,15 +12,20 @@ namespace AssemblyCSharp
         {
             Initialize();
             GetCondition.PreviousConditionedStimulus = (int)previousConditioned;
-            GetCondition.PreviousUnonditionedStimulus = (int)previousUnconditioned;
+            GetCondition.PreviousUnonditionedResponse = (int)previousUnconditioned;
             GetCondition.PreConditioned = true;
+            Prompt = "Find a way to recover extinct behavior.";
+            Hint = "Using past methods will achieve swifter results.";
+            Lose = "You failed to recover the behavior.";
+            Win = "You win! The behavior was successfully recovered.";
+            this.gameObject.SetActive(false);
         }
 
-        public override void CheckWinCondition()
+        public override void CheckWinCondition(ItemActions action)
         {
-            if (GetCondition.ConditionedStimulus == GetCondition.PreviousConditionedStimulus && GetCondition.ConditionedResponse == GetCondition.PreviousUnonditionedStimulus)
+            if ((int)action == GetCondition.PreviousConditionedStimulus && 
+                GetCondition.ConditionedResponse == GetCondition.PreviousUnonditionedResponse)
                 WinConditionMet = true;
         }
     }
 }
-

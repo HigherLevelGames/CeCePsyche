@@ -18,72 +18,22 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: {x: 0, y: 0, z: 0}
-        inSlope: {x: -.913415968, y: 1.087008, z: 0}
-        outSlope: {x: -.913415968, y: 1.087008, z: 0}
-        tangentMode: 0
+        inSlope: {x: 0, y: 4.55351973, z: 0}
+        outSlope: {x: 0, y: 4.55351973, z: 0}
+        tangentMode: 1
       - time: .0833333358
-        value: {x: -.0761179999, y: .0905840024, z: 0}
+        value: {x: 0, y: .379460007, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 50331648
+        tangentMode: 0
       - time: .166666672
         value: {x: 0, y: 0, z: 0}
-        inSlope: {x: -2.98023224e-08, y: 5.96046448e-08, z: 0}
-        outSlope: {x: -2.98023224e-08, y: 5.96046448e-08, z: 0}
-        tangentMode: 0
-      - time: .25
-        value: {x: -.0761179999, y: .0905840024, z: 0}
-        inSlope: {x: -5.96046448e-08, y: 1.1920929e-07, z: 0}
-        outSlope: {x: -5.96046448e-08, y: 1.1920929e-07, z: 0}
-        tangentMode: 288
-      - time: .333333343
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: -1.49011612e-07, y: 1.78813934e-07, z: 0}
-        outSlope: {x: -1.49011612e-07, y: 1.78813934e-07, z: 0}
-        tangentMode: 0
-      - time: .416666657
-        value: {x: -.0761179999, y: .0905840024, z: 0}
-        inSlope: {x: -1.49011612e-07, y: 1.78813934e-07, z: 0}
-        outSlope: {x: -1.49011612e-07, y: 1.78813934e-07, z: 0}
-        tangentMode: 0
-      - time: .5
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: -1.49011612e-07, y: 1.78813934e-07, z: 0}
-        outSlope: {x: -1.49011612e-07, y: 1.78813934e-07, z: 0}
-        tangentMode: 57
-      - time: .583333313
-        value: {x: -.0761179999, y: .0905840024, z: 0}
-        inSlope: {x: -3.27825546e-07, y: 3.57627869e-07, z: 0}
-        outSlope: {x: -3.27825546e-07, y: 3.57627869e-07, z: 0}
-        tangentMode: 39
-      - time: .666666687
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: -3.27825546e-07, y: 3.57627869e-07, z: 0}
-        outSlope: {x: -3.27825546e-07, y: 3.57627869e-07, z: 0}
-        tangentMode: 0
-      - time: .75
-        value: {x: -.0761179999, y: .0905840024, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-      - time: .833333313
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 3.27825546e-07, y: -3.57627869e-07, z: 0}
-        outSlope: {x: 3.27825546e-07, y: -3.57627869e-07, z: 0}
-        tangentMode: 0
-      - time: .916666687
-        value: {x: -.0761179999, y: .0905840024, z: 0}
-        inSlope: {x: 3.27825546e-07, y: -3.57627869e-07, z: 0}
-        outSlope: {x: 3.27825546e-07, y: -3.57627869e-07, z: 0}
-        tangentMode: 67
-      - time: 1
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: .913416207, y: -1.08700824, z: 0}
-        outSlope: {x: .913416207, y: -1.08700824, z: 0}
-        tangentMode: 976630837
+        inSlope: {x: 0, y: -4.55351973, z: 0}
+        outSlope: {x: 0, y: -4.55351973, z: 0}
+        tangentMode: 9550
       m_PreInfinity: 2
       m_PostInfinity: 2
-    path: 
+    path: DoggyDog
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -94,7 +44,7 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 0
+    - path: 3690984020
       attribute: 1
       script: {fileID: 0}
       classID: 4
@@ -104,7 +54,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: .166666672
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -124,73 +74,23 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 0
-        inSlope: -.913415968
-        outSlope: -.913415968
+        inSlope: 0
+        outSlope: 0
         tangentMode: 10
       - time: .0833333358
-        value: -.0761179999
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       - time: .166666672
         value: 0
-        inSlope: -2.98023224e-08
-        outSlope: -2.98023224e-08
-        tangentMode: 10
-      - time: .25
-        value: -.0761179999
-        inSlope: -5.96046448e-08
-        outSlope: -5.96046448e-08
-        tangentMode: 10
-      - time: .333333343
-        value: 0
-        inSlope: -1.49011612e-07
-        outSlope: -1.49011612e-07
-        tangentMode: 10
-      - time: .416666657
-        value: -.0761179999
-        inSlope: -1.49011612e-07
-        outSlope: -1.49011612e-07
-        tangentMode: 10
-      - time: .5
-        value: 0
-        inSlope: -1.49011612e-07
-        outSlope: -1.49011612e-07
-        tangentMode: 10
-      - time: .583333313
-        value: -.0761179999
-        inSlope: -3.27825546e-07
-        outSlope: -3.27825546e-07
-        tangentMode: 10
-      - time: .666666687
-        value: 0
-        inSlope: -3.27825546e-07
-        outSlope: -3.27825546e-07
-        tangentMode: 10
-      - time: .75
-        value: -.0761179999
         inSlope: 0
         outSlope: 0
-        tangentMode: 10
-      - time: .833333313
-        value: 0
-        inSlope: 3.27825546e-07
-        outSlope: 3.27825546e-07
-        tangentMode: 10
-      - time: .916666687
-        value: -.0761179999
-        inSlope: 3.27825546e-07
-        outSlope: 3.27825546e-07
-        tangentMode: 10
-      - time: 1
-        value: 0
-        inSlope: .913416207
-        outSlope: .913416207
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.x
-    path: 
+    path: DoggyDog
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -198,73 +98,23 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 0
-        inSlope: 1.087008
-        outSlope: 1.087008
+        inSlope: 4.55351973
+        outSlope: 4.55351973
         tangentMode: 10
       - time: .0833333358
-        value: .0905840024
+        value: .379460007
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       - time: .166666672
         value: 0
-        inSlope: 5.96046448e-08
-        outSlope: 5.96046448e-08
-        tangentMode: 10
-      - time: .25
-        value: .0905840024
-        inSlope: 1.1920929e-07
-        outSlope: 1.1920929e-07
-        tangentMode: 10
-      - time: .333333343
-        value: 0
-        inSlope: 1.78813934e-07
-        outSlope: 1.78813934e-07
-        tangentMode: 10
-      - time: .416666657
-        value: .0905840024
-        inSlope: 1.78813934e-07
-        outSlope: 1.78813934e-07
-        tangentMode: 10
-      - time: .5
-        value: 0
-        inSlope: 1.78813934e-07
-        outSlope: 1.78813934e-07
-        tangentMode: 10
-      - time: .583333313
-        value: .0905840024
-        inSlope: 3.57627869e-07
-        outSlope: 3.57627869e-07
-        tangentMode: 10
-      - time: .666666687
-        value: 0
-        inSlope: 3.57627869e-07
-        outSlope: 3.57627869e-07
-        tangentMode: 10
-      - time: .75
-        value: .0905840024
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .833333313
-        value: 0
-        inSlope: -3.57627869e-07
-        outSlope: -3.57627869e-07
-        tangentMode: 10
-      - time: .916666687
-        value: .0905840024
-        inSlope: -3.57627869e-07
-        outSlope: -3.57627869e-07
-        tangentMode: 10
-      - time: 1
-        value: 0
-        inSlope: -1.08700824
-        outSlope: -1.08700824
+        inSlope: -4.55351973
+        outSlope: -4.55351973
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.y
-    path: 
+    path: DoggyDog
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -281,56 +131,6 @@ AnimationClip:
         outSlope: 0
         tangentMode: 10
       - time: .166666672
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .25
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .333333343
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .416666657
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .5
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .583333313
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .666666687
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .75
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .833333313
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .916666687
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 1
         value: 0
         inSlope: 0
         outSlope: 0
@@ -338,7 +138,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.z
-    path: 
+    path: DoggyDog
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []

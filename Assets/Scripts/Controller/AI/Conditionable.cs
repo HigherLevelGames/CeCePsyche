@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 // for EventArgs
 using UnityEngine;
@@ -105,11 +105,13 @@ public class Conditionable : MonoBehaviour
     int[,] pairs = new int[3, 2];
     public int ConditionedStimulus = -1;
     public int ConditionedResponse = -1;
-    public bool Consuming;
-    public bool PreConditioned;
+    public bool 
+        Consuming, 
+        PreConditioned;
     public int PreviousConditionedStimulus = -1;
-    public int PreviousUnonditionedStimulus = -1;
-
+    public int PreviousUnonditionedResponse = -1;
+    public int CurrentEnjoyedBehavior = -1;
+    public int TasteAvertedBehavior = -1;
     void Start()
     {
         RevertPairs();
@@ -143,20 +145,6 @@ public class Conditionable : MonoBehaviour
         }
     }
 
-    public void AddUnconditioned(int un)
-    {
-        if (acting)
-        {
-            if (PreConditioned)
-            {
-                for (int i = 0; i < 3; i++)
-                    Condition(un);
-                AttemptSpontaneousRecovery();
-            } else if (counter < 3)
-                Condition(un);
-        }
-    }
-
     void Condition(int un)
     {
         pairs [counter, 0] = neutral;
@@ -187,18 +175,34 @@ public class Conditionable : MonoBehaviour
     {
         bool ok;
         ok = pairs [0, 0] == PreviousConditionedStimulus &&
-            pairs [0, 1] == PreviousUnonditionedStimulus;
+            pairs [0, 1] == PreviousUnonditionedResponse;
         if (!ok)
             RevertPairs();
     }
-
+    public void AttemptAversionWith(int item)
+    {
+        if (isAversive(item))
+            TasteAvertedBehavior = CurrentEnjoyedBehavior;
+    }
     public void AddNeutral(int n)
     {
         neutral = n;
         acting = true;
         stimulusTimer = 0;
     }
-
+    public void AddUnconditioned(int un)
+    {
+        if (acting)
+        {
+            if (PreConditioned)
+            {
+                for (int i = 0; i < pairs.GetLength(0); i++)
+                    Condition(un);
+                AttemptSpontaneousRecovery();
+            } else if (counter < 3)
+                Condition(un);
+        }
+    }
     public void Reset()
     {
         stimulusTimer = 0;
@@ -207,6 +211,18 @@ public class Conditionable : MonoBehaviour
         ConditionedStimulus = -1;
         ConditionedResponse = -1;
         RevertPairs();
+    }
+
+    bool isAversive(int n)
+    {
+        switch ((ItemActions)n)
+        {
+            case ItemActions.ZapNectar:
+                return true;
+            case ItemActions.StinkyPerfume:
+                return true;
+        }
+        return false;
     }
     #endregion
 }
