@@ -14,6 +14,11 @@ namespace AssemblyCSharp
             GetCondition.PreviousConditionedStimulus = (int)previousConditioned;
             GetCondition.PreviousUnonditionedResponse = (int)previousUnconditioned;
             GetCondition.PreConditioned = true;
+            Prompt = "Find a way to recover extinct behavior.";
+            Hint = "Using past methods will achieve swifter results.";
+            Lose = "You failed to recover the behavior.";
+            Win = "You win! The behavior was successfully recovered.";
+            this.gameObject.SetActive(false);
         }
 
         public override void CheckWinCondition(ItemActions action)

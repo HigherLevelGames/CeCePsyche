@@ -7,10 +7,10 @@ public class PointNClickGame : MonoBehaviour
     public GameObject[] OtherCharacters;
     public GameObject[] InventoryObjects;
     public GameObject Tray;
-    public GameObject Prompt;
-    public GameObject Hint;
-    public GameObject Lose;
-    public GameObject Win;
+    public string Prompt;
+    public string Hint;
+    public string Lose;
+    public string Win;
     public bool WinConditionMet, ClickToMove;
     Conditionable condition;
 
@@ -24,6 +24,7 @@ public class PointNClickGame : MonoBehaviour
     PNCMenuTray tray;
     PNCItem[] items;
     Vector2 WalkToTarget;
+
     public void Activate()
     {
         Screen.showCursor = true;
@@ -31,6 +32,7 @@ public class PointNClickGame : MonoBehaviour
         for (int i = 0; i < OtherCharacters.Length; i++)
             OtherCharacters [i].SetActive(true);
     }
+
     public void Initialize()
     {
         controller = ConditionableCharacter.GetComponent<MovementController>();
@@ -166,6 +168,7 @@ public class PointNClickGame : MonoBehaviour
         controller.Right = controller.Left = false;
         condition.Reset();
     }
+
     public void Cleanup()
     {
         Screen.showCursor = false;
