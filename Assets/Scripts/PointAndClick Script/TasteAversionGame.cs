@@ -15,7 +15,7 @@ namespace AssemblyCSharp
             Hint = "Stinky squirrels aren't any fun.";
             Lose = "You failed to avert the undesired behavior.";
             Win = "You win! The behavior was successfully averted.";
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
         
         public override void CheckWinCondition(ItemActions action)

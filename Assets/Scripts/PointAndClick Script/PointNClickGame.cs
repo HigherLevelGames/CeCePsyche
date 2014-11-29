@@ -42,9 +42,11 @@ public class PointNClickGame : MonoBehaviour
         Vector3 s = cam.ScreenToWorldPoint(new Vector3(Screen.width * 0.9f, Screen.height * 0.8f, 20));
         tray = new PNCMenuTray(this.transform, Instantiate(Tray) as GameObject, s);
         items = new PNCItem[InventoryObjects.Length];
+        items [0] = new PNCItem(Instantiate(InventoryObjects [0]) as GameObject, ItemActions.TuningFork);
+        items [1] = new PNCItem(Instantiate(InventoryObjects [1]) as GameObject, ItemActions.StinkyPerfume);
+        items [2] = new PNCItem(Instantiate(InventoryObjects [2]) as GameObject, ItemActions.ZapNectar);
         for (int i = 0; i < InventoryObjects.Length; i++)
         {
-            items [i] = new PNCItem(Instantiate(InventoryObjects [i]) as GameObject, ItemActions.StinkyPerfume);
             items [i].obj.transform.parent = this.transform;
             items [i].obj.name = "Slot" + i.ToString();
             items [i].Active = true;
@@ -126,36 +128,40 @@ public class PointNClickGame : MonoBehaviour
         Animator anim = ConditionableCharacter.GetComponentInChildren<Animator>();
         PlaySound ps = ConditionableCharacter.GetComponentInChildren<PlaySound>();
         CheckWinCondition(action);
+        int act = (int)action;
         if (condition.ConditionedStimulus > -1)
             action = (ItemActions)condition.ConditionedResponse;
         if (condition.CurrentEnjoyedBehavior > -1)
-            condition.AttemptAversionWith((int)action);
-        if (condition.TasteAvertedBehavior == (int)action)
+            condition.AttemptAversionWith(act);
+        if (condition.TasteAvertedBehavior == act)
             return;
         switch (action)
         {
             case ItemActions.TuningFork:
-                condition.AddNeutral((int)action);
+                condition.AddNeutral(act);
                 anim.SetTrigger("SetWaiting");
                 ps.PlayAudioOnce();
                 break;
             case ItemActions.Dynamite:
                 break;
             case ItemActions.DogBone:
-                condition.AddUnconditioned((int)action);
+                condition.AddUnconditioned(act);
                 anim.SetTrigger("SetHappy");
                 break;
             case ItemActions.StinkyPerfume:
-                condition.AddUnconditioned((int)action);
+                condition.AddUnconditioned(act);
                 anim.SetTrigger("SetDisgusted");
                 break;
             case ItemActions.Squirrel:
-                condition.CurrentEnjoyedBehavior = (int)action;
-                anim.SetTrigger("SetChase");
-                Debug.Log(1);
+                condition.CurrentEnjoyedBehavior = act;
+                condition.AddNeutral(act);
+                if(condition.CurrentEnjoyedBehavior == act)anim.SetTrigger("SetChase");
+                break;
+            case ItemActions.ZapNectar:
+                condition.AddUnconditioned(act);
+                anim.SetTrigger("SetZapped");
                 break;
         }
-
     }
 
     public virtual void CheckWinCondition(ItemActions action)
@@ -172,6 +178,7 @@ public class PointNClickGame : MonoBehaviour
     public void Cleanup()
     {
         Screen.showCursor = false;
+        Reset();
         ConditionableCharacter.SetActive(false);
         for (int i = 0; i < OtherCharacters.Length; i++)
             OtherCharacters [i].SetActive(false);

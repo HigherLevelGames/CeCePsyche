@@ -12,6 +12,7 @@ namespace AssemblyCSharp
             Hint = "Try using a neutral stimulus right before an unconditioned stimulus";
             Lose = "You failed to condition the desired behavior.";
             Win = "You win! You got the dog to drool!";
+            ClickToMove = true;
             this.gameObject.SetActive(false);
         }
 

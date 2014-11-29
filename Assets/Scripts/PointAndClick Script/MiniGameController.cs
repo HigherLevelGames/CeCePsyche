@@ -32,7 +32,6 @@ public class MiniGameController : InGameButtonPrompt
         Game = MiniGameCamera.gameObject.transform.GetChild(0).gameObject;
         GameController = Game.GetComponent<PointNClickGame>();
         Text[] texts = MasterCanvas.GetComponentsInChildren<Text>();
-        Debug.Log(texts.Length);
         text = texts [0];
         hint = texts [1];
         text.text = "";
@@ -78,6 +77,7 @@ public class MiniGameController : InGameButtonPrompt
     {
         timer = promptTimeLimit;
         GameCamera.enabled = false;
+        GameController.Reset();
         Ceci.SetActive(false);
         MiniGameCamera.enabled = true;
         text.text = GameController.Prompt;
@@ -97,7 +97,6 @@ public class MiniGameController : InGameButtonPrompt
     void Fail()
     {
         timer = quickTimeLimit;
-        GameController.Reset();
         Game.SetActive(false);
         text.text = GameController.Lose;
         state = MiniGameState.Losing;
@@ -106,6 +105,7 @@ public class MiniGameController : InGameButtonPrompt
     void RePrompt()
     {
         timer = promptTimeLimit;
+        GameController.Reset();
         text.text = GameController.Prompt;
         hint.text = GameController.Hint;
         state = MiniGameState.Prompting;
@@ -114,7 +114,6 @@ public class MiniGameController : InGameButtonPrompt
     void Success()
     {
         timer = quickTimeLimit;
-        GameController.Reset();
         Game.SetActive(false);
         text.text = GameController.Win;
         state = MiniGameState.Winning;
