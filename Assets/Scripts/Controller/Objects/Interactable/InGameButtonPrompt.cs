@@ -9,7 +9,11 @@ public class InGameButtonPrompt : MonoBehaviour {
 		audio.PlayOneShot (prompt);
 	}
 	void OnTriggerExit2D(Collider2D other) {
-		renderer.enabled = false;
-		audio.PlayOneShot (farewell);
+        Disable();
 	}
+    public void Disable()
+    {
+        renderer.enabled = false;
+        audio.PlayOneShot (farewell);
+    }
 }
