@@ -13,6 +13,15 @@ using System.Collections.Generic;
 // ("Interact" with environment)
 public class InventoryManager : MonoBehaviour
 {
+    #region Jason Code Kingdom
+    public Inventory[] CharactersWithInventory;
+    public void AddItemToInventory(int inventoryIndex, ItemActions Item)
+    {
+        CharactersWithInventory[inventoryIndex].AddItem(Item);
+    }
+    #endregion
+    #region Jodan Code Land
+    /*
 	public class Item
 	{
 		public string name = "";
@@ -130,4 +139,6 @@ public class InventoryManager : MonoBehaviour
 			col.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
 		}
 	}
+ */   
+    #endregion
 }
