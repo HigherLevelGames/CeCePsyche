@@ -31,8 +31,8 @@ public class HexModeController : MonoBehaviour
     public GameObject[] Neutrals;
     public GameObject[] Environmentals;
     public GameObject[] Responses;
+    GameObject[] inventory;
     float localScalar = 0;
-
     float antiScalar { get { return 1.0f - localScalar; } }
 
     Color c = new Color(0, 0, 1.0f, 0.6f);
@@ -67,6 +67,7 @@ public class HexModeController : MonoBehaviour
         hexItems.Add(new HexItem(Responses [0], PMType.Response));
 
         CloseMenu();
+        inventory = Player.GetComponent<Inventory>().GetItemObjects(); 
         cam = this.GetComponentInParent<Camera>();
         bgrender = this.GetComponentInChildren<SpriteRenderer>();
         bgrender.color = new Color(c.r, c.g, c.b, c.a * antiScalar);

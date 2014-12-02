@@ -3,16 +3,17 @@ using System.Collections;
 
 public class Collectible : MonoBehaviour {
 
-    public ItemActions ItemType;
+    public ItemActions ItemType = ItemActions.TuningFork;
 
     void OnTriggerStay2D(Collider2D other)
     {
         if (Input.GetKeyDown(KeyCode.E))
-            Collect(other);
+            CollectedBy(other);
     }
-	public void Collect(Collider2D other)
+	public void CollectedBy(Collider2D other)
     {
         Inventory inv = other.gameObject.GetComponent<Inventory>();
         inv.AddItem(ItemType);
+        Destroy(this.gameObject);
     }
 }

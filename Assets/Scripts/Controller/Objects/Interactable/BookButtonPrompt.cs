@@ -4,14 +4,15 @@ using System.Collections;
 
 public class BookButtonPrompt : InGameButtonPrompt
 {
-    public Text book;
+    public Text bookText;
+    public Image bookImage;
     public string Title;
     public string[] Pages;
     int page;
 
     void Start()
     {
-        book.text = string.Empty;
+        bookText.text = string.Empty;
     }
 
     void Update()
@@ -23,18 +24,20 @@ public class BookButtonPrompt : InGameButtonPrompt
 
     void OpenBook()
     {
-        if (book.text == string.Empty)
+        if (bookText.text == string.Empty)
         {
-            book.text = Title;
+            bookImage.enabled = true;
+            bookText.text = Title;
         } else
         {
             if (page < Pages.Length)
             {
-                book.text = Pages [page];
+                bookText.text = Pages [page];
                 page++;
             } else
             {
-                book.text = string.Empty;
+                bookText.text = string.Empty;
+                bookImage.enabled = false;
                 page = 0;
             }
         }
@@ -42,7 +45,8 @@ public class BookButtonPrompt : InGameButtonPrompt
 
     void OnTriggerExit2D(Collider2D other)
     {
-        book.text = string.Empty;
+        bookText.text = string.Empty;
+        bookImage.enabled = false;
         page = 0;
         Deprompt();
     }

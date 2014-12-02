@@ -29,8 +29,9 @@ public class TextPopupPrompt : InGameButtonPrompt
         {
             viewportPosition = Camera.main.WorldToViewportPoint(transform.position);
             viewportPosition.y += 0.1f;
-            float x1 = Mathf.Max(0, viewportPosition.x - 0.55f);
-            float x2 = Mathf.Min(1, viewportPosition.x + 0.55f);
+            viewportPosition.x = Mathf.Clamp(viewportPosition.x, 0.1f, 0.9f);
+            float x1 = viewportPosition.x - 0.45f;
+            float x2 = viewportPosition.x + 0.45f;
             DynamicText.rectTransform.anchorMin = new Vector2(x1, viewportPosition.y - 0.2f);
             DynamicText.rectTransform.anchorMax = new Vector2(x2, viewportPosition.y + 0.2f);
             DynamicText.rectTransform.offsetMin = Vector2.zero;
