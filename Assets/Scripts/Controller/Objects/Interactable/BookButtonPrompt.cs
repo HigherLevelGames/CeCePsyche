@@ -13,6 +13,7 @@ public class BookButtonPrompt : InGameButtonPrompt
     void Start()
     {
         bookText.text = string.Empty;
+        bookImage.enabled = false;
     }
 
     void Update()
