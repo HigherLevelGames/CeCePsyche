@@ -23,9 +23,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Transitions/Concept.unity
   - enabled: 0
     path: Assets/Scenes/Transitions/Cutscenes.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/1_1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/1_2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/1_3.unity
+  - enabled: 1
+    path: Assets/Scenes/Jesse Tests/homework.unity
+  - enabled: 1
+    path: Assets/Scenes/Jesse Tests/bedroomwork.unity

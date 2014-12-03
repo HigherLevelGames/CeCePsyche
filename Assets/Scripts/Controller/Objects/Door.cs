@@ -23,6 +23,7 @@ public class Door: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(anim != null)
 		anim.SetBool("isOpen", isOpen);
 		if(isOpen && autoClose)
 		{
