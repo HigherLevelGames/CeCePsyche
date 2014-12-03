@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 
 
-public class Inventory : MonoBehaviour
+public class Inventory
 {
-    public static GameObject[] ItemPrefabs;
     public List<ItemActions> Items = new List<ItemActions>();
+    public Inventory()
+    {
 
+    }
     public void AddItem(ItemActions item)
     {
         Items.Add(item);
@@ -20,7 +22,7 @@ public class Inventory : MonoBehaviour
             Debug.Log(this.ToString() + " : Item index " + idx.ToString() + " not found.");
             return null;
         }
-        return ItemPrefabs[(int)Items[idx]];
+        return GameObject.Instantiate(InventoryManager.data.ItemPrefabs[(int)Items[idx]]) as GameObject;
     }
     public GameObject[] GetItemObjects()
     {

@@ -33,8 +33,6 @@ GameObject:
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400016}
-  - 114: {fileID: 11400014}
-  - 114: {fileID: 11400012}
   m_Layer: 0
   m_Name: CeCi
   m_TagString: Player
@@ -270,31 +268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundPos: -5
---- !u!114 &11400012
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11408ad05df904b0ca6b4537e7c2ef3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharactersWithInventory:
-  - {fileID: 11400014}
---- !u!114 &11400014
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1934f4966abf0f9459c39290f23ea6b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Items: 
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1

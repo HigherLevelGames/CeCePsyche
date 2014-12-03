@@ -17,13 +17,20 @@ public class FloatingTextPrompt : InGameButtonPrompt
     
     void Update()
     {
+        if (renderer.enabled) 
+        if (Input.GetKeyDown(KeyCode.E))
+            Interact();
         PositionText();
     }
-    void Collect()
-    {
-        Destroy(this.gameObject);
 
+    void Interact()
+    {
+        IInteractable inter = (IInteractable)gameObject.GetComponent(typeof(IInteractable));
+        inter.Interact();
+        DynamicText.text = string.Empty;
+        isOpen = false;
     }
+
     void PositionText()
     {
         if (isOpen)
@@ -47,6 +54,7 @@ public class FloatingTextPrompt : InGameButtonPrompt
         isOpen = true;
         Prompt();
     }
+
     void OnTriggerExit2D(Collider2D other)
     {
         DynamicText.text = string.Empty;

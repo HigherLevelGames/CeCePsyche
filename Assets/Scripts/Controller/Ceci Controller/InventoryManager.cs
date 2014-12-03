@@ -2,37 +2,75 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public static class InventoryData
+public enum ItemActions
 {
-    public static GameObject[] ItemPrefabs;
+    Nothing = -1,
+    TuningFork = 0, // plays a note and gets the dog's attention
+    Dynamite = 1,
+    DogBone = 2,
+    StinkyPerfume = 3,
+    ZapNectar = 4,
+    Squirrel = 5
 }
-// Unconditioned Stimuli will be thrown
-// and used to condition an unconditioned response.
-// ("UseItem" stored in inventory)
-//
-// Conditioned Stimuli will be part of the environment
-// and will illicit no response.
-// Once the subject has been conditioned,
-// then the environment can illicit the conditioned response.
-// ("Interact" with environment)
+
 public class InventoryManager : MonoBehaviour
 {
     #region Jason Code Kingdom
-    public GameObject[] ItemPrefabs;
+    private static InventoryManager _data;
 
-    void Start()
-    {
-        InventoryData.ItemPrefabs = ItemPrefabs;
+    public static InventoryManager data
+    { 
+        get
+        {
+            if (_data == null)
+            {
+                _data = GameObject.FindObjectOfType<InventoryManager>(); 
+                DontDestroyOnLoad(_data);
+                InventoryManager._data.Initialize();
+            }
+            return _data;
+        }
     }
 
-    public Inventory[] CharactersWithInventory;
+    public GameObject[] ItemPrefabs;
+    public Inventory[] inventories;
 
-    public void AddItemToInventory(int inventoryIndex, ItemActions Item)
+    void OnLevelWasLoaded(int n)
     {
-        CharactersWithInventory [inventoryIndex].AddItem(Item);
+    }
+
+    void Awake()
+    {
+        if (_data == null)
+        {
+            DontDestroyOnLoad(this);
+            Initialize();
+            _data = this;
+        } else if (_data != this)
+            Destroy(this.gameObject);
+    }
+
+    void Initialize()
+    {
+        inventories = new Inventory[1];
+        inventories [0] = new Inventory();
+    }
+
+    public void AddItemToInventory(int inventoryIndex, ItemActions item)
+    {
+        inventories [inventoryIndex].AddItem(item);
     }
     #endregion
     #region Jodan Code Land
+    // Unconditioned Stimuli will be thrown
+    // and used to condition an unconditioned response.
+    // ("UseItem" stored in inventory)
+    //
+    // Conditioned Stimuli will be part of the environment
+    // and will illicit no response.
+    // Once the subject has been conditioned,
+    // then the environment can illicit the conditioned response.
+    // ("Interact" with environment)
     /*
     public class Item
     {

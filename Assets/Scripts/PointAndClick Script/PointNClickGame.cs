@@ -184,14 +184,3 @@ public class PointNClickGame : MonoBehaviour
             OtherCharacters [i].SetActive(false);
     }
 }
-
-public enum ItemActions
-{
-    Nothing = -1,
-    TuningFork = 0, // plays a note and gets the dog's attention
-    Dynamite = 1,
-    DogBone = 2,
-    StinkyPerfume = 3,
-    ZapNectar = 4,
-    Squirrel = 5
-}

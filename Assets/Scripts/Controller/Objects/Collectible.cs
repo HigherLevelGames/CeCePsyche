@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Collectible : MonoBehaviour {
-
+public class Collectible : MonoBehaviour, IInteractable
+{
     public ItemActions ItemType = ItemActions.TuningFork;
 
-    void OnTriggerStay2D(Collider2D other)
+    public void Interact()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-            CollectedBy(other);
+        Collect();
     }
-	public void CollectedBy(Collider2D other)
+
+    public void Collect()
     {
-        Inventory inv = other.gameObject.GetComponent<Inventory>();
-        inv.AddItem(ItemType);
+        InventoryManager.data.AddItemToInventory(0, ItemType);
         Destroy(this.gameObject);
     }
 }
