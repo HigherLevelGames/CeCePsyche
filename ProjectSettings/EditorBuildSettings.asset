@@ -30,6 +30,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Levels/1_3.unity
   - enabled: 1
-    path: Assets/Scenes/Jesse Tests/homework.unity
+    path: Assets/Scenes/Levels/RealGame/MainMenu.unity
   - enabled: 1
-    path: Assets/Scenes/Jesse Tests/bedroomwork.unity
+    path: Assets/Scenes/Levels/RealGame/Bedroom.unity
+  - enabled: 1
+    path: Assets/Scenes/Levels/RealGame/LivingRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Levels/RealGame/Kitchen.unity
+  - enabled: 1
+    path: Assets/Scenes/Levels/RealGame/Garden.unity
