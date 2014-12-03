@@ -8,7 +8,6 @@ public class Door: MonoBehaviour {
 	public float closeTime = 5f;
 	public string sceneToLoad;
 	private bool charEntered;
-	private GameObject player;
 
 
 	Animator anim;
@@ -18,7 +17,7 @@ public class Door: MonoBehaviour {
 	void Start () {
 		anim = this.GetComponent<Animator>();
 		timeLeft = closeTime;
-		player = GameObject.FindGameObjectWithTag("Player");
+		//player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
