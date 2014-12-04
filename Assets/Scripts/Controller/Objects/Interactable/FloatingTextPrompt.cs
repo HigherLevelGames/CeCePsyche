@@ -18,14 +18,14 @@ public class FloatingTextPrompt : InGameButtonPrompt
     void Update()
     {
         if (renderer.enabled) 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (RebindableInput.GetKey("Interact"))
             Interact();
         PositionText();
     }
 
     void Interact()
     {
-        IInteractable inter = (IInteractable)gameObject.GetComponent(typeof(IInteractable));
+        IInteractable inter = (IInteractable)GetComponent(typeof(IInteractable));
         inter.Interact();
         DynamicText.text = string.Empty;
         isOpen = false;

@@ -20,7 +20,7 @@ public class HexSlot
 
     public HexSlot(Transform t)
     {
-        hex = GameObject.Instantiate(PsyData.menuhex) as GameObject;
+        //hex = GameObject.Instantiate(PsyData.menuhex) as GameObject;
         hex.transform.parent = t;
     }
 
@@ -66,8 +66,8 @@ public class PsyMenu : HexSlot
     public PsyMenu(int numSlots)
     {
         Slots = new HexSlot [numSlots];
-        hex = GameObject.Instantiate(PsyData.menuhex) as GameObject;
-        hex.transform.parent = PsyData.parent;
+        //hex = GameObject.Instantiate(PsyData.menuhex) as GameObject;
+        //hex.transform.parent = PsyData.parent;
         for (int i = 0; i < Slots.Length; i++)
         {
             Slots [i] = new HexSlot(hex.transform);

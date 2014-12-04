@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class HexItem
 {
-    public PMType Type;
     public Vector2 Target;
     public string name {
         get { return g.name; }
@@ -14,12 +13,11 @@ public class HexItem
     GameObject g;
     SpriteRenderer spr;
 
-    public HexItem(GameObject g, PMType t)
+    public HexItem(GameObject g)
     {
         this.g = GameObject.Instantiate(g) as GameObject;
-        this.g.transform.parent = PsyData.parent;
+        //this.g.transform.parent = PsyData.parent;
         this.spr = this.g.GetComponent<SpriteRenderer>();
-        this.Type = t;
         this.Target = this.g.transform.position;
     }
             

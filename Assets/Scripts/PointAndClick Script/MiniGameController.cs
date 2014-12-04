@@ -24,17 +24,18 @@ public class MiniGameController : InGameButtonPrompt
     float quickTimeLimit = 4;
     float timer;
     bool win;
-    Text text;
+    Text textPrompt;
     Text hint;
 
     void Awake()
     {
-        Game = MiniGameCamera.gameObject.transform.GetChild(0).gameObject;
+        Game = MiniGameCamera.gameObject;
         GameController = Game.GetComponent<PointNClickGame>();
+        GameController.pointAndClickCanvas = MasterCanvas;
         Text[] texts = MasterCanvas.GetComponentsInChildren<Text>();
-        text = texts [0];
+        textPrompt = texts [0];
         hint = texts [1];
-        text.text = "";
+        textPrompt.text = "";
         hint.text = "";
     }
 
@@ -80,7 +81,7 @@ public class MiniGameController : InGameButtonPrompt
         GameController.Reset();
         Ceci.SetActive(false);
         MiniGameCamera.enabled = true;
-        text.text = GameController.Prompt;
+        textPrompt.text = GameController.Prompt;
         state = MiniGameState.Prompting;
     }
 
@@ -88,7 +89,7 @@ public class MiniGameController : InGameButtonPrompt
     {
         timer = gameTimeLimit;
         Game.SetActive(true);
-        text.text = "";
+        textPrompt.text = "";
         hint.text = "";
         GameController.Activate();
         state = MiniGameState.Playing;
@@ -98,7 +99,7 @@ public class MiniGameController : InGameButtonPrompt
     {
         timer = quickTimeLimit;
         Game.SetActive(false);
-        text.text = GameController.Lose;
+        textPrompt.text = GameController.Lose;
         state = MiniGameState.Losing;
     }
 
@@ -106,7 +107,7 @@ public class MiniGameController : InGameButtonPrompt
     {
         timer = promptTimeLimit;
         GameController.Reset();
-        text.text = GameController.Prompt;
+        textPrompt.text = GameController.Prompt;
         hint.text = GameController.Hint;
         state = MiniGameState.Prompting;
     }
@@ -115,13 +116,13 @@ public class MiniGameController : InGameButtonPrompt
     {
         timer = quickTimeLimit;
         Game.SetActive(false);
-        text.text = GameController.Win;
+        textPrompt.text = GameController.Win;
         state = MiniGameState.Winning;
     }
 
     void Cleanup()
     {
-        text.text = "";
+        textPrompt.text = "";
         hint.text = "";
         GameController.Cleanup();
         GameCamera.enabled = true;

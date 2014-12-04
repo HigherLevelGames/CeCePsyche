@@ -12,7 +12,6 @@ namespace AssemblyCSharp
             Hint = "Try using a neutral stimulus right before an unconditioned stimulus";
             Lose = "You failed to condition the desired behavior.";
             Win = "You win! You got the dog to drool!";
-            ClickToMove = true;
             this.gameObject.SetActive(false);
         }
 
@@ -20,6 +19,11 @@ namespace AssemblyCSharp
         {
             if (GetCondition.ConditionedStimulus > -1)
                 WinConditionMet = true;
+        }
+
+        public override void ClickFunction(int id)
+        {
+            FireMenuItemAction(id);
         }
     }
 }

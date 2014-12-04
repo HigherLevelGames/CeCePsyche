@@ -1,11 +1,21 @@
 fileFormatVersion: 2
 guid: d5c13524a60f94774b7e3669a5a377aa
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: DoggieStuff
+    21300002: DoggieStuff_0
+    21300004: DoggieStuff_1
+    21300006: DoggieStuff_2
+    21300008: DoggieStuff_3
+    21300010: DoggieStuff_4
+    21300012: DoggieStuff_5
+    21300014: DoggieStuff_6
+    21300016: DoggieStuff_7
+    21300018: DoggieStuff_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -25,13 +35,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +52,96 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: DoggieStuff_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 281
+        width: 130
+        height: 92
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DoggieStuff_1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 280
+        width: 132
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DoggieStuff_2
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 266
+        width: 126
+        height: 112
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DoggieStuff_3
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 162
+        width: 52
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DoggieStuff_4
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 157
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DoggieStuff_5
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 142
+        width: 63
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DoggieStuff_6
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 36
+        width: 104
+        height: 89
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DoggieStuff_7
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 2
+        width: 82
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DoggieStuff_8
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 40
+        width: 70
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

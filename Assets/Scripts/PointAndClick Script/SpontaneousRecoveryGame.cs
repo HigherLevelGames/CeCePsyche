@@ -26,4 +26,9 @@ public class SpontaneousRecoveryGame : PointNClickGame
             GetCondition.ConditionedResponse == GetCondition.PreviousUnonditionedResponse)
             WinConditionMet = true;
     }
+
+    public override void ClickFunction(int id)
+    {
+        FireMenuItemAction(id);
+    }
 }

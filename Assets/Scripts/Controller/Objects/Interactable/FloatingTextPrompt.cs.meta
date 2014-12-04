@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: dfcc9b9e6b0c10f40947ae06c150fe95
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prompt: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
+  - deprompt: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
+  - activate: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
+  - DynamicText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -13,7 +13,6 @@ public class PunishmentGame : PointNClickGame
         Hint = "If an activity is followed by a punishment, it becomes less desirable.";
         Lose = "You failed to stop the unwanted behavior.";
         Win = "You win! The behavior has ceased!";
-        ClickToMove = true;
         this.gameObject.SetActive(false);
     }
     
@@ -22,5 +21,9 @@ public class PunishmentGame : PointNClickGame
         if ((int)action == GetCondition.ConditionedStimulus && 
             GetCondition.CurrentEnjoyedBehavior == -1)
             WinConditionMet = true;
+    }
+    public override void ClickFunction(int id)
+    {
+        FireMenuItemAction(id);
     }
 }

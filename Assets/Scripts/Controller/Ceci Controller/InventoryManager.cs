@@ -60,6 +60,10 @@ public class InventoryManager : MonoBehaviour
     {
         inventories [inventoryIndex].AddItem(item);
     }
+    public GameObject GetItemPrefab(ItemActions item)
+    {
+        return ItemPrefabs [(int)item];
+    }
     #endregion
     #region Jodan Code Land
     // Unconditioned Stimuli will be thrown

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class InGameButtonPrompt : MonoBehaviour {
 	public AudioClip prompt;
-	public AudioClip farewell;
+	public AudioClip deprompt;
     public AudioClip activate;
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -30,6 +30,6 @@ public class InGameButtonPrompt : MonoBehaviour {
     public void Deprompt()
     {
         renderer.enabled = false;
-        audio.PlayOneShot (farewell);
+        audio.PlayOneShot (deprompt);
     }
 }

@@ -2,45 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public enum PMType
-{
-    Player,
-    Neutral,
-    Unconditioned,
-    Response
-}
-
-public static class PsyData
-{
-    public static Transform parent;
-    public static GameObject menuhex;
-}
-
 public class HexModeController : MonoBehaviour
 {
     enum MenuStage
     {
-        Player,
+        Init,
+        Inventory,
         Target,
-        Environment,
         Apply
     }
-    public GameObject Player;
     public GameObject MenuHex;
-    public GameObject[] Others;
-    public GameObject[] Neutrals;
-    public GameObject[] Environmentals;
-    public GameObject[] Responses;
     GameObject[] inventory;
     float localScalar = 0;
 
     float antiScalar { get { return 1.0f - localScalar; } }
 
     Color c = new Color(0, 0, 1.0f, 0.6f);
-    List<HexItem> hexItems = new List<HexItem>();
-    PsyMenu nMenu, uMenu;
+    PsyMenu nMenu;
     PsyMenu[] tMenus;
-    MenuStage  stage = MenuStage.Player;
+    MenuStage  stage = MenuStage.Init;
     bool cooling;
     bool psyOn;
     int menuTarget = -1;
@@ -50,22 +30,8 @@ public class HexModeController : MonoBehaviour
 
     void Start()
     {
-        PsyData.parent = this.transform;
-        PsyData.menuhex = MenuHex;
         nMenu = new PsyMenu(3);
         nMenu.hex.name = "Player Menu";
-        uMenu = new PsyMenu(3);
-        uMenu.hex.name = "Environemnt Menu";
-        tMenus = new PsyMenu[Others.Length];
-        for (int i = 0; i < tMenus.Length; i++)
-        {
-            tMenus [i] = new PsyMenu(6);
-            tMenus [i].hex.name = Others [i].name + " Menu";
-        }
-
-        hexItems.Add(new HexItem(Neutrals [0], PMType.Neutral));
-        hexItems.Add(new HexItem(Environmentals [0], PMType.Unconditioned));
-        hexItems.Add(new HexItem(Responses [0], PMType.Response));
 
         CloseMenu();
         inventory = InventoryManager.data.inventories [0].GetItemObjects(); 
@@ -100,8 +66,6 @@ public class HexModeController : MonoBehaviour
                 }
                 ShowSelection();
                 SetPositions();
-                for (int i = 0; i < hexItems.Count; i++)
-                    hexItems [i].Scale(localScalar);
             }
         } else
         {
@@ -116,16 +80,14 @@ public class HexModeController : MonoBehaviour
     #region Update Functions
     void SetPositions()
     {
-        nMenu.position = Player.transform.position.ToVector2();
+        //nMenu.position = Player.transform.position.ToVector2();
         nMenu.RoundMenuAnimate();
-        uMenu.position = cam.ScreenToWorldPoint(new Vector3(Screen.width * 0.03f, Screen.height * 0.93f, 10));
-        uMenu.BoxMenuAnimate();
-        for (int i = 0; i < Others.Length; i++)
-            if (Others [i])
-            {
-                tMenus [i].position = Others [i].transform.position.ToVector2();
-                tMenus [i].RoundMenuAnimate();
-            }
+        //for (int i = 0; i < Others.Length; i++)
+        // if (Others [i])
+        // {
+        //      tMenus [i].position = Others [i].transform.position.ToVector2();
+        //      tMenus [i].RoundMenuAnimate();
+        //  }
     }
     #endregion
 
@@ -137,11 +99,8 @@ public class HexModeController : MonoBehaviour
             return;
         switch (stage)
         {
-            case MenuStage.Player:
+            case MenuStage.Inventory:
                 nMenu.Slots [slotTarget].Glow();
-                break;
-            case MenuStage.Environment:
-                uMenu.Slots [slotTarget].Glow();
                 break;
             case MenuStage.Apply:
                 break;
@@ -153,7 +112,6 @@ public class HexModeController : MonoBehaviour
     {
         slotTarget = 0;
         cooling = true;
-        uMenu.Cool();
         nMenu.Cool();
         for (int i = 0; i < tMenus.Length; i++)
             tMenus [i].Cool();
@@ -165,8 +123,8 @@ public class HexModeController : MonoBehaviour
         cooling = false;
         menuTarget = -1;
         slotTarget = 0;
-        for (int i = 0; i < Others.Length; i++)
-            tMenus [i].position = Others [i].transform.position.ToVector2();
+        //for (int i = 0; i < Others.Length; i++)
+        //    tMenus [i].position = Others [i].transform.position.ToVector2();
         for (int i = 0; i < tMenus.Length; i++)
             if (isTargetOnScreen(i))
             {
@@ -175,12 +133,8 @@ public class HexModeController : MonoBehaviour
             }
         if (menuTarget > -1)
         {
-            for (int i = 0; i < hexItems.Count; i++)
-                hexItems [i].SetActive(true);
             nMenu.Open();
             nMenu.Select();
-            uMenu.Open();
-            uMenu.Select();
             for (int i = 0; i < tMenus.Length; i++)
             {
                 tMenus [i].SetActive(true);
@@ -190,7 +144,7 @@ public class HexModeController : MonoBehaviour
             tMenus [menuTarget].Open();
             SetPositions();
         }
-        stage = MenuStage.Player;
+        stage = MenuStage.Init;
     }
     
     void CloseMenu()
@@ -198,9 +152,6 @@ public class HexModeController : MonoBehaviour
         psyOn = false;
         cooling = false;
         localScalar = 0;
-        for (int i = 0; i < hexItems.Count; i++)
-            hexItems [i].SetActive(false);
-        uMenu.Close();
         nMenu.Close();
         for (int i = 0; i < tMenus.Length; i++)
             tMenus [i].Close();
@@ -210,7 +161,7 @@ public class HexModeController : MonoBehaviour
     {
         switch (stage)
         {
-            case MenuStage.Player:
+            case MenuStage.Inventory:
                 nMenu.Slots [slotTarget].Deselect();
                 slotTarget = (slotTarget + 1) % nMenu.Slots.Length; 
                 nMenu.Slots [slotTarget].Select();
@@ -235,11 +186,6 @@ public class HexModeController : MonoBehaviour
                     menuTarget = t;
                 }
                 break;
-            case MenuStage.Environment:
-                uMenu.Slots [slotTarget].Deselect();
-                slotTarget = (slotTarget + uMenu.Slots.Length - 1) % uMenu.Slots.Length; 
-                uMenu.Slots [slotTarget].Select();
-                break;
             case MenuStage.Apply:
                 break;
         }
@@ -249,20 +195,14 @@ public class HexModeController : MonoBehaviour
     {
         switch (stage)
         {
-            case MenuStage.Player:
-                stage = MenuStage.Environment;
+            case MenuStage.Inventory:
+                stage = MenuStage.Target;
                 nMenu.Slots [slotTarget].Select();
                 nMenu.SortTo(10002);
                 slotTarget = 0;
                 break;
             case MenuStage.Target:
                 stage = MenuStage.Apply;
-                slotTarget = 0;
-                break;
-            case MenuStage.Environment:
-                stage = MenuStage.Target;
-                uMenu.Slots [slotTarget].Select();
-                uMenu.SortTo(10002);
                 slotTarget = 0;
                 break;
             case MenuStage.Apply:
@@ -274,7 +214,7 @@ public class HexModeController : MonoBehaviour
     {
         switch (stage)
         {
-            case MenuStage.Player:
+            case MenuStage.Inventory:
                 nMenu.Slots [slotTarget].Deselect();
                 slotTarget = (slotTarget + nMenu.Slots.Length - 1) % nMenu.Slots.Length; 
                 nMenu.Slots [slotTarget].Select();
@@ -298,11 +238,6 @@ public class HexModeController : MonoBehaviour
                     tMenus [t].Select();
                     menuTarget = t;
                 }
-                break;
-            case MenuStage.Environment:
-                uMenu.Slots [slotTarget].Deselect();
-                slotTarget = (slotTarget + 1) % uMenu.Slots.Length; 
-                uMenu.Slots [slotTarget].Select();
                 break;
             case MenuStage.Apply:
                 break;       
