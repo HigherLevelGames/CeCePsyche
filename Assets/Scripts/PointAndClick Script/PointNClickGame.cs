@@ -87,7 +87,7 @@ public class PointNClickGame : MonoBehaviour
             return;
         switch (action)
         {
-            case ItemActions.TuningFork:
+            case ItemActions.SqueakyToy:
                 condition.AddNeutral(act);
                 anim.SetTrigger("SetWaiting");
                 ps.PlayAudioOnce();

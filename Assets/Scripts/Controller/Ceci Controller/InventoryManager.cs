@@ -1,23 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
 public enum ItemActions
 {
     Nothing = -1,
-    TuningFork = 0, // plays a note and gets the dog's attention
+    SqueakyToy = 0, // plays a note and gets the dog's attention
     Dynamite = 1,
     DogBone = 2,
     StinkyPerfume = 3,
     ZapNectar = 4,
     Squirrel = 5
 }
+public enum CollectedFlags
+{
+    DoNotRemove = -1,
+    SqueakyToy = 0,
+    DogTreats = 1
+}
 
 public class InventoryManager : MonoBehaviour
 {
-    #region Jason Code Kingdom
+    public Collectible[] itemsInScene;
+    public Sprite[] ItemSprites;
+    public Inventory[] inventories;
+    public CollectedFlags[] collected = new CollectedFlags[8];
     private static InventoryManager _data;
-
     public static InventoryManager data
     { 
         get
@@ -31,13 +38,7 @@ public class InventoryManager : MonoBehaviour
             return _data;
         }
     }
-
-    public Sprite[] ItemSprites;
-    public Inventory[] inventories;
-
-    void OnLevelWasLoaded(int n)
-    {
-    }
+    #region Jason Code Kingdom
 
     void Awake()
     {
@@ -47,7 +48,10 @@ public class InventoryManager : MonoBehaviour
             Initialize();
             _data = this;
         } else if (_data != this)
+        {
+            _data.RemoveCollectedItemsFromScene(itemsInScene);
             Destroy(this.gameObject);
+        }
     }
 
     void Initialize()
@@ -59,6 +63,21 @@ public class InventoryManager : MonoBehaviour
     public void AddItemToInventory(int inventoryIndex, ItemActions item)
     {
         inventories [inventoryIndex].AddItem(item);
+    }
+    void RemoveCollectedItemsFromScene(Collectible[] items)
+    {
+        for (int i = 0; i < collected.Length; i++)
+        {
+            if(collected[i] != CollectedFlags.DoNotRemove)
+            {
+                for(int j = 0; j < items.Length; j++)
+                {
+                    if(items[j] != null)
+                        if(collected[i] == items[j].Flag)
+                            DestroyImmediate(items[j].gameObject);
+                }
+            }
+        }
     }
     #endregion
     #region Jodan Code Land
@@ -191,4 +210,5 @@ public class InventoryManager : MonoBehaviour
     }
  */   
     #endregion
+
 }

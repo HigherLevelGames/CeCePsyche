@@ -121,6 +121,8 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
 --- !u!224 &16924111
@@ -201,57 +203,6 @@ MonoBehaviour:
   SelectedWalkable: 0
   SelectedImpassable: 1
   PolySides: 3
---- !u!1 &83231202
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100002, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-  m_PrefabInternal: {fileID: 296804530}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 83231203}
-  - 212: {fileID: 83231204}
-  m_Layer: 0
-  m_Name: DogTreats
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &83231203
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400002, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-  m_PrefabInternal: {fileID: 296804530}
-  m_GameObject: {fileID: 83231202}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0391612053, y: -.531118155, z: 0}
-  m_LocalScale: {x: .381116837, y: .381117105, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1701667110}
-  m_RootOrder: 0
---- !u!212 &83231204
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 21200002, guid: 9175921a502752f489d75e6ec3697652,
-    type: 2}
-  m_PrefabInternal: {fileID: 296804530}
-  m_GameObject: {fileID: 83231202}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 4289664103
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: d5c13524a60f94774b7e3669a5a377aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &289099113
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
-  farewell: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
+  deprompt: {fileID: 0}
   activate: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
   DynamicText: {fileID: 1955442784}
   Text: Doggy Treats
@@ -425,54 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemType: 2
---- !u!1001 &296804530
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 9.76150036
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 4.30600023
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-      propertyPath: DynamicText
-      value: 
-      objectReference: {fileID: 1955442784}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-  m_RootGameObject: {fileID: 1701667103}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
+  Flag: 1
 --- !u!1 &437596574
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,8 +753,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11408ad05df904b0ca6b4537e7c2ef3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemPrefabs:
-  - {fileID: 100002, guid: 04adfbadeef1d2e4e865328fd84d6c77, type: 2}
+  itemsInScene:
+  - {fileID: 289099120}
+  ItemSprites: []
+  collected: 0000000000000000000000000000000000000000000000000000000000000000
 --- !u!4 &866439530
 Transform:
   m_ObjectHideFlags: 0
@@ -862,7 +768,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
 --- !u!1001 &922470408
 Prefab:
   m_ObjectHideFlags: 0
@@ -1054,7 +960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
-  farewell: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
+  deprompt: {fileID: 0}
   activate: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
   DynamicText: {fileID: 1955442784}
   Text: The water seems to be turned off
@@ -1525,6 +1431,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: 39adca5d53beb7444a83f819ec49bf38, type: 2}
+      propertyPath: itemsInScene.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 39adca5d53beb7444a83f819ec49bf38, type: 2}
       propertyPath: m_LocalPosition.x
       value: -1.68828607
@@ -1557,6 +1467,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 39adca5d53beb7444a83f819ec49bf38, type: 2}
+      propertyPath: itemsInScene.Array.data[0]
+      value: 
+      objectReference: {fileID: 289099120}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39adca5d53beb7444a83f819ec49bf38, type: 2}
   m_RootGameObject: {fileID: 866439528}
@@ -1765,179 +1679,6 @@ Transform:
   - {fileID: 1329897415}
   m_Father: {fileID: 70966747}
   m_RootOrder: 1
---- !u!1 &1701667103
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-  m_PrefabInternal: {fileID: 296804530}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1701667110}
-  - 212: {fileID: 1701667109}
-  - 114: {fileID: 1701667108}
-  - 61: {fileID: 1701667107}
-  - 82: {fileID: 1701667106}
-  - 114: {fileID: 1701667105}
-  - 114: {fileID: 1701667104}
-  m_Layer: 0
-  m_Name: PoggyDeatTrompt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1701667104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: 9175921a502752f489d75e6ec3697652,
-    type: 2}
-  m_PrefabInternal: {fileID: 296804530}
-  m_GameObject: {fileID: 1701667103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81fa64cb49210b743b095940c05f9e59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemType: 2
---- !u!114 &1701667105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 9175921a502752f489d75e6ec3697652,
-    type: 2}
-  m_PrefabInternal: {fileID: 296804530}
-  m_GameObject: {fileID: 1701667103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfcc9b9e6b0c10f40947ae06c150fe95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prompt: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
-  farewell: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
-  activate: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
-  DynamicText: {fileID: 1955442784}
-  Text: Doggy Treats
---- !u!82 &1701667106
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8200000, guid: 9175921a502752f489d75e6ec3697652,
-    type: 2}
-  m_PrefabInternal: {fileID: 296804530}
-  m_GameObject: {fileID: 1701667103}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
---- !u!61 &1701667107
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6100000, guid: 9175921a502752f489d75e6ec3697652,
-    type: 2}
-  m_PrefabInternal: {fileID: 296804530}
-  m_GameObject: {fileID: 1701667103}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Size: {x: .693827748, y: 1.50332594}
-  m_Center: {x: -.00043964386, y: -1.1241293}
---- !u!114 &1701667108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 9175921a502752f489d75e6ec3697652,
-    type: 2}
-  m_PrefabInternal: {fileID: 296804530}
-  m_GameObject: {fileID: 1701667103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 275073d4b0ccb460facb2c5bd50c490f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpriteRendererWithAlpha: {fileID: 1701667109}
-  SecondsToFade: 1
-  MinimumAlpha: 0
---- !u!212 &1701667109
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 21200000, guid: 9175921a502752f489d75e6ec3697652,
-    type: 2}
-  m_PrefabInternal: {fileID: 296804530}
-  m_GameObject: {fileID: 1701667103}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 4077982813
-  m_SortingOrder: 12000
-  m_Sprite: {fileID: 21300000, guid: 569be794a3007b74eb9ce72b8176b1e8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &1701667110
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 9175921a502752f489d75e6ec3697652, type: 2}
-  m_PrefabInternal: {fileID: 296804530}
-  m_GameObject: {fileID: 1701667103}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.0690002, y: 4.30600023, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_Children:
-  - {fileID: 83231203}
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
 --- !u!1 &1750863043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,7 +1726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
-  farewell: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
+  deprompt: {fileID: 0}
   activate: {fileID: 8300000, guid: 66da6cfbe345a4bbda52bc5f1859ae3b, type: 3}
   DynamicText: {fileID: 1955442784}
   Text: Living Room
@@ -2232,7 +1973,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mat: {fileID: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: .142733559, g: .361099511, b: .404411793, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -2412,6 +2153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
 --- !u!4 &2008663997
 Transform:
   m_ObjectHideFlags: 0
