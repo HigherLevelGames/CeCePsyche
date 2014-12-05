@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class MiniGameController : InGameButtonPrompt
+public class MiniGameController : FloatingTextPrompt
 {
     enum MiniGameState
     {

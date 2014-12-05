@@ -12,7 +12,7 @@ public class HexModeController : MonoBehaviour
         Apply
     }
     public GameObject MenuHex;
-    GameObject[] inventory;
+    Inventory inventory;
     float localScalar = 0;
 
     float antiScalar { get { return 1.0f - localScalar; } }
@@ -34,7 +34,7 @@ public class HexModeController : MonoBehaviour
         nMenu.hex.name = "Player Menu";
 
         CloseMenu();
-        inventory = InventoryManager.data.inventories [0].GetItemObjects(); 
+        inventory = InventoryManager.data.inventories [0]; 
         cam = this.GetComponentInParent<Camera>();
         bgrender = this.GetComponentInChildren<SpriteRenderer>();
         bgrender.color = new Color(c.r, c.g, c.b, c.a * antiScalar);

@@ -15,21 +15,21 @@ public class Inventory
         Items.Add(item);
     }
 
-    public GameObject GetItem(int idx)
+    public Sprite GetItemSprite(int idx)
     {
         if (idx < 0 || idx > Items.Count - 1)
         {
             Debug.Log(this.ToString() + " : Item index " + idx.ToString() + " not found.");
             return null;
         }
-        return GameObject.Instantiate(InventoryManager.data.ItemPrefabs[(int)Items[idx]]) as GameObject;
+        return InventoryManager.data.ItemSprites[(int)Items[idx]];
     }
-    public GameObject[] GetItemObjects()
+    public Sprite[] GetItemSprites()
     {
-        List<GameObject> temp = new List<GameObject>();
+        List<Sprite> temp = new List<Sprite>();
         for (int i = 0; i < Items.Count; i++)
         {
-            temp.Add(GetItem(i));
+            temp.Add(GetItemSprite(i));
         }
         return temp.ToArray();
     }

@@ -32,7 +32,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public GameObject[] ItemPrefabs;
+    public Sprite[] ItemSprites;
     public Inventory[] inventories;
 
     void OnLevelWasLoaded(int n)
@@ -59,10 +59,6 @@ public class InventoryManager : MonoBehaviour
     public void AddItemToInventory(int inventoryIndex, ItemActions item)
     {
         inventories [inventoryIndex].AddItem(item);
-    }
-    public GameObject GetItemPrefab(ItemActions item)
-    {
-        return ItemPrefabs [(int)item];
     }
     #endregion
     #region Jodan Code Land

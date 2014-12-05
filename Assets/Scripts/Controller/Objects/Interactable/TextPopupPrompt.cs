@@ -18,7 +18,7 @@ public class TextPopupPrompt : InGameButtonPrompt
     void Update()
     {
         if (renderer.enabled) 
-        if (Input.GetKeyDown(KeyCode.E))
+            if (RebindableInput.GetKey("Interact"))
             OpenText();
         PositionText();
     }

@@ -17,7 +17,7 @@ TextureImporter:
     21300024: CCImages_11
     21300026: CCImages_12
     21300028: CCImages_13
-    21300030: CCImages_14
+    21300030: dogbone
     21300032: CCImages_15
     21300034: CCImages_16
     21300036: CCImages_17
@@ -209,7 +209,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CCImages_14
+    - name: dogbone
       rect:
         serializedVersion: 2
         x: 33
