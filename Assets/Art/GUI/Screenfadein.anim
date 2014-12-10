@@ -77,18 +77,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: .988764048
-        inSlope: -.247300148
-        outSlope: -.247300148
-        tangentMode: 10
-      - time: .850000024
-        value: .77855891
-        inSlope: -.731028855
-        outSlope: -.731028855
+        inSlope: -.666592598
+        outSlope: -.666592598
         tangentMode: 10
       - time: 1.50016665
         value: -.0112359524
-        inSlope: -1.21475756
-        outSlope: -1.21475756
+        inSlope: -.666592598
+        outSlope: -.666592598
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -209,18 +204,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: .988764048
-        inSlope: -.247300148
-        outSlope: -.247300148
-        tangentMode: 10
-      - time: .850000024
-        value: .77855891
-        inSlope: -.731028855
-        outSlope: -.731028855
+        inSlope: -.666592598
+        outSlope: -.666592598
         tangentMode: 10
       - time: 1.50016665
         value: -.0112359524
-        inSlope: -1.21475756
-        outSlope: -1.21475756
+        inSlope: -.666592598
+        outSlope: -.666592598
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -229,4 +219,11 @@ AnimationClip:
     classID: 114
     script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_EulerEditorCurves: []
-  m_Events: []
+  m_Events:
+  - time: 1.48333335
+    functionName: TransitionFinish
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

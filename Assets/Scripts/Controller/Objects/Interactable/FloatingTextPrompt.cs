@@ -5,14 +5,15 @@ using System.Collections;
 public class FloatingTextPrompt : InGameButtonPrompt
 {
     
-    public Text DynamicText;
+    Text dynamicText;
     public string Text;
     bool isOpen;
     Vector2 viewportPosition;
 
     void Start()
     {
-        DynamicText.text = string.Empty;
+        dynamicText = CanvasManager.data.DynamicText;
+        dynamicText.text = string.Empty;
     }
     
     void Update()
@@ -27,7 +28,7 @@ public class FloatingTextPrompt : InGameButtonPrompt
     {
         IInteractable inter = (IInteractable)GetComponent(typeof(IInteractable));
         inter.Interact();
-        DynamicText.text = string.Empty;
+        dynamicText.text = string.Empty;
         isOpen = false;
     }
 
@@ -41,23 +42,23 @@ public class FloatingTextPrompt : InGameButtonPrompt
             viewportPosition.x = Mathf.Clamp(viewportPosition.x, 0.1f, 0.9f);
             float x1 = viewportPosition.x - 0.45f;
             float x2 = viewportPosition.x + 0.45f;
-            DynamicText.rectTransform.anchorMin = new Vector2(x1, viewportPosition.y - 0.2f);
-            DynamicText.rectTransform.anchorMax = new Vector2(x2, viewportPosition.y + 0.2f);
-            DynamicText.rectTransform.offsetMin = Vector2.zero;
-            DynamicText.rectTransform.offsetMax = Vector2.zero;
+            dynamicText.rectTransform.anchorMin = new Vector2(x1, viewportPosition.y - 0.2f);
+            dynamicText.rectTransform.anchorMax = new Vector2(x2, viewportPosition.y + 0.2f);
+            dynamicText.rectTransform.offsetMin = Vector2.zero;
+            dynamicText.rectTransform.offsetMax = Vector2.zero;
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        DynamicText.text = Text;
+        dynamicText.text = Text;
         isOpen = true;
         Prompt();
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        DynamicText.text = string.Empty;
+        dynamicText.text = string.Empty;
         isOpen = false;
         Deprompt();
     }

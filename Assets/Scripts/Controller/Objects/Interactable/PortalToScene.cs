@@ -8,25 +8,9 @@ public class PortalToScene : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        GoToNextArea();
-    }
-
-    void GoToNextArea()
-    {
-        if (sceneNumber > -1)
-        {
-            Application.LoadLevel(sceneNumber);
-            return;
-        } else
-        {
-            if (sceneName != string.Empty)
-            {
-                Application.LoadLevel(sceneName);
-                return;
-            }
-            Debug.Log("The level was unable to be loaded due to impossible load name or number");
-        }
-
-    }
-    
+        GameStateManager.data.levelnum = sceneNumber;
+        GameStateManager.data.levelname = sceneName;
+        CanvasManager.data.StartTransition();
+        Destroy(this.gameObject);
+    }    
 }

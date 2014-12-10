@@ -13,7 +13,6 @@ public class MiniGameController : FloatingTextPrompt
         Losing
     }
     MiniGameState state = MiniGameState.Uninitialized;
-    public Canvas MasterCanvas;
     public Camera MiniGameCamera;
     public Camera GameCamera;
     public GameObject Ceci;
@@ -31,10 +30,8 @@ public class MiniGameController : FloatingTextPrompt
     {
         Game = MiniGameCamera.gameObject;
         GameController = Game.GetComponent<PointNClickGame>();
-        GameController.pointAndClickCanvas = MasterCanvas;
-        Text[] texts = MasterCanvas.GetComponentsInChildren<Text>();
-        textPrompt = texts [0];
-        hint = texts [1];
+        textPrompt = CanvasManager.data.PromptText;
+        hint = CanvasManager.data.HintText;
         textPrompt.text = "";
         hint.text = "";
     }

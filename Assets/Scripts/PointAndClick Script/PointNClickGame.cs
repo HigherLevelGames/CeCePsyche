@@ -12,7 +12,6 @@ public class PointNClickGame : MonoBehaviour
         WinConditionMet;
     public GameObject ConditionableCharacter;
     public GameObject[] OtherCharacters;
-    public Canvas pointAndClickCanvas;
     public bool ClickToMove = false;
     Conditionable condition;
     Inventory inventory;
