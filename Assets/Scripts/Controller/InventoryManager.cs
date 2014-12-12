@@ -41,7 +41,7 @@ public class InventoryManager : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
-        itemsInScene = FindObjectsOfType<Collectible>();
+        itemsInScene = FindObjectsOfType<Collectible>(); // Load from serialized data
         RemoveCollectedItemsFromScene();
     }
 

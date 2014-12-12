@@ -22,7 +22,6 @@ public class TextPopupPrompt : InGameButtonPrompt
             if (RebindableInput.GetKeyDown("Interact"))
             {
                 showText = true;
-                Debug.Log(isOpen);
                 Activate();
                 DynamicText.text = Text;
             }

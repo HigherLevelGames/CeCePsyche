@@ -19,9 +19,6 @@ public class CanvasManager : MonoBehaviour
     {
         if (data == null)
             data = this;
-    }
-    void Start()
-    {
         Tray.UpdateTray();
     }
     public void StartTransition()

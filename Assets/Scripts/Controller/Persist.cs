@@ -4,7 +4,7 @@ using System.Collections;
 public class Persist : MonoBehaviour
 {
     static Persist singleton;
-    void OnLevelWasLoaded(int level)
+    void Awake()
     {
         if (singleton == null)
         {
