@@ -24,15 +24,6 @@ public class Inventory
         }
         return InventoryManager.data.ItemSprites[(int)Items[idx]];
     }
-    public Sprite[] GetItemSprites()
-    {
-        List<Sprite> temp = new List<Sprite>();
-        for (int i = 0; i < Items.Count; i++)
-        {
-            temp.Add(GetItemSprite(i));
-        }
-        return temp.ToArray();
-    }
 }
 
 

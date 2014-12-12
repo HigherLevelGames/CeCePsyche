@@ -4,23 +4,32 @@ using System.Collections;
 
 public class BookButtonPrompt : InGameButtonPrompt
 {
-    public Text bookText;
-    public Image bookImage;
+
     public string Title;
     public string[] Pages;
+    Text bookText;
+    Image bookImage;
     int page;
 
     void Start()
     {
+        bookImage = CanvasManager.data.BookImage;
+        bookText = CanvasManager.data.BookText;
         bookText.text = string.Empty;
         bookImage.enabled = false;
     }
 
     void Update()
     {
-        if (renderer.enabled) 
-        if (Input.GetKeyDown(KeyCode.E))
-            OpenBook();
+        if (isOpen)
+        {
+            if (RebindableInput.GetKeyDown("Interact"))
+            {
+                OpenBook();
+                return;
+            }
+            PositionPrompt();
+        }
     }
 
     void OpenBook()

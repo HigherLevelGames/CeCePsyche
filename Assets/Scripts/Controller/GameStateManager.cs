@@ -13,20 +13,10 @@ public class GameStateManager : MonoBehaviour
 {
     #region Singleton Initialization
     public static GameStateManager data;
-
-    void Initialize()
-    {
-
-    }
-
     void Awake()
     {
         if (data == null)
-        {
-            DontDestroyOnLoad(this);
-            Initialize();
             data = this;
-        } 
     }
     #endregion
     public GameState state;

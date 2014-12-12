@@ -4,8 +4,7 @@ using System.Collections;
 
 public class TrayCheck : MonoBehaviour
 {
-
-    void OnEnable()
+    public void UpdateTray()
     {
         for (int i = 0; i < transform.childCount; i++)
         {

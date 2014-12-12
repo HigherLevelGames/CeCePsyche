@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class MiniGameController : FloatingTextPrompt
+public class MiniGameController : MonoBehaviour, IInteractable
 {
     enum MiniGameState
     {
@@ -40,11 +40,6 @@ public class MiniGameController : FloatingTextPrompt
     {
         switch (state)
         {
-            case MiniGameState.Uninitialized:
-                if (renderer.enabled)
-                if (Input.GetKeyDown(KeyCode.E))
-                    BeginPrompt();
-                break;
             case MiniGameState.Prompting:
                 timer -= Time.deltaTime;
                 if (timer < 0 || Input.GetMouseButtonDown(0))
@@ -70,9 +65,13 @@ public class MiniGameController : FloatingTextPrompt
 
         }
     }
-
+    public void Interact()
+    {
+        BeginPrompt();
+    }
     void BeginPrompt()
     {
+
         timer = promptTimeLimit;
         GameCamera.enabled = false;
         GameController.Reset();

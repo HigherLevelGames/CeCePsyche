@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
 public enum ItemActions
 {
     Nothing = -1,
@@ -11,6 +12,7 @@ public enum ItemActions
     ZapNectar = 4,
     Squirrel = 5
 }
+
 public enum CollectedFlags
 {
     DoNotRemove = -1,
@@ -20,62 +22,45 @@ public enum CollectedFlags
 
 public class InventoryManager : MonoBehaviour
 {
-    public Collectible[] itemsInScene;
+
     public Sprite[] ItemSprites;
     public Inventory[] inventories;
-    public CollectedFlags[] collected = new CollectedFlags[8];
-    private static InventoryManager _data;
-    public static InventoryManager data
-    { 
-        get
-        {
-            if (_data == null)
-            {
-                _data = GameObject.FindObjectOfType<InventoryManager>(); 
-                DontDestroyOnLoad(_data);
-                InventoryManager._data.Initialize();
-            }
-            return _data;
-        }
-    }
+    public static InventoryManager data;
+    List<CollectedFlags> collected = new List<CollectedFlags>();
+    Collectible[] itemsInScene;
     #region Jason Code Kingdom
-
     void Awake()
     {
-        if (_data == null)
+        if (data == null)
         {
-            DontDestroyOnLoad(this);
-            Initialize();
-            _data = this;
-        } else if (_data != this)
-        {
-            _data.RemoveCollectedItemsFromScene(itemsInScene);
-            Destroy(this.gameObject);
+            data = this;
+            inventories = new Inventory[1];
+            inventories [0] = new Inventory();
         }
     }
 
-    void Initialize()
+    void OnLevelWasLoaded(int level)
     {
-        inventories = new Inventory[1];
-        inventories [0] = new Inventory();
+        itemsInScene = FindObjectsOfType<Collectible>();
+        RemoveCollectedItemsFromScene();
     }
 
-    public void AddItemToInventory(int inventoryIndex, ItemActions item)
+    public void AddItemToInventory(int inventoryIndex, ItemActions item, CollectedFlags flag)
     {
+        if ((int)flag > -1)
+            collected.Add(flag);
         inventories [inventoryIndex].AddItem(item);
+        CanvasManager.data.Tray.UpdateTray();
     }
-    void RemoveCollectedItemsFromScene(Collectible[] items)
+
+    void RemoveCollectedItemsFromScene()
     {
-        for (int i = 0; i < collected.Length; i++)
+        for (int i = 0; i < collected.Count; i++)
         {
-            if(collected[i] != CollectedFlags.DoNotRemove)
+            for (int j = 0; j < itemsInScene.Length; j++)
             {
-                for(int j = 0; j < items.Length; j++)
-                {
-                    if(items[j] != null)
-                        if(collected[i] == items[j].Flag)
-                            DestroyImmediate(items[j].gameObject);
-                }
+                if (collected [i] == itemsInScene [j].Flag)
+                    itemsInScene [j].gameObject.SetActive(false);
             }
         }
     }
