@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using System.Collections;
 
-
 public class CanvasManager : MonoBehaviour
 {
     public static CanvasManager data;
@@ -15,12 +14,18 @@ public class CanvasManager : MonoBehaviour
     public Text PromptText;
     public Text HintText;
     public Transition transitionScript;
+
     void Awake()
     {
         if (data == null)
             data = this;
+    }
+
+    void Start()
+    {
         Tray.UpdateTray();
     }
+
     public void StartTransition()
     {
         transitionScript.TransitionOut();

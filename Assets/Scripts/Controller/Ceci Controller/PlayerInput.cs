@@ -5,6 +5,7 @@ public class PlayerInput : MonoBehaviour
     private MovementController controller;
     void Awake()
     {
+        SpawnManager.PlayerTransform = this.gameObject.transform;
         controller = GetComponent<MovementController>();
     }
     void Update()
