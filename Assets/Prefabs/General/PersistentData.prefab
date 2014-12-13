@@ -1551,8 +1551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tray: {fileID: 11400036}
-  ObjectImage: {fileID: 0}
-  ObjectText: {fileID: 0}
+  ObjectImage: {fileID: 11400042}
+  ObjectText: {fileID: 11400034}
   KeyImage: {fileID: 11400074}
   KeyText: {fileID: 11400076}
   DynamicText: {fileID: 11400028}
