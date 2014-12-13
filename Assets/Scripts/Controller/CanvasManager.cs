@@ -6,8 +6,8 @@ public class CanvasManager : MonoBehaviour
 {
     public static CanvasManager data;
     public TrayCheck Tray;
-    public Image BookImage;
-    public Text BookText;
+    public Image ObjectImage;
+    public Text ObjectText;
     public Image KeyImage;
     public Text KeyText;
     public Text DynamicText;
