@@ -1,25 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class AlphaGlow : MonoBehaviour {
-	public SpriteRenderer SpriteRendererWithAlpha;
+
 	public float SecondsToFade = 1.0f;
-	public float MinimumAlpha = 0.0f;
+
+    CanvasGroup group;
 	float frame;
-	// Use this for initialization
+    float oneoverseconds;
 	void Start () {
+        group = this.GetComponent<CanvasGroup>();
 		frame = SecondsToFade;
+        oneoverseconds = (float)1 / SecondsToFade;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		SecondsToFade = Mathf.Max (SecondsToFade, 0.1f);
-		frame -= Time.deltaTime;
-		if (frame < -SecondsToFade)
-						frame += SecondsToFade * 2;
-		float newAlpha = MinimumAlpha + (1 - MinimumAlpha) * (Mathf.Abs (frame) / SecondsToFade);
-		Color c = SpriteRendererWithAlpha.color;
-		c = new Color (c.r, c.g, c.b, newAlpha);
-		SpriteRendererWithAlpha.color = c;
+		frame += Time.deltaTime;
+		if (frame > SecondsToFade)
+						frame -= SecondsToFade;
+		float a =  frame * oneoverseconds;
+        float newAlpha = Mathf.Sin(a * Mathf.PI);
+        group.alpha = newAlpha;
 	}
 }
