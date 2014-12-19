@@ -216,7 +216,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ffb44d40c27284f638fe05a4050ce4d1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.27999997
+      value: -1.49619997
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ffb44d40c27284f638fe05a4050ce4d1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -240,7 +240,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ffb44d40c27284f638fe05a4050ce4d1, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: ffb44d40c27284f638fe05a4050ce4d1, type: 2}
       propertyPath: m_SortingLayerID
@@ -557,8 +557,6 @@ GameObject:
   - 114: {fileID: 712680027}
   - 114: {fileID: 712680030}
   - 114: {fileID: 712680028}
-  - 114: {fileID: 712680025}
-  - 114: {fileID: 712680024}
   m_Layer: 0
   m_Name: CeCi
   m_TagString: Player
@@ -579,7 +577,7 @@ Transform:
   - {fileID: 1271784886}
   - {fileID: 323295032}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &712680021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,34 +626,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundPos: -5
---- !u!114 &712680024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400012, guid: 0499fb95d4894485aadb1be5596fbc4d,
-    type: 2}
-  m_PrefabInternal: {fileID: 448653161}
-  m_GameObject: {fileID: 712680019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11408ad05df904b0ca6b4537e7c2ef3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemPrefabs: []
-  CharactersWithInventory:
-  - {fileID: 712680025}
---- !u!114 &712680025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400014, guid: 0499fb95d4894485aadb1be5596fbc4d,
-    type: 2}
-  m_PrefabInternal: {fileID: 448653161}
-  m_GameObject: {fileID: 712680019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1934f4966abf0f9459c39290f23ea6b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Items: 
 --- !u!114 &712680026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,11 +1009,11 @@ Transform:
   m_PrefabInternal: {fileID: 226826320}
   m_GameObject: {fileID: 967843620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.61000013, y: -2.27999997, z: 0}
+  m_LocalPosition: {x: 4.61000013, y: -1.49619997, z: 0}
   m_LocalScale: {x: .555137575, y: .555137873, z: .555137873}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &970300515
 GameObject:
   m_ObjectHideFlags: 0
