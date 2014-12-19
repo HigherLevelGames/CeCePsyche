@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: DogSleep_0
+  m_Name: Nattie
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: TrigWake
@@ -376,9 +376,9 @@ StateMachine:
       second:
       - {fileID: 110100000}
     data:
-      first: {fileID: 110283997}
+      first: {fileID: 110219541}
       second:
-      - {fileID: 110192486}
+      - {fileID: 110194593}
     data:
       first: {fileID: 110222756}
       second:
@@ -386,17 +386,17 @@ StateMachine:
       - {fileID: 110189814}
       - {fileID: 110178151}
     data:
-      first: {fileID: 110219541}
+      first: {fileID: 110238371}
       second:
-      - {fileID: 110194593}
+      - {fileID: 110176966}
     data:
       first: {fileID: 110256272}
       second:
       - {fileID: 110124744}
     data:
-      first: {fileID: 110238371}
+      first: {fileID: 110283997}
       second:
-      - {fileID: 110176966}
+      - {fileID: 110192486}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -12, y: -84, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
