@@ -5,28 +5,29 @@ using System.Collections;
 public class MovementController : MonoBehaviour
 {
     #region Speed Variables
-	public float MaxHSpeed = 10.0f;// The fastest the player can travel in the x axis.
+	public float MaxHSpeed = 10.0f; // The fastest the player can travel in the x axis.
+	public float moveForce = 100f; // Amount of force added to move the player left and right.
 	public float ClimbSpeed = 10.0f;
-    public float JumpSpeed = 10.0f; // Amount of force added when the player jumps.
-	public float VarJumpTime = 0.5f;//half a second, how long player can hold down jump key
-    public float MaxFallSpeed = -1000.0f;
-	public float moveForce = 100f;			// Amount of force added to move the player left and right.
+    public float JumpSpeed = 15.0f; // Amount of force added when the player jumps.
+	public float VarJumpTime = 0.5f; // half a second, how long player can hold down jump key
+    public float MaxFallSpeed = -100.0f;
+	public float myGravity = 5.0f; // actual gravity, needs to be set each fixedUpdate() for rigidbody2d
 	#endregion
 
     public bool isFacingRight = true; // default, public for Anger Ability to reference
 	private Quaternion reverseRotation = new Quaternion(0.0f, 180.0f, 0.0f, 0.0f);
 
     #region Remote Controls
-    public bool Left, Right;
-    public bool UpPress, UpHold, UpRelease, PrevUp;
+    public bool Left, Right; // hmovement
+    public bool UpPress, UpHold, UpRelease, PrevUp; // jump
     public bool Up, Down; // ladder
     #endregion
 
     #region 2D Platformer physics
-    private Vector2 prevPos = Vector2.zero;
-    private Vector2 newPos = Vector2.zero;
-    public Vector2 velocity = Vector2.zero;
-    private GroundDetect checker = new GroundDetect();
+	//float friction = 1.0f;
+    public Vector2 velocity = Vector2.zero; // to show rigidbody2d.velocity in inspector
+	private Vector2 prevPos = Vector2.zero; // to figure out hspeed and vspeed for CeciAnimControl.cs
+	private GroundDetect checker = new GroundDetect();
 	#endregion
 
     #region climbing variables
@@ -44,7 +45,7 @@ public class MovementController : MonoBehaviour
         Jumping, // moving upwards
         Falling, // moving downwards
     }
-    public CState state = CState.Grounded;// so can see in inspector
+    public CState state = CState.Grounded; // public so we can see current state in inspector
     
     // Variable Jump Variables
     private bool CanVarJump = true;
@@ -72,8 +73,8 @@ public class MovementController : MonoBehaviour
     {
         get
         {
-            if (isGrounded || Mathf.Abs(transform.position.y - prevPos.y) < 0.05f)
-            { // if(isGrounded || velocity.y == 0.0f)
+            if (isGrounded || Mathf.Abs(transform.position.y - prevPos.y) < 0.005f)
+			{ // if(isGrounded || velocity.y == 0.0f) {
                 return 0;
             } else
             {
@@ -99,8 +100,6 @@ public class MovementController : MonoBehaviour
         this.rigidbody2D.isKinematic = false;
         state = CState.Jumping;
     }
-
-    float friction = 1.0f;
 
 	/*
 	void JumpControl()
@@ -141,19 +140,21 @@ public class MovementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 position = prevPos = transform.position;
-		velocity = rigidbody2D.velocity;
+        //Vector3 position = 
+		prevPos = transform.position; // to figure out hspeed and vspeed for CeciAnimControl.cs
+		velocity = rigidbody2D.velocity; // to show in inspector
         float dt = Time.fixedDeltaTime;
 
 		#region Player Controls
 		if(checker.check(transform))
 		{
 			state = CState.Grounded;
+			rigidbody2D.gravityScale = 0.5f;
 		}
 		else if(!isClimbing) // fall
 		{
-			state = CState.Falling;
-			rigidbody2D.AddForce(new Vector2(0.0f,-0.5f*moveForce));
+			state = CState.Falling; // to show in inspector
+			rigidbody2D.gravityScale = myGravity;
 		}
 		
 		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
@@ -161,37 +162,37 @@ public class MovementController : MonoBehaviour
 		if(h * rigidbody2D.velocity.x < MaxHSpeed)
 		{
 			// ... add a force to the player.
-			rigidbody2D.AddForce(Vector2.right * h * moveForce);
+			rigidbody2D.AddRelativeForce(Vector2.right * h * moveForce);
 		}
 
 		if(isClimbing)
 		{
 			if(Up)
 			{
-				this.transform.position += Vector3.up * ClimbSpeed * dt;
-				//rigidbody2D.AddForce(Vector2.up * ClimbSpeed*moveForce);
+				rigidbody2D.MovePosition(rigidbody2D.position + Vector2.up * ClimbSpeed * dt);
+				//this.transform.position += Vector3.up * ClimbSpeed * dt;
 			}
 			if(Down)
 			{
-				this.transform.position += Vector3.down * ClimbSpeed * dt;
-				//rigidbody2D.AddForce(-Vector2.up * ClimbSpeed*moveForce);
+				rigidbody2D.MovePosition(rigidbody2D.position - Vector2.up * ClimbSpeed * dt);
+				//this.transform.position += Vector3.down * ClimbSpeed * dt;
 			}
 
-			// need so Ceci can go on and off the ladder
-			if(Left)
-			{
-				this.transform.position += Vector3.left * ClimbSpeed * dt;
-			}
+			// need so Ceci can get on and off the ladder
 			if(Right)
 			{
-				this.transform.position += Vector3.right * ClimbSpeed * dt;
+				rigidbody2D.MovePosition(rigidbody2D.position + Vector2.right * ClimbSpeed * dt);
+				//this.transform.position += Vector3.right * ClimbSpeed * dt;
+			}
+			if(Left)
+			{
+				rigidbody2D.MovePosition(rigidbody2D.position - Vector2.right * ClimbSpeed * dt);
+				//this.transform.position += Vector3.left * ClimbSpeed * dt;
 			}
 		}
-		else
+		else if (state == CState.Grounded && UpPress)
 		{
-			// Jump
-			if (state == CState.Grounded && UpPress)
-				Jump();
+			Jump();
 		}
 		#endregion
 
@@ -219,13 +220,11 @@ public class MovementController : MonoBehaviour
         else
             this.transform.rotation = reverseRotation;
         #endregion
-
-        PrevUp = UpPress;
     }
 
     void Jump()
     {
-		rigidbody2D.AddForce(Vector2.up * JumpSpeed * moveForce);
+		rigidbody2D.AddRelativeForce(Vector2.up * JumpSpeed, ForceMode2D.Impulse);
         state = CState.Jumping;
     }
 
@@ -239,19 +238,7 @@ public class MovementController : MonoBehaviour
 			isStartClimb = true;
         }
     }
-	/*
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        lockVertical = true;
-        lockHorizontal = true;
-    }
 
-    void OnCollisionExit2D(Collision2D col)
-    {
-        lockVertical = false;
-        lockHorizontal = false;
-    }
-    */
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.tag == "Ladder")

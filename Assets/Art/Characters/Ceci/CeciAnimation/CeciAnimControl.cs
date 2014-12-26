@@ -38,12 +38,21 @@ public class CeciAnimControl : MonoBehaviour
 		//anim.SetBool("floating", emoControl.isFloating);
 		anim.SetBool("climbing", moveControl.isClimbing);
 		anim.SetBool("startClimbing", moveControl.isStartClimb);
-		
+
 		AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 		if(stateInfo.nameHash == climbingStateHash && moveControl.vSpeed == 0.0f)
 		{
 			anim.speed = 0.0f;
-		}
+		}/*
+		else if(stateInfo.nameHash == climbingStateHash && moveControl.vSpeed < 0.0f)
+		{
+			anim.speed = -1.0f;
+			//Debug.Log(anim.animation["Ceci_Climb"].wrapMode);//"Hi");
+			//anim.animation["Ceci_Climb"].time = animation["Ceci_Climb"].length;
+			//anim.animation["Ceci_Climb"].speed = -1;
+			//anim.animation.Play("Ceci_Climb");
+			//anim.animation["Base Layer.Ceci_Climbing"].wrapMode = WrapMode.PingPong;
+		}*/
 		else
 		{
 			anim.speed = 1.0f;

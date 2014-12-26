@@ -11,7 +11,7 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         // Left and Right Stuff
-        int rawH = RebindableInput.GetAxis("Horizontal");
+		int rawH = RebindableInput.GetAxis("Horizontal");
         controller.Right = rawH > 0;
         controller.Left = rawH < 0;
         if(controller.Right || controller.Left) // check needed in case standing still
@@ -25,10 +25,12 @@ public class PlayerInput : MonoBehaviour
         controller.Down = rawV < 0;
         
         // Jumping Stuff
-        bool pressJump = RebindableInput.GetKeyDown("Jump");
-        controller.UpPress = controller.Up || pressJump;
-        controller.UpHold = controller.UpPress && (controller.PrevUp == controller.UpPress);
-        controller.UpRelease = !controller.UpPress && controller.PrevUp;
+		//bool pressJump = RebindableInput.GetKeyDown("Jump");
+		controller.Up |= RebindableInput.GetKey("Jump");
+		controller.UpPress = controller.Up && !controller.PrevUp;// || pressJump;
+        controller.UpHold = controller.Up && (controller.PrevUp == controller.Up);
+        controller.UpRelease = !controller.Up && controller.PrevUp;
+		controller.PrevUp = controller.Up;
     }
 }
 
