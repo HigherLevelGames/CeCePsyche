@@ -1,15 +1,19 @@
 fileFormatVersion: 2
-guid: a9bdf63af7459460d88e9bd1150bd565
+guid: e3061d84676ed4cde90c45f0a1032575
 TextureImporter:
   fileIDToRecycleName:
-    21300000: DogSleep_0
-    21300002: DogSleep_1
-    21300004: DogSleep_2
-    21300006: DogSleep_3
+    21300000: Dog_StandIDLE_0
+    21300002: Dog_StandIDLE_1
+    21300004: Dog_StandIDLE_2
+    21300006: Dog_StandIDLE_3
+    21300008: Dog_StandIDLE_4
+    21300010: Dog_StandIDLE_5
+    21300012: Dog_StandIDLE_6
+    21300014: Dog_StandIDLE_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -47,41 +51,81 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: DogSleep_0
+    - name: Dog_StandIDLE_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 628
+        y: 1652
         width: 492
         height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: DogSleep_1
+    - name: Dog_StandIDLE_1
       rect:
         serializedVersion: 2
         x: 492
-        y: 628
+        y: 1652
         width: 492
         height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: DogSleep_2
+    - name: Dog_StandIDLE_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 232
+        y: 1256
         width: 492
         height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: DogSleep_3
+    - name: Dog_StandIDLE_3
       rect:
         serializedVersion: 2
         x: 492
-        y: 232
+        y: 1256
+        width: 492
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Dog_StandIDLE_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 860
+        width: 492
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Dog_StandIDLE_5
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 860
+        width: 492
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Dog_StandIDLE_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 464
+        width: 492
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Dog_StandIDLE_7
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 464
         width: 492
         height: 396
       alignment: 0

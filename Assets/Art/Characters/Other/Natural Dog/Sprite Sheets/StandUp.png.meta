@@ -53,29 +53,29 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 513
-        width: 649
-        height: 511
+        y: 1652
+        width: 492
+        height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: StandUp_1
       rect:
         serializedVersion: 2
-        x: 649
-        y: 513
-        width: 649
-        height: 511
+        x: 0
+        y: 1256
+        width: 492
+        height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: StandUp_2
       rect:
         serializedVersion: 2
-        x: 1298
-        y: 513
-        width: 649
-        height: 511
+        x: 0
+        y: 860
+        width: 492
+        height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -83,29 +83,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 649
-        height: 511
+        y: 464
+        width: 492
+        height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: StandUp_4
       rect:
         serializedVersion: 2
-        x: 649
-        y: 2
-        width: 649
-        height: 511
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: StandUp_5
-      rect:
-        serializedVersion: 2
-        x: 1298
-        y: 2
-        width: 649
-        height: 511
+        x: 0
+        y: 68
+        width: 492
+        height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

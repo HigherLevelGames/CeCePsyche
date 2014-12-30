@@ -51,19 +51,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1537
-        width: 649
-        height: 511
+        y: 628
+        width: 492
+        height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: DogWakeUp_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1026
-        width: 649
-        height: 511
+        x: 492
+        y: 628
+        width: 492
+        height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -71,19 +71,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 515
-        width: 649
-        height: 511
+        y: 232
+        width: 492
+        height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: DogWakeUp_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 4
-        width: 649
-        height: 511
+        x: 492
+        y: 232
+        width: 492
+        height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
