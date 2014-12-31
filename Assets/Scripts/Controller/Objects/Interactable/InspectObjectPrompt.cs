@@ -20,17 +20,19 @@ public class InspectObjectPrompt : InGameButtonPrompt
         objectImage.enabled = false;
     }
 
+
     void Update()
     {
-        if (isOpen)
+
+		if (isOpen)
         {
-            if (RebindableInput.GetKeyDown("Interact"))
-            {
-                InteractObject();
-                return;
-            }
-            PositionPrompt();
-        }
+           	if (RebindableInput.GetKeyDown("Interact"))
+           	{
+               	InteractObject();
+               	return;
+           	}
+           	PositionPrompt();
+       	}
     }
 
     void InteractObject()
@@ -57,9 +59,12 @@ public class InspectObjectPrompt : InGameButtonPrompt
 
     void OnTriggerExit2D(Collider2D other)
     {
-        objectText.text = string.Empty;
-        objectImage.enabled = false;
-        page = 0;
-        Deprompt();
+		if(other.gameObject.tag == "Player")
+		{
+        	objectText.text = string.Empty;
+        	objectImage.enabled = false;
+        	page = 0;
+        	Deprompt();
+		}
     }
 }

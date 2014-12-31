@@ -10,12 +10,18 @@ public class InGameButtonPrompt : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Prompt();
+		if(other.gameObject.tag == "Player" && this.enabled)
+		{
+        	Prompt();
+		}
     }
-
-    void OnTriggerExit2D(Collider2D other)
+	
+	void OnTriggerExit2D(Collider2D other)
     {
-        Deprompt();
+		if(other.gameObject.tag == "Player")
+		{
+        	Deprompt();
+		}
     }
 
     public void Prompt()

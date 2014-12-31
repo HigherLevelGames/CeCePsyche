@@ -16,7 +16,7 @@ public class FloatingTextPrompt : InGameButtonPrompt
     }
     void Update()
     {
-        if (isOpen)
+		if (isOpen)
         {
             if (RebindableInput.GetKeyDown("Interact"))
             {
@@ -38,13 +38,19 @@ public class FloatingTextPrompt : InGameButtonPrompt
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        dynamicText.text = Text;
-        Prompt();
+		if(other.gameObject.tag == "Player")
+		{
+        	dynamicText.text = Text;
+       	 	Prompt();
+		}
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        dynamicText.text = string.Empty;
-        Deprompt();
+		if(other.gameObject.tag  == "Player")
+		{
+        	dynamicText.text = string.Empty;
+        	Deprompt();
+		}
     }
 }
