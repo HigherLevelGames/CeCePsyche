@@ -22,7 +22,7 @@ public enum CollectedFlags
 
 public class InventoryManager : MonoBehaviour
 {
-
+    public HexModeController ItemMenu;
     public Sprite[] ItemSprites;
     public Inventory[] inventories;
     public static InventoryManager data;
@@ -51,6 +51,7 @@ public class InventoryManager : MonoBehaviour
             collected.Add(flag);
         inventories [inventoryIndex].AddItem(item);
         CanvasManager.data.Tray.UpdateTray();
+        ItemMenu.RefreshInventory();
     }
 
     void RemoveCollectedItemsFromScene()

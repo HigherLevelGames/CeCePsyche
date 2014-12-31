@@ -12,6 +12,7 @@ public class MiniGameController : MonoBehaviour, IInteractable
         Winning,
         Losing
     }
+
     MiniGameState state = MiniGameState.Uninitialized;
     public Camera MiniGameCamera;
     public Camera GameCamera;
