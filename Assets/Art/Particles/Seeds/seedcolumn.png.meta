@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cfdca01627b0266479e8afc1f1b1dcfd
+guid: 034ab3d0dc029416ca2693e104d0845f
 TextureImporter:
   fileIDToRecycleName:
     21300000: seedcolumn
@@ -28,7 +28,7 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

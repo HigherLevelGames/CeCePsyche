@@ -49,8 +49,8 @@ public class SonicBark: MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if((col.gameObject.rigidbody2D != null && col.gameObject.layer.ToString() == "Destructible") ||
-		   (col.gameObject.rigidbody2D != null && col.gameObject.tag.ToString() == "Destructible"))
+		if((col.gameObject.rigidbody2D != null && col.gameObject.layer.ToString() == "Destructible") && exploded ||
+		   (col.gameObject.rigidbody2D != null && col.gameObject.tag.ToString() == "Destructible" && exploded))
 		{
 
 				Vector2 target = col.gameObject.transform.position;
