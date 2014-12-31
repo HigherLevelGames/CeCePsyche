@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 6ca55cbff13cd27468f1846cb358f583
+guid: a941f7314e35e4069b5dbac08e7d5939
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: haze2
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -28,7 +27,7 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
