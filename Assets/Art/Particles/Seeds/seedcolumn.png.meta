@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 034ab3d0dc029416ca2693e104d0845f
+=======
+guid: ed7c0ba5a01584ae890f2c97a76697e6
+>>>>>>> FETCH_HEAD
 TextureImporter:
   fileIDToRecycleName:
     21300000: seedcolumn
