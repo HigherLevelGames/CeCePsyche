@@ -1002,4 +1002,18 @@ AnimationClip:
     path: 
     classID: 224
     script: {fileID: 0}
-  m_Events: []
+  m_Events:
+  - time: .466666669
+    functionName: SetReady
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: .466666669
+    functionName: RefreshInventory
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ItemBehaviour : MonoBehaviour
 {
-    [HideInInspector] public GameObject Prefab;
-    [HideInInspector] public ItemActions Action;
+    [HideInInspector] public Sprite sprite;
+    [HideInInspector] public ItemActions action;
     public void Use()
     {
-        switch (Action)
+        switch (action)
         {
             case ItemActions.Nothing:
             
@@ -30,8 +31,9 @@ public class ItemBehaviour : MonoBehaviour
     }
     public void SetData(ItemInfo info)
     {
-        Action = info.action;
-        Prefab = info.prefab;
+        action = info.action;
+        sprite = info.sprite;
+        gameObject.GetComponent<Image>().sprite = sprite;
     }
 }
 

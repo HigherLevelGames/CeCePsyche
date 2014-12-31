@@ -7,29 +7,51 @@ public class HexModeController : MonoBehaviour
 {
     public Transform PlayerTransform;
     public int PlayerIndex = 0;
-    public GameObject[] ItemPrefabs = new GameObject[7];
+    public Sprite[] ItemSprites = new Sprite[7];
     public ItemActions[] Actions = new ItemActions[7];
-
     ItemInfo[] Info = new ItemInfo[7];
     Inventory inventory;
     ItemBehaviour[] Buttons;
     Animator animator;
-    bool isMenuOpen;
+    bool isMenuOpen, isMenuReady;
     int slotIndex;
+
     void Start()
     {
         inventory = InventoryManager.data.inventories [PlayerIndex]; 
         Buttons = GetComponentsInChildren<ItemBehaviour>();
+        Debug.Log(Buttons.Length);
         animator = GetComponent<Animator>();
         for (int i = 0; i < Info.Length; i++)
         {
-            Info [i].prefab = ItemPrefabs [i];
+            Info [i].sprite = ItemSprites [i];
             Info [i].action = Actions [i];
         }
     }
 
     void Update()
     {
+        if (isMenuOpen && isMenuReady)
+        {
+            if (RebindableInput.GetKey("LeftItem"))
+            {
+                slotIndex--;
+                if (slotIndex < 0)
+                    slotIndex = 5;
+                animator.SetInteger("SlotIndex", slotIndex);
+                animator.SetTrigger("TurnLeft");
+                isMenuReady = false;
+            }
+            else if (RebindableInput.GetKey("RightItem"))
+            {
+                slotIndex++;
+                if (slotIndex > 5)
+                    slotIndex = 0;
+                animator.SetInteger("SlotIndex", slotIndex);
+                animator.SetTrigger("TurnRight");
+                isMenuReady = false;
+            }
+        }
         if (RebindableInput.GetKeyDown("Pause"))
         {
             if (isMenuOpen)
@@ -42,24 +64,14 @@ public class HexModeController : MonoBehaviour
                 isMenuOpen = true;
             }
         }
-        if (RebindableInput.GetKeyDown("LeftItem"))
-        {
-            slotIndex--;
-            if(slotIndex < 0)
-                slotIndex = 5;
-            float a = ((float)slotIndex * 60f) / 360f;
-            animator.SetFloat("TurnAmount", a);
-        }
-        if (RebindableInput.GetKeyDown("RightItem"))
-        {
-            slotIndex++;
-            if(slotIndex > 5)
-                slotIndex = 0;
-            float a = ((float)slotIndex * 60f) / 360f;
-            animator.SetFloat("TurnAmount", a);
-        }
+
         if (RebindableInput.GetKeyDown("UseItem"))
             ;
+    }
+
+    public void SetReady()
+    {
+        isMenuReady = true;
     }
 
     public void RefreshInventory()
@@ -87,30 +99,41 @@ public enum ItemActions
     Squirrel = 5
 }
          */
+        ItemInfo info;
         switch (item)
         {
             case ItemActions.Nothing:
-                return Info [0];
+                info = Info [0];
+                break;
             case ItemActions.SqueakyToy:
-                return Info [1];
+                info = Info [1];
+                break;
             case ItemActions.Dynamite:
-                return Info [2];
+                info = Info [2];
+                break;
             case ItemActions.DogBone:
-                return Info [3];
+                info = Info [3];
+                break;
             case ItemActions.StinkyPerfume:
-                return Info [4];
+                info = Info [4];
+                break;
             case ItemActions.ZapNectar:
-                return Info [5];
+                info = Info [5];
+                break;
             case ItemActions.Squirrel:
-                return Info [6];
+                info = Info [6];
+                break;
+            default:
+                info = Info [0];
+                break;
         }
-        return Info [0];
+        return info;
     }
 }
 
 public struct ItemInfo
 {
-    public GameObject prefab;
+    public Sprite sprite;
     public ItemActions action;
 }
 
