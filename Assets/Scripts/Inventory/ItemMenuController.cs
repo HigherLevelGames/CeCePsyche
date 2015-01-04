@@ -186,7 +186,7 @@ public class ItemMenuController : MonoBehaviour
         for (int i = 0; i < ItemScripts.Length; i++)
         {
             if (i < inventory.Items.Count)
-                ItemScripts [i].SetData(InventoryManager.ItemsInfo [i]);
+                ItemScripts [i].SetData(InventoryManager.ItemsInfo [(int)inventory.Items[i]]);
             else
                 ItemScripts [i].SetData(InventoryManager.ItemsInfo [0]);
         }
