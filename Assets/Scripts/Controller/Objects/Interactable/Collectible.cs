@@ -14,6 +14,6 @@ public class Collectible : MonoBehaviour, IInteractable
     public void Collect()
     {
         InventoryManager.data.AddItemToInventory(0, ItemType, Flag);
-        this.gameObject.SetActive(false); //?
+        this.gameObject.SetActive(false);
     }
 }

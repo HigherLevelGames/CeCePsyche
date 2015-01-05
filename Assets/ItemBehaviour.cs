@@ -32,7 +32,7 @@ public class ItemBehaviour : MonoBehaviour
     public void SetData(ItemInfo info)
     {
         action = info.action;
-        sprite = info.menusprite;
+        sprite = info.sprite;
         gameObject.GetComponent<Image>().sprite = sprite;
     }
 }

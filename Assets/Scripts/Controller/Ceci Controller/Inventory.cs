@@ -22,7 +22,7 @@ public class Inventory
             Debug.Log(this.ToString() + " : Item index " + idx.ToString() + " not found.");
             return null;
         }
-        return InventoryManager.data.ItemMenuSprites[(int)Items[idx]];
+        return InventoryManager.data.ItemSprites[(int)Items[idx]];
     }
 }
 
