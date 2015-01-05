@@ -9,12 +9,12 @@ public class SonicBark: MonoBehaviour {
 	public float forceMultiplier = 1f;
 
 	bool exploded = false;
-	CircleCollider2D expoRadius;
+	Vector3 expoRadius = new Vector3(0f,0f,0f);
 
 
 	// Use this for initialization
 	void Start () {
-		expoRadius = this.gameObject.GetComponent<CircleCollider2D>();
+
 	}
 	
 	// Update is called once per frame
@@ -41,9 +41,10 @@ public class SonicBark: MonoBehaviour {
 			else
 			{
 				exploded = false;
-				curRadius = .0001f;
+				curRadius = 0f;
 			}
-			expoRadius.radius = curRadius;
+			expoRadius = new Vector3(curRadius,curRadius, 1);
+			this.gameObject.transform.localScale = expoRadius;
 		}
 	}
 
