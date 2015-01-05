@@ -2,30 +2,37 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public struct ItemInfo
+{
+    public Sprite menusprite;
+    public ItemActions action;
+}
+
 public enum ItemActions
 {
-    Nothing = -1,
-    SqueakyToy = 0, // plays a note and gets the dog's attention
-    Dynamite = 1,
-    DogBone = 2,
-    StinkyPerfume = 3,
-    ZapNectar = 4,
-    Squirrel = 5
+    Nothing = 0,
+    SqueakyToy = 1, // plays a note and gets the dog's attention
+    Dynamite = 2,
+    DogBone = 3,
+    StinkyPerfume = 4,
+    ZapNectar = 5,
+    Squirrel = 6
 }
 
 public enum CollectedFlags
 {
-    DoNotRemove = -1,
-    SqueakyToy = 0,
-    DogTreats = 1
+    DoNotRemove = 0,
+    SqueakyToy = 1,
+    DogTreats = 2
 }
 
 public class InventoryManager : MonoBehaviour
 {
-    public HexModeController ItemMenu;
-    public Sprite[] ItemSprites;
-    public Inventory[] inventories;
     public static InventoryManager data;
+    public static ItemInfo[] ItemsInfo;
+    public ItemMenuController ItemMenu;
+    public Sprite[] ItemMenuSprites;
+    public Inventory[] inventories;
     List<CollectedFlags> collected = new List<CollectedFlags>();
     Collectible[] itemsInScene;
     #region Jason Code Kingdom
@@ -36,13 +43,29 @@ public class InventoryManager : MonoBehaviour
             data = this;
             inventories = new Inventory[1];
             inventories [0] = new Inventory();
+            // Creates an informational object for each item sprite supplied to this manager
+            ItemsInfo = new ItemInfo[ItemMenuSprites.Length];
+            for (int i = 0; i < ItemsInfo.Length; i++)
+            {
+                ItemsInfo [i].menusprite = ItemMenuSprites [i];
+                ItemsInfo [i].action = (ItemActions)i; // assigns actions by enum order, place sprites accordingly.
+            }
         }
     }
 
     void OnLevelWasLoaded(int level)
     {
-        itemsInScene = FindObjectsOfType<Collectible>(); // Load from serialized data
-        RemoveCollectedItemsFromScene();
+        // Find all items placed in this scene
+        itemsInScene = FindObjectsOfType<Collectible>(); // Load from serialized data for better performance
+        // Remove already collected items from the scene.
+        for (int i = 0; i < collected.Count; i++)
+        {
+            for (int j = 0; j < itemsInScene.Length; j++)
+            {
+                if (collected [i] == itemsInScene [j].Flag)
+                    itemsInScene [j].gameObject.SetActive(false);
+            }
+        }
     }
 
     public void AddItemToInventory(int inventoryIndex, ItemActions item, CollectedFlags flag)
@@ -52,18 +75,6 @@ public class InventoryManager : MonoBehaviour
         inventories [inventoryIndex].AddItem(item);
         CanvasManager.data.Tray.UpdateTray();
         ItemMenu.RefreshInventory();
-    }
-
-    void RemoveCollectedItemsFromScene()
-    {
-        for (int i = 0; i < collected.Count; i++)
-        {
-            for (int j = 0; j < itemsInScene.Length; j++)
-            {
-                if (collected [i] == itemsInScene [j].Flag)
-                    itemsInScene [j].gameObject.SetActive(false);
-            }
-        }
     }
     #endregion
     #region Jodan Code Land

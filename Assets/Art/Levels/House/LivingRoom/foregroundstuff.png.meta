@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: abb328d5eafec47eb873e91f1a165b57
-=======
-guid: 03507665285d245998a2b1c3890a4825
->>>>>>> FETCH_HEAD
+guid: 015611ffcf2ead84e95b0c5047738703
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
@@ -31,7 +27,7 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

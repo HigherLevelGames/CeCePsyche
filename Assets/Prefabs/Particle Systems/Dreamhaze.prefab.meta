@@ -1,3 +1,9 @@
+<<<<<<< .mine
+fileFormatVersion: 2
+guid: d02a7290876e83a40ba7475c6c628897
+NativeFormatImporter:
+  userData: 
+=======
 fileFormatVersion: 2
 <<<<<<< HEAD
 guid: 8b4f3ae7cd1584f8ebdada788e5f803b
@@ -6,3 +12,4 @@ guid: 4499c218e527349bf815167be89dc583
 >>>>>>> FETCH_HEAD
 NativeFormatImporter:
   userData: 
+>>>>>>> .r435
