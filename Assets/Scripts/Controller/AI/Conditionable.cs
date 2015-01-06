@@ -262,4 +262,5 @@ public class Conditionable : MonoBehaviour
         return false;
     }
     #endregion
+
 }

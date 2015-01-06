@@ -4,20 +4,24 @@ using UnityEngine.UI;
 
 public class ItemBehaviour : MonoBehaviour
 {
-    [HideInInspector] public Sprite sprite;
-    [HideInInspector] public ItemActions action;
+    [HideInInspector]
+    public Sprite sprite;
+    [HideInInspector]
+    public ItemActions action;
     public void Use()
     {
         switch (action)
         {
             case ItemActions.Nothing:
-            
+                // this item does nothing!
                 break;
             case ItemActions.DogBone:
                 break;
             case ItemActions.Dynamite:
                 break;
             case ItemActions.SqueakyToy:
+                GameObject o = Instantiate(SpawnableInventoryManager.data.SqueakyToy) as GameObject;
+                o.transform.position = SpawnableInventoryManager.data.SpawnPoint.position;
                 break;
             case ItemActions.Squirrel:
                 break;
@@ -29,6 +33,7 @@ public class ItemBehaviour : MonoBehaviour
                 break;
         }
     }
+
     public void SetData(ItemInfo info)
     {
         action = info.action;

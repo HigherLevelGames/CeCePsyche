@@ -19,6 +19,7 @@ public class GameStateManager : MonoBehaviour
             data = this;
     }
     #endregion
+    public GameObject Ceci;
     public GameState state;
     public int levelnum;
     public string levelname;

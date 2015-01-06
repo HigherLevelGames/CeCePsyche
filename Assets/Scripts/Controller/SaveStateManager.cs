@@ -7,6 +7,7 @@ using System.IO;
 public class SaveStateManager : MonoBehaviour
 {
     public static SaveStateManager data;
+
     void Awake()
     {
         if (data == null)
