@@ -22,6 +22,7 @@ public class ItemBehaviour : MonoBehaviour
             case ItemActions.SqueakyToy:
                 GameObject o = Instantiate(SpawnableInventoryManager.data.SqueakyToy) as GameObject;
                 o.transform.position = SpawnableInventoryManager.data.SpawnPoint.position;
+                FlyingTextManager.data.SpawnTextAt(o.transform.position, "Stimulus");
                 break;
             case ItemActions.Squirrel:
                 break;

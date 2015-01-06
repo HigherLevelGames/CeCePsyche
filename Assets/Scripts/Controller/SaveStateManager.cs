@@ -16,5 +16,6 @@ public class SaveStateManager : MonoBehaviour
     void OnLevelWasLoaded(int level)
     {
     }
+
 }
 

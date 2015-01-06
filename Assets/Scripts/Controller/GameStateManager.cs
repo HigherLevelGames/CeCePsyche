@@ -4,6 +4,7 @@ using System.Collections;
 #region Related Enumerations
 public enum GameState
 {
+    Loading,
     Playing,
     InMenu,
     Exiting
@@ -28,14 +29,11 @@ public class GameStateManager : MonoBehaviour
     {
         switch (state)
         {
+            case GameState.Loading:
+                break;
             case GameState.Playing:
-                GameUpdate();
                 break;
         }
-    }
-
-    void GameUpdate()
-    {
     }
 
     void GoToNextArea()
