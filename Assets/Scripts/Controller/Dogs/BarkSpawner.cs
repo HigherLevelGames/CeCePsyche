@@ -6,11 +6,7 @@ public class BarkSpawner : MonoBehaviour {
 	public Transform spawnPos;
 
 
-	void Update()
-	{
-		if( Input.GetKeyDown(KeyCode.B))
-			CreateSB();
-	}
+
 
 	public void CreateSB () 
 	{
