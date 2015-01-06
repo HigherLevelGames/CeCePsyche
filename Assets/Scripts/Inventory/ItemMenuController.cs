@@ -157,7 +157,7 @@ public class ItemMenuController : MonoBehaviour
 
     void MenuClosingAndOpening()
     {
-        Rotation = new Vector3(0, 10, opentimer * 360 * 4f + (360 / Slots.Length) * slotIndex);
+        Rotation = new Vector3(0, 0, opentimer * 360 * 4f + (360 / Slots.Length) * slotIndex);
         if (openMenu)
         {
             transform.localScale = Vector3.one * (1 - opentimer);
