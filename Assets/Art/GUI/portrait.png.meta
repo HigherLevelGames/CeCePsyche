@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 20bca783311fc5a4fb49d32a89af09cc
+guid: cf92f08a13636664386368d499fef308
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: hextemp3
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0

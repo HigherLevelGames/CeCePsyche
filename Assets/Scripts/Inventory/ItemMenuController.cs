@@ -8,7 +8,6 @@ public class ItemMenuController : MonoBehaviour
     // TODO: 
     // Find if mouse is in use and use mouse based selection instead of player key/button input.
     #region data
-    public Transform PlayerTransform;
     public int PlayerIndex = 0;
     public GameObject CurrentItemDisplay;
     public GameObject[] Slots;
@@ -73,9 +72,10 @@ public class ItemMenuController : MonoBehaviour
 
         if (RebindableInput.GetKeyDown("UseItem"))
         {
-            ItemScripts [slotIndex].Use();
             if (isMenuOpen)
                 CloseMenu();
+            else
+                ItemScripts [slotIndex].Use();
         }
         if (opentimer > 0)
         {
@@ -191,6 +191,7 @@ public class ItemMenuController : MonoBehaviour
             else
                 ItemScripts [i].SetData(InventoryManager.ItemsInfo [0]);
         }
+		CurrentItemDisplay.GetComponent<Image>().sprite = InventoryManager.ItemsInfo [(int)ItemScripts [slotIndex].action].menusprite;
     }
 }
 
