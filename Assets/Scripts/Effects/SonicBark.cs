@@ -8,7 +8,7 @@ public class SonicBark: MonoBehaviour {
 	public float curRadius = 0f;
 	public float forceMultiplier = 1f;
 
-	bool exploded = false;
+	public bool exploded = true;
 	Vector3 expoRadius = new Vector3(0f,0f,0f);
 
 
@@ -42,6 +42,7 @@ public class SonicBark: MonoBehaviour {
 			{
 				exploded = false;
 				curRadius = 0f;
+				Destroy(this.gameObject);
 			}
 			expoRadius = new Vector3(curRadius,curRadius, 1);
 			this.gameObject.transform.localScale = expoRadius;
