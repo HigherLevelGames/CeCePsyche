@@ -24,7 +24,11 @@ namespace TestEditor
         public int SelectedWalkable = 0;
         public int SelectedImpassable = 0;
         public int PolySides = 3;
-
+        void Start()
+        {
+            Game.CameraBounds = CameraBounds.GetComponent<PolygonCollider2D>();
+            Game.singleton.Initialize();
+        }
         void OnDrawGizmos()
         {
             if (CheckForChildren)

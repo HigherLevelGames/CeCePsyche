@@ -5,11 +5,15 @@ using UnityEngine.UI;
 public class ItemBehaviour : MonoBehaviour
 {
     [HideInInspector]
-    public Sprite sprite;
+    public Sprite
+        sprite;
     [HideInInspector]
-    public ItemActions action;
+    public ItemActions
+        action;
+
     public void Use()
     {
+        GameObject o = null;
         switch (action)
         {
             case ItemActions.Nothing:
@@ -20,9 +24,7 @@ public class ItemBehaviour : MonoBehaviour
             case ItemActions.Dynamite:
                 break;
             case ItemActions.SqueakyToy:
-                GameObject o = Instantiate(SpawnableInventoryManager.data.SqueakyToy) as GameObject;
-                o.transform.position = SpawnableInventoryManager.data.SpawnPoint.position;
-                FlyingTextManager.data.SpawnTextAt(o.transform.position, "Stimulus");
+                o = Instantiate(SpawnableInventoryLibrary.data.SqueakyToy) as GameObject;
                 break;
             case ItemActions.Squirrel:
                 break;
@@ -32,6 +34,11 @@ public class ItemBehaviour : MonoBehaviour
                 break;
             default:
                 break;
+        }
+        if (o != null)
+        {
+            o.transform.position = SpawnableInventoryLibrary.data.SpawnTransform.position;
+            FlyingTextManager.data.SpawnTextAt(o.transform.position, "Stimulus");
         }
     }
 

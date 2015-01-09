@@ -7,7 +7,7 @@ public class RebindableInput : MonoBehaviour
 	static RebindableData rebindableManager;
 	
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 		rebindableManager = RebindableData.GetRebindableManager ();
 	}

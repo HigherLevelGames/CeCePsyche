@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: b95d7ea38e45edc45ada6e2db57f367c
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - SqueakyToy: {fileID: 196588, guid: 12238344739b40446bf599dff037a294, type: 2}
+  - SpawnPoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

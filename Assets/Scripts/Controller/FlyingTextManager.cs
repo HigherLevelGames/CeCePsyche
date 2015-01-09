@@ -17,9 +17,9 @@ public class FlyingTextManager : MonoBehaviour
     public void SpawnTextAt(Vector2 location, string text)
     {
         Vector2 p = Camera.main.WorldToScreenPoint(location);
-        Debug.Log(p);
         GameObject o = Instantiate(FlyingTextPrefab, p, Quaternion.identity) as GameObject;
-        o.transform.parent = CanvasTransform;
+        o.transform.SetParent(CanvasTransform, false);
+        o.GetComponent<FlyingText>().WorldSpacePosition = location;
         o.GetComponentInChildren<Text>().text = text;
     }
 }

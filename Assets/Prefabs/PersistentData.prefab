@@ -313,6 +313,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400056}
+  - 114: {fileID: 11411532}
   m_Layer: 0
   m_Name: PersistentData
   m_TagString: GameManagement
@@ -1506,6 +1507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3653296d7e61b5049a6b52f8d70fcb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CeciData: {fileID: 0}
 --- !u!114 &11400048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2500,7 +2502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551adb6956f73764fb801e9eb9616936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ceci: {fileID: 0}
   state: 0
   levelnum: 0
   levelname: 
@@ -2643,6 +2644,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   action: 0
+--- !u!114 &11411532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02265e172d9e99b49a9c300694030486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CeciPrefab: {fileID: 100002, guid: 0499fb95d4894485aadb1be5596fbc4d, type: 2}
+  GameCameraPrefab: {fileID: 100004, guid: 75ce40e2b1c3a704dbef8ee75572722b, type: 2}
 --- !u!114 &11413640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2651,11 +2665,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a894ba95efc98e44806d81fdb9cd4a7, type: 3}
+  m_Script: {fileID: 11500000, guid: b95d7ea38e45edc45ada6e2db57f367c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnTransform: {fileID: 0}
   SqueakyToy: {fileID: 196588, guid: 12238344739b40446bf599dff037a294, type: 2}
-  SpawnPoint: {fileID: 0}
 --- !u!114 &11443918
 MonoBehaviour:
   m_ObjectHideFlags: 1

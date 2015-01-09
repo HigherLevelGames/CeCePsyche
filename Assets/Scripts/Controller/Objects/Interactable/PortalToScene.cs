@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+
 // This enumeration lists out all of the possible transitions in the game 
 // and keeps them in a "list" of sorts, there needs to be one item for each
 // set of portals. ie. A portal in the Shire that leads to Mordor would need
@@ -16,16 +17,19 @@ public enum PortalRelation
     BedroomToHouse = 1,
     GardenToHouse = 2
 }
+
 public class PortalToScene : MonoBehaviour, IInteractable
 {
     public int sceneNumber = -1;
     public string sceneName = string.Empty;
     public PortalRelation relation = PortalRelation.None;
-    void Awake()
+
+    void Start()
     {
         if (relation != PortalRelation.None && relation == SpawnManager.relation)
-            SpawnManager.PlayerTransform.position = this.gameObject.transform.position;
+            Game.Ceci.transform.position = this.gameObject.transform.position;
     }
+
     public void Interact()
     {
         GameStateManager.data.levelnum = sceneNumber;
