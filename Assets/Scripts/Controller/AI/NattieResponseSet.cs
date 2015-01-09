@@ -8,6 +8,7 @@ public class NattieResponseSet : ResponseSet {
 	void Start()
 	{
 		anim = this.GetComponent<Animator>();
+
 	}
 	void Update()
 	{
@@ -16,14 +17,16 @@ public class NattieResponseSet : ResponseSet {
 
 	public override void Respond(ItemActions action)
     {
-		print ("RESPOND!");
         switch (action)
         {
             case ItemActions.SqueakyToy:
-                // DOG BARKS
-				//bark animation
-			anim.SetTrigger("Bark");
+				anim.SetTrigger("Bark");
                 break;
+
+			case ItemActions.DogBone:
+			//Dog Salivates, eats bone and follows Ceci
+
+				break;
         }
     }
 }

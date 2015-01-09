@@ -32,14 +32,20 @@ public class NattiAnimControl : MonoBehaviour
 		anim.SetInteger("hspeed", moveControl.hSpeed);
 		anim.SetInteger("vspeed", moveControl.vSpeed);
 		anim.SetBool("grounded", moveControl.isGrounded);
+		moveControl.Right = moveControl.hSpeed > 0;
+		moveControl.Left = moveControl.hSpeed < 0;
+		if (moveControl.Right || moveControl.Left) // check needed in case standing still
+		{
+			moveControl.isFacingRight = moveControl.Right;
+		}
 	}
+
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
 
 		if(col.gameObject.tag == "Player")
 		{
-			print ("entered");
 			anim.SetTrigger("TrigWake");
 		}
 	}
@@ -48,7 +54,6 @@ public class NattiAnimControl : MonoBehaviour
 	{
 		if(col.gameObject.tag == "Player")
 		{
-			print ("collided");
 			anim.SetTrigger("TrigAttention");
 		}
 	}

@@ -2,9 +2,9 @@ fileFormatVersion: 2
 guid: eb324d384e64c4753b8af07e19d7aa27
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Salivate2_0
+    21300000: Salivate2_2
     21300002: Salivate2_1
-    21300004: Salivate2_2
+    21300004: Salivate2_0
     21300006: Salivate2_3
     21300008: Salivate2_4
   serializedVersion: 2
@@ -48,55 +48,55 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Salivate2_0
+    - name: Salivate2_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 131
         y: 1449
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Salivate2_1
       rect:
         serializedVersion: 2
-        x: 639
+        x: 770
         y: 1449
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Salivate2_2
+    - name: Salivate2_0
       rect:
         serializedVersion: 2
-        x: 1278
+        x: 1409
         y: 1449
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Salivate2_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1409
         y: 850
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Salivate2_4
       rect:
         serializedVersion: 2
-        x: 639
+        x: 770
         y: 850
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

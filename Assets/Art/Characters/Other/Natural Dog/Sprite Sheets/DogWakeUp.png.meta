@@ -2,10 +2,10 @@ fileFormatVersion: 2
 guid: 92ef280ffd9b17c46869dee7e4944eb9
 TextureImporter:
   fileIDToRecycleName:
-    21300000: DogWakeUp_0
-    21300002: DogWakeUp_1
-    21300004: DogWakeUp_2
-    21300006: DogWakeUp_3
+    21300000: DogWakeUp_1
+    21300002: DogWakeUp_0
+    21300004: DogWakeUp_3
+    21300006: DogWakeUp_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -47,7 +47,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: DogWakeUp_0
+    - name: DogWakeUp_1
       rect:
         serializedVersion: 2
         x: 0
@@ -55,9 +55,9 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: DogWakeUp_1
+    - name: DogWakeUp_0
       rect:
         serializedVersion: 2
         x: 492
@@ -65,27 +65,27 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: DogWakeUp_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 232
-        width: 492
-        height: 396
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: DogWakeUp_3
       rect:
         serializedVersion: 2
+        x: 0
+        y: 232
+        width: 492
+        height: 396
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogWakeUp_2
+      rect:
+        serializedVersion: 2
         x: 492
         y: 232
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

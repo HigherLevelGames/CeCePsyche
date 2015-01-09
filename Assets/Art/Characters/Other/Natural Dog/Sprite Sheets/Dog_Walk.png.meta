@@ -2,14 +2,14 @@ fileFormatVersion: 2
 guid: e7449b5e531394e1891b35fbc3118f39
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Dog_Walk_0
-    21300002: Dog_Walk_1
-    21300004: Dog_Walk_2
-    21300006: Dog_Walk_3
-    21300008: Dog_Walk_4
-    21300010: Dog_Walk_5
-    21300012: Dog_Walk_6
-    21300014: Dog_Walk_7
+    21300000: Dog_Walk_1
+    21300002: Dog_Walk_0
+    21300004: Dog_Walk_3
+    21300006: Dog_Walk_2
+    21300008: Dog_Walk_5
+    21300010: Dog_Walk_4
+    21300012: Dog_Walk_7
+    21300014: Dog_Walk_6
     21300016: Dog_Walk_8
   serializedVersion: 2
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Dog_Walk_0
+    - name: Dog_Walk_1
       rect:
         serializedVersion: 2
         x: 0
@@ -60,9 +60,9 @@ TextureImporter:
         width: 490
         height: 395
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Dog_Walk_1
+    - name: Dog_Walk_0
       rect:
         serializedVersion: 2
         x: 490
@@ -70,49 +70,49 @@ TextureImporter:
         width: 490
         height: 395
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Dog_Walk_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1258
-        width: 490
-        height: 395
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Dog_Walk_3
       rect:
         serializedVersion: 2
+        x: 0
+        y: 1258
+        width: 490
+        height: 395
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Dog_Walk_2
+      rect:
+        serializedVersion: 2
         x: 490
         y: 1258
         width: 490
         height: 395
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Dog_Walk_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 863
-        width: 490
-        height: 395
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Dog_Walk_5
       rect:
         serializedVersion: 2
+        x: 0
+        y: 863
+        width: 490
+        height: 395
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Dog_Walk_4
+      rect:
+        serializedVersion: 2
         x: 490
         y: 863
         width: 490
         height: 395
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Dog_Walk_6
+    - name: Dog_Walk_7
       rect:
         serializedVersion: 2
         x: 0
@@ -120,9 +120,9 @@ TextureImporter:
         width: 490
         height: 395
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Dog_Walk_7
+    - name: Dog_Walk_6
       rect:
         serializedVersion: 2
         x: 490
@@ -130,17 +130,17 @@ TextureImporter:
         width: 490
         height: 395
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Dog_Walk_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 73
+        x: 490
+        y: 70
         width: 490
         height: 395
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

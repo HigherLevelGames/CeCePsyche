@@ -13,7 +13,6 @@ GameObject:
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400004}
   - 50: {fileID: 5000000}
-  - 114: {fileID: 11400002}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400000}
   - 61: {fileID: 6111652}
@@ -47,7 +46,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6400001, y: -1.94000006, z: 0}
+  m_LocalPosition: {x: -3.47000003, y: -1.94000006, z: 0}
   m_LocalScale: {x: .555137575, y: .555137873, z: .555137873}
   m_Children:
   - {fileID: 400002}
@@ -130,24 +129,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 100000, guid: e267bc5e7038c427487fe1681d2945b0, type: 2}
   spawnPos: {fileID: 400002}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc668322f364f37409e2cab9d70f2446, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f95d641dcc4d345cea75b7568edfbbd3, type: 3}
   m_Name: 

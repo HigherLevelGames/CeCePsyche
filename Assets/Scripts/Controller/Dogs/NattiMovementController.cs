@@ -20,7 +20,7 @@ public class NattiMovementController : MonoBehaviour
     #region Remote Controls
     public bool Left, Right; // hmovement
     public bool UpPress, UpHold, UpRelease, PrevUp; // jump
-    public bool Up, Down; // ladder
+    //public bool Up, Down; // ladder
     #endregion
 
     #region 2D Platformer physics
@@ -31,10 +31,10 @@ public class NattiMovementController : MonoBehaviour
 	#endregion
 
     #region climbing variables
-    public bool lockVertical = false;
+    /*public bool lockVertical = false;
     public bool lockHorizontal = false;
     public bool isStartClimb = false;
-    public bool isClimbing = false;
+    public bool isClimbing = false;*/
     #endregion
     
     #region Jump Variables
@@ -52,8 +52,8 @@ public class NattiMovementController : MonoBehaviour
     private float VarJumpElapsedTime = 0.0f;
 	#endregion
 
-    #region Properties for CeciAnimControl.cs
-    // hspeed for CeciAnimControl.cs
+    #region Properties for NattiAnimControl.cs
+    // hspeed for NattiAnimControl.cs
     public int hSpeed
     {
         get
@@ -101,42 +101,6 @@ public class NattiMovementController : MonoBehaviour
         state = CState.Jumping;
     }
 
-	/*
-	void JumpControl()
-	{
-		// pressed jump once
-		if((UpPress && !UpHold) && CurJumpState == JumpState.Grounded)
-		{
-			CurJumpState = JumpState.Jumping;
-			velocity.y = JumpSpeed;
-			VarJumpElapsedTime = 0.0f;
-			CanVarJump = true;
-		}
-		
-		// press and hold jump button
-		if(UpHold && CanVarJump)
-		{
-			VarJumpElapsedTime += Time.deltaTime;
-			if(VarJumpElapsedTime < VarJumpTime)
-			{
-				CurJumpState = JumpState.Jumping;
-				velocity.y = JumpSpeed;
-			}
-			else // time for variable jump is up
-			{
-				CurJumpState = JumpState.Falling;
-				CanVarJump = false;
-			}
-		}
-		
-		// released Jump Button
-		if(UpRelease)
-		{
-			CurJumpState = JumpState.Falling;
-			CanVarJump = false;
-		}
-	}
-	 */
 
     void FixedUpdate()
     {
@@ -151,7 +115,7 @@ public class NattiMovementController : MonoBehaviour
 			state = CState.Grounded;
 			rigidbody2D.gravityScale = 0.5f;
 		}
-		else if(!isClimbing) // fall
+		else  // fall
 		{
 			state = CState.Falling; // to show in inspector
 			rigidbody2D.gravityScale = myGravity;
@@ -165,7 +129,7 @@ public class NattiMovementController : MonoBehaviour
 			rigidbody2D.AddRelativeForce(Vector2.right * h * moveForce);
 		}
 
-		if(isClimbing)
+		/*if(isClimbing)
 		{
 			if(Up)
 			{
@@ -189,8 +153,8 @@ public class NattiMovementController : MonoBehaviour
 				rigidbody2D.MovePosition(rigidbody2D.position - Vector2.right * ClimbSpeed * dt);
 				//this.transform.position += Vector3.left * ClimbSpeed * dt;
 			}
-		}
-		else if (state == CState.Grounded && UpPress)
+		}*/
+		if (state == CState.Grounded && UpPress)
 		{
 			Jump();
 		}
@@ -201,9 +165,7 @@ public class NattiMovementController : MonoBehaviour
 		float clampY = 0.0f;
 
 		// clamp maximum/minimum speed
-		if (!lockHorizontal)
 			clampX = Mathf.Clamp(rigidbody2D.velocity.x, -MaxHSpeed, MaxHSpeed);
-		if (!lockVertical)
 			clampY = Mathf.Clamp(rigidbody2D.velocity.y, MaxFallSpeed, rigidbody2D.velocity.y);
 
 		rigidbody2D.velocity = new Vector2(clampX, clampY);
@@ -229,7 +191,7 @@ public class NattiMovementController : MonoBehaviour
     }
 
     #region Ladder Trigger Zone
-    void OnTriggerEnter2D(Collider2D col)
+    /*void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Ladder")
         {
@@ -258,6 +220,6 @@ public class NattiMovementController : MonoBehaviour
 			rigidbody2D.isKinematic = true;
 			isClimbing = true;
         }
-    }
-    #endregion*/
+    }*/
+    #endregion
 }

@@ -3,6 +3,11 @@ using System.Collections;
 
 public class DogToyEffect : MonoBehaviour
 {
+	void Start()
+	{
+		//toCeciScript = this.GetComponent<FollowTargetX>();
+		//toCeciScript.enabled = false;
+	}
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Conditionable")
@@ -16,8 +21,8 @@ public class DogToyEffect : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Conditionable")
 		{
-			print ("Collider found - enter");
 			other.GetComponent<ResponseSet>().RespondAfter(ItemActions.SqueakyToy, 0.5f);
+			other.rigidbody2D.velocity = Vector2.zero;
 			gameObject.collider2D.enabled = false;
 		}
 	}

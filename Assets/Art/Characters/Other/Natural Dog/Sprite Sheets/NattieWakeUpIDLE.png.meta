@@ -2,8 +2,8 @@ fileFormatVersion: 2
 guid: 01d93a44fff92451fa04520f53c153bf
 TextureImporter:
   fileIDToRecycleName:
-    21300000: NattieWakeUpIDLE_0
-    21300002: NattieWakeUpIDLE_1
+    21300000: NattieWakeUpIDLE_1
+    21300002: NattieWakeUpIDLE_0
     21300004: NattieWakeUpIDLE_2
   serializedVersion: 2
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: NattieWakeUpIDLE_0
+    - name: NattieWakeUpIDLE_1
       rect:
         serializedVersion: 2
         x: 0
@@ -54,9 +54,9 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: NattieWakeUpIDLE_1
+    - name: NattieWakeUpIDLE_0
       rect:
         serializedVersion: 2
         x: 492
@@ -64,17 +64,17 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: NattieWakeUpIDLE_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 492
         y: 232
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

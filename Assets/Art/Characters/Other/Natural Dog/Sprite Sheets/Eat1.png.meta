@@ -2,18 +2,18 @@ fileFormatVersion: 2
 guid: c03a6ae43305f43ea874d0ec06007779
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Eat1_0
+    21300000: Eat1_2
     21300002: Eat1_1
-    21300004: Eat1_2
-    21300006: Eat1_3
+    21300004: Eat1_0
+    21300006: Eat1_5
     21300008: Eat1_4
-    21300010: Eat1_5
-    21300012: Eat1_6
+    21300010: Eat1_3
+    21300012: Eat1_8
     21300014: Eat1_7
-    21300016: Eat1_8
-    21300018: Eat1_9
+    21300016: Eat1_6
+    21300018: Eat1_11
     21300020: Eat1_10
-    21300022: Eat1_11
+    21300022: Eat1_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,15 +55,15 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Eat1_0
+    - name: Eat1_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 1535
+        y: 1530
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Eat1_1
       rect:
@@ -73,9 +73,9 @@ TextureImporter:
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Eat1_2
+    - name: Eat1_0
       rect:
         serializedVersion: 2
         x: 1314
@@ -83,9 +83,9 @@ TextureImporter:
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Eat1_3
+    - name: Eat1_5
       rect:
         serializedVersion: 2
         x: 0
@@ -93,7 +93,7 @@ TextureImporter:
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Eat1_4
       rect:
@@ -103,9 +103,9 @@ TextureImporter:
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Eat1_5
+    - name: Eat1_3
       rect:
         serializedVersion: 2
         x: 1314
@@ -113,9 +113,9 @@ TextureImporter:
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Eat1_6
+    - name: Eat1_8
       rect:
         serializedVersion: 2
         x: 0
@@ -123,7 +123,7 @@ TextureImporter:
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Eat1_7
       rect:
@@ -133,9 +133,9 @@ TextureImporter:
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Eat1_8
+    - name: Eat1_6
       rect:
         serializedVersion: 2
         x: 1314
@@ -143,17 +143,17 @@ TextureImporter:
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Eat1_9
+    - name: Eat1_11
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
+        y: 0
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Eat1_10
       rect:
@@ -163,9 +163,9 @@ TextureImporter:
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Eat1_11
+    - name: Eat1_9
       rect:
         serializedVersion: 2
         x: 1314
@@ -173,7 +173,7 @@ TextureImporter:
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

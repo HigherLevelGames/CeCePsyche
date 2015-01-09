@@ -2,15 +2,15 @@ fileFormatVersion: 2
 guid: 69eb0c4c180344d29bc32de5a0366ae8
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Salivate1_0
+    21300000: Salivate1_2
     21300002: Salivate1_1
-    21300004: Salivate1_2
-    21300006: Salivate1_3
+    21300004: Salivate1_0
+    21300006: Salivate1_5
     21300008: Salivate1_4
-    21300010: Salivate1_5
-    21300012: Salivate1_6
+    21300010: Salivate1_3
+    21300012: Salivate1_8
     21300014: Salivate1_7
-    21300016: Salivate1_8
+    21300016: Salivate1_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,95 +52,95 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Salivate1_0
+    - name: Salivate1_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 131
         y: 1449
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Salivate1_1
       rect:
         serializedVersion: 2
-        x: 639
+        x: 770
         y: 1449
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Salivate1_2
+    - name: Salivate1_0
       rect:
         serializedVersion: 2
-        x: 1278
+        x: 1409
         y: 1449
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Salivate1_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 850
-        width: 639
-        height: 599
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Salivate1_4
-      rect:
-        serializedVersion: 2
-        x: 639
-        y: 850
-        width: 639
-        height: 599
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Salivate1_5
       rect:
         serializedVersion: 2
-        x: 1278
+        x: 131
         y: 850
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Salivate1_6
+    - name: Salivate1_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 251
+        x: 770
+        y: 850
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Salivate1_7
+    - name: Salivate1_3
       rect:
         serializedVersion: 2
-        x: 639
-        y: 251
+        x: 1409
+        y: 850
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Salivate1_8
       rect:
         serializedVersion: 2
-        x: 1278
+        x: 131
         y: 251
         width: 639
         height: 599
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Salivate1_7
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 251
+        width: 639
+        height: 599
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Salivate1_6
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 251
+        width: 639
+        height: 599
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

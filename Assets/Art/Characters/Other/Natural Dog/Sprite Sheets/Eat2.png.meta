@@ -2,12 +2,12 @@ fileFormatVersion: 2
 guid: e068cf82cb09f487f8514f14c1f1cf3d
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Eat2_0
+    21300000: Eat2_2
     21300002: Eat2_1
-    21300004: Eat2_2
-    21300006: Eat2_3
+    21300004: Eat2_0
+    21300006: Eat2_5
     21300008: Eat2_4
-    21300010: Eat2_5
+    21300010: Eat2_3
     21300012: Eat2_6
   serializedVersion: 2
   mipmaps:
@@ -50,75 +50,75 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Eat2_0
+    - name: Eat2_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 77
         y: 1537
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Eat2_1
       rect:
         serializedVersion: 2
-        x: 657
+        x: 734
         y: 1537
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Eat2_2
+    - name: Eat2_0
       rect:
         serializedVersion: 2
-        x: 1314
+        x: 1391
         y: 1537
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Eat2_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1026
-        width: 657
-        height: 511
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Eat2_4
-      rect:
-        serializedVersion: 2
-        x: 657
-        y: 1026
-        width: 657
-        height: 511
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Eat2_5
       rect:
         serializedVersion: 2
-        x: 1314
+        x: 77
         y: 1026
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Eat2_4
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 1026
+        width: 657
+        height: 511
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Eat2_3
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 1026
+        width: 657
+        height: 511
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Eat2_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1391
         y: 515
         width: 657
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

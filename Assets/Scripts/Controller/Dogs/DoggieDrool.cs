@@ -20,14 +20,14 @@ public class DoggieDrool : MonoBehaviour {
 		{
 			followScript.enabled = true;
 			drool.Play();
-			float distance = followScript.distance;
+			/*float distance = followScript.distance;
 			if (Mathf.Abs(distance) < 2.5)
 			{
 				drool.Stop();
 				isDrooling = false;
 				followScript.enabled = false;
 				dog.rigidbody2D.velocity = Vector2.zero;
-			}
+			}*/
 		}
 	}
 

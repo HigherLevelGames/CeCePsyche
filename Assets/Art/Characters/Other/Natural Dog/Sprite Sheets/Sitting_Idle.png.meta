@@ -2,8 +2,8 @@ fileFormatVersion: 2
 guid: 6eea87979e1c7124ca39d0b9216b36a6
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Sitting_Idle_0
-    21300002: Sitting_Idle_1
+    21300000: Sitting_Idle_1
+    21300002: Sitting_Idle_0
     21300004: Sitting_Idle_2
     21300006: Sitting_Idle_3
   serializedVersion: 2
@@ -47,7 +47,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Sitting_Idle_0
+    - name: Sitting_Idle_1
       rect:
         serializedVersion: 2
         x: 0
@@ -55,9 +55,9 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Sitting_Idle_1
+    - name: Sitting_Idle_0
       rect:
         serializedVersion: 2
         x: 492
@@ -65,17 +65,17 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Sitting_Idle_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 492
         y: 232
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

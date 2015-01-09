@@ -2,12 +2,12 @@ fileFormatVersion: 2
 guid: 91175ecbdff66404db83f0fbf2f577cb
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Dog_SitUp _0
-    21300002: Dog_SitUp _1
-    21300004: Dog_SitUp _2
-    21300006: Dog_SitUp _3
-    21300008: Dog_SitUp _4
-    21300010: Dog_SitUp _5
+    21300000: Dog_SitUp _1
+    21300002: Dog_SitUp _0
+    21300004: Dog_SitUp _3
+    21300006: Dog_SitUp _2
+    21300008: Dog_SitUp _5
+    21300010: Dog_SitUp _4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -49,7 +49,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Dog_SitUp _0
+    - name: Dog_SitUp _1
       rect:
         serializedVersion: 2
         x: 0
@@ -57,9 +57,9 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Dog_SitUp _1
+    - name: Dog_SitUp _0
       rect:
         serializedVersion: 2
         x: 492
@@ -67,29 +67,29 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Dog_SitUp _2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1256
-        width: 492
-        height: 396
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Dog_SitUp _3
       rect:
         serializedVersion: 2
-        x: 492
+        x: 0
         y: 1256
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Dog_SitUp _4
+    - name: Dog_SitUp _2
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 1258
+        width: 492
+        height: 396
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Dog_SitUp _5
       rect:
         serializedVersion: 2
         x: 0
@@ -97,9 +97,9 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Dog_SitUp _5
+    - name: Dog_SitUp _4
       rect:
         serializedVersion: 2
         x: 492
@@ -107,7 +107,7 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

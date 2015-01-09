@@ -2,10 +2,10 @@ fileFormatVersion: 2
 guid: a9bdf63af7459460d88e9bd1150bd565
 TextureImporter:
   fileIDToRecycleName:
-    21300000: DogSleep_0
-    21300002: DogSleep_1
-    21300004: DogSleep_2
-    21300006: DogSleep_3
+    21300000: DogSleep_1
+    21300002: DogSleep_0
+    21300004: DogSleep_3
+    21300006: DogSleep_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -47,7 +47,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: DogSleep_0
+    - name: DogSleep_1
       rect:
         serializedVersion: 2
         x: 0
@@ -55,9 +55,9 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: DogSleep_1
+    - name: DogSleep_0
       rect:
         serializedVersion: 2
         x: 492
@@ -65,27 +65,27 @@ TextureImporter:
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: DogSleep_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 232
-        width: 492
-        height: 396
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: DogSleep_3
       rect:
         serializedVersion: 2
+        x: 0
+        y: 232
+        width: 492
+        height: 396
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSleep_2
+      rect:
+        serializedVersion: 2
         x: 492
         y: 232
         width: 492
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
