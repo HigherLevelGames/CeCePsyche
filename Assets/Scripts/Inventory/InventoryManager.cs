@@ -33,6 +33,15 @@ public class InventoryManager : MonoBehaviour
     public ItemMenuController ItemMenu;
     public Sprite[] ItemMenuSprites;
     public Inventory[] inventories;
+
+    public int[] GetFlags()
+    {
+        int[] temp = new int[collected.Count];
+        for (int i = 0; i < temp.Length; i++)
+            temp [i] = (int)collected [i];
+        return temp;
+    }
+
     List<CollectedFlags> collected = new List<CollectedFlags>();
     Collectible[] itemsInScene;
     #region Jason Code Kingdom
@@ -53,7 +62,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void OnLevelWasLoaded(int level)
+    void OnEnable()
     {
         // Find all items placed in this scene
         itemsInScene = FindObjectsOfType<Collectible>(); // Load from serialized data for better performance
@@ -73,6 +82,16 @@ public class InventoryManager : MonoBehaviour
         if ((int)flag > -1)
             collected.Add(flag);
         inventories [inventoryIndex].AddItem(item);
+        CanvasManager.data.Tray.UpdateTray();
+        ItemMenu.RefreshInventory();
+    }
+
+    public void ReplaceInventory(ItemActions[] items, CollectedFlags[] flags)
+    {
+        inventories [0].Items.Clear();
+        collected.Clear();
+        inventories [0].Items.AddRange(items);
+        collected.AddRange(flags);
         CanvasManager.data.Tray.UpdateTray();
         ItemMenu.RefreshInventory();
     }

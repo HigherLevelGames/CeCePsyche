@@ -26,14 +26,14 @@ public class PortalToScene : MonoBehaviour, IInteractable
 
     void Start()
     {
-        if (relation != PortalRelation.None && relation == SpawnManager.relation)
+        if (!SaveStateManager.data.loadQueued && relation != PortalRelation.None && relation == SpawnManager.relation)
             Game.Ceci.transform.position = this.gameObject.transform.position;
     }
 
     public void Interact()
     {
-        GameStateManager.data.levelnum = sceneNumber;
-        GameStateManager.data.levelname = sceneName;
+        SaveStateManager.data.levelnum = sceneNumber;
+        SaveStateManager.data.levelname = sceneName;
         SpawnManager.relation = relation;
         CanvasManager.data.StartTransition();
         Destroy(this.gameObject);

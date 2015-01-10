@@ -11,14 +11,13 @@ public class PlayerDataCheckin : MonoBehaviour
 
     void Start()
     {
+        inventory = InventoryManager.data.inventories [0];
         SaveStateManager.data.CeciData = this;
         SpawnManager.PlayerTransform = PlayerTransform;
         SpawnableInventoryLibrary.data.SpawnTransform = ItemSpawnTransform;
     }
     public void LoadIn(CheckpointData cpd)
     {
-        gameObject.transform.position = cpd.playerlocation;
-        for (int i = 0; i < cpd.Items.Length; i++)
-            inventory.Items.Add((ItemActions)cpd.Items [i]);
+        gameObject.transform.position = new Vector3(cpd.xlocation, cpd.ylocation, 0);
     }
 }

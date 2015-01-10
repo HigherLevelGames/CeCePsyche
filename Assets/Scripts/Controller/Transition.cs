@@ -19,6 +19,7 @@ public class Transition : MonoBehaviour
             if(waitTime <= 0)
             {
                 waitTime = 0;
+                SaveStateManager.data.LoadQueuedData();
                 TransitionIn();
             }
         }
@@ -39,7 +40,7 @@ public class Transition : MonoBehaviour
     }
     public void Wait(float seconds)
     {
-        GameStateManager.data.Load();
+        SaveStateManager.data.GoToNextArea();
         waitTime = seconds;
     }
 }

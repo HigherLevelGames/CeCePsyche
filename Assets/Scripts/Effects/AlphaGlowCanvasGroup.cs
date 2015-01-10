@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-public class AlphaGlow : MonoBehaviour {
+public class AlphaGlowCanvasGroup : MonoBehaviour {
 
 	public float SecondsToFade = 1.0f;
 
