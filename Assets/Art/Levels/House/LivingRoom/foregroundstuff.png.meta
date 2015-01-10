@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: f0114f6c6d981a8439df1cedcc2d9be2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: foregroundstuff_0
+    21300002: foregroundstuff_1
+    21300004: foregroundstuff_15
+    21300006: foregroundstuff_21
+    21300008: foregroundstuff_22
+    21300010: foregroundstuff_26
+    21300012: foregroundstuff_27
+    21300014: foregroundstuff_28
+    21300016: foregroundstuff_29
+    21300018: foregroundstuff_30
+    21300020: foregroundstuff_30
+    21300022: foregroundstuff_30
+    21300024: foregroundstuff_31
+    21300026: foregroundstuff_13
+    21300028: foregroundstuff_14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: foregroundstuff_0
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 483
+        width: 308
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_1
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 702
+        width: 143
+        height: 153
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_15
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 557
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_21
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 395
+        width: 270
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_22
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 41
+        width: 356
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_26
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 50
+        width: 229
+        height: 394
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_27
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 222
+        width: 141
+        height: 208
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_28
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 19
+        width: 102
+        height: 186
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 505
+        width: 290
+        height: 349
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_30
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 554
+        width: 189
+        height: 301
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_30
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 707
+        width: 83
+        height: 148
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_30
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 540
+        width: 210
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_31
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 534
+        width: 245
+        height: 285
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_13
+      rect:
+        serializedVersion: 2
+        x: 1717
+        y: 183
+        width: 302
+        height: 672
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: foregroundstuff_14
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 551
+        width: 439
+        height: 302
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
